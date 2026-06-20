@@ -1,0 +1,110 @@
+# test-result.schema.yaml
+# Resultado de tests tras cada micro-cambio o sección de cambio.
+# Determinista: mismo input siempre produce mismo output.
+
+type: object
+required:
+  - testrun
+  - version
+  - flowid
+  - run_id
+  - started_at
+  - finished_at
+  - trigger
+  - scope
+  - tests
+  - summary
+  - exit_code
+additionalProperties: false
+
+properties:
+  testrun:
+    type: string
+    const: "V2"
+  version:
+    type: integer
+    minimum: 1
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+  run_id:
+    type: string
+    description: "ID único del run (UUID o timestamp)."
+  started_at:
+    type: string
+    format: date-time
+  finished_at:
+    type: string
+    format: date-time
+  duration_ms:
+    type: integer
+    minimum: 0
+  trigger:
+    type: string
+    enum: [micro-change, section-change, full-plan, manual, pre-merge]
+    description: "Qué disparó este run de tests."
+  scope:
+    type: object
+    description: "Qué se testeó."
+    required: [kind, targets]
+    properties:
+      kind:
+        type: string
+        enum: [unit, integration, mutation, e2e, contract, schema-validation]
+      targets:
+        type: array
+        items: { type: string }
+        description: "Símbolos, archivos o endpoints afectados."
+      mp_id:
+        type: string
+        description: "MP que originó el cambio testeado."
+  tests:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required: [id, name, status, duration_ms]
+      additionalProperties: false
+      properties:
+        id: { type: string }
+        name: { type: string }
+        status:
+          type: string
+          enum: [pass, fail, skip, error, flaky]
+        duration_ms: { type: integer, minimum: 0 }
+        stdout_hash: { type: string, description: "SHA256 del stdout para comparación determinista." }
+        stderr_hash: { type: string }
+        assertion:
+          type: string
+          description: "Contrato que se evaluó."
+        failure_detail:
+          type: string
+          description: "Solo si status ∈ {fail, error}."
+        mutation_details:
+          type: object
+          description: "Solo si kind=mutation."
+          properties:
+            mutants_generated: { type: integer }
+            mutants_killed: { type: integer }
+            mutants_survived: { type: integer }
+            mutation_score: { type: number, minimum: 0, maximum: 1 }
+  summary:
+    type: object
+    required: [total, passed, failed, skipped, errors, flaky]
+    additionalProperties: false
+    properties:
+      total: { type: integer, minimum: 0 }
+      passed: { type: integer, minimum: 0 }
+      failed: { type: integer, minimum: 0 }
+      skipped: { type: integer, minimum: 0 }
+      errors: { type: integer, minimum: 0 }
+      flaky: { type: integer, minimum: 0 }
+  exit_code:
+    type: integer
+    description: "0=pass, 1=fail, 2=error, 3=skip-all."
+  rollback_triggered:
+    type: boolean
+    description: "true si se disparó rollback automático tras fail."
+  rollback_log:
+    type: string
+    description: "Path al log de rollback si aplicó."

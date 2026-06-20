@@ -1,0 +1,42 @@
+# TEST-RUN.template.yaml
+# Plantilla para el resultado de un run de tests.
+# Generada por scripts/python/run_tests.py tras cada cambio.
+
+testrun: V2
+version: 1
+flowid: APOLO-YYYYMMDD-SLUG
+run_id: "<UUID>"
+started_at: "2026-06-20T00:00:00Z"
+finished_at: "2026-06-20T00:00:00Z"
+duration_ms: 0
+
+trigger: micro-change  # micro-change | section-change | full-plan | manual | pre-merge
+
+scope:
+  kind: unit  # unit | integration | mutation | e2e | contract | schema-validation
+  targets: []
+  mp_id: ""   # MP que originó el cambio
+
+tests:
+  - id: T-001
+    name: "test_aprobar_emite_notificacion"
+    status: pass  # pass | fail | skip | error | flaky
+    duration_ms: 0
+    stdout_hash: "<SHA256>"
+    stderr_hash: "<SHA256>"
+    assertion: "POST /api/v1/solicitudes/:id/aprobar inserta 1 fila en notificaciones_usuario"
+    failure_detail: ""
+    mutation_details: null
+
+summary:
+  total: 1
+  passed: 1
+  failed: 0
+  skipped: 0
+  errors: 0
+  flaky: 0
+
+exit_code: 0  # 0=pass, 1=fail, 2=error, 3=skip-all
+
+rollback_triggered: false
+rollback_log: ""

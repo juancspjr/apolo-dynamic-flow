@@ -1,0 +1,40 @@
+# EVIDENCE-PACK.template.yaml
+# Plantilla para el evidence pack producido por scripts/python/collect_evidence.py.
+
+evidencepack: V2
+version: 1
+flowid: APOLO-YYYYMMDD-SLUG
+created_at: "2026-06-20T00:00:00Z"
+
+collector:
+  script: "scripts/python/collect_evidence.py"
+  script_hash: "<SHA256 del script al momento de ejecución>"
+  env_fingerprint: "<hash de entorno: os, python, node, git, etc.>"
+  duration_ms: 0
+  invoked_by: "orchestrator"
+
+items:
+  - id: E-001
+    kind: file-snapshot
+    source: "internal/infrastructure/handlers/http/solicitud_handler.go"
+    hash: "<SHA256 del archivo>"
+    size_bytes: 0
+    captured_at: "2026-06-20T00:00:00Z"
+    summary: "Handler de solicitudes con funciones Aprobar/Rechazar faltantes de wiring a MensajeService."
+    raw_path: ""
+    tags: ["handler", "solicitudes", "wiring"]
+    related_symbols: ["Aprobar", "Rechazar"]
+
+hash_chain: "<SHA256 de la concatenación de hashes de items>"
+
+capabilities:
+  playwright: unavailable
+  lsp: available
+  git: available
+  python: available
+  node: available
+  curl: available
+  psql: available
+  notes: "Playwright no instalado. Fallback a captura estática con curl + DOM inspection."
+
+degradation_log: []

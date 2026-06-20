@@ -1,0 +1,72 @@
+# FLOW-STATE.template.yaml
+# Estado persistido del flow activo del plugin apolo-dynamic-flow.
+
+flowstate: V2
+flowid: APOLO-YYYYMMDD-SLUG
+version: 1
+schema_version: "V2"
+created_at: "2026-06-20T00:00:00Z"
+updated_at: "2026-06-20T00:00:00Z"
+phase: reanclaje
+phase_entered_at: "2026-06-20T00:00:00Z"
+
+history: []
+
+loops:
+  reanclaje:
+    current: 0
+    max: 2
+    last_decision: ""
+  planning-bootstrap:
+    current: 0
+    max: 2
+    last_decision: ""
+  asr:
+    current: 0
+    max: 2
+    last_decision: ""
+  verdad:
+    current: 0
+    max: 2
+    last_decision: ""
+  shaping:
+    current: 0
+    max: 2
+    last_decision: ""
+  plan-indice:
+    current: 0
+    max: 2
+    last_decision: ""
+  mp-validation:
+    current: 0
+    max: 2
+    last_decision: ""
+  implementation:
+    current: 0
+    max: 4
+    last_decision: ""
+  critical-validation:
+    current: 0
+    max: 2
+    last_decision: ""
+
+circuit_breaker:
+  policy: fail-closed
+  escalation_path: []
+
+artifacts:
+  objetivo: ""
+  asr: ""
+  verdad: ""
+  shaping: ""
+  plan_indice: ""
+  current_mps: []
+  evidence_pack: ""
+  test_runs: []
+  blocks_log: ""
+
+tools_absorbed: []
+
+tokens_consumed_total: 0
+
+operator_hints: []

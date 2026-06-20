@@ -1,0 +1,175 @@
+# dynamic-plan.schema.yaml
+# Plan dinámico con versionado y rewrite_history.
+# Reemplaza al 03-PLAN-INDICE.schema.yaml estático del proyecto viejo.
+# Diferencias clave:
+#   1. version + parent_version → soporta reescritura sin perder historia
+#   2. rewrite_history → bitácora de por qué se reescribió
+#   3. topological_sort → orden de ejecución derivado, no hardcoded
+#   4. adaptative_gates → gates que pueden disparar partición dinámica de MPs
+
+type: object
+required:
+  - dynamicplan
+  - version
+  - parent_version
+  - flowid
+  - created_at
+  - derived_from
+  - derivation_method
+  - unidades
+  - topological_sort
+  - adaptative_gates
+  - estado
+additionalProperties: false
+
+properties:
+  dynamicplan:
+    type: string
+    const: "V2"
+  version:
+    type: integer
+    minimum: 1
+    description: "Versión del plan. Incrementa en cada reescritura."
+  parent_version:
+    type: [integer, "null"]
+    description: "Versión padre. null para versión inicial."
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+  created_at:
+    type: string
+    format: date-time
+  derived_from:
+    type: object
+    description: "Datos de origen. El plan es generado por script Python desde evidence."
+    required: [evidence_pack, truth_artifact]
+    properties:
+      evidence_pack: { type: string }
+      truth_artifact: { type: string }
+      collected_at: { type: string, format: date-time }
+  derivation_method:
+    type: string
+    enum: [deterministic-python, hybrid, manual]
+    description: "deterministic-python = script Python puro; hybrid = script + agente; manual = agente."
+  rewrite_history:
+    type: array
+    description: "Bitácora de reescrituras. Append-only."
+    items:
+      type: object
+      required: [version, at, reason, changed_units]
+      properties:
+        version: { type: integer }
+        at: { type: string, format: date-time }
+        reason: { type: string }
+        changed_units:
+          type: array
+          items: { type: string }
+  unidades:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+        - id
+        - origenverdad
+        - resumen
+        - tipocambio
+        - acoplamientosreales
+        - fronteracambio
+        - fronteraconfianza
+        - admisibleaindice
+        - riesgooperativo
+        - verificacionlocal
+        - mpestimados
+      additionalProperties: false
+      properties:
+        id: { type: string, pattern: "^U-[0-9]{2}$" }
+        origenverdad:
+          type: object
+          required: [componente, referencias]
+          properties:
+            componente: { type: string }
+            estado5: { type: string, enum: [ER, PD, UP, RD, paradoja, DN] }
+            referencias: { type: array, items: { type: string } }
+        resumen: { type: string, minLength: 5 }
+        tipocambio: { type: string, enum: [fix, refactor, feat, paradoja, docs] }
+        ejedominante: { type: string }
+        subeje: { type: string }
+        acoplamientosreales:
+          type: object
+          properties:
+            archivos: { type: array, items: { type: string } }
+            simbolos: { type: array, items: { type: string } }
+            endpoints: { type: array, items: { type: string } }
+            tablas: { type: array, items: { type: string } }
+            columnas: { type: array, items: { type: string } }
+        fronteracambio:
+          type: object
+          required: [incluye, excluye]
+          properties:
+            incluye: { type: array, items: { type: string } }
+            excluye: { type: array, items: { type: string } }
+        fronteraconfianza:
+          type: object
+          required: [confirmado, pendienteoperador, paradoja, fueraalcance]
+          properties:
+            confirmado: { type: array, items: { type: string } }
+            pendienteoperador: { type: array, items: { type: string } }
+            paradoja: { type: array, items: { type: string } }
+            fueraalcance: { type: array, items: { type: string } }
+        admisibleaindice: { type: boolean }
+        motivonoaadmisible: { type: string }
+        recomendacionparticion:
+          type: array
+          items: { type: string }
+        dependenciasprevias:
+          type: array
+          items: { type: string }
+        mpestimados: { type: string }
+        riesgooperativo: { type: string, enum: [bajo, medio, alto, critico] }
+        verificacionlocal:
+          type: array
+          minItems: 1
+          items: { type: string }
+        criteriohomogeneidad: { type: string }
+  topological_sort:
+    type: array
+    description: "Orden de ejecución derivado por dependencias. Generado por script Python."
+    items:
+      type: object
+      required: [order, unit_id, depends_on]
+      properties:
+        order: { type: integer, minimum: 1 }
+        unit_id: { type: string }
+        depends_on:
+          type: array
+          items: { type: string }
+  adaptative_gates:
+    type: array
+    description: "Gates que pueden reescribir el plan en runtime si se disparan."
+    items:
+      type: object
+      required: [id, trigger, action]
+      properties:
+        id: { type: string }
+        trigger:
+          type: string
+          enum:
+            - unit-mixed-concerns
+            - new-evidence-contradicts
+            - test-failure-pattern
+            - block-detected
+            - operator-decision
+        action:
+          type: string
+          enum:
+            - split-unit
+            - merge-units
+            - reorder
+            - escalate
+            - block
+        description: { type: string }
+  estado:
+    type: string
+    enum: [draft, ready, executing, completed, deprecated]
+    description: "Estado del plan. 'deprecated' se usa cuando una versión posterior lo reemplaza."

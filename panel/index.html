@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>APOLO Dynamic Flow — Panel de Telemetría</title>
+  <link rel="stylesheet" href="panel.css">
+</head>
+<body>
+  <header>
+    <h1>APOLO Dynamic Flow</h1>
+    <div class="meta">
+      <span id="flowid">—</span>
+      <span id="phase">—</span>
+      <span id="version">v—</span>
+    </div>
+  </header>
+
+  <nav>
+    <button data-tab="overview" class="active">Overview</button>
+    <button data-tab="timeline">Timeline</button>
+    <button data-tab="loops">Loops</button>
+    <button data-tab="blocks">Bloqueos</button>
+    <button data-tab="tests">Tests</button>
+    <button data-tab="tools">Tools</button>
+    <button data-tab="tokens">Tokens</button>
+  </nav>
+
+  <main>
+    <!-- OVERVIEW -->
+    <section id="tab-overview" class="tab active">
+      <div class="grid">
+        <div class="card">
+          <h3>Estado</h3>
+          <div id="state-summary" class="state-grid"></div>
+        </div>
+        <div class="card">
+          <h3>Métricas</h3>
+          <div id="metrics" class="metrics-grid"></div>
+        </div>
+        <div class="card wide">
+          <h3>Distribución por fase (ms)</h3>
+          <div id="phase-chart" class="bar-chart"></div>
+        </div>
+        <div class="card wide">
+          <h3>Eventos por kind</h3>
+          <div id="kind-chart" class="bar-chart"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="tab-timeline" class="tab">
+      <div class="card">
+        <h3>Últimos 100 eventos</h3>
+        <table id="timeline-table">
+          <thead>
+            <tr><th>At</th><th>Kind</th><th>Phase</th><th>Sev</th><th>Message</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- LOOPS -->
+    <section id="tab-loops" class="tab">
+      <div class="card">
+        <h3>Loop counters por fase</h3>
+        <div id="loops-grid" class="loops-grid"></div>
+      </div>
+    </section>
+
+    <!-- BLOCKS -->
+    <section id="tab-blocks" class="tab">
+      <div class="card">
+        <h3>Bloqueos activos</h3>
+        <div id="blocks-list"></div>
+      </div>
+    </section>
+
+    <!-- TESTS -->
+    <section id="tab-tests" class="tab">
+      <div class="card">
+        <h3>Runs de tests recientes</h3>
+        <div id="tests-list"></div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section id="tab-tools" class="tab">
+      <div class="card">
+        <h3>Tools absorbidas</h3>
+        <table id="tools-table">
+          <thead>
+            <tr><th>Status</th><th>ID</th><th>Kind</th><th>Capabilities</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TOKENS -->
+    <section id="tab-tokens" class="tab">
+      <div class="card">
+        <h3>Consumo de tokens</h3>
+        <div id="tokens-stats"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>apolo-dynamic-flow v2.0.0 — plugin de reemplazo</span>
+    <span id="updated-at"></span>
+  </footer>
+
+  <script src="panel.js"></script>
+</body>
+</html>

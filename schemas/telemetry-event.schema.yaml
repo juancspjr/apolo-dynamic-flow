@@ -1,0 +1,64 @@
+# telemetry-event.schema.yaml
+# Evento individual de telemetría emitido por el orquestador.
+# Append-only. Consumido por el panel HTML para visualización.
+
+type: object
+required:
+  - eventid
+  - flowid
+  - at
+  - kind
+  - phase
+  - severity
+additionalProperties: false
+
+properties:
+  eventid:
+    type: string
+    description: "UUID único del evento."
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+  at:
+    type: string
+    format: date-time
+  kind:
+    type: string
+    enum:
+      - phase-enter
+      - phase-exit
+      - loop-iter
+      - gate-evaluated
+      - block-detected
+      - block-resolved
+      - escalate
+      - degrade
+      - tool-absorbed
+      - tool-invoked
+      - tool-failed
+      - evidence-captured
+      - plan-version-bump
+      - test-run
+      - test-fail
+      - rollback
+      - tokens-spent
+      - operator-hint
+  phase:
+    type: string
+    description: "Fase en la que ocurrió el evento."
+  severity:
+    type: string
+    enum: [info, warn, error, critical]
+  message:
+    type: string
+  payload:
+    type: object
+    description: "Datos específicos del evento. Schema libre."
+  tokens:
+    type: integer
+    minimum: 0
+    description: "Tokens consumidos por este evento (si aplica)."
+  duration_ms:
+    type: integer
+    minimum: 0
+    description: "Duración del evento si aplica."

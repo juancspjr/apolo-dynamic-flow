@@ -1,0 +1,105 @@
+# Delegation Protocol
+
+## Custom Subagents
+
+Specwright defines agents as markdown files in `agents/`. Each file has YAML frontmatter (name, description, model, tools) and a system prompt body. Claude Code loads these at **session start**. Agents added mid-session require `/agents` or a session restart to become available.
+
+## Invocation
+
+**Primary** (when agents are loaded):
+```
+Task({
+  subagent_type: "{agent-name}",
+  description: "Short description",
+  prompt: "Full context brief with deliverable, file paths, constraints, output format"
+})
+```
+
+**Fallback** (mid-session or when custom agents unavailable):
+```
+Task({
+  subagent_type: "general-purpose",
+  model: "{model from roster}",
+  description: "Short description",
+  prompt: "{agent system prompt from agents/{name}.md}\n\n{task-specific brief}"
+})
+```
+
+When using fallback, read the agent's markdown file and include its system prompt in the task prompt. This preserves the agent's behavioral constraints.
+
+## Context Handoff
+
+Agents do NOT inherit the main conversation. Include in every prompt:
+- The specific deliverable expected
+- File paths to read (spec, plan, config, constitution)
+- Relevant constraints from constitution
+- Expected output format
+
+## Context Discipline
+
+Request structured, concise output. Every delegation prompt should end with
+an output format constraint (e.g., "Return: files changed, test results,
+issues found. No narrative.").
+
+Between tasks in multi-task skills: reference committed source code by path
+only (agents can Read it). Spec/plan/design content needed for the current
+task should still be included inline — agents have no conversation history.
+
+For large context documents (context.md, design.md): include only sections
+relevant to the current task, not the full document.
+
+## Build Grounding
+
+For build-time delegation, pass file paths for grounding docs instead of
+describing them inline:
+- `{currentWork.workDir}/repo-map.md` when it exists
+- `core/skills/lang-building/{language}.md` for the task's language-pattern doc
+
+Build agents read those files directly when the prompt includes the paths.
+Language selection is deterministic: use `config.json project.languages[0]`
+unless the task is clearly in a different language by file extension.
+
+## Agent Roster
+
+| Agent | Model | Use for | Constraint |
+|-------|-------|---------|------------|
+| specwright-architect | opus | Design, review, critic | READ-ONLY |
+| specwright-tester | opus | Write brutal tests, audit test quality | Adversarial mindset |
+| specwright-integration-tester | opus | Write integration/contract/E2E tests at boundaries | No skip conditions. No mocking internal boundaries. |
+| specwright-executor | sonnet | Implementation (make tests pass) | No subagents |
+| specwright-reviewer | opus | Code quality, spec compliance | READ-ONLY |
+| specwright-build-fixer | sonnet | Build/test error fixes | Minimal diffs only |
+| specwright-researcher | sonnet | Documentation, API research | READ-ONLY |
+
+## Agent Teams (Experimental)
+
+Agent teams coordinate multiple independent Claude Code sessions (teammates) under a lead session. Unlike subagents, teammates are full sessions with their own context windows, tool access, and the ability to spawn subagents.
+
+**When to use agent teams vs subagents:**
+
+| Factor | Subagents | Agent Teams |
+|--------|-----------|-------------|
+| Context | Share caller's context window | Independent context windows |
+| Isolation | Same working directory | Can use separate worktrees |
+| Nesting | Cannot spawn subagents | CAN spawn subagents (full sessions) |
+| Cost | Single context | ~7x tokens in plan mode, linear per teammate |
+| Use for | Focused tasks (test writing, implementation, review) | Parallel independent work (research tracks, parallel builds) |
+
+**Use cases:**
+- Multiple independent research tracks
+- Competing design approaches evaluated in parallel
+- Parallel task execution during builds (see `protocols/parallel-build.md`)
+- Large codebases investigated from different angles simultaneously
+
+**Requirements:**
+- Environment variable `SPECWRIGHT_AGENT_TEAMS=1` must be set
+- For build parallelism: `config.experimental.agentTeams.enabled` must be `true`
+- See `protocols/parallel-build.md` for the build-specific procedure
+
+## Anti-Patterns
+
+- Don't delegate simple lookups -- use Glob/Grep directly
+- Don't delegate work that requires the main conversation's history
+- Don't nest subagent delegation -- subagents cannot spawn other subagents
+- Teammates are full sessions and CAN spawn subagents, but cannot spawn teams
+- Don't delegate without all necessary context in the prompt

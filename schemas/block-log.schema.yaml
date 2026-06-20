@@ -1,0 +1,83 @@
+# block-log.schema.yaml
+# Versión YAML del 99-BLOQUEOS.md informal del proyecto viejo.
+# Tipado para que el orquestador pueda consultar bloqueos activos sin parsear markdown.
+
+type: object
+required:
+  - blocklog
+  - version
+  - flowid
+  - updated_at
+  - blocks
+additionalProperties: false
+
+properties:
+  blocklog:
+    type: string
+    const: "V2"
+  version:
+    type: integer
+    minimum: 1
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+  updated_at:
+    type: string
+    format: date-time
+  blocks:
+    type: array
+    description: "Lista de bloqueos. Append-only con resolved_at cuando se cierra."
+    items:
+      type: object
+      required: [id, detected_at, phase, kind, severity, status]
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          pattern: "^BLOQUEO-[0-9]{3}$"
+        detected_at:
+          type: string
+          format: date-time
+        resolved_at:
+          type: [string, "null"]
+          format: date-time
+        phase:
+          type: string
+          description: "Fase donde se detectó el bloqueo."
+        kind:
+          type: string
+          enum:
+            - missing-artifact
+            - missing-evidence
+            - contradiction
+            - unverifiable-mutation
+            - fallback-impossible
+            - circuit-breaker-exhausted
+            - tool-unavailable
+            - operator-decision-required
+            - plan-cycle
+            - context-overload
+        severity:
+          type: string
+          enum: [soft, hard, critical]
+        status:
+          type: string
+          enum: [active, resolved, escalated, deferred]
+        description:
+          type: string
+        affected_units:
+          type: array
+          items: { type: string }
+        affected_artifacts:
+          type: array
+          items: { type: string }
+        suggested_resolution:
+          type: string
+          description: "Acción recomendada para resolver (puede ser ejecutada por script o por operador)."
+        resolution_path:
+          type: string
+          description: "Si se resolvió, cómo (script, operador, degradación, plan rewrite)."
+        linked_telemetry:
+          type: array
+          items: { type: string }
+          description: "IDs de eventos de telemetría relacionados."

@@ -1,0 +1,24 @@
+# BLOCK-LOG.template.yaml
+# Plantilla para el log de bloqueos activos.
+# Generada y actualizada por el orquestador al detectar/resolver bloqueos.
+
+blocklog: V2
+version: 1
+flowid: APOLO-YYYYMMDD-SLUG
+updated_at: "2026-06-20T00:00:00Z"
+
+blocks: []
+# Ejemplo de bloqueo activo:
+# - id: BLOQUEO-001
+#   detected_at: "2026-06-20T00:00:00Z"
+#   resolved_at: null
+#   phase: verdad
+#   kind: missing-evidence
+#   severity: hard
+#   status: active
+#   description: "Falta evidence pack de endpoints /api/v1/solicitudes"
+#   affected_units: ["U-01"]
+#   affected_artifacts: ["02-VERDAD.yaml"]
+#   suggested_resolution: "Ejecutar scripts/python/collect_evidence.py con scope endpoints"
+#   resolution_path: ""
+#   linked_telemetry: []

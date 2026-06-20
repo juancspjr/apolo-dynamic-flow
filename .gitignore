@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+# package-lock.json se incluye para reproducibilidad determinista
+
+# Build output
+dist/
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+!panel/panel.js
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+venv/
+.venv/
+
+# Runtime artifacts
+plan/active/
+.opencode/apolo-dynamic/screenshots/
+telemetry-stats.json
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log

@@ -1,0 +1,102 @@
+# tool-registry.schema.yaml
+# Registro de tools absorbidas por el plugin desde MCPs, skills externas u otros plugins.
+# Permite que apolo-dynamic-flow absorba capacidades sin reescribirlas.
+
+type: object
+required:
+  - toolregistry
+  - version
+  - updated_at
+  - tools
+additionalProperties: false
+
+properties:
+  toolregistry:
+    type: string
+    const: "V2"
+  version:
+    type: integer
+    minimum: 1
+  updated_at:
+    type: string
+    format: date-time
+  tools:
+    type: array
+    description: "Lista de tools registradas. Cada tool tiene un id estable y un source."
+    items:
+      type: object
+      required: [id, source, kind, status, registered_at, capabilities]
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: "ID estable. Formato: <kind>:<source>:<name>."
+        source:
+          type: string
+          description: "Path o nombre del MCP/skill/plugin de origen."
+        kind:
+          type: string
+          enum: [mcp, skill, plugin-tool, native, external-script]
+        name:
+          type: string
+          description: "Nombre visible de la tool."
+        status:
+          type: string
+          enum: [active, degraded, disabled, unverified]
+        registered_at:
+          type: string
+          format: date-time
+        last_verified_at:
+          type: string
+          format: date-time
+        capabilities:
+          type: array
+          minItems: 1
+          items:
+            type: string
+            description: "Etiquetas de capacidad: edit, read, capture, search, plan, test, etc."
+        invoke:
+          type: object
+          description: "Cómo invocar la tool."
+          required: [method]
+          properties:
+            method:
+              type: string
+              enum: [mcp-call, bash-script, ts-function, http-endpoint]
+            target:
+              type: string
+              description: "MCP server name, script path, function name, or URL."
+            input_schema:
+              type: object
+              description: "JSON schema de inputs."
+            output_schema:
+              type: object
+        fallback:
+          type: string
+          description: "ID de tool a usar si esta falla o está degradada."
+        health_check:
+          type: object
+          description: "Cómo verificar disponibilidad."
+          properties:
+            command: { type: string }
+            expected_exit: { type: integer }
+            interval_seconds: { type: integer, minimum: 30 }
+        notes:
+          type: string
+  conflicts:
+    type: array
+    description: "Conflictos detectados entre tools (mismas capabilities)."
+    items:
+      type: object
+      required: [tools, capability, resolution]
+      properties:
+        tools:
+          type: array
+          items: { type: string }
+        capability: { type: string }
+        resolution:
+          type: string
+          enum: [priority-first, manual-pick, merge, fallback-chain]
+        resolved_at:
+          type: string
+          format: date-time

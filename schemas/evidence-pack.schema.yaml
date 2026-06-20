@@ -1,0 +1,113 @@
+# evidence-pack.schema.yaml
+# Evidencia recopilada deterministamente por scripts Python.
+# Reemplaza a "evidence/summary/" informal con un contrato tipado.
+# Incluye hash_chain para garantizar integridad y no repudio.
+
+type: object
+required:
+  - evidencepack
+  - version
+  - flowid
+  - created_at
+  - collector
+  - items
+  - hash_chain
+  - capabilities
+additionalProperties: false
+
+properties:
+  evidencepack:
+    type: string
+    const: "V2"
+  version:
+    type: integer
+    minimum: 1
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+  created_at:
+    type: string
+    format: date-time
+  collector:
+    type: object
+    description: "Metadatos del script que recolectó."
+    required: [script, script_hash, env_fingerprint]
+    properties:
+      script: { type: string, description: "Path al script Python que recolectó." }
+      script_hash: { type: string, description: "SHA256 del script." }
+      env_fingerprint: { type: string, description: "Hash del entorno (OS, python version, tools disponibles)." }
+      duration_ms: { type: integer, minimum: 0 }
+      invoked_by: { type: string, description: "Agente o comando que invocó la recolección." }
+  items:
+    type: array
+    minItems: 1
+    description: "Cada item es una pieza de evidencia con hash propio."
+    items:
+      type: object
+      required: [id, kind, source, hash, captured_at]
+      additionalProperties: false
+      properties:
+        id: { type: string, pattern: "^E-[0-9]{3}$" }
+        kind:
+          type: string
+          enum:
+            - file-snapshot
+            - git-diff
+            - git-log
+            - symbol-list
+            - endpoint-probe
+            - db-query
+            - screenshot
+            - dom-snapshot
+            - curl-response
+            - test-output
+            - runtime-log
+            - schema-validation
+            - mcp-capability
+        source:
+          type: string
+          description: "Path o URL de origen."
+        hash:
+          type: string
+          description: "SHA256 del contenido."
+        size_bytes: { type: integer, minimum: 0 }
+        captured_at: { type: string, format: date-time }
+        summary:
+          type: string
+          description: "Resumen legible. SIEMPRE se consume primero este campo."
+        raw_path:
+          type: string
+          description: "Path al dump crudo si aplica (evidence/raw/)."
+        tags:
+          type: array
+          items: { type: string }
+        related_symbols:
+          type: array
+          items: { type: string }
+  hash_chain:
+    type: string
+    description: "Hash concatenado de todos los items en orden. Garantiza integridad del pack."
+  capabilities:
+    type: object
+    description: "Capacidades del entorno detectadas al recopilar. Reemplaza ENV-CAPABILITIES.md."
+    required: [playwright, lsp, git, python, node, curl, psql]
+    properties:
+      playwright: { type: string, enum: [available, degraded, unavailable] }
+      lsp: { type: string, enum: [available, degraded, unavailable] }
+      git: { type: string, enum: [available, degraded, unavailable] }
+      python: { type: string, enum: [available, degraded, unavailable] }
+      node: { type: string, enum: [available, degraded, unavailable] }
+      curl: { type: string, enum: [available, degraded, unavailable] }
+      psql: { type: string, enum: [available, degraded, unavailable] }
+      notes: { type: string }
+  degradation_log:
+    type: array
+    description: "Registro de degradaciones aplicadas durante la recolección."
+    items:
+      type: object
+      required: [tool, reason, fallback_used]
+      properties:
+        tool: { type: string }
+        reason: { type: string }
+        fallback_used: { type: string }
+        at: { type: string, format: date-time }

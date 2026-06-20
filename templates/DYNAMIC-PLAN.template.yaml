@@ -1,0 +1,74 @@
+# DYNAMIC-PLAN.template.yaml
+# Plantilla para el primer versionado de un plan dinámico.
+# Generada por scripts/python/generate_plan.py desde evidence pack.
+
+dynamicplan: V2
+version: 1
+parent_version: null
+flowid: APOLO-YYYYMMDD-SLUG
+created_at: "2026-06-20T00:00:00Z"
+
+derived_from:
+  evidence_pack: "evidence/EVIDENCE-PACK.yaml"
+  truth_artifact: "plan/active/<FLOW>/02-VERDAD.yaml"
+  collected_at: "2026-06-20T00:00:00Z"
+
+derivation_method: deterministic-python  # deterministic-python | hybrid | manual
+
+rewrite_history: []
+
+unidades:
+  - id: U-01
+    origenverdad:
+      componente: "cluster8"
+      estado5: ER
+      referencias: ["02-VERDAD.yaml#cluster8"]
+    resumen: "Wiring de notificaciones al aprobar y rechazar solicitudes."
+    tipocambio: fix
+    ejedominante: handler
+    subeje: "mensaje service wiring"
+    acoplamientosreales:
+      archivos: ["internal/infrastructure/handlers/http/solicitud_handler.go"]
+      simbolos: ["Aprobar", "Rechazar", "GenerarMensajeAprobacion", "GenerarMensajeRechazo"]
+      endpoints: ["POST /api/v1/solicitudes/:id/aprobar", "POST /api/v1/solicitudes/:id/rechazar"]
+      tablas: []
+      columnas: []
+    fronteracambio:
+      incluye: ["wiring de invocación a MensajeService en Aprobar/Rechazar"]
+      excluye: ["UI de bandeja", "scheduler", "docs de notificaciones"]
+    fronteraconfianza:
+      confirmado: ["el servicio existe", "el wiring falta"]
+      pendienteoperador: []
+      paradoja: []
+      fueraalcance: ["UI bandeja", "paginación"]
+    dependenciasprevias: []
+    mpestimados: "1"
+    riesgooperativo: medio
+    verificacionlocal:
+      - "curl POST /api/v1/solicitudes/:id/aprobar"
+      - "psql count en notificaciones_usuario"
+    criteriohomogeneidad: "Un solo objetivo técnico, un solo archivo dominante."
+    admisibleaindice: true
+    motivonoaadmisible: ""
+    recomendacionparticion: []
+
+topological_sort:
+  - order: 1
+    unit_id: U-01
+    depends_on: []
+
+adaptative_gates:
+  - id: AG-01
+    trigger: unit-mixed-concerns
+    action: split-unit
+    description: "Si una unidad mezcla más de un eje dominante, partir en N unidades."
+  - id: AG-02
+    trigger: new-evidence-contradicts
+    action: escalate
+    description: "Si nueva evidencia contradice la frontera de confianza, escalar."
+  - id: AG-03
+    trigger: test-failure-pattern
+    action: block
+    description: "Si 3 tests consecutivos fallan en el mismo MP, bloquear."
+
+estado: draft  # draft | ready | executing | completed | deprecated

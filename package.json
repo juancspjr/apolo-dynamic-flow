@@ -1,0 +1,33 @@
+{
+  "name": "apolo-dynamic-flow",
+  "version": "2.0.0",
+  "description": "Plugin de reemplazo para apolo-flow-guardian.ts — orquestador de agentes con flujos dinámicos, recolección determinista de evidencia, planes generados por Python, tests automáticos y absorción de tools externas.",
+  "main": "plugin/index.ts",
+  "scripts": {
+    "test": "python3 tests/run_all_tests.py",
+    "inspect": "bash scripts/bash/apolo-inspect.sh",
+    "panel": "bash scripts/bash/apolo-inspect.sh serve-panel",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "orchestrator",
+    "agents",
+    "apolo",
+    "dynamic-flow",
+    "evidence-pack",
+    "telemetry"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "python3": ">=3.10"
+  }
+}

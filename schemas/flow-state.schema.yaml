@@ -1,0 +1,241 @@
+# flow-state.schema.yaml
+# Estado persistido del flow activo del plugin apolo-dynamic-flow.
+# Reemplaza al "plan/CURRENT.md" informal del proyecto viejo por un state machine serializable.
+# Cada vez que el orquestador transita de fase, actualiza este artefacto atómicamente.
+
+type: object
+required:
+  - flowid
+  - version
+  - schema_version
+  - created_at
+  - updated_at
+  - phase
+  - history
+  - loops
+  - circuit_breaker
+  - artifacts
+  - tools_absorbed
+additionalProperties: false
+
+properties:
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+    description: "Identificador único del flow. Formato: APOLO-YYYYMMDD-SLUG."
+
+  version:
+    type: integer
+    minimum: 1
+    description: "Versión del state. Incrementa en cada transición atómica."
+
+  schema_version:
+    type: string
+    const: "V2"
+    description: "Versión del schema. Inmutable hasta migración."
+
+  created_at:
+    type: string
+    format: date-time
+
+  updated_at:
+    type: string
+    format: date-time
+
+  phase:
+    type: string
+    enum:
+      - reanclaje
+      - planning-bootstrap
+      - asr
+      - verdad
+      - shaping
+      - plan-indice
+      - mp-validation
+      - implementation
+      - critical-validation
+      - cierre-flow
+      - blocked
+    description: "Fase actual del state machine. 'blocked' suspende el loop hasta resolución."
+
+  phase_entered_at:
+    type: string
+    format: date-time
+    description: "Momento en que se entró a la fase actual. Útil para detectar fases pegadas."
+
+  history:
+    type: array
+    description: "Bitácora cronológica de transiciones. Append-only."
+    items:
+      type: object
+      required:
+        - from
+        - to
+        - at
+        - reason
+        - version
+      additionalProperties: false
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        at:
+          type: string
+          format: date-time
+        reason:
+          type: string
+          description: "Motivo textual de la transición (gate name, bloqueo, escalación)."
+        version:
+          type: integer
+        tokens_consumed:
+          type: integer
+          description: "Tokens consumidos en esta fase antes de transitar."
+
+  loops:
+    type: object
+    description: "Contadores de bucles por fase. Cada fase tiene su propio circuit breaker."
+    additionalProperties: false
+    properties:
+      reanclaje:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 5 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+      planning-bootstrap:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 5 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+      asr:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 5 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+      verdad:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 5 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+      shaping:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 5 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+      plan-indice:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 5 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+      mp-validation:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 5 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+      implementation:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 10 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+      critical-validation:
+        type: object
+        required: [current, max, last_decision]
+        properties:
+          current: { type: integer, minimum: 0 }
+          max: { type: integer, minimum: 1, maximum: 5 }
+          last_decision: { type: string, enum: [pass, refine, escalate, block] }
+
+  circuit_breaker:
+    type: object
+    description: "Política global de corte. Si una fase agota max, se dispara block o escalate."
+    required: [policy, escalation_path]
+    additionalProperties: false
+    properties:
+      policy:
+        type: string
+        enum: [fail-closed, fail-open-adaptive]
+        description: "fail-closed bloquea; fail-open-adaptive degrada y continúa con justificación."
+      escalation_path:
+        type: array
+        items: { type: string }
+        description: "Lista ordenada de fases a las que escalar si el bucle se agota. Vacío = block."
+
+  artifacts:
+    type: object
+    description: "Referencias a artefactos producidos/consumidos por el flow. Paths relativos al repo."
+    additionalProperties: false
+    properties:
+      objetivo:
+        type: string
+        description: "Path a 00-OBJETIVO.yaml."
+      asr:
+        type: string
+      verdad:
+        type: string
+      shaping:
+        type: string
+      plan_indice:
+        type: string
+      current_mps:
+        type: array
+        items: { type: string }
+        description: "Lista de MPs activos en implementación."
+      evidence_pack:
+        type: string
+        description: "Path al evidence pack activo."
+      test_runs:
+        type: array
+        items: { type: string }
+        description: "Paths a los últimos resultados de tests (TEST-RUN.yaml)."
+      blocks_log:
+        type: string
+        description: "Path al BLOCK-LOG.md activo."
+
+  tools_absorbed:
+    type: array
+    description: "Lista de tools MCP/skills externas absorbidas y disponibles en este flow."
+    items:
+      type: object
+      required: [id, source, kind, status, registered_at]
+      additionalProperties: false
+      properties:
+        id: { type: string }
+        source: { type: string, description: "MCP name, skill path, o plugin path." }
+        kind: { type: string, enum: [mcp, skill, plugin-tool, native] }
+        status: { type: string, enum: [active, degraded, disabled] }
+        registered_at: { type: string, format: date-time }
+        fallback: { type: string, description: "Tool a usar si esta falla." }
+
+  tokens_consumed_total:
+    type: integer
+    minimum: 0
+    description: "Acumulativo de tokens consumidos por el flow."
+
+  operator_hints:
+    type: array
+    description: "Sugerencias activas que el orquestador quiere comunicar al operador."
+    items:
+      type: object
+      required: [id, severity, message, created_at]
+      properties:
+        id: { type: string }
+        severity: { type: string, enum: [info, warn, error, critical] }
+        message: { type: string }
+        created_at: { type: string, format: date-time }
+        resolved: { type: boolean, default: false }
