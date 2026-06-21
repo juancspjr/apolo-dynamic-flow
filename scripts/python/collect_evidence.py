@@ -430,6 +430,44 @@ def main() -> int:
         "degradation_log": degradations,
     }
 
+    # v2.2.1: MERGE con evidencia del agente (modo híbrido)
+    agent_evidence_json = args.get("agent-evidence", "")
+    agent_summary = args.get("agent-summary", "")
+    agent_tags = args.get("agent-tags", "")
+    script_count = len(items)
+    if agent_evidence_json:
+        try:
+            import json as _json
+            agent_items = _json.loads(agent_evidence_json)
+            if isinstance(agent_items, list):
+                base_idx = 100
+                for i, item in enumerate(agent_items):
+                    if not isinstance(item, dict):
+                        continue
+                    agent_item = {
+                        "id": f"E-{base_idx + i + 1:03d}",
+                        "kind": item.get("kind", "agent-observation"),
+                        "source": item.get("source", "agent"),
+                        "hash": item.get("hash", sha256(_json.dumps(item, sort_keys=True))),
+                        "size_bytes": item.get("size_bytes", 0),
+                        "captured_at": now_iso(),
+                        "summary": item.get("summary", "(agente sin summary)"),
+                        "raw_path": item.get("raw_path", ""),
+                        "tags": item.get("tags", []) + ["agent-contributed"],
+                        "related_symbols": item.get("related_symbols", []),
+                        "agent_observed": True,
+                    }
+                    if "agent_reasoning" in item:
+                        agent_item["agent_reasoning"] = item["agent_reasoning"]
+                    items.append(agent_item)
+                pack["items"] = items
+                pack["agent_contributed_count"] = len(agent_items)
+                if agent_summary:
+                    pack["agent_summary"] = agent_summary
+                log(f"Agente aporto {len(agent_items)} items de evidencia", "INFO")
+        except Exception as e:
+            log(f"Error mergeando agent evidence: {e}", "WARN")
+
     write_yaml(output, pack)
     log(f"evidence pack escrito: {output} ({len(items)} items, {duration_ms}ms)", "INFO")
 

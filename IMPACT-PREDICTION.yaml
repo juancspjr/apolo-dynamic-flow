@@ -1,11 +1,14 @@
 impactprediction: V1
 version: 1
-flowid: 
-generated_at: "2026-06-21T07:55:39Z"
+schema_version: 2.5.0
+flowid: ''
+generated_at: '2026-06-21T16:39:42Z'
 generator:
   script: scripts/python/predict_impact.py
   duration_ms: 0
   deep_mode: false
+  cascade_depth: 5
+  bfs_multilevel: true
 inputs:
   plan: .
   code_index: null
@@ -21,3 +24,4 @@ risk_distribution:
 total_predictions: 0
 predictions: []
 recommendation: all MPs safe to implement
+

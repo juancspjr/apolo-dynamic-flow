@@ -114,9 +114,20 @@ DEFAULT_PATTERNS = [
 # ============================================================================
 
 def load_patterns(config_path: Optional[Path] = None) -> List[Dict[str, Any]]:
-    """Carga patrones desde security_config.yaml o usa defaults."""
+    """Carga patrones desde security_config.yaml o usa defaults.
+    v2.5.1 FIX: siempre retorna patrones válidos, incluso si config falla.
+    """
+    # Siempre preparar DEFAULT_PATTERNS primero como fallback garantizado
+    defaults = []
+    for p in DEFAULT_PATTERNS:
+        dp = dict(p)  # copia para no mutar el original
+        try:
+            dp["_compiled"] = re.compile(dp["pattern"])
+        except re.error:
+            dp["_compiled"] = None
+        defaults.append(dp)
+
     if config_path is None:
-        # Buscar security_config.yaml en ubicaciones estándar
         candidates = [
             Path.cwd() / "security_config.yaml",
             Path.cwd() / ".opencode" / "apolo-dynamic" / "security_config.yaml",
@@ -128,25 +139,27 @@ def load_patterns(config_path: Optional[Path] = None) -> List[Dict[str, Any]]:
                 break
 
     if config_path and config_path.exists():
-        config = read_yaml(config_path) or {}
-        patterns = config.get("secret_patterns", [])
-        if patterns:
-            # Compilar regex para cada patrón
-            for p in patterns:
-                try:
-                    p["_compiled"] = re.compile(p["pattern"])
-                except re.error as e:
-                    log(f"Patrón regex inválido '{p.get('name')}': {e}", "WARN")
-                    p["_compiled"] = None
-            return patterns
-
-    # Usar defaults
-    for p in DEFAULT_PATTERNS:
         try:
-            p["_compiled"] = re.compile(p["pattern"])
-        except re.error:
-            p["_compiled"] = None
-    return DEFAULT_PATTERNS
+            config = read_yaml(config_path)
+            if config and isinstance(config, dict):
+                patterns = config.get("secret_patterns", [])
+                if patterns and isinstance(patterns, list):
+                    compiled = []
+                    for p in patterns:
+                        cp = dict(p)
+                        try:
+                            cp["_compiled"] = re.compile(cp["pattern"])
+                        except re.error as e:
+                            log(f"Patrón regex inválido '{cp.get('name')}': {e}", "WARN")
+                            continue  # skip inválido, no añadir None
+                        compiled.append(cp)
+                    if compiled:
+                        return compiled
+                    log("security_config.yaml no tiene patrones válidos, usando defaults", "WARN")
+        except Exception as e:
+            log(f"Error cargando security_config.yaml: {e}, usando defaults", "WARN")
+
+    return defaults
 
 
 # ============================================================================

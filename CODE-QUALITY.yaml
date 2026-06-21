@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T15:36:41Z'
+generated_at: '2026-06-21T16:40:19Z'
 repo_root: /home/juan/new_project
 total_files: 53
 languages_detected:
@@ -3025,7 +3025,7 @@ complexity_scores:
   function: '
 
     '
-  complexity: 12
+  complexity: 16
   rank: C
   tool: regex-estimation
   estimated: true
@@ -3905,9 +3905,20 @@ high_complexity_functions:
   function: '
 
     '
+  complexity: 16
+  rank: C
+  lineno: 115
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 16 > 15)'
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+    '
   complexity: 19
   rank: C
-  lineno: 402
+  lineno: 415
   tool: regex-estimation
   recommendation: 'refactor ''
 
@@ -4074,12 +4085,12 @@ degradations:
 - herramienta nativa de complejidad no disponible para python — usando regex-estimation
 - herramienta nativa de complejidad no disponible para python — usando regex-estimation
 recommendations:
-- Refactorizar 44 función(es) con complejidad > 15
+- Refactorizar 45 función(es) con complejidad > 15
 - 'Instalar herramientas faltantes para análisis completo: 53 degradación(es)'
 summary:
   total_security_findings: 0
   total_functions_analyzed: 450
-  high_complexity_count: 44
+  high_complexity_count: 45
   degradation_count: 53
-duration_ms: 23396
+duration_ms: 24910
 

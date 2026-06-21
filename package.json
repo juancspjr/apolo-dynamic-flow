@@ -1,6 +1,6 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.5.0",
+  "version": "2.5.3",
   "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje (HTML, CSS, JS, React, Rust, C++, PHP, TS, Java, Go). Flujos dinamicos, recoleccion hibrida, planes con 3 modos, tests automaticos, absorcion de tools externas, routing declarativo, atomic writes, file locks, allowlist, secret detection, hash chain, multi-level impact prediction, code quality analysis, test coverage por simbolo, LSP integration.",
   "main": "plugin/index.ts",
   "scripts": {
@@ -17,11 +17,28 @@
     "clean": "rm -rf dist"
   },
   "keywords": [
-    "opencode", "plugin", "apolo", "dynamic-flow", "loop-engine",
-    "routing", "mcp", "parallel-agents", "evidence-pack", "telemetry",
-    "atomic-writes", "concurrency-safe", "security", "allowlist",
-    "secret-detection", "hash-chain", "sandboxing", "multi-language",
-    "code-quality", "test-coverage", "lsp", "bfs-impact-prediction"
+    "opencode",
+    "plugin",
+    "apolo",
+    "dynamic-flow",
+    "loop-engine",
+    "routing",
+    "mcp",
+    "parallel-agents",
+    "evidence-pack",
+    "telemetry",
+    "atomic-writes",
+    "concurrency-safe",
+    "security",
+    "allowlist",
+    "secret-detection",
+    "hash-chain",
+    "sandboxing",
+    "multi-language",
+    "code-quality",
+    "test-coverage",
+    "lsp",
+    "bfs-impact-prediction"
   ],
   "author": "",
   "license": "MIT",

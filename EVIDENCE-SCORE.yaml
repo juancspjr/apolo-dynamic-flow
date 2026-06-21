@@ -1,7 +1,7 @@
 evidencescore: V1
 version: 1
-flowid: 
-generated_at: "2026-06-21T07:55:39Z"
+flowid: ''
+generated_at: '2026-06-21T16:39:12Z'
 generator:
   script: scripts/python/score_evidence.py
   duration_ms: 0
@@ -38,6 +38,8 @@ details:
 recommendation:
   severity: info
   actions:
-    - "SHALLOW: depth_score=0.00 < 0.5 \u2014 la evidencia contiene principalmente rutas sin contenido sustantivo"
+  - 'SHALLOW: depth_score=0.00 < 0.5 — la evidencia contiene principalmente rutas
+    sin contenido sustantivo'
   should_block_agent: false
   should_recollect: false
+
