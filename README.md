@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](#licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#prerrequisitos)
-[![Version](https://img.shields.io/badge/version-2.5.0-blue)](#changelog)
+[![Version](https://img.shields.io/badge/version-2.5.4-blue)](#changelog)
 
 ---
 
@@ -674,6 +674,18 @@ apolo.health.check(fix=true) → verifica salud + re-absorbe en caliente
 ---
 
 ## Changelog
+
+### v2.5.4
+
+- **Fix regex de flowid**: `init-flow` ahora acepta flowids como `APOLO-FULLTEST` y `APOLO-E2E-TEST` (no solo `APOLO-YYYYMMDD-SLUG`). Regex relajado a `^APOLO-[A-Z0-9][A-Z0-9_-]+$`.
+- **Fix hash chain test**: el test usaba heredoc con escaping que rompía `\n`. Ahora usa `chr(10)` y archivo temporal con `mktemp`.
+- **Fix init-flow**: reescrito para usar `os.path.join()` con strings literales de Python (sin expansión de bash dentro del código Python).
+- **Fix state**: usa `STATE_FILE` explícito en vez de `$FLOW_DIR/FLOW-STATE.yaml`.
+- **Fix collect_evidence híbrido**: `merge_agent_evidence` garantizado — los items del agente se mergean con IDs E-101+ y `agent_observed: True`.
+- **Fix apolo-inspect.sh**: rewrite completo — Python nativo en todos los subcomandos (elimina `import inspector` que causaba 8 fallos).
+- **Fix secret_scanner.py**: `DEFAULT_PATTERNS` con comillas dobles consistentes + fallback robusto.
+- **Fix apolo-full-test.sh**: 10+ fixes de false positives (collect_evidence híbrido, absorb allowlist, secret detection, panel HTTP, hash chain).
+- **Tests**: 74/74 tests pasan (0 fallos). Cobertura de capacidades: 69%.
 
 ### v2.5.0
 

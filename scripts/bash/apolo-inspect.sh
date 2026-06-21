@@ -163,7 +163,7 @@ for it in p.get('items', []):
 
   init-flow)
     if [[ -z "$FLOWID" ]]; then echo "ERROR: --flowid requerido"; exit 1; fi
-    if [[ ! "$FLOWID" =~ ^APOLO-[0-9]{8}-[A-Z0-9-]+$ ]]; then
+    if [[ ! "$FLOWID" =~ ^APOLO-[A-Z0-9][A-Z0-9_-]+$ ]]; then
       echo "ERROR: flowid invalido. Formato: APOLO-YYYYMMDD-SLUG"; exit 1
     fi
     # Crear directorios del flow
