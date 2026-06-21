@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.6.6",
-  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. Flujos dinamicos, recoleccion hibrida, planes con 3 modos, tests automaticos, absorcion de tools externas, routing declarativo, atomic writes, file locks, allowlist, secret detection, hash chain, multi-level impact prediction, code quality, test coverage, LSP, self-healing, test generation, semantic search, refactoring, LLM bridge, cross-language analysis, function summaries.",
+  "version": "2.7.0",
+  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje (HTML, CSS, JS, React, Rust, C++, PHP, TS, Java, Go). 3 capas: Infrastructure, Deterministic, Intelligence. Self-healing, test gen, semantic search, refactoring, LLM bridge, cross-language analysis, function summaries, code generation, doc generation, project templates, onboarding, GitHub Actions.",
   "main": "plugin/index.ts",
   "scripts": {
     "test": "npx tsc && node --test dist/tests/plugin.test.js",
@@ -16,9 +16,11 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist",
-    "install-deps": "python3 scripts/python/install_deps.py"
+    "install-deps": "python3 scripts/python/install_deps.py",
+    "onboard": "python3 scripts/python/onboarding.py --repo-root . --non-interactive",
+    "generate-actions": "python3 scripts/python/github_actions.py --repo-root ."
   },
-  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries"],
+  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions"],
   "author": "",
   "license": "MIT",
   "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.5.0" },

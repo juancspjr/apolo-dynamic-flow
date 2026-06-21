@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T22:13:26Z'
+generated_at: '2026-06-21T22:57:05Z'
 repo_root: /home/juan/new_project
 available_lsps:
   typescript: typescript-language-server
@@ -18,7 +18,7 @@ languages_detected:
 files_by_language:
   javascript: 1
   typescript: 19
-  python: 39
+  python: 41
 diagnostics:
 - file: /home/juan/new_project/tests/test_python_scripts.py
   language: python
@@ -749,6 +749,19 @@ diagnostics:
   diagnostics:
   - file: /home/juan/new_project/scripts/python/rollback.py
     line: 142
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/summarize_functions.py
+    line: 280
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
@@ -1574,6 +1587,19 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 7
+- file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
+    line: 336
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
 - file: /home/juan/new_project/scripts/python/semantic_search.py
   language: python
   diagnostics:
@@ -1790,8 +1816,8 @@ diagnostics:
   lsp_count: 0
   regex_count: 14
 summary:
-  total_files: 59
-  files_with_diagnostics: 34
-  total_diagnostics: 180
-duration_ms: 60659
+  total_files: 61
+  files_with_diagnostics: 36
+  total_diagnostics: 182
+duration_ms: 75677
 

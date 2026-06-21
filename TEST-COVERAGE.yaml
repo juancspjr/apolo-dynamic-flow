@@ -1,13 +1,13 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T22:13:03Z'
+generated_at: '2026-06-21T22:56:34Z'
 repo_root: /home/juan/new_project
 code_index_used: false
 coverage_tool_used: coverage.py
 dominant_language: python
-total_symbols: 464
+total_symbols: 474
 covered_symbols: 4
-uncovered_symbols: 460
-coverage_percentage: 0.86
+uncovered_symbols: 470
+coverage_percentage: 0.84
 critical_uncovered:
 - file: /home/juan/new_project/plugin/state-machine.ts
   name: TRANSITIONS
@@ -1467,6 +1467,42 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: extract_docstring_summary
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: infer_summary_from_name
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: infer_summary_from_body
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: generate_summary
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: summarize_all_functions
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/refactor_engine.py
   name: count_lines
   kind: function
@@ -2352,6 +2388,24 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
+  name: detect_language_calls
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
+  name: build_cross_language_map
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/semantic_search.py
   name: tokenize
   kind: function
@@ -2556,6 +2610,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/summarize_functions.py:
+    total_symbols: 6
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/refactor_engine.py:
     total_symbols: 5
     covered_symbols: 0
@@ -2652,6 +2711,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/cross_language_analyzer.py:
+    total_symbols: 4
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/semantic_search.py:
     total_symbols: 7
     covered_symbols: 0
@@ -2662,17 +2726,17 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-source_files_count: 46
+source_files_count: 48
 test_files_count: 13
 degradations: []
 recommendations:
-- Escribir tests para 402 símbolo(s) exportado(s) sin cobertura
-- Cobertura actual 0.86% — objetivo mínimo 50%
+- Escribir tests para 411 símbolo(s) exportado(s) sin cobertura
+- Cobertura actual 0.84% — objetivo mínimo 50%
 summary:
-  total_symbols: 464
+  total_symbols: 474
   covered: 4
-  uncovered: 460
-  critical_uncovered: 402
-  coverage_percentage: 0.86
-duration_ms: 27923
+  uncovered: 470
+  critical_uncovered: 411
+  coverage_percentage: 0.84
+duration_ms: 33751
 
