@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T16:56:38Z'
+generated_at: '2026-06-21T17:16:42Z'
 repo_root: /home/juan/new_project
 total_files: 53
 languages_detected:
@@ -4092,5 +4092,5 @@ summary:
   total_functions_analyzed: 450
   high_complexity_count: 45
   degradation_count: 53
-duration_ms: 28223
+duration_ms: 34237
 

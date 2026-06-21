@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T16:56:49Z'
+generated_at: '2026-06-21T17:16:57Z'
 repo_root: /home/juan/new_project
 available_lsps:
   typescript: typescript-language-server
@@ -1285,5 +1285,5 @@ summary:
   total_files: 51
   files_with_diagnostics: 26
   total_diagnostics: 127
-duration_ms: 45111
+duration_ms: 54420
 
