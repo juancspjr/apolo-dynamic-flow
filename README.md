@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](#licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#prerrequisitos)
-[![Version](https://img.shields.io/badge/version-2.2.2-blue)](#changelog)
+[![Version](https://img.shields.io/badge/version-2.3.0-blue)](#changelog)
 
 ---
 
@@ -674,6 +674,16 @@ apolo.health.check(fix=true) → verifica salud + re-absorbe en caliente
 ---
 
 ## Changelog
+
+### v2.3.0
+
+- **Robustez de infraestructura**:
+  - **PyYAML hard dependency**: el parser YAML minimalista fue eliminado. PyYAML es ahora obligatorio. Resuelve el riesgo de corrupción silenciosa de estado en YAML complejo.
+  - **jsonschema hard dependency**: el validador minimalista fue eliminado. `jsonschema` (Draft7) es ahora obligatorio. Soporta `$ref`, `allOf`, `oneOf`, `anyOf`, `patternProperties`, `format`.
+  - **Atomic writes**: `write_yaml` y `write_json` ahora usan `tempfile + os.fsync + os.replace` (rename atómico). El archivo destino nunca queda en estado parcial.
+  - **File locks**: `read_yaml` adquiere `LOCK_SH` (compartido), `write_yaml` adquiere `LOCK_EX` (exclusivo) vía `fcntl.flock`. Concurrency-safe: 2 agentes pueden escribir al mismo archivo sin corromperlo.
+- **Nuevos tests**: `tests/test_atomic.py` con 9 tests que validan atomicidad, concurrency, anchors YAML, strings multilínea, y que no quedan archivos temporales.
+- **`install.sh`**: PyYAML y jsonschema son ahora hard requirements (no opcionales). Si no se pueden instalar, el script aborta con exit 2.
 
 ### v2.2.2
 

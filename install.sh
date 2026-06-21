@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# install.sh — Instalador de apolo-dynamic-flow v2.2.0
+# install.sh — Instalador de apolo-dynamic-flow v2.3.0
 #
 # Pasos:
 #   1. Verificar prerrequisitos (node, npm, python3, curl, git)
@@ -16,7 +16,7 @@
 #   --check             Solo verificar prerrequisitos y estructura
 #   --tests             Solo ejecutar tests (asume dist/ ya compilado)
 #   --no-npm            Saltar npm install
-#   --no-python-deps    Saltar pip install de PyYAML/jsonschema
+#   --no-python-deps    Saltar pip install (NO RECOMENDADO — PyYAML/jsonschema son hard) de PyYAML/jsonschema
 #   -h, --help          Mostrar ayuda
 #
 set -euo pipefail
@@ -45,7 +45,7 @@ EXPECTED_FILES=(
   "templates/EVIDENCE-PACK.template.yaml"
   "templates/TEST-RUN.template.yaml"
   "templates/BLOCK-LOG.template.yaml"
-  # Schemas YAML (11 = 7 originales + 4 nuevos v2.2.0)
+  # Schemas YAML (11 = 7 originales + 4 nuevos v2.3.0)
   "schemas/flow-state.schema.yaml"
   "schemas/dynamic-plan.schema.yaml"
   "schemas/evidence-pack.schema.yaml"
@@ -92,7 +92,7 @@ EXPECTED_FILES=(
   "tests/test_tool_absorber.py"
   "tests/test_python_scripts.py"
   "tests/plugin.test.ts"
-  # Scripts Python (16 = 9 originales + 7 nuevos v2.2.0)
+  # Scripts Python (16 = 9 originales + 7 nuevos v2.3.0)
   "scripts/python/common.py"
   "scripts/python/collect_evidence.py"
   "scripts/python/generate_plan.py"
@@ -141,7 +141,7 @@ Opciones:
   --check             Solo verificar prerrequisitos y estructura de archivos
   --tests             Solo ejecutar tests (asume dist/ ya compilado)
   --no-npm            Saltar npm install
-  --no-python-deps    Saltar pip install de PyYAML/jsonschema
+  --no-python-deps    Saltar pip install (NO RECOMENDADO — PyYAML/jsonschema son hard) de PyYAML/jsonschema
   -h, --help          Mostrar esta ayuda
 EOF
 }
@@ -230,8 +230,8 @@ else
   ok "dependencias npm instaladas"
 fi
 
-# Step 4b: pip install (opcional)
-log "Paso 4b/7 — pip install PyYAML jsonschema (opcional)..."
+# Step 4b: pip install (HARD requirement)
+log "Paso 4b/7 — pip install PyYAML jsonschema (HARD requirement)..."
 if [[ "$NO_PYTHON_DEPS" -eq 1 ]]; then
   warn "--no-python-deps: saltando pip install"
 else

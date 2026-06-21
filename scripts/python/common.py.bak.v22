@@ -13,28 +13,11 @@ import os
 import re
 import subprocess
 import sys
-import tempfile
 import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
-
-# ============================================================================
-# Hard dependencies (v2.3.0) — PyYAML and jsonschema are required
-# ============================================================================
-
-try:
-    import yaml
-except ImportError:
-    print("[FATAL] PyYAML no instalado. Instalar con: pip3 install PyYAML", file=sys.stderr)
-    print("        El parser YAML minimalista fue eliminado en v2.3.0 por robustez.", file=sys.stderr)
-    sys.exit(2)
-
-try:
-    import fcntl
-except ImportError:
-    fcntl = None  # Windows no tiene fcntl, los locks serán no-ops
 
 
 # ============================================================================
@@ -81,13 +64,196 @@ def hash_chain(items: List[Dict[str, Any]]) -> str:
 # ============================================================================
 
 def yaml_dump(obj: Any, indent: int = 0) -> str:
-    """Serializa a YAML usando PyYAML (v2.3.0 — hard dependency)."""
-    return yaml.safe_dump(obj, default_flow_style=False, sort_keys=False, allow_unicode=True, indent=2)
+    pad = "  " * indent
+    if obj is None:
+        return "null"
+    if isinstance(obj, bool):
+        return "true" if obj else "false"
+    if isinstance(obj, (int, float)):
+        return str(obj)
+    if isinstance(obj, str):
+        if re.search(r"[:#\[\]{}&*!|>'\"%@`]", obj) or "\n" in obj:
+            return json.dumps(obj)
+        return obj
+    if isinstance(obj, list):
+        if not obj:
+            return "[]"
+        out = []
+        for item in obj:
+            if isinstance(item, (dict, list)):
+                inner = yaml_dump(item, indent + 1).lstrip()
+                out.append(f"{pad}- {inner}")
+            else:
+                out.append(f"{pad}- {yaml_dump(item, indent + 1)}")
+        return "\n".join(out)
+    if isinstance(obj, dict):
+        if not obj:
+            return "{}"
+        out = []
+        for k, v in obj.items():
+            if v is None:
+                out.append(f"{pad}{k}: null")
+            elif isinstance(v, dict):
+                if not v:
+                    out.append(f"{pad}{k}: {{}}")
+                else:
+                    out.append(f"{pad}{k}:")
+                    out.append(yaml_dump(v, indent + 1))
+            elif isinstance(v, list):
+                if not v:
+                    out.append(f"{pad}{k}: []")
+                else:
+                    out.append(f"{pad}{k}:")
+                    out.append(yaml_dump(v, indent + 1))
+            else:
+                out.append(f"{pad}{k}: {yaml_dump(v, indent)}")
+        return "\n".join(out)
+    return str(obj)
 
 
 def yaml_load(text: str) -> Any:
-    """Parsea YAML usando PyYAML (v2.3.0 — hard dependency)."""
-    return yaml.safe_load(text)
+    """Parser YAML mínimo. Soporta objetos, listas, scalars, anidados por indent.
+
+    Reglas:
+      - `key: value` → parent[key] = scalar
+      - `key:` (vacío) → parent[key] será dict o list según el primer hijo
+      - `- item` → append a la lista del padre
+      - `- key: value` → append un dict con esa key
+    """
+    lines = text.split("\n")
+    root: Any = {}
+    # stack entry: (indent, node, parent_ref, key_in_parent_or_None)
+    # Si key_in_parent es None, el node es la root o un item de lista.
+    stack: List[Tuple[int, Any, Any, Optional[str]]] = [(-1, root, None, None)]
+
+    def find_parent(indent: int) -> Tuple[Any, Any, Optional[str]]:
+        """Pop stack hasta encontrar el padre correcto para esta indent.
+        Retorna (parent_node, parent_owner, key_in_parent).
+        parent_owner y key_in_parent sirven para reemplazar dict por list si hace falta.
+        """
+        while len(stack) > 1 and stack[-1][0] > indent:
+            stack.pop()
+        # Ahora stack[-1] es el padre. Pero si está al mismo indent, también hay que
+        # ver si es sibling (mismo nivel) o hijo.
+        if stack[-1][0] == indent and stack[-1][3] is not None:
+            # Es un dict-value esperando hijos al mismo indent — ese es el padre
+            pass
+        elif stack[-1][0] >= indent:
+            # Pop al mismo nivel (siblings)
+            stack.pop()
+        return (stack[-1][1], stack[-1][2], stack[-1][3])
+
+    for raw in lines:
+        line = raw.rstrip()
+        if not line or line.lstrip().startswith("#"):
+            continue
+        indent = len(line) - len(line.lstrip())
+        trimmed = line.strip()
+
+        if trimmed.startswith("- "):
+            value = trimmed[2:].strip()
+            # Encontrar el padre: la lista contenedora
+            # Pop stack hasta encontrar el nodo que contiene la lista
+            while len(stack) > 1 and stack[-1][0] > indent:
+                stack.pop()
+            # El padre potencial es stack[-1][1]
+            top_indent, top_node, top_owner, top_key = stack[-1]
+
+            # Si el top es un dict con key pendiente (vacío), reemplazar por lista
+            if (
+                top_key is not None
+                and isinstance(top_node, dict)
+                and len(top_node) == 0
+                and isinstance(top_owner, dict)
+                and top_owner.get(top_key) is top_node
+            ):
+                top_owner[top_key] = []
+                top_node = top_owner[top_key]
+                stack[-1] = (top_indent, top_node, top_owner, top_key)
+            # Si el top es un dict esperando sub-keys (no vacío), no es válido
+            # para un `-`. Pop y reintentar con su padre.
+            if isinstance(top_node, dict) and top_key is not None and top_node:
+                # El `- ` está a la misma indent que una key previa, debería
+                # haber sido inicializado como lista. Eso significa que el primer
+                # hijo fue una sub-key, lo cual es un YAML inválido para nuestra
+                # sintaxis. Lo mejor es pop y buscar arriba.
+                stack.pop()
+                top_indent, top_node, top_owner, top_key = stack[-1]
+                if (
+                    top_key is not None
+                    and isinstance(top_owner, dict)
+                    and isinstance(top_owner.get(top_key), list)
+                ):
+                    top_node = top_owner[top_key]
+                    stack[-1] = (top_indent, top_node, top_owner, top_key)
+
+            if not isinstance(top_node, list):
+                # No hay lista contenedora — ignorar
+                continue
+
+            if ": " in value or value.endswith(":"):
+                # Item tipo dict
+                obj: Dict[str, Any] = {}
+                # Procesar la primera sub-key dentro del item
+                if ": " in value:
+                    k, _, rest = value.partition(": ")
+                    obj[k.strip()] = _parse_scalar(rest.strip())
+                else:
+                    # key: sin valor → sub-dict o sub-list
+                    k = value[:-1].strip()
+                    obj[k] = {}
+                top_node.append(obj)
+                # Las sub-keys del item estarán a indent + 2
+                stack.append((indent + 2, obj, top_node, None))
+                # Si la key quedó como dict vacío, marcar como pendiente
+                if ": " not in value:
+                    stack.append((indent + 4, obj[k], obj, k))
+            else:
+                top_node.append(_parse_scalar(value))
+            continue
+
+        # Línea tipo `key: value` o `key:`
+        # Pop stack hasta encontrar dónde insertar
+        while len(stack) > 1 and stack[-1][0] > indent:
+            stack.pop()
+        # Si el top está al mismo indent y es un dict-value, ya es el padre.
+        # Si el top está a mayor indent (no debería tras el pop), seguimos.
+        if stack[-1][0] > indent:
+            # Caso raro — skip
+            continue
+        if stack[-1][0] == indent and stack[-1][3] is None and isinstance(stack[-1][1], dict):
+            # Top es root o un dict al mismo nivel — OK
+            parent = stack[-1][1]
+        elif stack[-1][0] < indent:
+            # Top es padre — necesitamos entrar en el último sub-dict
+            # Esto pasa cuando la línea anterior era `key:` vacío
+            parent = stack[-1][1]
+        else:
+            # Top al mismo indent y es dict — es el padre
+            parent = stack[-1][1]
+
+        if ": " in trimmed:
+            key, _, value = trimmed.partition(": ")
+            key = key.strip()
+            value = value.strip()
+            if value == "":
+                # Sub-dict o sub-list — inicializar como dict vacío, se convierte
+                # en lista si el primer hijo es `- `
+                child: Dict[str, Any] = {}
+                parent[key] = child
+                stack.append((indent + 2, child, parent, key))
+            elif value == "[]":
+                parent[key] = []
+            elif value == "{}":
+                parent[key] = {}
+            else:
+                parent[key] = _parse_scalar(value)
+        elif trimmed.endswith(":"):
+            key = trimmed[:-1].strip()
+            child = {}
+            parent[key] = child
+            stack.append((indent + 2, child, parent, key))
+    return root
 
 
 def _parse_scalar(raw: str) -> Any:
@@ -109,64 +275,20 @@ def _parse_scalar(raw: str) -> Any:
 
 
 def read_yaml(path) -> Optional[Any]:
-    """Lee YAML con lock de lectura (v2.3.0 — concurrency safe)."""
     p = Path(path) if not isinstance(path, Path) else path
     if not p.exists():
         return None
     try:
-        # Adquirir lock compartido (LOCK_SH) para lectura
-        with open(p, "r", encoding="utf-8") as fh:
-            if fcntl:
-                try:
-                    fcntl.flock(fh.fileno(), fcntl.LOCK_SH)
-                except Exception:
-                    pass  # Lock falla en algunos FS (ej: /tmp), continuar
-            content = fh.read()
-        return yaml_load(content)
+        return yaml_load(p.read_text(encoding="utf-8"))
     except Exception as e:
         print(f"[WARN] yaml_load falló en {p}: {e}", file=sys.stderr)
         return None
 
 
 def write_yaml(path, data: Any) -> None:
-    """Escribe YAML atómicamente (v2.3.0 — tempfile + rename + lock).
-
-    1. Escribe a archivo temporal en el mismo directorio
-    2. Adquiere lock exclusivo
-    3. fsync para asegurar flush a disco
-    4. Rename atómico (os.replace) al destino final
-    5. Libera lock
-
-    Esto garantiza que el archivo destino nunca queda en estado parcial.
-    """
     p = Path(path) if not isinstance(path, Path) else path
     p.parent.mkdir(parents=True, exist_ok=True)
-
-    # Crear archivo temporal en el mismo directorio (para que rename sea atómico)
-    tmp_fd, tmp_path = tempfile.mkstemp(
-        dir=str(p.parent),
-        prefix=f".{p.name}.",
-        suffix=".tmp",
-    )
-    try:
-        with os.fdopen(tmp_fd, "w", encoding="utf-8") as fh:
-            if fcntl:
-                try:
-                    fcntl.flock(fh.fileno(), fcntl.LOCK_EX)
-                except Exception:
-                    pass  # Lock falla en algunos FS
-            fh.write(yaml_dump(data) + "\n")
-            fh.flush()
-            os.fsync(fh.fileno())
-        # Rename atómico
-        os.replace(tmp_path, p)
-    except Exception:
-        # Limpiar temporal en caso de error
-        try:
-            os.unlink(tmp_path)
-        except OSError:
-            pass
-        raise
+    p.write_text(yaml_dump(data) + "\n", encoding="utf-8")
 
 
 # ============================================================================
@@ -184,31 +306,9 @@ def read_json(path) -> Optional[Any]:
 
 
 def write_json(path, data: Any) -> None:
-    """Escribe JSON atómicamente (v2.3.0)."""
     p = Path(path) if not isinstance(path, Path) else path
     p.parent.mkdir(parents=True, exist_ok=True)
-    tmp_fd, tmp_path = tempfile.mkstemp(
-        dir=str(p.parent),
-        prefix=f".{p.name}.",
-        suffix=".tmp",
-    )
-    try:
-        with os.fdopen(tmp_fd, "w", encoding="utf-8") as fh:
-            if fcntl:
-                try:
-                    fcntl.flock(fh.fileno(), fcntl.LOCK_EX)
-                except Exception:
-                    pass
-            fh.write(json.dumps(data, indent=2, ensure_ascii=False))
-            fh.flush()
-            os.fsync(fh.fileno())
-        os.replace(tmp_path, p)
-    except Exception:
-        try:
-            os.unlink(tmp_path)
-        except OSError:
-            pass
-        raise
+    p.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
 # ============================================================================

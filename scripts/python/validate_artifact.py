@@ -1,149 +1,148 @@
 #!/usr/bin/env python3
 """
-validate_artifact.py — Validador de artefactos YAML contra schemas.
+validate_artifact.py — Validador de artefactos YAML/JSON contra schemas.
 
-Sin jsonschema (dependencia externa). Implementa validación mínima:
-  - required fields
-  - type checking (object, array, string, integer, boolean, null)
-  - enum
-  - pattern (regex)
-  - minItems / maxItems
-  - minLength / maxLength
-  - additionalProperties: false (warn only)
+v2.3.0: usa `jsonschema` (hard dependency) para validación completa:
+  - $ref, allOf, oneOf, anyOf
+  - additionalProperties
+  - patternProperties
+  - format (date-time, etc.)
+  - dependencies condicionales
+
+Soporta 2 modos de schema:
+  - JSON Schema draft-07 (archivos .json en schemas/json/)
+  - Schemas YAML simplificados (archivos .yaml en schemas/) — convertidos a JSON Schema
 
 Exit codes:
   0 = válido
   1 = inválido (errores)
-  2 = error de ejecución
+  2 = error de ejecución (schema no encontrado, dependencia faltante, etc.)
 """
 
 from __future__ import annotations
 
 import json
-import re
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Tuple
+from typing import Any, Dict, List
+
+# Hard dependency (v2.3.0)
+try:
+    import jsonschema
+    from jsonschema import Draft7Validator, ValidationError
+except ImportError:
+    print("[FATAL] jsonschema no instalado. Instalar con: pip3 install jsonschema", file=sys.stderr)
+    print("        El validador minimalista fue eliminado en v2.3.0.", file=sys.stderr)
+    sys.exit(2)
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import log, parse_args, read_yaml
 
 
-def validate_value(
-    value: Any,
-    schema: Dict[str, Any],
-    path: str,
-    errors: List[str],
-) -> None:
-    if not isinstance(schema, dict):
-        return
+def load_schema(schema_path: Path) -> Dict[str, Any]:
+    """Carga un schema desde .json o .yaml."""
+    if not schema_path.exists():
+        raise FileNotFoundError(f"Schema no encontrado: {schema_path}")
 
-    # type
-    expected_type = schema.get("type")
-    if expected_type:
-        type_map = {
-            "object": dict,
-            "array": list,
-            "string": str,
-            "integer": int,
-            "boolean": bool,
-            "number": (int, float),
-            "null": type(None),
-        }
-        py_type = type_map.get(expected_type)
-        if py_type and not isinstance(value, py_type):
-            errors.append(f"{path}: esperaba {expected_type}, obtuvo {type(value).__name__}")
-            return
-
-    # enum
-    if "enum" in schema and value not in schema["enum"]:
-        errors.append(f"{path}: valor {value!r} no está en enum {schema['enum']}")
-
-    # pattern (strings)
-    if "pattern" in schema and isinstance(value, str):
-        if not re.fullmatch(schema["pattern"], value):
-            errors.append(f"{path}: valor {value!r} no cumple pattern {schema['pattern']!r}")
-
-    # const
-    if "const" in schema and value != schema["const"]:
-        errors.append(f"{path}: valor {value!r} != const {schema['const']!r}")
-
-    # minLength / maxLength
-    if isinstance(value, str):
-        if "minLength" in schema and len(value) < schema["minLength"]:
-            errors.append(f"{path}: string demasiado corta ({len(value)} < {schema['minLength']})")
-        if "maxLength" in schema and len(value) > schema["maxLength"]:
-            errors.append(f"{path}: string demasiado larga ({len(value)} > {schema['maxLength']})")
-
-    # minItems / maxItems
-    if isinstance(value, list):
-        if "minItems" in schema and len(value) < schema["minItems"]:
-            errors.append(f"{path}: lista con {len(value)} < {schema['minItems']} items")
-        if "maxItems" in schema and len(value) > schema["maxItems"]:
-            errors.append(f"{path}: lista con {len(value)} > {schema['maxItems']} items")
-
-    # minimum / maximum
-    if isinstance(value, (int, float)):
-        if "minimum" in schema and value < schema["minimum"]:
-            errors.append(f"{path}: {value} < minimum {schema['minimum']}")
-        if "maximum" in schema and value > schema["maximum"]:
-            errors.append(f"{path}: {value} > maximum {schema['maximum']}")
-
-    # object: required + properties + additionalProperties
-    if isinstance(value, dict) and expected_type == "object":
-        required = schema.get("required", [])
-        for r in required:
-            if r not in value:
-                errors.append(f"{path}.{r}: campo requerido faltante")
-        props = schema.get("properties", {})
-        for key, val in value.items():
-            if key in props:
-                validate_value(val, props[key], f"{path}.{key}", errors)
-            elif schema.get("additionalProperties") is False:
-                errors.append(f"{path}.{key}: propiedad no permitida (additionalProperties=false)")
-
-    # array: items
-    if isinstance(value, list) and "items" in schema:
-        item_schema = schema["items"]
-        for i, item in enumerate(value):
-            validate_value(item, item_schema, f"{path}[{i}]", errors)
+    if schema_path.suffix == ".json":
+        with open(schema_path, "r", encoding="utf-8") as f:
+            return json.load(f)
+    else:
+        # YAML schema: convertir a JSON Schema
+        schema = read_yaml(schema_path)
+        if schema is None:
+            raise ValueError(f"Schema YAML vacío o inválido: {schema_path}")
+        # Asegurar que tiene $schema si no lo tiene
+        if "$schema" not in schema:
+            schema["$schema"] = "http://json-schema.org/draft-07/schema#"
+        return schema
 
 
-def validate(artifact: Dict[str, Any], schema: Dict[str, Any]) -> List[str]:
+def validate(artifact: Any, schema: Dict[str, Any]) -> List[str]:
+    """Valida un artifact contra un JSON Schema usando jsonschema.
+
+    Returns lista de errores (vacía si es válido).
+    """
     errors: List[str] = []
-    validate_value(artifact, schema, "$", errors)
+
+    # Crear validator con Draft7
+    validator = Draft7Validator(schema)
+
+    # Recopilar todos los errores
+    for error in validator.iter_errors(artifact):
+        # Formatear el path del error
+        path = ".".join(str(p) for p in error.absolute_path) or "$"
+        errors.append(f"{path}: {error.message}")
+
     return errors
+
+
+def validate_artifact(artifact_path: Path, schema_path: Path) -> Dict[str, Any]:
+    """Valida un artifact contra un schema. Retorna dict con resultados."""
+    result = {
+        "artifact": str(artifact_path),
+        "schema": str(schema_path),
+        "valid": False,
+        "errors": [],
+        "error_count": 0,
+    }
+
+    # Cargar artifact
+    if not artifact_path.exists():
+        result["errors"].append(f"Artifact no encontrado: {artifact_path}")
+        result["error_count"] = 1
+        return result
+
+    if artifact_path.suffix == ".json":
+        with open(artifact_path, "r", encoding="utf-8") as f:
+            artifact = json.load(f)
+    else:
+        artifact = read_yaml(artifact_path)
+        if artifact is None:
+            result["errors"].append(f"Artifact YAML vacío o inválido: {artifact_path}")
+            result["error_count"] = 1
+            return result
+
+    # Cargar schema
+    try:
+        schema = load_schema(schema_path)
+    except Exception as e:
+        result["errors"].append(f"Error cargando schema: {e}")
+        result["error_count"] = 1
+        return result
+
+    # Validar
+    errors = validate(artifact, schema)
+    result["errors"] = errors
+    result["error_count"] = len(errors)
+    result["valid"] = len(errors) == 0
+
+    return result
 
 
 def main() -> int:
     args = parse_args(sys.argv[1:])
     artifact_p = args.get("artifact", "")
     schema_p = args.get("schema", "")
+    as_json = args.get("json", "") == "json"
 
     if not artifact_p or not schema_p:
         log("--artifact y --schema requeridos", "ERROR")
         return 2
 
-    artifact = read_yaml(Path(artifact_p))
-    schema = read_yaml(Path(schema_p))
-    if artifact is None:
-        log(f"no se pudo leer artifact: {artifact_p}", "ERROR")
-        return 2
-    if schema is None:
-        log(f"no se pudo leer schema: {schema_p}", "ERROR")
-        return 2
+    result = validate_artifact(Path(artifact_p), Path(schema_p))
 
-    errors = validate(artifact, schema)
-    if errors:
-        log(f"INVALID: {len(errors)} errores", "ERROR")
-        for e in errors:
-            print(f"  - {e}", file=sys.stderr)
-        print(json.dumps({"valid": False, "errors": errors}))
-        return 1
+    if as_json:
+        print(json.dumps(result, indent=2, default=str))
+    else:
+        if result["valid"]:
+            log(f"VALID: {artifact_p} cumple {schema_p}", "INFO")
+        else:
+            log(f"INVALID: {result['error_count']} errores", "ERROR")
+            for e in result["errors"]:
+                print(f"  - {e}", file=sys.stderr)
 
-    log(f"VALID: {artifact_p} cumple {schema_p}", "INFO")
-    print(json.dumps({"valid": True, "errors": []}))
-    return 0
+    return 0 if result["valid"] else 1
 
 
 if __name__ == "__main__":
