@@ -1,0 +1,141 @@
+# evidence-score.schema.yaml
+# Schema para EVIDENCE-SCORE.yaml generado por score_evidence.py
+
+type: object
+required:
+  - evidencescore
+  - version
+  - flowid
+  - generated_at
+  - generator
+  - inputs
+  - scores
+  - overall_score
+  - details
+  - recommendation
+additionalProperties: false
+
+properties:
+  evidencescore:
+    type: string
+    const: "V1"
+  version:
+    type: integer
+    minimum: 1
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+  generated_at:
+    type: string
+    format: date-time
+  generator:
+    type: object
+    required: [script, duration_ms]
+    properties:
+      script: { type: string }
+      duration_ms: { type: integer, minimum: 0 }
+  inputs:
+    type: object
+    properties:
+      evidence_pack: { type: string }
+      verdad: { type: [string, "null"] }
+      code_index: { type: [string, "null"] }
+  scores:
+    type: object
+    required: [coverage, freshness, depth, conflict_risk, redundancy, schema_validity]
+    properties:
+      coverage:
+        type: number
+        minimum: 0
+        maximum: 1
+        description: "% de archivos mencionados en VERDAD que están en el pack"
+      freshness:
+        type: number
+        minimum: 0
+        maximum: 1
+        description: "% de archivos con git-mtime < 24h"
+      depth:
+        type: number
+        minimum: 0
+        maximum: 1
+        description: "Proporción de evidencia con contenido vs solo rutas"
+      conflict_risk:
+        type: number
+        minimum: 0
+        maximum: 1
+        description: "% de símbolos en conflicto (2+ archivos mismos nombres)"
+      redundancy:
+        type: number
+        minimum: 0
+        maximum: 1
+        description: "% de items duplicados (mismo hash)"
+      schema_validity:
+        type: number
+        minimum: 0
+        maximum: 1
+        description: "% de items schema-validation que pasaron"
+  overall_score:
+    type: number
+    minimum: 0
+    maximum: 1
+    description: "Score ponderado: coverage*0.4 + depth*0.25 + freshness*0.15 + ..."
+  details:
+    type: object
+    properties:
+      missing_critical:
+        type: array
+        items: { type: string }
+        description: "Archivos que VERDAD referencia pero no están en pack"
+      freshness:
+        type: object
+        properties:
+          stale_files: { type: array, items: { type: string } }
+          fresh_files: { type: array, items: { type: string } }
+      depth:
+        type: object
+        properties:
+          shallow_items: { type: array, items: { type: string } }
+          deep_items: { type: array, items: { type: string } }
+      conflicts:
+        type: object
+        properties:
+          conflicts:
+            type: array
+            items:
+              type: object
+              properties:
+                symbol: { type: string }
+                files: { type: array, items: { type: string } }
+      redundancy:
+        type: object
+        properties:
+          duplicates:
+            type: array
+            items:
+              type: object
+              properties:
+                hash: { type: string }
+                items: { type: array, items: { type: string } }
+      schema_validity:
+        type: object
+        properties:
+          valid: { type: integer }
+          invalid: { type: integer }
+          invalid_items: { type: array, items: { type: string } }
+  recommendation:
+    type: object
+    required: [severity, actions, should_block_agent, should_recollect]
+    properties:
+      severity:
+        type: string
+        enum: [info, warning, critical]
+      actions:
+        type: array
+        items: { type: string }
+        description: "Lista de acciones recomendadas (ej: 'BLOCK: missing critical files')"
+      should_block_agent:
+        type: boolean
+        description: "true si severity=critical — el agente NO debe recibir el pack"
+      should_recollect:
+        type: boolean
+        description: "true si coverage < 0.7 o hay missing_critical"

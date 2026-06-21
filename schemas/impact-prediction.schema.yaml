@@ -1,0 +1,192 @@
+# impact-prediction.schema.yaml
+# Schema para IMPACT-PREDICTION.yaml generado por predict_impact.py
+
+type: object
+required:
+  - impactprediction
+  - version
+  - flowid
+  - generated_at
+  - generator
+  - inputs
+  - global_risk
+  - risk_distribution
+  - total_predictions
+  - predictions
+  - recommendation
+additionalProperties: false
+
+properties:
+  impactprediction:
+    type: string
+    const: "V1"
+  version:
+    type: integer
+    minimum: 1
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+  generated_at:
+    type: string
+    format: date-time
+  generator:
+    type: object
+    required: [script, duration_ms, deep_mode]
+    properties:
+      script: { type: string }
+      duration_ms: { type: integer, minimum: 0 }
+      deep_mode: { type: boolean }
+  inputs:
+    type: object
+    properties:
+      plan: { type: string }
+      code_index: { type: [string, "null"] }
+      telemetry: { type: [string, "null"] }
+      test_runs_dir: { type: [string, "null"] }
+  global_risk:
+    type: string
+    enum: [low, medium, high, critical]
+  risk_distribution:
+    type: object
+    properties:
+      low: { type: integer }
+      medium: { type: integer }
+      high: { type: integer }
+      critical: { type: integer }
+      unknown: { type: integer }
+  total_predictions:
+    type: integer
+    minimum: 0
+  predictions:
+    type: array
+    items:
+      type: object
+      required: [mp_id, mp_files, overall_risk, recommendation, projections]
+      properties:
+        mp_id: { type: string }
+        mp_files:
+          type: array
+          items: { type: string }
+        mp_symbols:
+          type: array
+          items: { type: string }
+        overall_risk:
+          type: string
+          enum: [low, medium, high, critical]
+        recommendation: { type: string }
+        projections:
+          type: object
+          required: [dependency_cascade, historical_pattern, test_coverage_gap]
+          properties:
+            dependency_cascade:
+              type: object
+              required: [risk_level, recommendation]
+              properties:
+                risk_level:
+                  type: string
+                  enum: [low, medium, high, critical, unknown]
+                total_affected_modules: { type: integer }
+                affected_modules:
+                  type: array
+                  items: { type: string }
+                per_file:
+                  type: object
+                  additionalProperties:
+                    type: array
+                    items: { type: string }
+                recommendation: { type: string }
+            historical_pattern:
+              type: object
+              required: [risk_level, recommendation]
+              properties:
+                risk_level:
+                  type: string
+                  enum: [low, medium, high, unknown]
+                total_failure_events_in_phase: { type: integer }
+                failures_by_kind:
+                  type: object
+                  additionalProperties: { type: integer }
+                similar_file_patterns:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      at: { type: string }
+                      kind: { type: string }
+                      phase: { type: string }
+                      message: { type: string }
+                      shared_files:
+                        type: array
+                        items: { type: string }
+                recommendation: { type: string }
+            test_coverage_gap:
+              type: object
+              required: [risk_level, recommendation]
+              properties:
+                risk_level:
+                  type: string
+                  enum: [low, medium, high, critical, unknown]
+                coverage_ratio:
+                  type: number
+                  minimum: 0
+                  maximum: 1
+                files_with_tests:
+                  type: array
+                  items: { type: string }
+                files_without_tests:
+                  type: array
+                  items: { type: string }
+                inferred_test_files:
+                  type: object
+                  additionalProperties: { type: string }
+                covered_symbols:
+                  type: array
+                  items: { type: string }
+                uncovered_symbols:
+                  type: array
+                  items: { type: string }
+                recommendation: { type: string }
+            symbol_contract:
+              type: object
+              description: "Solo en modo --deep"
+              properties:
+                risk_level:
+                  type: string
+                  enum: [low, medium, high, critical, unknown]
+                potential_breakages:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      file: { type: string }
+                      function: { type: string }
+                      current_args:
+                        type: array
+                        items: { type: string }
+                      callers:
+                        type: array
+                        items: { type: string }
+                      risk: { type: string }
+                recommendation: { type: string }
+            git_blame_risk:
+              type: object
+              description: "Solo en modo --deep"
+              properties:
+                risk_level:
+                  type: string
+                  enum: [low, medium, high, unknown]
+                file_risks:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      file: { type: string }
+                      recent_commit_count: { type: integer }
+                      recent_authors:
+                        type: array
+                        items: { type: string }
+                      risk: { type: string }
+                recommendation: { type: string }
+  recommendation:
+    type: string
+    description: "Recomendación global para el orquestador"

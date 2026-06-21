@@ -1,150 +1,170 @@
 /**
- * hypothesis-runner.ts — Paralelizador de hipótesis.
+ * hypothesis-runner.ts — Runner de hipótesis paralelas con scoring.
  *
- * Permite al orquestador generar N hipótesis en paralelo (por ejemplo, 3
- * agents truth-auditor con inputs ligeramente diferentes) y seleccionar
- * la de mayor score.
+ * Permite ejecutar N hipótesis en paralelo (cada una con su propio agente y
+ * scope) y elegir un ganador determinista vía scoring objetivo.
+ *
+ * API:
+ *   - planHypotheses(flowId, decision, count) → Hypothesis[]
+ *   - scoreHypothesis(h)                      → number
+ *   - selectWinner(flowId, hypotheses)        → {winner_id|null, total, completed, failed}
+ *
+ * Scoring:
+ *   - status "completed"     → +10
+ *   - status "failed"        → -20
+ *   - evidence_refs.length   → +2 c/u
+ *   - output (object) keys   → +min(keys, 5) (1 punto por key, hasta 5)
+ *
+ * Conforme al schema: schemas/json/runtime-audit-log.json
+ * (action: parallel_hypothesis_started / parallel_hypothesis_winner)
  */
 
-import { log } from "../core/runtime-logger";
+import { log as auditLog } from "../core/runtime-logger";
 
 // ============================================================================
 // Types
 // ============================================================================
 
-export type HypothesisAgent =
-  | "orchestrator"
-  | "planner"
-  | "surface-scanner"
-  | "truth-auditor"
-  | "microplanner"
-  | "implementer"
-  | "mutation-guardian"
-  | "evidence-acquisition";
+export type HypothesisStatus = "pending" | "completed" | "failed";
 
-export type HypothesisStatus = "pending" | "running" | "completed" | "failed";
-
-export interface Hypothesis {
-  id: string;
-  agent: HypothesisAgent;
-  inputs: Record<string, unknown>;
-  status: HypothesisStatus;
-  output?: unknown;
-  error?: string;
-  evidence_refs?: string[];
-  score?: number;
+export interface HypothesisDecision {
+  agent?: string;
+  objective: string;
+  scope?: Record<string, unknown>;
 }
 
-export interface HypothesisSpec {
-  hypothesis_id: string;
-  agent: HypothesisAgent;
-  inputs: Record<string, unknown>;
-  variant_description: string;
+export interface Hypothesis {
+  hypothesis_id: string; // H-1, H-2, ...
+  flow_id: string;
+  agent: string;
+  status: HypothesisStatus;
+  objective: string;
+  scope?: Record<string, unknown>;
+  evidence_refs?: string[];
+  output?: Record<string, unknown>;
+  error?: string;
+  score?: number;
 }
 
 export interface WinnerResult {
   winner_id: string | null;
-  winner?: Hypothesis;
   total_hypotheses: number;
   completed: number;
   failed: number;
+  winner_score?: number;
 }
 
 // ============================================================================
-// Public API
+// planHypotheses
 // ============================================================================
 
 export function planHypotheses(
   flowId: string,
-  decision: { type: string; value: string },
+  decision: HypothesisDecision,
   count: number
-): HypothesisSpec[] {
-  const specs: HypothesisSpec[] = [];
+): Hypothesis[] {
+  const agent = decision.agent ?? "truth-auditor";
+  const result: Hypothesis[] = [];
   for (let i = 1; i <= count; i++) {
-    specs.push({
+    result.push({
       hypothesis_id: `H-${i}`,
-      agent: decision.value as HypothesisAgent,
-      inputs: {
-        variant: i,
-        total_variants: count,
-      },
-      variant_description: `Hipótesis ${i} de ${count} para agent=${decision.value}`,
+      flow_id: flowId,
+      agent,
+      status: "pending",
+      objective: decision.objective,
+      scope: decision.scope,
     });
   }
-
-  log({
-    flow_id: flowId,
-    actor: "plugin:apolo-dynamic-flow",
-    action: "parallel_hypothesis_started",
-    outcome: "success",
-    decision: {
-      type: "next_agent",
-      value: decision.value,
-      reasoning: `Planificadas ${count} hipótesis en paralelo para agent=${decision.value}.`,
+  auditLog(
+    {
+      flow_id: flowId,
+      actor: "plugin:apolo-dynamic-flow",
+      action: "parallel_hypothesis_started",
+      outcome: "success",
+      context: { count, agent, objective: decision.objective },
     },
-  });
-
-  return specs;
+    process.cwd()
+  );
+  return result;
 }
+
+// ============================================================================
+// scoreHypothesis
+// ============================================================================
 
 export function scoreHypothesis(h: Hypothesis): number {
   let score = 0;
-
-  if (h.status === "completed") {
-    score += 10;
-  } else if (h.status === "failed") {
-    return -20;
+  if (h.status === "completed") score += 10;
+  if (h.status === "failed") score -= 20;
+  if (Array.isArray(h.evidence_refs)) {
+    score += 2 * h.evidence_refs.length;
   }
-
-  if (h.evidence_refs && h.evidence_refs.length > 0) {
-    score += h.evidence_refs.length * 2;
-  }
-
   if (h.output && typeof h.output === "object") {
-    score += Math.min(Object.keys(h.output as object).length, 5);
+    const keys = Object.keys(h.output).length;
+    score += Math.min(keys, 5);
   }
-
   return score;
 }
+
+// ============================================================================
+// selectWinner
+// ============================================================================
 
 export function selectWinner(
   flowId: string,
   hypotheses: Hypothesis[]
 ): WinnerResult {
-  const scored = hypotheses.map((h) => ({
-    ...h,
-    score: h.score ?? scoreHypothesis(h),
-  }));
+  let completed = 0;
+  let failed = 0;
+  let winner: Hypothesis | null = null;
+  let winnerScore = -Infinity;
 
-  const completed = scored.filter((h) => h.status === "completed");
-  const failed = scored.filter((h) => h.status === "failed");
-
-  let winner: Hypothesis | undefined;
-  if (completed.length > 0) {
-    winner = completed.reduce((max, h) => ((h.score ?? 0) > (max.score ?? 0) ? h : max));
+  for (const h of hypotheses) {
+    if (h.status === "completed") completed++;
+    if (h.status === "failed") failed++;
+    const s = scoreHypothesis(h);
+    // Mutamos una copia para no romper el input
+    if (h.status === "completed" && s > winnerScore) {
+      winnerScore = s;
+      winner = h;
+    }
   }
 
-  const result: WinnerResult = {
-    winner_id: winner?.id ?? null,
-    winner,
-    total_hypotheses: hypotheses.length,
-    completed: completed.length,
-    failed: failed.length,
-  };
+  const winner_id = winner ? winner.hypothesis_id : null;
 
-  log({
-    flow_id: flowId,
-    actor: "plugin:apolo-dynamic-flow",
-    action: "parallel_hypothesis_winner",
-    outcome: winner ? "success" : "failure",
-    decision: {
-      type: "complete",
-      value: winner?.id ?? "none",
-      reasoning: winner
-        ? `Ganadora: ${winner.id} con score ${winner.score}. ${completed.length}/${hypotheses.length} completadas.`
-        : `Ninguna hipótesis completó. ${failed.length}/${hypotheses.length} fallaron.`,
+  auditLog(
+    {
+      flow_id: flowId,
+      actor: "plugin:apolo-dynamic-flow",
+      action: "parallel_hypothesis_winner",
+      outcome: winner ? "success" : "skipped",
+      decision: winner
+        ? {
+            type: "complete",
+            value: winner_id as string,
+            reasoning: `ganador elegido con score ${winnerScore}`,
+            evidence_refs: winner.evidence_refs,
+          }
+        : {
+            type: "complete",
+            value: "null",
+            reasoning: "ninguna hipótesis completó — sin ganador",
+          },
+      context: {
+        total: hypotheses.length,
+        completed,
+        failed,
+        winner_score: winner ? winnerScore : undefined,
+      },
     },
-  });
+    process.cwd()
+  );
 
-  return result;
+  return {
+    winner_id,
+    total_hypotheses: hypotheses.length,
+    completed,
+    failed,
+    winner_score: winner ? winnerScore : undefined,
+  };
 }

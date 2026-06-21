@@ -1,15 +1,21 @@
 /**
  * router.ts — Router declarativo basado en routing-rules.json.
  *
- * Reemplaza la lógica opaca de "qué agent invocar ahora" por reglas
- * declarativas que el operador puede editar sin tocar código TS.
+ * Reemplaza el hardcoding de "qué agent sigue en qué fase" por un sistema
+ * declarativo: las reglas se cargan desde `routing-rules.json` (en el repoRoot),
+ * se ordenan por `priority` (1=máxima, default 50), y la primera que cumple
+ * TODAS las condiciones del `when` determina el `next_agent`.
+ *
+ * Contrato:
+ *   - Si ninguna regla matchea → fallback a `orchestrator` con rule_id "FALLBACK".
+ *   - Cada decisión se loguea vía runtime-logger.ts (auditable).
  *
  * Conforme al schema: schemas/json/routing-rules.json
  */
 
 import * as fs from "fs";
 import * as path from "path";
-import { log } from "./runtime-logger";
+import { log as auditLog } from "./runtime-logger";
 
 // ============================================================================
 // Types
@@ -25,7 +31,8 @@ export type Phase =
   | "mp-validation"
   | "implementation"
   | "critical-validation"
-  | "cierre-flow";
+  | "cierre-flow"
+  | "blocked";
 
 export type NextAgent =
   | "orchestrator"
@@ -39,77 +46,93 @@ export type NextAgent =
   | "blocked"
   | "closed";
 
+export interface RoutingCondition {
+  phase?: Phase;
+  artifacts_present?: string[];
+  artifacts_absent?: string[];
+  blocker_active?: boolean;
+  mp_ready?: boolean;
+  deep_evidence_required?: boolean;
+}
+
+export interface RoutingAction {
+  next_agent: NextAgent;
+  reason: string;
+  circuit_breaker?: boolean;
+}
+
+export interface RoutingRule {
+  id: string;
+  priority?: number;
+  when: RoutingCondition;
+  then: RoutingAction;
+}
+
+export interface RoutingRulesFile {
+  version: string;
+  rules: RoutingRule[];
+}
+
 export interface RoutingContext {
   flow_id: string;
-  flow_path: string;
-  phase: Phase | string;
-  artifacts_present: string[];
-  mp_active: string | null;
-  blocker_active: boolean;
-  deep_evidence_required: boolean;
+  phase: Phase;
+  artifacts_present?: string[];
+  blocker_active?: boolean;
   mp_ready?: boolean;
+  deep_evidence_required?: boolean;
+  repoRoot?: string;
 }
 
 export interface RouteResult {
-  rule_id: string;
   next_agent: NextAgent;
+  rule_id: string;
   reason: string;
   circuit_breaker: boolean;
 }
 
-interface Rule {
-  id: string;
-  priority?: number;
-  when: {
-    phase?: string;
-    artifacts_present?: string[];
-    artifacts_absent?: string[];
-    blocker_active?: boolean;
-    mp_ready?: boolean;
-    deep_evidence_required?: boolean;
-  };
-  then: {
-    next_agent: NextAgent;
-    reason: string;
-    circuit_breaker?: boolean;
-  };
-}
-
-interface RoutingRules {
-  version: string;
-  rules: Rule[];
-}
-
 // ============================================================================
-// Cache
+// Rules cache
 // ============================================================================
 
-let rulesCache: RoutingRules | null = null;
+let rulesCache: RoutingRulesFile | null = null;
+let cachedRepoRoot: string | null = null;
 
 export function _resetRulesCache(): void {
   rulesCache = null;
+  cachedRepoRoot = null;
 }
 
-// ============================================================================
-// Loader
-// ============================================================================
-
-export function loadRoutingRules(
-  repoRoot: string = process.cwd()
-): RoutingRules {
-  if (rulesCache) return rulesCache;
-
+export function loadRoutingRules(repoRoot: string = process.cwd()): RoutingRulesFile {
+  if (rulesCache && cachedRepoRoot === repoRoot) {
+    return rulesCache;
+  }
   const rulesPath = path.join(repoRoot, "routing-rules.json");
   if (!fs.existsSync(rulesPath)) {
-    throw new Error(`routing-rules.json no encontrado en ${rulesPath}`);
+    const empty: RoutingRulesFile = { version: "v0.0", rules: [] };
+    rulesCache = empty;
+    cachedRepoRoot = repoRoot;
+    return empty;
   }
-
   try {
-    const content = fs.readFileSync(rulesPath, "utf8");
-    rulesCache = JSON.parse(content) as RoutingRules;
-    return rulesCache;
-  } catch (err) {
-    throw new Error(`routing-rules.json inválido: ${err}`);
+    const raw = fs.readFileSync(rulesPath, "utf8");
+    const parsed = JSON.parse(raw) as RoutingRulesFile;
+    // Ordenar por priority asc (default 50)
+    const sorted: RoutingRulesFile = {
+      version: parsed.version ?? "v0.0",
+      rules: (parsed.rules ?? []).slice().sort((a, b) => {
+        const pa = typeof a.priority === "number" ? a.priority : 50;
+        const pb = typeof b.priority === "number" ? b.priority : 50;
+        return pa - pb;
+      }),
+    };
+    rulesCache = sorted;
+    cachedRepoRoot = repoRoot;
+    return sorted;
+  } catch {
+    const empty: RoutingRulesFile = { version: "v0.0", rules: [] };
+    rulesCache = empty;
+    cachedRepoRoot = repoRoot;
+    return empty;
   }
 }
 
@@ -117,137 +140,127 @@ export function loadRoutingRules(
 // Matching
 // ============================================================================
 
-function matchesRule(rule: Rule, ctx: RoutingContext): boolean {
-  const w = rule.when;
+function matchesCondition(
+  cond: RoutingCondition,
+  ctx: RoutingContext
+): boolean {
+  if (cond.phase && cond.phase !== ctx.phase) return false;
 
-  // phase
-  if (w.phase !== undefined && w.phase !== ctx.phase) {
-    return false;
-  }
-
-  // artifacts_present: todos deben estar en ctx.artifacts_present
-  if (w.artifacts_present) {
-    for (const a of w.artifacts_present) {
-      if (!ctx.artifacts_present.includes(a)) return false;
+  if (cond.artifacts_present && cond.artifacts_present.length > 0) {
+    const present = new Set(ctx.artifacts_present ?? []);
+    for (const a of cond.artifacts_present) {
+      if (!present.has(a)) return false;
     }
   }
 
-  // artifacts_absent: ninguno debe estar en ctx.artifacts_present
-  if (w.artifacts_absent) {
-    for (const a of w.artifacts_absent) {
-      if (ctx.artifacts_present.includes(a)) return false;
+  if (cond.artifacts_absent && cond.artifacts_absent.length > 0) {
+    const present = new Set(ctx.artifacts_present ?? []);
+    for (const a of cond.artifacts_absent) {
+      if (present.has(a)) return false;
     }
   }
 
-  // blocker_active
-  if (w.blocker_active !== undefined && w.blocker_active !== ctx.blocker_active) {
-    return false;
+  if (typeof cond.blocker_active === "boolean") {
+    if (!!ctx.blocker_active !== cond.blocker_active) return false;
   }
 
-  // mp_ready
-  if (w.mp_ready !== undefined && w.mp_ready !== (ctx.mp_ready ?? !!ctx.mp_active)) {
-    return false;
+  if (typeof cond.mp_ready === "boolean") {
+    if (!!ctx.mp_ready !== cond.mp_ready) return false;
   }
 
-  // deep_evidence_required
-  if (
-    w.deep_evidence_required !== undefined &&
-    w.deep_evidence_required !== ctx.deep_evidence_required
-  ) {
-    return false;
+  if (typeof cond.deep_evidence_required === "boolean") {
+    if (!!ctx.deep_evidence_required !== cond.deep_evidence_required) return false;
   }
 
   return true;
 }
 
-// ============================================================================
-// Public API
-// ============================================================================
+export function buildRoutingContext(input: {
+  flow_id: string;
+  phase: Phase;
+  artifacts_present?: string[];
+  blocker_active?: boolean;
+  mp_ready?: boolean;
+  deep_evidence_required?: boolean;
+  repoRoot?: string;
+}): RoutingContext {
+  return {
+    flow_id: input.flow_id,
+    phase: input.phase,
+    artifacts_present: input.artifacts_present ?? [],
+    blocker_active: input.blocker_active ?? false,
+    mp_ready: input.mp_ready ?? false,
+    deep_evidence_required: input.deep_evidence_required ?? false,
+    repoRoot: input.repoRoot ?? process.cwd(),
+  };
+}
 
-export function route(
-  ctx: RoutingContext,
-  repoRoot: string = process.cwd()
-): RouteResult {
+export function route(ctx: RoutingContext): RouteResult {
+  const repoRoot = ctx.repoRoot ?? process.cwd();
   const rules = loadRoutingRules(repoRoot);
 
-  // Ordenar por prioridad (1 = máxima). Default 50.
-  const sorted = [...rules.rules].sort((a, b) => {
-    const pa = a.priority ?? 50;
-    const pb = b.priority ?? 50;
-    return pa - pb;
-  });
-
-  for (const rule of sorted) {
-    if (matchesRule(rule, ctx)) {
+  for (const rule of rules.rules) {
+    if (matchesCondition(rule.when, ctx)) {
       const result: RouteResult = {
-        rule_id: rule.id,
         next_agent: rule.then.next_agent,
+        rule_id: rule.id,
         reason: rule.then.reason,
         circuit_breaker: rule.then.circuit_breaker ?? false,
       };
-
-      // Loguear la decisión
-      log({
-        flow_id: ctx.flow_id,
-        actor: "plugin:apolo-dynamic-flow",
-        action: "decision_made",
-        outcome: "success",
-        decision: {
-          type: "route",
-          value: result.next_agent,
-          reasoning: result.reason,
-          rule_id: result.rule_id,
+      auditLog(
+        {
+          flow_id: ctx.flow_id,
+          actor: "plugin:apolo-dynamic-flow",
+          action: "decision_made",
+          outcome: result.circuit_breaker ? "blocked" : "success",
+          decision: {
+            type: "next_agent",
+            value: result.next_agent,
+            reasoning: result.reason,
+            rule_id: result.rule_id,
+          },
+          context: {
+            phase: ctx.phase,
+            artifacts_present: ctx.artifacts_present,
+            blocker_active: ctx.blocker_active,
+            mp_ready: ctx.mp_ready,
+            deep_evidence_required: ctx.deep_evidence_required,
+          },
         },
-      });
-
+        repoRoot
+      );
       return result;
     }
   }
 
-  // Fallback: ninguna regla matchea → orchestrator
+  // Fallback: ninguna regla matchea → orchestrator con rule_id FALLBACK
   const fallback: RouteResult = {
-    rule_id: "FALLBACK",
     next_agent: "orchestrator",
-    reason: "Ninguna regla de routing-rules.json matcheó el contexto actual.",
+    rule_id: "FALLBACK",
+    reason: "ninguna regla de routing matcheó — fallback a orchestrator",
     circuit_breaker: false,
   };
-
-  log({
-    flow_id: ctx.flow_id,
-    actor: "plugin:apolo-dynamic-flow",
-    action: "decision_made",
-    outcome: "warning",
-    decision: {
-      type: "route",
-      value: fallback.next_agent,
-      reasoning: fallback.reason,
+  auditLog(
+    {
+      flow_id: ctx.flow_id,
+      actor: "plugin:apolo-dynamic-flow",
+      action: "decision_made",
+      outcome: "warning",
+      decision: {
+        type: "next_agent",
+        value: fallback.next_agent,
+        reasoning: fallback.reason,
+        rule_id: fallback.rule_id,
+      },
+      context: {
+        phase: ctx.phase,
+        artifacts_present: ctx.artifacts_present,
+        blocker_active: ctx.blocker_active,
+        mp_ready: ctx.mp_ready,
+        deep_evidence_required: ctx.deep_evidence_required,
+      },
     },
-  });
-
+    repoRoot
+  );
   return fallback;
-}
-
-/**
- * Construye un RoutingContext desde un FlowState simplificado.
- */
-export function buildRoutingContext(params: {
-  flow_id: string;
-  flow_path: string;
-  phase: Phase | string;
-  artifacts_present: string[];
-  mp_active: string | null;
-  blocker_active: boolean;
-  deep_evidence_required: boolean;
-  mp_ready?: boolean;
-}): RoutingContext {
-  return {
-    flow_id: params.flow_id,
-    flow_path: params.flow_path,
-    phase: params.phase,
-    artifacts_present: params.artifacts_present,
-    mp_active: params.mp_active,
-    blocker_active: params.blocker_active,
-    deep_evidence_required: params.deep_evidence_required,
-    mp_ready: params.mp_ready,
-  };
 }

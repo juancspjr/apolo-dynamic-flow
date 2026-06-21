@@ -1,5 +1,6 @@
 # FLOW-STATE.template.yaml
-# Estado persistido del flow activo del plugin apolo-dynamic-flow.
+# Plantilla para inicializar el state de un nuevo flow.
+# Rellena los placeholders con datos reales antes de persistir.
 
 flowstate: V2
 flowid: APOLO-YYYYMMDD-SLUG
@@ -13,46 +14,19 @@ phase_entered_at: "2026-06-20T00:00:00Z"
 history: []
 
 loops:
-  reanclaje:
-    current: 0
-    max: 2
-    last_decision: ""
-  planning-bootstrap:
-    current: 0
-    max: 2
-    last_decision: ""
-  asr:
-    current: 0
-    max: 2
-    last_decision: ""
-  verdad:
-    current: 0
-    max: 2
-    last_decision: ""
-  shaping:
-    current: 0
-    max: 2
-    last_decision: ""
-  plan-indice:
-    current: 0
-    max: 2
-    last_decision: ""
-  mp-validation:
-    current: 0
-    max: 2
-    last_decision: ""
-  implementation:
-    current: 0
-    max: 4
-    last_decision: ""
-  critical-validation:
-    current: 0
-    max: 2
-    last_decision: ""
+  reanclaje:           { current: 0, max: 2, last_decision: "" }
+  planning-bootstrap:  { current: 0, max: 2, last_decision: "" }
+  asr:                 { current: 0, max: 2, last_decision: "" }
+  verdad:              { current: 0, max: 2, last_decision: "" }
+  shaping:             { current: 0, max: 2, last_decision: "" }
+  plan-indice:         { current: 0, max: 2, last_decision: "" }
+  mp-validation:       { current: 0, max: 2, last_decision: "" }
+  implementation:      { current: 0, max: 4, last_decision: "" }
+  critical-validation: { current: 0, max: 2, last_decision: "" }
 
 circuit_breaker:
-  policy: fail-closed
-  escalation_path: []
+  policy: fail-closed  # fail-closed | fail-open-adaptive
+  escalation_path: []  # fases a escalar antes de bloquear
 
 artifacts:
   objetivo: ""

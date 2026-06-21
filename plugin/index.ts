@@ -19,6 +19,7 @@
  */
 
 import * as path from "path";
+import { spawnSync } from "child_process";
 import type {
   FlowState,
   PluginContext,
@@ -412,6 +413,145 @@ const PLUGIN: OpenCodePlugin = {
         };
       },
     },
+
+    // ==========================================================================
+    // v2.2.0 — 3 tools nuevas (cerrando los 4 gaps)
+    // ==========================================================================
+
+    "apolo.context.query": {
+      description:
+        "Consulta activa al sistema: responde preguntas del agente usando telemetría + flow state + code index + evidence + plan + impact + scaffold.",
+      inputSchema: {
+        type: "object",
+        required: ["question"],
+        properties: {
+          question: {
+            type: "string",
+            description:
+              "Pregunta en lenguaje natural. Ej: 'qué fase sigue', 'qué falta para avanzar', 'qué código debo tocar para U-01', 'qué predicciones de impacto hay'",
+          },
+          phase: {
+            type: "string",
+            description: "Fase actual del flow (opcional, se infiere del state)",
+          },
+        },
+      },
+      handler: async (args, ctx) => {
+        const result = spawnSync(
+          "python3",
+          [
+            path.join(__dirname, "..", "scripts", "python", "context_query.py"),
+            "--flowid",
+            ctx.flowid,
+            "--repo-root",
+            ctx.repoRoot,
+            "--phase",
+            (args.phase as string) || "",
+            "--question",
+            args.question as string,
+          ],
+          { encoding: "utf8", timeout: 30000 }
+        );
+        try {
+          return JSON.parse(result.stdout);
+        } catch {
+          return {
+            error: "context_query.py output no es JSON válido",
+            stdout: result.stdout?.slice(0, 500),
+            stderr: result.stderr?.slice(0, 500),
+            exit_code: result.status,
+          };
+        }
+      },
+    },
+
+    "apolo.registry.recommend": {
+      description:
+        "Recomienda qué tool del registry usar para una tarea, con scoring y reasoning.",
+      inputSchema: {
+        type: "object",
+        required: ["task"],
+        properties: {
+          task: {
+            type: "string",
+            description:
+              "Descripción de la tarea. Ej: 'editar archivo TS y correr tests'",
+          },
+          top: { type: "integer", minimum: 1, maximum: 10, default: 3 },
+        },
+      },
+      handler: async (args, ctx) => {
+        const result = spawnSync(
+          "python3",
+          [
+            path.join(
+              __dirname,
+              "..",
+              "scripts",
+              "python",
+              "registry_recommend.py"
+            ),
+            "--task",
+            args.task as string,
+            "--repo-root",
+            ctx.repoRoot,
+            "--top",
+            String(args.top ?? 3),
+          ],
+          { encoding: "utf8", timeout: 10000 }
+        );
+        try {
+          return JSON.parse(result.stdout);
+        } catch {
+          return {
+            error: "registry_recommend.py output no es JSON válido",
+            stdout: result.stdout?.slice(0, 500),
+            stderr: result.stderr?.slice(0, 500),
+            exit_code: result.status,
+          };
+        }
+      },
+    },
+
+    "apolo.health.check": {
+      description:
+        "Health check en tiempo real de todas las tools del registry. Con fix=true, re-absorbe en caliente.",
+      inputSchema: {
+        type: "object",
+        properties: {
+          fix: {
+            type: "boolean",
+            default: false,
+            description: "Si true, actualiza estados y absorbe scripts nuevos",
+          },
+        },
+      },
+      handler: async (args, ctx) => {
+        const result = spawnSync(
+          "python3",
+          [
+            path.join(__dirname, "..", "scripts", "python", "health_check.py"),
+            "--repo-root",
+            ctx.repoRoot,
+            "--fix",
+            args.fix ? "true" : "false",
+            "--json",
+            "true",
+          ],
+          { encoding: "utf8", timeout: 30000 }
+        );
+        try {
+          return JSON.parse(result.stdout);
+        } catch {
+          return {
+            error: "health_check.py output no es JSON válido",
+            stdout: result.stdout?.slice(0, 500),
+            stderr: result.stderr?.slice(0, 500),
+            exit_code: result.status,
+          };
+        }
+      },
+    },
   },
 
   commands: {
@@ -530,25 +670,18 @@ function saveState(repoRoot: string, state: FlowState): void {
   writeYaml(statePath(repoRoot, state.flowid), state);
 }
 
-interface BlockLogData {
-  blocklog?: string;
-  version?: number;
-  flowid?: string;
-  updated_at?: string;
-  blocks: any[];
-}
-
 function appendBlock(repoRoot: string, flowid: string, block: any): void {
   const blocksFile = blocksPath(repoRoot, flowid);
   ensureDir(path.dirname(blocksFile));
-  const existing: BlockLogData = readYaml<BlockLogData>(blocksFile) ?? {
+  interface BlocksFile { blocklog?: string; version?: number; flowid?: string; updated_at?: string; blocks: any[]; }
+  const existing: BlocksFile = readYaml<BlocksFile>(blocksFile) ?? {
     blocklog: "V2",
     version: 1,
     flowid,
     updated_at: now(),
     blocks: [],
   };
-  if (!existing.blocks.find((b: any) => b.id === block.id)) {
+  if (!existing.blocks.find((b) => b.id === block.id)) {
     existing.blocks.push(block);
     existing.updated_at = now();
     writeYaml(blocksFile, existing);

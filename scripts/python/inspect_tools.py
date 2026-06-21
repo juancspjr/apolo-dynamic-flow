@@ -61,7 +61,7 @@ def main() -> int:
             for tid in c.get("tools", []):
                 print(f"    - {tid}")
 
-    # Health check summary (solo tools locales verificables)
+    # Health check summary
     print()
     print("HEALTH CHECK (quick):")
     print("-" * 60)
@@ -70,19 +70,9 @@ def main() -> int:
         hc = t.get("health_check")
         if not hc:
             continue
-        cmd = hc.get("command", "false")
-        # MCPs externos: no se pueden verificar localmente
-        if "opencode mcp" in cmd or t.get("kind") == "mcp":
-            print(f"  [EXT ] {t['id']}  (verificar con: opencode mcp list)")
-            continue
-        # test -f: verificación local rápida sin ejecutar
-        if cmd.startswith("test -f "):
-            p = Path(cmd[8:].strip())
-            ok = "OK" if p.exists() else "FAIL"
-            print(f"  [{ok:<4}] {t['id']}")
-            continue
-        # Otros: skip
-        print(f"  [SKIP] {t['id']}  (cmd: {cmd[:40]})")
+        code, _, _ = run_cmd(["bash", "-c", hc.get("command", "false")], cwd=repo_root, timeout=5)
+        ok = "OK" if code == hc.get("expected_exit", 0) else "FAIL"
+        print(f"  [{ok:<4}] {t['id']}")
 
     return 0
 

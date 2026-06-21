@@ -104,26 +104,10 @@ def infer_script_capabilities(name: str) -> List[str]:
 
 
 def verify_health(command: str, repo_root: Path) -> bool:
-    """Health-check rápido: solo verifica que el archivo/script existe.
-    No ejecuta el comando (eso tarda 30s por script y puede colgar)."""
     if not command:
         return True
-    # Caso 1: test -f /path/to/file
-    if command.startswith("test -f "):
-        p = Path(command[8:].strip())
-        return p.exists()
-    # Caso 2: python3 /path/script.py --help
-    if "python3 " in command and ".py" in command:
-        # Extraer path del .py
-        import re
-        m = re.search(r"(\S+\.py)", command)
-        if m:
-            return Path(m.group(1)).exists()
-    # Caso 3: opencode mcp list (siempre considerado externo, no verificar)
-    if "opencode mcp" in command:
-        return None  # None = "no verificado, no falla"
-    # Otros: no verificar
-    return None
+    code, _, _ = run_cmd(["bash", "-c", command], cwd=repo_root, timeout=10)
+    return code == 0
 
 
 def build_mcp_tool(name: str, config: Dict[str, Any], repo_root: Path) -> Dict[str, Any]:
@@ -188,7 +172,7 @@ def build_script_tool(name: str, script_path: Path) -> Dict[str, Any]:
         "capabilities": infer_script_capabilities(name),
         "invoke": {"method": "bash-script", "target": f"python3 {script_path}"},
         "health_check": {
-            "command": f"test -f {script_path}",
+            "command": f"python3 {script_path} --help 2>&1 | head -1",
             "expected_exit": 0,
             "interval_seconds": 600,
         },
@@ -280,17 +264,12 @@ def main() -> int:
                     new_tools.append(tool)
                     existing_ids.add(tool["id"])
 
-    # 5. Health check de tools nuevas (rápido, sin ejecutar)
+    # 5. Health check de tools nuevas
     for tool in new_tools:
         hc = tool.get("health_check")
         if hc:
             ok = verify_health(hc["command"], repo_root)
-            if ok is None:
-                tool["status"] = "active"  # no verificable, asumir activo
-            elif ok:
-                tool["status"] = "active"
-            else:
-                tool["status"] = "degraded"
+            tool["status"] = "active" if ok else "degraded"
             tool["last_verified_at"] = now_iso()
         else:
             tool["status"] = "unverified"

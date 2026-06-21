@@ -1,37 +1,34 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.1.0",
-  "description": "Plugin de orquestación de agentes para OpenCode. Flujos dinámicos, recolección determinista de evidencia, planes generados por Python, tests automáticos, absorción de tools externas, routing declarativo y árbol de decisión con circuit breaker.",
-  "main": "plugin/index.ts",
+  "version": "2.2.0",
+  "description": "Plugin de reemplazo para apolo-flow-guardian.ts. Orquestador de agentes con flujos dinámicos, recolección determinista de evidencia, planes generados por Python, tests automáticos y absorción de tools externas. v2.2.0 cierra los 4 gaps críticos: (1) comprensión rápida de código vía index_codebase.py, (2) calidad/suficiencia de evidencia vía score_evidence.py, (3) predicción de impacto vía predict_impact.py, (4) apoyo activo a la implementación vía scaffold_impl.py. Incluye 3 tools nuevas: apolo.context.query, apolo.registry.recommend y apolo.health.check, y hot-reload del ToolRegistry.",
+  "main": "dist/plugin/index.js",
+  "types": "dist/plugin/index.d.ts",
   "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
     "test": "npx tsc && node --test dist/tests/plugin.test.js",
     "test:python": "python3 tests/run_all_tests.py",
     "test:all": "npm run test:python && npm run test",
     "inspect": "bash scripts/bash/apolo-inspect.sh",
-    "panel": "bash scripts/bash/apolo-inspect.sh serve-panel",
-    "build": "tsc",
-    "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist"
+    "panel": "python3 -m http.server 8080 --directory panel"
   },
   "keywords": [
     "opencode",
     "plugin",
-    "apolo",
+    "agent-orchestration",
     "dynamic-flow",
-    "loop-engine",
-    "routing",
-    "mcp",
-    "parallel-agents",
-    "evidence-pack",
-    "telemetry"
+    "evidence",
+    "mutation-testing"
   ],
-  "author": "",
+  "author": "apolo-dynamic-flow contributors",
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.0.0",
     "typescript": "^5.5.0"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=18"
   }
 }

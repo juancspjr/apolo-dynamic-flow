@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://apolo-dynamic-flow/schemas/json/agent-io.json",
-  "title": "Agent Input/Output Contract",
-  "description": "Contrato estricto de inputs y outputs para cada agent de APOLO. Permite validar con jsonschema antes de invocar un agent.",
+  "$id": "https://apolo.local/schemas/json/agent-io.json",
+  "title": "Agent I/O Contract",
+  "description": "Contrato inputs/outputs para los 8 agents del sistema apolo-dynamic-flow.",
   "type": "object",
   "additionalProperties": false,
   "required": ["agent", "version", "inputs", "outputs"],
@@ -18,13 +18,11 @@
         "implementer",
         "mutation-guardian",
         "evidence-acquisition"
-      ],
-      "description": "Nombre canónico del agent"
+      ]
     },
     "version": {
       "type": "string",
-      "pattern": "^v\\d+\\.\\d+$",
-      "description": "Versión del contrato (ej. v2.0)"
+      "pattern": "^v\\d+\\.\\d+$"
     },
     "inputs": {
       "type": "object",
@@ -33,20 +31,20 @@
       "properties": {
         "artifacts": {
           "type": "array",
-          "description": "Lista de artefactos YAML que el agent debe leer",
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["path", "required"],
+            "required": ["path"],
             "properties": {
-              "path": { "type": "string" },
-              "required": { "type": "boolean" }
+              "path": { "type": "string", "minLength": 1 },
+              "required": { "type": "boolean", "default": true },
+              "description": { "type": "string" }
             }
           }
         },
         "context": {
           "type": "object",
-          "additionalProperties": false,
+          "additionalProperties": true,
           "required": ["flow_id", "phase", "objective"],
           "properties": {
             "flow_id": {
@@ -55,14 +53,25 @@
             },
             "phase": {
               "type": "string",
-              "enum": ["reanclaje", "planning-bootstrap", "asr", "verdad", "shaping", "plan-indice", "mp-validation", "implementation", "critical-validation", "cierre-flow"]
+              "enum": [
+                "reanclaje",
+                "planning-bootstrap",
+                "asr",
+                "verdad",
+                "shaping",
+                "plan-indice",
+                "mp-validation",
+                "implementation",
+                "critical-validation",
+                "cierre-flow"
+              ]
             },
             "objective": {
               "type": "string",
               "minLength": 10
             },
             "mp_id": {
-              "type": ["string", "null"],
+              "type": "string",
               "pattern": "^MP-[A-Z0-9_-]+$"
             }
           }
@@ -72,7 +81,7 @@
     "outputs": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["artifacts_produced", "decision", "evidence"],
+      "required": ["artifacts_produced", "decision"],
       "properties": {
         "artifacts_produced": {
           "type": "array",
@@ -81,18 +90,21 @@
             "additionalProperties": false,
             "required": ["path", "schema"],
             "properties": {
-              "path": { "type": "string" },
+              "path": { "type": "string", "minLength": 1 },
               "schema": {
                 "type": "string",
                 "enum": [
-                  "00-OBJETIVO.schema.yaml",
-                  "01-ASR.schema.yaml",
-                  "02-VERDAD.schema.yaml",
-                  "dynamic-plan.schema.yaml",
-                  "flow-state.schema.yaml",
-                  "evidence-pack.schema.yaml",
-                  "test-result.schema.yaml",
-                  "loop-engine-decision.json"
+                  "flow-state",
+                  "dynamic-plan",
+                  "evidence-pack",
+                  "test-result",
+                  "tool-registry",
+                  "telemetry-event",
+                  "block-log",
+                  "loop-engine-decision",
+                  "routing-rules",
+                  "runtime-audit-log",
+                  "agent-io"
                 ]
               }
             }
@@ -120,14 +132,28 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["kind", "path", "reproducible"],
+            "required": ["kind", "path"],
             "properties": {
               "kind": {
                 "type": "string",
-                "enum": ["capture", "replay", "validate", "compare", "summary", "raw"]
+                "enum": [
+                  "file-snapshot",
+                  "git-diff",
+                  "git-log",
+                  "symbol-list",
+                  "endpoint-probe",
+                  "db-query",
+                  "screenshot",
+                  "dom-snapshot",
+                  "curl-response",
+                  "test-output",
+                  "runtime-log",
+                  "schema-validation",
+                  "mcp-capability"
+                ]
               },
-              "path": { "type": "string" },
-              "reproducible": { "type": "boolean" }
+              "path": { "type": "string", "minLength": 1 },
+              "reproducible": { "type": "boolean", "default": true }
             }
           }
         }

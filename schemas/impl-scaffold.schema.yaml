@@ -1,0 +1,179 @@
+# impl-scaffold.schema.yaml
+# Schema para IMPL-SCAFFOLD-<UNIT>.yaml generado por scaffold_impl.py
+
+type: object
+required:
+  - implscaffold
+  - version
+  - flowid
+  - unit_id
+  - generated_at
+  - generator
+  - inputs
+  - verdict
+  - verdict_reason
+  - files_to_touch
+  - function_contracts
+  - existing_tests
+  - edit_order
+  - checkpoints
+  - circular_dependencies
+  - change_template
+  - summary
+additionalProperties: false
+
+properties:
+  implscaffold:
+    type: string
+    const: "V1"
+  version:
+    type: integer
+    minimum: 1
+  flowid:
+    type: string
+    pattern: "^APOLO-[0-9]{8}-[A-Z0-9-]+$"
+  unit_id:
+    type: string
+    pattern: "^U-[0-9]{2}$"
+  generated_at:
+    type: string
+    format: date-time
+  generator:
+    type: object
+    required: [script, duration_ms]
+    properties:
+      script: { type: string }
+      duration_ms: { type: integer, minimum: 0 }
+  inputs:
+    type: object
+    properties:
+      plan: { type: string }
+      code_index: { type: [string, "null"] }
+      impact_prediction: { type: [string, "null"] }
+  verdict:
+    type: string
+    enum: [proceed, proceed-with-caution, write-tests-first, block-circular-deps]
+    description: "Veredicto para el agente: ¿puede empezar a implementar?"
+  verdict_reason: { type: string }
+  files_to_touch:
+    type: array
+    description: "Lista exacta de archivos a tocar, enriquecida con metadata del CODE-INDEX"
+    items:
+      type: object
+      required: [path, exists_in_index]
+      properties:
+        path: { type: string }
+        exists_in_index: { type: boolean }
+        matched_by_stem: { type: boolean }
+        language: { type: string }
+        size_bytes: { type: integer }
+        git_last_modified: { type: [string, "null"] }
+        summary: { type: string }
+        exported_functions:
+          type: array
+          items: { type: string }
+        exported_classes:
+          type: array
+          items: { type: string }
+        note: { type: string }
+  function_contracts:
+    type: array
+    description: "Firmas de funciones que el agente debe mantener para no romper callers"
+    items:
+      type: object
+      properties:
+        file: { type: string }
+        function: { type: string }
+        current_args:
+          type: array
+          items: { type: string }
+        is_async: { type: boolean }
+        is_exported: { type: boolean }
+        line: { type: integer }
+        docstring: { type: [string, "null"] }
+        contract_to_preserve: { type: string }
+        class: { type: string }
+        current_bases:
+          type: array
+          items: { type: string }
+        current_methods:
+          type: array
+          items: { type: string }
+  existing_tests:
+    type: object
+    properties:
+      inferred_test_files:
+        type: object
+        additionalProperties:
+          type: array
+          items: { type: string }
+      historical_runs:
+        type: array
+        items:
+          type: object
+          properties:
+            run_file: { type: string }
+            trigger: { type: string }
+            summary: { type: object }
+            exit_code: { type: integer }
+            tested_targets:
+              type: array
+              items: { type: string }
+      must_keep_passing:
+        type: array
+        items: { type: string }
+  edit_order:
+    type: array
+    description: "Sugerencia de orden de edición (archivos con más dependientes primero)"
+    items:
+      type: object
+      required: [order, file, reason]
+      properties:
+        order: { type: integer, minimum: 1 }
+        file: { type: string }
+        dependents_in_mp: { type: integer }
+        reason: { type: string }
+  checkpoints:
+    type: array
+    description: "Checkpoints intermedios: 'después de X, corre tests antes de continuar Y'"
+    items:
+      type: object
+      required: [id, when, action, command, expected]
+      properties:
+        id: { type: string }
+        when: { type: string, description: "ej: 'before-start', 'after-editing:foo.ts', 'after-implementation-complete'" }
+        action:
+          type: string
+          enum: [verify-clean-git, run-micro-tests, run-mutation-tests, run-full-suite]
+        command: { type: string }
+        expected: { type: string }
+        reason: { type: string }
+  circular_dependencies:
+    type: array
+    description: "Dependencias circulares detectadas entre los archivos del MP"
+    items:
+      type: object
+      properties:
+        files:
+          type: array
+          items: { type: string }
+        description: { type: string }
+  change_template:
+    type: object
+    description: "Template de estructura del cambio según el tipo (fix/refactor/feat/paradoja/docs)"
+    properties:
+      pattern: { type: string }
+      structure:
+        type: array
+        items: { type: string }
+      anti_patterns:
+        type: array
+        items: { type: string }
+  summary:
+    type: object
+    properties:
+      total_files: { type: integer }
+      total_contracts: { type: integer }
+      total_checkpoints: { type: integer }
+      has_circular_deps: { type: boolean }
+      tests_found: { type: integer }

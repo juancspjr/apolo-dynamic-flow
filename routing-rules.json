@@ -3,6 +3,17 @@
   "version": "v2.0",
   "rules": [
     {
+      "id": "R-010",
+      "priority": 5,
+      "when": {
+        "phase": "cierre-flow"
+      },
+      "then": {
+        "next_agent": "closed",
+        "reason": "fase cierre-flow alcanzada — flow cerrado"
+      }
+    },
+    {
       "id": "R-001",
       "priority": 10,
       "when": {
@@ -11,7 +22,19 @@
       },
       "then": {
         "next_agent": "planner",
-        "reason": "No hay objetivo. El planner debe producir 00-OBJETIVO.yaml antes de cualquier otra cosa."
+        "reason": "reanclaje sin 00-OBJETIVO — planner debe definir objetivo"
+      }
+    },
+    {
+      "id": "R-009",
+      "priority": 15,
+      "when": {
+        "phase": "verdad",
+        "deep_evidence_required": true
+      },
+      "then": {
+        "next_agent": "evidence-acquisition",
+        "reason": "verdad con deep_evidence_required — disparar evidence-acquisition"
       }
     },
     {
@@ -24,7 +47,7 @@
       },
       "then": {
         "next_agent": "surface-scanner",
-        "reason": "Objetivo definido pero falta ASR. Surface-scanner debe escanear la superficie del repo."
+        "reason": "objetivo definido sin ASR — surface-scanner debe mapear superficie"
       }
     },
     {
@@ -37,7 +60,7 @@
       },
       "then": {
         "next_agent": "truth-auditor",
-        "reason": "ASR listo. Truth-auditor debe confirmar verdad por componente."
+        "reason": "ASR presente sin VERDAD — truth-auditor debe auditar verdad"
       }
     },
     {
@@ -50,7 +73,7 @@
       },
       "then": {
         "next_agent": "planner",
-        "reason": "Verdad confirmada. Planner debe construir plan shaping."
+        "reason": "verdad definida sin shaping — planner debe shapificar el plan"
       }
     },
     {
@@ -63,7 +86,7 @@
       },
       "then": {
         "next_agent": "microplanner",
-        "reason": "Shaping listo. Microplanner debe generar el plan índice dinámico."
+        "reason": "shaping presente sin plan-indice — microplanner debe particionar MPs"
       }
     },
     {
@@ -76,7 +99,7 @@
       },
       "then": {
         "next_agent": "implementer",
-        "reason": "MP listo para ejecutar. Implementer debe aplicar el cambio."
+        "reason": "implementation con MP listo y sin blocker — implementer debe mutar"
       }
     },
     {
@@ -88,7 +111,7 @@
       },
       "then": {
         "next_agent": "mutation-guardian",
-        "reason": "MP implementado. Mutation-guardian debe evaluar admisión."
+        "reason": "critical-validation con MP listo — mutation-guardian debe validar"
       }
     },
     {
@@ -99,31 +122,8 @@
       },
       "then": {
         "next_agent": "blocked",
-        "reason": "Hay bloqueo activo en BLOCK-LOG.yaml. El operador debe resolverlo antes de continuar.",
+        "reason": "bloqueo activo — circuit breaker disparado, detener mutaciones",
         "circuit_breaker": true
-      }
-    },
-    {
-      "id": "R-009",
-      "priority": 15,
-      "when": {
-        "phase": "verdad",
-        "deep_evidence_required": true
-      },
-      "then": {
-        "next_agent": "evidence-acquisition",
-        "reason": "La captura profunda es obligatoria. Evidence-acquisition debe recolectar evidencia."
-      }
-    },
-    {
-      "id": "R-010",
-      "priority": 5,
-      "when": {
-        "phase": "cierre-flow"
-      },
-      "then": {
-        "next_agent": "closed",
-        "reason": "Flow cerrado."
       }
     }
   ]

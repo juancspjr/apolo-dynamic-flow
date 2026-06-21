@@ -22,10 +22,36 @@ export interface TestOptions {
     kind: "unit" | "integration" | "mutation" | "e2e" | "contract" | "schema-validation";
     targets: string[]; // símbolos, archivos, endpoints
     mpId?: string;
+    // v2.2.0 — si se pasa, invoca scaffold_impl.py antes de correr tests
+    unit_id?: string;
+    plan_path?: string; // DYNAMIC-PLAN.yaml
+    code_index_path?: string; // CODE-INDEX.yaml
+    impact_prediction_path?: string; // IMPACT-PREDICTION.yaml
   };
   rollbackOnFail?: boolean;
   rollbackStrategy?: "git-restore" | "git-stash-pop" | "custom-script";
   customRollbackScript?: string;
+}
+
+// v2.2.0 — Scaffold support
+export interface RunScaffoldOptions {
+  planPath: string;
+  unitId: string;
+  codeIndexPath?: string;
+  impactPredictionPath?: string;
+  outputPath?: string;
+}
+
+export interface RunScaffoldResult {
+  success: boolean;
+  verdict: string;
+  total_files: number;
+  total_checkpoints: number;
+  has_circular_deps: boolean;
+  duration_ms: number;
+  outputPath: string;
+  stdout: string;
+  stderr: string;
 }
 
 export interface TestRunResult {
@@ -36,6 +62,8 @@ export interface TestRunResult {
   stdout: string;
   stderr: string;
   durationMs: number;
+  // v2.2.0 — resultado del scaffold (si se invocó)
+  scaffold?: RunScaffoldResult;
 }
 
 const TEST_SCRIPT = path.join(
@@ -54,11 +82,180 @@ const ROLLBACK_SCRIPT = path.join(
   "rollback.py"
 );
 
+const SCAFFOLD_SCRIPT = path.join(
+  __dirname,
+  "..",
+  "scripts",
+  "python",
+  "scaffold_impl.py"
+);
+
+// ============================================================================
+// v2.2.0 — Wrapper para scaffold_impl.py
+// ============================================================================
+
+/**
+ * Invoca scripts/python/scaffold_impl.py para generar IMPL-SCAFFOLD-<U-XX>.yaml.
+ * GAP 4: apoyo activo a la implementación.
+ */
+export function runScaffold(
+  ctx: PluginContext,
+  opts: RunScaffoldOptions
+): RunScaffoldResult {
+  const start = Date.now();
+  const safeUnit = opts.unitId.replace(/[^A-Za-z0-9-]/g, "");
+  const outputPath =
+    opts.outputPath ||
+    path.join(
+      path.dirname(opts.planPath),
+      `IMPL-SCAFFOLD-${safeUnit}.yaml`
+    );
+  ensureDir(path.dirname(outputPath));
+
+  const args = [
+    SCAFFOLD_SCRIPT,
+    "--plan",
+    opts.planPath,
+    "--unit-id",
+    opts.unitId,
+    "--output",
+    outputPath,
+    "--flowid",
+    ctx.flowid,
+  ];
+  if (opts.codeIndexPath) args.push("--code-index", opts.codeIndexPath);
+  if (opts.impactPredictionPath)
+    args.push("--impact-prediction", opts.impactPredictionPath);
+
+  const result = spawnSync("python3", args, {
+    encoding: "utf8",
+    timeout: 60000,
+    maxBuffer: 10 * 1024 * 1024,
+  });
+
+  const durationMs = Date.now() - start;
+  // scaffold_impl.py returns exit 1 when verdict != "proceed" but JSON is valid.
+  const ran = result.status !== null;
+  let verdict = "error";
+  let total_files = 0;
+  let total_checkpoints = 0;
+  let has_circular_deps = false;
+
+  if (ran && result.stdout) {
+    try {
+      const parsed = JSON.parse(result.stdout);
+      verdict = parsed.verdict ?? "error";
+      total_files = parsed.total_files ?? 0;
+      total_checkpoints = parsed.total_checkpoints ?? 0;
+      has_circular_deps = parsed.has_circular_deps ?? false;
+    } catch {
+      const lines = result.stdout
+        .split("\n")
+        .filter((l) => l.trim().startsWith("{"));
+      if (lines.length > 0) {
+        try {
+          const parsed = JSON.parse(lines[lines.length - 1]);
+          verdict = parsed.verdict ?? "error";
+          total_files = parsed.total_files ?? 0;
+          total_checkpoints = parsed.total_checkpoints ?? 0;
+          has_circular_deps = parsed.has_circular_deps ?? false;
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+  }
+
+  const success = ran && verdict !== "error";
+
+  ctx.emit({
+    kind: success ? "test-run" : "test-fail",
+    phase: "implementation",
+    severity: success
+      ? verdict === "proceed"
+        ? "info"
+        : "warn"
+      : "error",
+    message: success
+      ? `scaffold ${opts.unitId}: verdict=${verdict}, ${total_files} archivos, ${total_checkpoints} checkpoints (circular=${has_circular_deps})`
+      : `fallo scaffold_impl: ${result.stderr?.slice(0, 200)}`,
+    payload: {
+      unit_id: opts.unitId,
+      verdict,
+      total_files,
+      total_checkpoints,
+      has_circular_deps,
+      duration_ms: durationMs,
+      output: outputPath,
+    },
+    duration_ms: durationMs,
+  });
+
+  return {
+    success,
+    verdict,
+    total_files,
+    total_checkpoints,
+    has_circular_deps,
+    duration_ms: durationMs,
+    outputPath,
+    stdout: result.stdout ?? "",
+    stderr: result.stderr ?? "",
+  };
+}
+
 export function runTests(
   ctx: PluginContext,
   opts: TestOptions
 ): TestRunResult {
   const start = Date.now();
+
+  // ============================================================================
+  // v2.2.0 — Si se pasa unit_id + plan_path, invocar scaffold_impl.py primero
+  // ============================================================================
+  let scaffold: RunScaffoldResult | undefined;
+  if (opts.scope.unit_id && opts.scope.plan_path) {
+    try {
+      scaffold = runScaffold(ctx, {
+        planPath: opts.scope.plan_path,
+        unitId: opts.scope.unit_id,
+        codeIndexPath: opts.scope.code_index_path,
+        impactPredictionPath: opts.scope.impact_prediction_path,
+      });
+      // Si el scaffold detecta dependencias circulares, no correr tests
+      if (scaffold.has_circular_deps) {
+        ctx.emit({
+          kind: "test-fail",
+          phase: "implementation",
+          severity: "critical",
+          message: `scaffold ${opts.scope.unit_id}: block-circular-deps — tests no ejecutados`,
+          payload: {
+            unit_id: opts.scope.unit_id,
+            verdict: scaffold.verdict,
+            has_circular_deps: true,
+          },
+        });
+        return {
+          run: null,
+          success: false,
+          rollbackTriggered: false,
+          exitCode: -1,
+          stdout: "",
+          stderr: `scaffold ${opts.scope.unit_id} bloqueado: dependencias circulares`,
+          durationMs: Date.now() - start,
+          scaffold,
+        };
+      }
+    } catch (e) {
+      ctx.emit({
+        kind: "test-fail",
+        phase: "implementation",
+        severity: "warn",
+        message: `scaffold invocación falló (continuando con tests): ${(e as Error).message?.slice(0, 200)}`,
+      });
+    }
+  }
+
   const runId = `run-${Date.now()}`;
   const outPath = path.join(
     path.dirname(ctx.evidencePath),
@@ -171,5 +368,6 @@ export function runTests(
     stdout: result.stdout ?? "",
     stderr: result.stderr ?? "",
     durationMs,
+    scaffold,
   };
 }

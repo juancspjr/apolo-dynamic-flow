@@ -1,11 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://apolo-dynamic-flow/schemas/json/runtime-audit-log.json",
+  "$id": "https://apolo.local/schemas/json/runtime-audit-log.json",
   "title": "Runtime Audit Log Entry",
-  "description": "Formato de cada entrada del runtime-audit.log. JSON Lines (una entrada por línea). Log en tiempo real para auditoría.",
+  "description": "Entrada del log de auditoría JSON Lines. Una entrada por línea. seq es monotónico dentro del flow_id.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["ts", "actor", "action", "outcome", "flow_id", "seq"],
+  "required": ["ts", "seq", "flow_id", "actor", "action", "outcome"],
   "properties": {
     "ts": {
       "type": "string",
@@ -13,8 +13,7 @@
     },
     "seq": {
       "type": "integer",
-      "minimum": 1,
-      "description": "Secuencia monotónica dentro del flow"
+      "minimum": 1
     },
     "flow_id": {
       "type": "string",
@@ -72,29 +71,27 @@
         "error"
       ]
     },
+    "outcome": {
+      "type": "string",
+      "enum": ["success", "failure", "warning", "blocked", "skipped"]
+    },
     "decision": {
       "type": "object",
       "additionalProperties": false,
+      "required": ["type", "value", "reasoning"],
       "properties": {
         "type": {
           "type": "string",
           "enum": ["next_agent", "admission", "block", "route", "complete"]
         },
-        "value": { "type": "string" },
-        "reasoning": { "type": "string" },
+        "value": { "type": "string", "minLength": 1 },
+        "reasoning": { "type": "string", "minLength": 1 },
         "evidence_refs": {
           "type": "array",
           "items": { "type": "string" }
         },
-        "rule_id": {
-          "type": "string",
-          "pattern": "^R-\\d{3}$"
-        }
+        "rule_id": { "type": "string" }
       }
-    },
-    "outcome": {
-      "type": "string",
-      "enum": ["success", "failure", "warning", "blocked", "skipped"]
     },
     "target": {
       "type": ["string", "null"]

@@ -35,12 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Paths ABSOLUTOS (start with /) para que el servidor los resuelva desde repo_root.
-  // El servidor sirve desde repoRoot, así que /plan/... → repoRoot/plan/...
-  API.statePath = `/plan/active/${flowid}/FLOW-STATE.yaml`;
-  API.telemetryPath = `/plan/active/${flowid}/telemetry.jsonl`;
-  API.blocksPath = `/plan/active/${flowid}/BLOCK-LOG.yaml`;
-  API.toolRegistryPath = `/.opencode/apolo-dynamic/TOOL-REGISTRY.yaml`;
+  // Paths
+  API.statePath = `${repoRoot}/plan/active/${flowid}/FLOW-STATE.yaml`;
+  API.telemetryPath = `${repoRoot}/plan/active/${flowid}/telemetry.jsonl`;
+  API.blocksPath = `${repoRoot}/plan/active/${flowid}/BLOCK-LOG.yaml`;
+  API.toolRegistryPath = `${repoRoot}/.opencode/apolo-dynamic/TOOL-REGISTRY.yaml`;
 
   // Poll
   refresh();

@@ -1,43 +1,52 @@
 /**
- * loop-engine-tree.ts — Árbol de decisión del loop-engine.
+ * loop-engine-tree.ts — Árbol de decisión D-NNN con circuit breaker.
  *
- * Reemplaza la lógica de "plan tras plan" por un árbol finito de decisiones.
- * Cada nodo D-NNN representa un estado del flow con hasta 5 ramificaciones.
+ * Cada nodo D-NNN representa un punto de decisión en el loop dinámico. Tiene 5
+ * branches por defecto que cubren todos los outcomes posibles de un micro-test:
+ *
+ *   1. test_passes            → advance_phase   (terminal)
+ *   2. test_fails_retriable   → retry_mp        (con next_node="AUTO" crea D-NNN+1)
+ *   3. test_fails_terminal    → raise_blocker   (terminal)
+ *   4. blocker_persists       → ask_operator    (terminal)
+ *   5. iteration_exceeded     → circuit_break   (terminal)
+ *
+ * El árbol se persiste en `plan/active/<flowid>/decision-tree.json` y cada
+ * avance se loguea vía runtime-logger.ts.
  *
  * Conforme al schema: schemas/json/loop-engine-decision.json
  */
 
 import * as fs from "fs";
 import * as path from "path";
-import { log } from "./runtime-logger";
+import { log as auditLog } from "./runtime-logger";
 
 // ============================================================================
 // Types
 // ============================================================================
 
-export type BranchCondition =
+export type DecisionCondition =
   | "test_passes"
   | "test_fails_retriable"
   | "test_fails_terminal"
-  | "blocker_resolved"
   | "blocker_persists"
-  | "operator_confirms"
-  | "operator_rejects"
-  | "evidence_sufficient"
-  | "evidence_insufficient"
-  | "paradoja_detected"
-  | "iteration_exceeded";
+  | "iteration_exceeded"
+  | "evidence_stale"
+  | "evidence_contradicts"
+  | "gate_pass"
+  | "gate_refine"
+  | "gate_escalate"
+  | "gate_block";
 
-export type BranchAction =
+export type DecisionAction =
   | "advance_phase"
   | "retry_mp"
-  | "rollback_mp"
   | "raise_blocker"
   | "ask_operator"
-  | "spawn_parallel_hypotheses"
-  | "generate_evidence_script"
   | "circuit_break"
-  | "close_flow";
+  | "collect_evidence"
+  | "refine_plan"
+  | "rollback"
+  | "no_op";
 
 export type Phase =
   | "reanclaje"
@@ -51,261 +60,366 @@ export type Phase =
   | "critical-validation"
   | "cierre-flow";
 
-export interface Branch {
-  condition: BranchCondition;
-  action: BranchAction;
-  next_node: string | null;
+export interface DecisionBranch {
+  condition: DecisionCondition;
+  action: DecisionAction;
+  next_node: string; // "D-NNN" o "AUTO"
   reasoning: string;
-}
-
-export interface NodeState {
-  artifacts_present: string[];
-  mp_active: string | null;
-  blocker_active: boolean;
-  iteration: number;
-  last_test_result?: "pass" | "fail" | "skipped" | null;
+  terminal: boolean;
 }
 
 export interface DecisionNode {
-  id: string;
+  id: string; // D-001
   flow_id: string;
-  phase: Phase | string;
-  state: NodeState;
-  branches: Branch[];
-  parent_node: string | null;
+  phase: Phase;
+  state: {
+    artifacts_present: string[];
+    mp_active?: string;
+    blocker_active: boolean;
+    iteration: number; // 1-10
+    last_test_result?: { passed: boolean; exit_code: number };
+  };
+  branches: DecisionBranch[];
   created_at: string;
-  resolved_at?: string | null;
-  outcome?: "advanced" | "retried" | "rolled_back" | "blocked" | "operator_decision" | "circuit_broken" | "closed" | null;
+  parent_node: string | null;
+  resolved_at?: string;
+  outcome?: DecisionCondition;
+}
+
+export interface DecisionTree {
+  flow_id: string;
+  nodes: Record<string, DecisionNode>;
+  root_id: string;
+  current_id: string;
+  counter: number;
 }
 
 export interface AdvanceResult {
-  action: BranchAction;
+  action: DecisionAction;
   completed: boolean;
   circuit_breaker: boolean;
   node?: DecisionNode;
 }
 
 // ============================================================================
-// Tree cache (per flow_id)
+// Tree cache
 // ============================================================================
 
-const treeCache = new Map<string, DecisionNode[]>();
+const treeCache = new Map<string, DecisionTree>();
 
 export function _resetTreeCache(): void {
   treeCache.clear();
 }
 
-function getTree(flowId: string): DecisionNode[] {
-  if (!treeCache.has(flowId)) {
-    treeCache.set(flowId, []);
+function treePath(flowId: string, repoRoot: string = process.cwd()): string {
+  return path.join(repoRoot, "plan", "active", flowId, "decision-tree.json");
+}
+
+function ensureTreeDir(p: string): void {
+  const dir = path.dirname(p);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
   }
-  return treeCache.get(flowId)!;
 }
 
-function nextNodeId(flowId: string): string {
-  const tree = getTree(flowId);
-  return `D-${String(tree.length + 1).padStart(3, "0")}`;
+function persistTree(tree: DecisionTree, repoRoot: string = process.cwd()): void {
+  const p = treePath(tree.flow_id, repoRoot);
+  ensureTreeDir(p);
+  fs.writeFileSync(p, JSON.stringify(tree, null, 2), "utf8");
+  treeCache.set(tree.flow_id, tree);
+}
+
+function loadTree(flowId: string, repoRoot: string = process.cwd()): DecisionTree | null {
+  if (treeCache.has(flowId)) return treeCache.get(flowId)!;
+  const p = treePath(flowId, repoRoot);
+  if (!fs.existsSync(p)) return null;
+  try {
+    const raw = fs.readFileSync(p, "utf8");
+    const tree = JSON.parse(raw) as DecisionTree;
+    treeCache.set(flowId, tree);
+    return tree;
+  } catch {
+    return null;
+  }
 }
 
 // ============================================================================
-// Default branches for a root node
+// Node factories
 // ============================================================================
 
-function defaultBranches(): Branch[] {
-  // next_node = "AUTO" significa "crear siguiente nodo automáticamente".
-  // next_node = null significa "terminal, no crear siguiente".
+function defaultBranches(): DecisionBranch[] {
   return [
     {
       condition: "test_passes",
       action: "advance_phase",
-      next_node: null,
-      reasoning: "Tests pasan, avanzar a la siguiente fase.",
+      next_node: "AUTO",
+      reasoning: "Micro-test pasó — avanzar a la siguiente fase",
+      terminal: true,
     },
     {
       condition: "test_fails_retriable",
       action: "retry_mp",
       next_node: "AUTO",
-      reasoning: "Tests fallan pero el error es retriable. Reintentar MP.",
+      reasoning: "Micro-test falló de forma retriable — reintentar MP con ajustes",
+      terminal: false,
     },
     {
       condition: "test_fails_terminal",
       action: "raise_blocker",
-      next_node: null,
-      reasoning: "Tests fallan de forma terminal. Levantar bloqueo.",
+      next_node: "AUTO",
+      reasoning: "Micro-test falló de forma terminal — levantar bloqueo",
+      terminal: true,
     },
     {
       condition: "blocker_persists",
       action: "ask_operator",
-      next_node: null,
-      reasoning: "El bloqueo persiste. Pedir decisión al operador.",
+      next_node: "AUTO",
+      reasoning: "Bloqueo persiste tras N intentos — pedir decisión al operador",
+      terminal: true,
     },
     {
       condition: "iteration_exceeded",
       action: "circuit_break",
-      next_node: null,
-      reasoning: "Iteraciones agotadas. Circuit breaker.",
+      next_node: "AUTO",
+      reasoning: "Iteraciones agotadas — disparar circuit breaker",
+      terminal: true,
     },
   ];
 }
 
-// ============================================================================
-// Public API
-// ============================================================================
+function nextNodeId(tree: DecisionTree): string {
+  tree.counter += 1;
+  return `D-${String(tree.counter).padStart(3, "0")}`;
+}
 
 export function createRootNode(
   flowId: string,
-  flowPath: string,
-  phase: Phase | string
+  phase: Phase,
+  opts: {
+    mp_active?: string;
+    artifacts_present?: string[];
+    repoRoot?: string;
+  } = {}
 ): DecisionNode {
+  const repoRoot = opts.repoRoot ?? process.cwd();
+  let tree = loadTree(flowId, repoRoot);
+  if (!tree) {
+    tree = {
+      flow_id: flowId,
+      nodes: {},
+      root_id: "D-001",
+      current_id: "D-001",
+      counter: 1,
+    };
+  }
   const node: DecisionNode = {
     id: "D-001",
     flow_id: flowId,
     phase,
     state: {
-      artifacts_present: [],
-      mp_active: null,
+      artifacts_present: opts.artifacts_present ?? [],
+      mp_active: opts.mp_active,
       blocker_active: false,
       iteration: 1,
-      last_test_result: null,
     },
     branches: defaultBranches(),
-    parent_node: null,
     created_at: new Date().toISOString(),
-    resolved_at: null,
-    outcome: null,
+    parent_node: null,
   };
-
-  const tree = getTree(flowId);
-  tree.push(node);
-
-  log({
-    flow_id: flowId,
-    actor: "plugin:apolo-dynamic-flow",
-    action: "decision_made",
-    outcome: "success",
-    decision: {
-      type: "next_agent",
-      value: `D-001 creado en phase=${phase}`,
-      reasoning: "Root node del decision tree creado.",
+  tree.nodes[node.id] = node;
+  tree.root_id = node.id;
+  tree.current_id = node.id;
+  persistTree(tree, repoRoot);
+  auditLog(
+    {
+      flow_id: flowId,
+      actor: "plugin:apolo-dynamic-flow",
+      action: "decision_made",
+      outcome: "success",
+      decision: {
+        type: "route",
+        value: node.id,
+        reasoning: `Root node ${node.id} creado en fase ${phase}`,
+        rule_id: node.id,
+      },
+      context: { phase, mp_active: opts.mp_active },
     },
-  });
-
+    repoRoot
+  );
   return node;
 }
 
-export function getNode(flowId: string, nodeId: string): DecisionNode | undefined {
-  return getTree(flowId).find((n) => n.id === nodeId);
+export function getNode(
+  flowId: string,
+  nodeId: string,
+  repoRoot: string = process.cwd()
+): DecisionNode | null {
+  const tree = loadTree(flowId, repoRoot);
+  if (!tree) return null;
+  return tree.nodes[nodeId] ?? null;
 }
+
+// ============================================================================
+// Advance
+// ============================================================================
 
 export function advance(
   flowId: string,
   flowPath: string,
   nodeId: string,
-  condition: BranchCondition
+  condition: DecisionCondition,
+  opts: { repoRoot?: string; failureReason?: string } = {}
 ): AdvanceResult {
-  const node = getNode(flowId, nodeId);
+  const repoRoot = opts.repoRoot ?? process.cwd();
+  const tree = loadTree(flowId, repoRoot);
+  if (!tree) {
+    return {
+      action: "no_op",
+      completed: false,
+      circuit_breaker: false,
+    };
+  }
+  const node = tree.nodes[nodeId];
   if (!node) {
     return {
-      action: "circuit_break" as BranchAction,
-      completed: true,
-      circuit_breaker: true,
+      action: "no_op",
+      completed: false,
+      circuit_breaker: false,
     };
   }
 
   const branch = node.branches.find((b) => b.condition === condition);
   if (!branch) {
     return {
-      action: "circuit_break" as BranchAction,
-      completed: true,
-      circuit_breaker: true,
+      action: "no_op",
+      completed: false,
+      circuit_breaker: false,
     };
   }
 
   // Marcar nodo como resuelto
   node.resolved_at = new Date().toISOString();
+  node.outcome = condition;
 
-  const isCircuitBreak = branch.action === "circuit_break";
-  const isTerminal =
-    branch.next_node === null ||
-    branch.action === "advance_phase" ||
-    branch.action === "circuit_break" ||
-    branch.action === "close_flow";
-  const shouldCreateNext = !isTerminal && branch.next_node === "AUTO";
+  // Caso terminal
+  if (branch.terminal || branch.action === "advance_phase" ||
+      branch.action === "raise_blocker" || branch.action === "ask_operator" ||
+      branch.action === "circuit_break") {
+    persistTree(tree, repoRoot);
+    auditLog(
+      {
+        flow_id: flowId,
+        actor: "plugin:apolo-dynamic-flow",
+        action: "decision_made",
+        outcome:
+          branch.action === "circuit_break"
+            ? "blocked"
+            : branch.action === "raise_blocker"
+            ? "blocked"
+            : "success",
+        decision: {
+          type: "complete",
+          value: branch.action,
+          reasoning: branch.reasoning,
+          rule_id: node.id,
+        },
+        context: { phase: node.phase, condition, node_id: node.id },
+      },
+      repoRoot
+    );
+    return {
+      action: branch.action,
+      completed: true,
+      circuit_breaker: branch.action === "circuit_break",
+    };
+  }
 
-  // Mapear outcome
-  const outcomeMap: Record<BranchAction, DecisionNode["outcome"]> = {
-    advance_phase: "advanced",
-    retry_mp: "retried",
-    rollback_mp: "rolled_back",
-    raise_blocker: "blocked",
-    ask_operator: "operator_decision",
-    spawn_parallel_hypotheses: "retried",
-    generate_evidence_script: "retried",
-    circuit_break: "circuit_broken",
-    close_flow: "closed",
-  };
-  node.outcome = outcomeMap[branch.action] ?? null;
-
-  // Crear siguiente nodo solo si shouldCreateNext (branch.next_node === "AUTO")
+  // Caso no-terminal: crear siguiente nodo si next_node === "AUTO"
   let nextNode: DecisionNode | undefined;
-  if (shouldCreateNext) {
+  if (branch.next_node === "AUTO") {
+    const newId = nextNodeId(tree);
+    const newIteration = Math.min(node.state.iteration + 1, 10);
     nextNode = {
-      id: nextNodeId(flowId),
+      id: newId,
       flow_id: flowId,
       phase: node.phase,
       state: {
-        ...node.state,
-        iteration: node.state.iteration + 1,
+        artifacts_present: node.state.artifacts_present,
+        mp_active: node.state.mp_active,
+        blocker_active: node.state.blocker_active,
+        iteration: newIteration,
       },
       branches: defaultBranches(),
-      parent_node: node.id,
       created_at: new Date().toISOString(),
-      resolved_at: null,
-      outcome: null,
+      parent_node: node.id,
     };
-    getTree(flowId).push(nextNode);
+    tree.nodes[newId] = nextNode;
+    tree.current_id = newId;
+  } else if (tree.nodes[branch.next_node]) {
+    nextNode = tree.nodes[branch.next_node];
+    tree.current_id = branch.next_node;
   }
 
-  log({
-    flow_id: flowId,
-    actor: "plugin:apolo-dynamic-flow",
-    action: "decision_made",
-    outcome: isCircuitBreak ? "blocked" : "success",
-    decision: {
-      type: "next_agent",
-      value: branch.action,
-      reasoning: branch.reasoning,
+  persistTree(tree, repoRoot);
+  auditLog(
+    {
+      flow_id: flowId,
+      actor: "plugin:apolo-dynamic-flow",
+      action: "decision_made",
+      outcome: "success",
+      decision: {
+        type: "route",
+        value: branch.action,
+        reasoning: branch.reasoning,
+        rule_id: node.id,
+      },
+      context: {
+        phase: node.phase,
+        condition,
+        node_id: node.id,
+        next_node: nextNode?.id,
+      },
     },
-  });
+    repoRoot
+  );
 
   return {
     action: branch.action,
-    completed: isTerminal,
-    circuit_breaker: isCircuitBreak,
+    completed: false,
+    circuit_breaker: false,
     node: nextNode,
   };
 }
 
-/**
- * Detecta circuit breaker por patrón: 3+ fallos con la misma razón para el mismo MP.
- */
+// ============================================================================
+// Circuit Breaker detection
+// ============================================================================
+
+export interface FailureEntry {
+  mp_id: string;
+  reason: string;
+  at: string;
+}
+
 export function detectCircuitBreaker(
   flowId: string,
   mpId: string,
-  failures: Array<{ mp_id: string; reason: string }>
+  failures: FailureEntry[]
 ): boolean {
-  const mpFailures = failures.filter((f) => f.mp_id === mpId);
-  if (mpFailures.length < 3) return false;
-
-  // Tomar las últimas 3
-  const recent = mpFailures.slice(-3);
-  const reasons = new Set(recent.map((f) => f.reason));
-  return reasons.size === 1; // misma razón en las 3
+  // Tomar las últimas 3 entradas de failures para mpId
+  const forMp = failures.filter((f) => f.mp_id === mpId).slice(-3);
+  if (forMp.length < 3) return false;
+  const firstReason = forMp[0].reason;
+  return forMp.every((f) => f.reason === firstReason);
 }
 
-/**
- * Exporta el árbol completo a JSON (para debugging/inspección).
- */
-export function exportTree(flowId: string): DecisionNode[] {
-  return getTree(flowId);
+// ============================================================================
+// Export tree
+// ============================================================================
+
+export function exportTree(
+  flowId: string,
+  repoRoot: string = process.cwd()
+): DecisionTree | null {
+  return loadTree(flowId, repoRoot);
 }

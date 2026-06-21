@@ -33,6 +33,22 @@ const ABSORB_SCRIPT = path.join(
   "absorb_mcp.py"
 );
 
+const HEALTH_CHECK_SCRIPT = path.join(
+  __dirname,
+  "..",
+  "scripts",
+  "python",
+  "health_check.py"
+);
+
+const REGISTRY_RECOMMEND_SCRIPT = path.join(
+  __dirname,
+  "..",
+  "scripts",
+  "python",
+  "registry_recommend.py"
+);
+
 export interface AbsorbResult {
   registry: ToolRegistry;
   newTools: RegisteredTool[];
@@ -382,4 +398,237 @@ export function getFallbackChain(
     current = next;
   }
   return chain;
+}
+
+// ============================================================================
+// v2.2.0 — Hot reload + active recommendation
+// ============================================================================
+
+export interface HotReloadResult {
+  registry: ToolRegistry;
+  new_tools: RegisteredTool[];
+  status_changes: Array<{
+    tool_id: string;
+    old_status: string;
+    new_status: string;
+    reason: string;
+  }>;
+  missing_tools: string[];
+  success: boolean;
+  durationMs: number;
+  rawSummary?: {
+    total_tools: number;
+    healthy: number;
+    unhealthy: number;
+  };
+}
+
+/**
+ * Invoca scripts/python/health_check.py --fix true --json para re-absorber
+ * en caliente: actualiza estados (active/degraded) del ToolRegistry en memoria
+ * y persiste el archivo YAML.
+ *
+ * Emite eventos `tool-absorbed` (cuando hay nuevas tools) o `tool-failed`
+ * (cuando una tool cambió a degraded/disabled).
+ */
+export function hotReloadRegistry(
+  ctx: PluginContext,
+  opts: { fix?: boolean } = {}
+): HotReloadResult {
+  const start = Date.now();
+  const fix = opts.fix !== false; // default true
+
+  const args = [
+    HEALTH_CHECK_SCRIPT,
+    "--repo-root",
+    ctx.repoRoot,
+    "--json",
+    "true",
+  ];
+  if (fix) {
+    args.push("--fix", "true");
+  }
+
+  const result = spawnSync("python3", args, {
+    encoding: "utf8",
+    timeout: 30000,
+    maxBuffer: 10 * 1024 * 1024,
+  });
+
+  const durationMs = Date.now() - start;
+  const ran = result.status !== null;
+
+  // health_check.py returns exit 1 if there are unhealthy tools, but JSON is valid.
+  let parsed: any = null;
+  if (ran && result.stdout) {
+    try {
+      parsed = JSON.parse(result.stdout);
+    } catch {
+      const lines = result.stdout
+        .split("\n")
+        .filter((l) => l.trim().startsWith("{"));
+      if (lines.length > 0) {
+        try {
+          parsed = JSON.parse(lines[lines.length - 1]);
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+  }
+
+  // Leer el registry actualizado (el script Python lo persistió si fix=true)
+  const registry = readYaml<ToolRegistry>(ctx.toolRegistryPath) ?? {
+    toolregistry: "V2",
+    version: 1,
+    updated_at: now(),
+    tools: [],
+    conflicts: [],
+  };
+
+  const newTools: RegisteredTool[] = (parsed?.new_scripts ?? []).map((s: any) => ({
+    id: s.id,
+    source: s.source,
+    kind: s.kind ?? "external-script",
+    name: s.name,
+    status: s.status ?? "unverified",
+    registered_at: s.registered_at ?? now(),
+    capabilities: s.capabilities ?? [],
+    invoke: s.invoke ?? { method: "bash-script", target: "" },
+  }));
+
+  const statusChanges: HotReloadResult["status_changes"] =
+    parsed?.status_changes ?? [];
+  const missingTools: string[] = parsed?.missing_tools ?? [];
+
+  // Emitir telemetría
+  if (newTools.length > 0) {
+    ctx.emit({
+      kind: "tool-absorbed",
+      phase: "reanclaje",
+      severity: "info",
+      message: `hot-reload: ${newTools.length} tools nuevas absorbidas`,
+      payload: {
+        new_tool_ids: newTools.map((t) => t.id),
+        duration_ms: durationMs,
+      },
+      duration_ms: durationMs,
+    });
+  }
+  for (const sc of statusChanges) {
+    if (sc.new_status === "degraded" || sc.new_status === "disabled") {
+      ctx.emit({
+        kind: "tool-failed",
+        phase: "reanclaje",
+        severity: sc.new_status === "disabled" ? "error" : "warn",
+        message: `hot-reload: ${sc.tool_id} ${sc.old_status} -> ${sc.new_status} (${sc.reason})`,
+        payload: sc,
+      });
+    }
+  }
+
+  const rawSummary = parsed?.summary
+    ? {
+        total_tools: parsed.summary.total_tools ?? 0,
+        healthy: parsed.summary.healthy ?? 0,
+        unhealthy: parsed.summary.unhealthy ?? 0,
+      }
+    : undefined;
+
+  return {
+    registry,
+    new_tools: newTools,
+    status_changes: statusChanges,
+    missing_tools: missingTools,
+    success: ran && parsed !== null,
+    durationMs,
+    rawSummary,
+  };
+}
+
+export interface RecommendToolResult {
+  task: string;
+  total_tools_evaluated: number;
+  tools_with_score: number;
+  top_recommendations: Array<{
+    tool_id: string;
+    tool_name: string;
+    tool_kind: string;
+    score: number;
+    matched_capabilities: string[];
+    reasons: string[];
+    status: string;
+    fallback?: string;
+    invoke?: any;
+  }>;
+  conflicts: any[];
+  recommended_action: string;
+  _meta?: any;
+}
+
+/**
+ * Invoca scripts/python/registry_recommend.py --task <task> --repo-root <repo>
+ * --top <top> --json. Es la implementación ACTIVA (vs la pasiva de
+ * findToolByCapability que solo filtra el registry en memoria).
+ */
+export function recommendTool(
+  ctx: PluginContext,
+  task: string,
+  top: number = 3
+): RecommendToolResult {
+  const args = [
+    REGISTRY_RECOMMEND_SCRIPT,
+    "--task",
+    task,
+    "--repo-root",
+    ctx.repoRoot,
+    "--top",
+    String(top),
+  ];
+
+  const result = spawnSync("python3", args, {
+    encoding: "utf8",
+    timeout: 10000,
+    maxBuffer: 5 * 1024 * 1024,
+  });
+
+  const ran = result.status !== null;
+  let parsed: any = null;
+  if (ran && result.stdout) {
+    try {
+      parsed = JSON.parse(result.stdout);
+    } catch {
+      const lines = result.stdout
+        .split("\n")
+        .filter((l) => l.trim().startsWith("{"));
+      if (lines.length > 0) {
+        try {
+          parsed = JSON.parse(lines[lines.length - 1]);
+        } catch {
+          /* ignore */
+        }
+      }
+    }
+  }
+
+  if (!parsed) {
+    return {
+      task,
+      total_tools_evaluated: 0,
+      tools_with_score: 0,
+      top_recommendations: [],
+      conflicts: [],
+      recommended_action: "no tool matches the task — registry_recommend.py failed",
+    };
+  }
+
+  return {
+    task: parsed.task ?? task,
+    total_tools_evaluated: parsed.total_tools_evaluated ?? 0,
+    tools_with_score: parsed.tools_with_score ?? 0,
+    top_recommendations: parsed.top_recommendations ?? [],
+    conflicts: parsed.conflicts ?? [],
+    recommended_action: parsed.recommended_action ?? "",
+    _meta: parsed._meta,
+  };
 }

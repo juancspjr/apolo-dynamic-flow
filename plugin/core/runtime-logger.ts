@@ -63,12 +63,7 @@ export type AuditAction =
   | "warning"
   | "error";
 
-export type AuditOutcome =
-  | "success"
-  | "failure"
-  | "warning"
-  | "blocked"
-  | "skipped";
+export type AuditOutcome = "success" | "failure" | "warning" | "blocked" | "skipped";
 
 export interface AuditEntry {
   ts: string;
@@ -86,10 +81,7 @@ export interface AuditEntry {
   };
   target?: string | null;
   duration_ms?: number;
-  evidence?: {
-    produced?: string[];
-    consumed?: string[];
-  };
+  evidence?: { produced?: string[]; consumed?: string[] };
   context?: Record<string, unknown>;
 }
 
@@ -131,43 +123,25 @@ function ensureLogDir(logPath: string): void {
 // Public API
 // ============================================================================
 
-/**
- * Escribe una entrada al runtime-audit.log del flow.
- * PASIVO: nunca lanza. Si input es inválido, escribe a stderr.
- */
-export function log(
-  entry: PartialAuditEntry,
-  repoRoot: string = process.cwd()
-): void {
+export function log(entry: PartialAuditEntry, repoRoot: string = process.cwd()): void {
   try {
-    // Validar campos mínimos
     if (!entry.flow_id || !entry.actor || !entry.action || !entry.outcome) {
-      console.error(
-        `[runtime-logger] entrada inválida (faltan campos required):`,
-        entry
-      );
+      console.error(`[runtime-logger] entrada inválida (faltan campos required):`, entry);
       return;
     }
-
     const logPath = resolveLogPath(entry.flow_id, repoRoot);
     ensureLogDir(logPath);
-
     const fullEntry: AuditEntry = {
       ts: new Date().toISOString(),
       seq: nextSeq(entry.flow_id),
       ...entry,
     };
-
     fs.appendFileSync(logPath, JSON.stringify(fullEntry) + "\n", "utf8");
   } catch (err) {
-    // PASIVO: nunca lanzar
     console.error(`[runtime-logger] error escribiendo entrada:`, err);
   }
 }
 
-/**
- * Lee las últimas N entradas del log.
- */
 export function readRecentEntries(
   flowId: string,
   count: number = 10,
@@ -175,7 +149,6 @@ export function readRecentEntries(
 ): AuditEntry[] {
   const logPath = resolveLogPath(flowId, repoRoot);
   if (!fs.existsSync(logPath)) return [];
-
   try {
     const content = fs.readFileSync(logPath, "utf8");
     const lines = content.trim().split("\n").filter(Boolean);
@@ -193,24 +166,11 @@ export function readRecentEntries(
   }
 }
 
-/**
- * Lee todas las entradas del log.
- */
-export function readAllEntries(
-  flowId: string,
-  repoRoot: string = process.cwd()
-): AuditEntry[] {
+export function readAllEntries(flowId: string, repoRoot: string = process.cwd()): AuditEntry[] {
   return readRecentEntries(flowId, Number.MAX_SAFE_INTEGER, repoRoot);
 }
 
-/**
- * Crea un logger pre-poblado con flow_id.
- * Útil para agentes que loguean muchas entradas del mismo flow.
- */
-export function createFlowLogger(
-  flowId: string,
-  repoRoot: string = process.cwd()
-): {
+export function createFlowLogger(flowId: string, repoRoot: string = process.cwd()): {
   log: (entry: Omit<PartialAuditEntry, "flow_id">) => void;
 } {
   return {

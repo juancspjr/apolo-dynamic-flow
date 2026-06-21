@@ -1,0 +1,143 @@
+# code-index.schema.yaml
+# Schema para CODE-INDEX.yaml generado por index_codebase.py
+
+type: object
+required:
+  - codeindex
+  - version
+  - generated_at
+  - generator
+  - repo_root
+  - index_hash
+  - stats
+  - files
+  - dependency_graph
+  - reverse_dependency_graph
+additionalProperties: false
+
+properties:
+  codeindex:
+    type: string
+    const: "V1"
+  version:
+    type: integer
+    minimum: 1
+  generated_at:
+    type: string
+    format: date-time
+  generator:
+    type: object
+    required: [script, duration_ms, files_indexed]
+    properties:
+      script: { type: string }
+      duration_ms: { type: integer, minimum: 0 }
+      files_indexed: { type: integer, minimum: 0 }
+  repo_root:
+    type: string
+  index_hash:
+    type: string
+    description: "SHA256 del contenido del índice (para detectar cambios)"
+  stats:
+    type: object
+    required:
+      - total_files
+      - by_language
+      - total_functions
+      - total_classes
+      - total_imports
+      - avg_functions_per_file
+    properties:
+      total_files: { type: integer, minimum: 0 }
+      by_language:
+        type: object
+        additionalProperties: { type: integer }
+      total_functions: { type: integer, minimum: 0 }
+      total_classes: { type: integer, minimum: 0 }
+      total_imports: { type: integer, minimum: 0 }
+      avg_functions_per_file: { type: number, minimum: 0 }
+  files:
+    type: array
+    items:
+      type: object
+      required: [path, language, size_bytes, content_hash, summary, symbols, imports]
+      properties:
+        path: { type: string }
+        language: { type: string }
+        size_bytes: { type: integer, minimum: 0 }
+        content_hash: { type: string }
+        git_tracked: { type: boolean }
+        git_last_modified: { type: [string, "null"] }
+        summary: { type: string, description: "Resumen de 2 líneas generado por AST" }
+        symbols:
+          type: object
+          properties:
+            functions:
+              type: array
+              items:
+                type: object
+                properties:
+                  name: { type: string }
+                  line: { type: integer }
+                  args: { type: array, items: { type: string } }
+                  is_async: { type: boolean }
+                  is_exported: { type: boolean }
+                  is_arrow: { type: boolean }
+                  decorators: { type: array, items: { type: string } }
+                  docstring: { type: [string, "null"] }
+            classes:
+              type: array
+              items:
+                type: object
+                properties:
+                  name: { type: string }
+                  line: { type: integer }
+                  bases: { type: array, items: { type: string } }
+                  methods:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name: { type: string }
+                        line: { type: integer }
+                        is_async: { type: boolean }
+                        args: { type: array, items: { type: string } }
+                  is_exported: { type: boolean }
+                  docstring: { type: [string, "null"] }
+            interfaces:
+              type: array
+              items:
+                type: object
+                properties:
+                  name: { type: string }
+                  line: { type: integer }
+                  is_exported: { type: boolean }
+            types:
+              type: array
+              items:
+                type: object
+                properties:
+                  name: { type: string }
+                  line: { type: integer }
+                  is_exported: { type: boolean }
+        imports:
+          type: array
+          items:
+            type: object
+            properties:
+              module: { type: string }
+              name: { type: string }
+              kind: { type: string }
+              line: { type: integer }
+        error: { type: [string, "null"] }
+  dependency_graph:
+    type: object
+    description: "Mapa: file -> [files it imports]"
+    additionalProperties:
+      type: array
+      items: { type: string }
+  reverse_dependency_graph:
+    type: object
+    description: "Mapa: file -> [files that import it]"
+    additionalProperties:
+      type: array
+      items: { type: string }
