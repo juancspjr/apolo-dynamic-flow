@@ -1,7 +1,7 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T18:23:55Z'
+generated_at: '2026-06-21T18:59:58Z'
 repo_root: /home/juan/new_project
-total_files: 59
+total_files: 60
 languages_detected:
 - css
 - html
@@ -950,6 +950,14 @@ complexity_scores:
 
     '
   complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_hash_chain.py
+  function: '
+
+    '
+  complexity: 4
   rank: A
   tool: regex-estimation
   estimated: true
@@ -4507,6 +4515,7 @@ degradations:
 - herramienta nativa de complejidad no disponible para python — usando regex-estimation
 - herramienta nativa de complejidad no disponible para python — usando regex-estimation
 - herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para python — usando regex-estimation
 - herramienta nativa de complejidad no disponible para python — usando regex-estimation
@@ -4547,11 +4556,11 @@ degradations:
 - herramienta nativa de complejidad no disponible para python — usando regex-estimation
 recommendations:
 - Refactorizar 46 función(es) con complejidad > 15
-- 'Instalar herramientas faltantes para análisis completo: 59 degradación(es)'
+- 'Instalar herramientas faltantes para análisis completo: 60 degradación(es)'
 summary:
   total_security_findings: 0
-  total_functions_analyzed: 501
+  total_functions_analyzed: 502
   high_complexity_count: 46
-  degradation_count: 59
-duration_ms: 29394
+  degradation_count: 60
+duration_ms: 28814
 

@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T18:23:31Z'
+generated_at: '2026-06-21T18:59:34Z'
 repo_root: /home/juan/new_project
 code_index_used: false
 coverage_tool_used: null
@@ -2640,7 +2640,7 @@ by_file:
     coverage_pct: 0.0
     associated_tests: []
 source_files_count: 45
-test_files_count: 12
+test_files_count: 13
 degradations:
 - coverage.py no disponible — usando heurística por convención
 recommendations:
@@ -2652,5 +2652,5 @@ summary:
   uncovered: 457
   critical_uncovered: 399
   coverage_percentage: 0.87
-duration_ms: 108
+duration_ms: 115
 

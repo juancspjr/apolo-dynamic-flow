@@ -1,6 +1,6 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.6.1",
+  "version": "2.6.2",
   "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. Flujos dinamicos, recoleccion hibrida, planes con 3 modos, tests automaticos, absorcion de tools externas, routing declarativo, atomic writes, file locks, allowlist, secret detection, hash chain, multi-level impact prediction, code quality, test coverage, LSP, self-healing, test generation, semantic search, refactoring, LLM bridge (MiniMax/OpenAI compatible).",
   "main": "plugin/index.ts",
   "scripts": {
@@ -15,7 +15,8 @@
     "panel": "bash scripts/bash/apolo-inspect.sh serve-panel",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "install-deps": "python3 scripts/python/install_deps.py"
   },
   "keywords": [
     "opencode",

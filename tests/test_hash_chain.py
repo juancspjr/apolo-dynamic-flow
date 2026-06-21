@@ -11,7 +11,15 @@ import tempfile
 import os
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "scripts" / "python"))
+# v2.6.2: path robusto — buscar common.py en múltiples ubicaciones
+_for_p in [
+    Path(__file__).parent.parent / "scripts" / "python",
+    Path("scripts/python"),
+    Path.cwd() / "scripts" / "python",
+]:
+    if (_for_p / "common.py").exists():
+        sys.path.insert(0, str(_for_p))
+        break
 
 try:
     from secret_scanner import compute_hash_chain_entry, verify_hash_chain
