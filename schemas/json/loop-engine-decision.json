@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://apolo-dynamic-flow/schemas/json/loop-engine-decision.json",
+  "title": "Loop Engine Decision Tree Node",
+  "description": "Nodo del árbol de decisión del loop-engine. Cada nodo representa un estado del flow y las posibles ramificaciones. Reemplaza la lógica de plan-tras-plan por un árbol finito de decisiones.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "flow_id", "phase", "state", "branches", "created_at"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^D-\\d{3}$",
+      "description": "ID único del nodo (ej. D-001)"
+    },
+    "flow_id": {
+      "type": "string",
+      "pattern": "^APOLO-\\d{8}-[A-Z0-9-]+$"
+    },
+    "phase": {
+      "type": "string",
+      "enum": ["reanclaje", "planning-bootstrap", "asr", "verdad", "shaping", "plan-indice", "mp-validation", "implementation", "critical-validation", "cierre-flow"]
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifacts_present", "mp_active", "blocker_active", "iteration"],
+      "properties": {
+        "artifacts_present": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "mp_active": {
+          "type": ["string", "null"],
+          "pattern": "^MP-[A-Z0-9_-]+$"
+        },
+        "blocker_active": { "type": "boolean" },
+        "iteration": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Iteración actual del loop (máx 10 = circuit breaker)"
+        },
+        "last_test_result": {
+          "type": ["string", "null"],
+          "enum": ["pass", "fail", "skipped", null]
+        }
+      }
+    },
+    "branches": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "description": "Máximo 5 ramificaciones por nodo (evita explosión combinatoria)",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["condition", "action", "next_node"],
+        "properties": {
+          "condition": {
+            "type": "string",
+            "enum": [
+              "test_passes",
+              "test_fails_retriable",
+              "test_fails_terminal",
+              "blocker_resolved",
+              "blocker_persists",
+              "operator_confirms",
+              "operator_rejects",
+              "evidence_sufficient",
+              "evidence_insufficient",
+              "paradoja_detected",
+              "iteration_exceeded"
+            ]
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "advance_phase",
+              "retry_mp",
+              "rollback_mp",
+              "raise_blocker",
+              "ask_operator",
+              "spawn_parallel_hypotheses",
+              "generate_evidence_script",
+              "circuit_break",
+              "close_flow"
+            ]
+          },
+          "next_node": {
+            "type": ["string", "null"],
+            "pattern": "^(D-\\d{3}|AUTO)$"
+          },
+          "reasoning": {
+            "type": "string",
+            "minLength": 10
+          }
+        }
+      }
+    },
+    "parent_node": {
+      "type": ["string", "null"],
+      "pattern": "^D-\\d{3}$"
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "resolved_at": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "outcome": {
+      "type": ["string", "null"],
+      "enum": ["advanced", "retried", "rolled_back", "blocked", "operator_decision", "circuit_broken", "closed", null]
+    }
+  }
+}

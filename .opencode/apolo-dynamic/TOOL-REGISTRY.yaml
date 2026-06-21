@@ -1,6 +1,6 @@
 toolregistry: V2
-version: 1
-updated_at: "2026-06-20T22:28:04Z"
+version: 2
+updated_at: "2026-06-21T02:34:29Z"
 tools:
   - id: "mcp:opencode.json:@playwright/mcp"
     source: "opencode.json#mcp.@playwright/mcp"
@@ -20,7 +20,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @playwright/mcp"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"@playwright/mcp@latest\"], \"enabled\": true}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@playwright/mcp@latest\\\"], \\\"enabled\\\": true}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "mcp:opencode.json:@koderspa/mcp-skills"
     source: "opencode.json#mcp.@koderspa/mcp-skills"
@@ -39,7 +39,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @koderspa/mcp-skills"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"@koderspa/mcp-skills@latest\"], \"enabled\": true}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@koderspa/mcp-skills@latest\\\"], \\\"enabled\\\": true}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "mcp:opencode.json:opencode-fastedit"
     source: "opencode.json#mcp.opencode-fastedit"
@@ -58,7 +58,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q opencode-fastedit"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"opencode-fastedit@latest\"], \"enabled\": false, \"description\": \"Deshabilitado temporalmente - revisar nombre correcto en npm\"}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"opencode-fastedit@latest\\\"], \\\"enabled\\\": false, \\\"description\\\": \\\"Deshabilitado temporalmente - revisar nombre correcto en npm\\\"}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "mcp:opencode.json:opencode-pty"
     source: "opencode.json#mcp.opencode-pty"
@@ -76,7 +76,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q opencode-pty"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"opencode-pty@latest\"], \"enabled\": false, \"description\": \"Deshabilitado temporalmente - revisar nombre correcto en npm\"}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"opencode-pty@latest\\\"], \\\"enabled\\\": false, \\\"description\\\": \\\"Deshabilitado temporalmente - revisar nombre correcto en npm\\\"}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "mcp:opencode.json:@obsidian-owl/opencode-specwright"
     source: "opencode.json#mcp.@obsidian-owl/opencode-specwright"
@@ -94,7 +94,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @obsidian-owl/opencode-specwright"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"@obsidian-owl/opencode-specwright@latest\"], \"enabled\": false}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@obsidian-owl/opencode-specwright@latest\\\"], \\\"enabled\\\": false}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "mcp:opencode.json:@zenobius/opencode-skillful"
     source: "opencode.json#mcp.@zenobius/opencode-skillful"
@@ -113,7 +113,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @zenobius/opencode-skillful"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"@zenobius/opencode-skillful@latest\"], \"enabled\": false}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@zenobius/opencode-skillful@latest\\\"], \\\"enabled\\\": false}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "mcp:opencode.json:@cortexkit/aft-opencode"
     source: "opencode.json#mcp.@cortexkit/aft-opencode"
@@ -131,7 +131,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @cortexkit/aft-opencode"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"@cortexkit/aft-opencode@latest\"], \"enabled\": false}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@cortexkit/aft-opencode@latest\\\"], \\\"enabled\\\": false}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "mcp:opencode.json:opencode-caveman"
     source: "opencode.json#mcp.opencode-caveman"
@@ -149,7 +149,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q opencode-caveman"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"opencode-caveman@latest\"], \"enabled\": false}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"opencode-caveman@latest\\\"], \\\"enabled\\\": false}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "mcp:opencode.json:@tarquinen/opencode-dcp"
     source: "opencode.json#mcp.@tarquinen/opencode-dcp"
@@ -168,7 +168,7 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @tarquinen/opencode-dcp"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\"type\": \"local\", \"command\": [\"npx\", \"-y\", \"@tarquinen/opencode-dcp@latest\"], \"enabled\": false}"
+    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@tarquinen/opencode-dcp@latest\\\"], \\\"enabled\\\": false}"
     last_verified_at: "2026-06-20T22:28:04Z"
   - id: "external-script:scripts/python/validate_artifact.py"
     source: /home/juan/new_project/scripts/python/validate_artifact.py
@@ -303,6 +303,22 @@ tools:
       expected_exit: 0
       interval_seconds: 600
     last_verified_at: "2026-06-20T22:28:04Z"
+  - id: "external-script:scripts/python/serve_panel.py"
+    source: /home/juan/new_project/scripts/python/serve_panel.py
+    kind: external-script
+    name: serve_panel
+    status: active
+    registered_at: "2026-06-21T02:34:29Z"
+    capabilities:
+      - unknown
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/serve_panel.py
+    health_check:
+      command: test -f /home/juan/new_project/scripts/python/serve_panel.py
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T02:34:29Z"
 conflicts:
   - tools:
       - "mcp:opencode.json:@koderspa/mcp-skills"
@@ -319,5 +335,6 @@ conflicts:
       - "mcp:opencode.json:opencode-pty"
       - "mcp:opencode.json:@obsidian-owl/opencode-specwright"
       - "mcp:opencode.json:@cortexkit/aft-opencode"
+      - "external-script:scripts/python/serve_panel.py"
     capability: unknown
     resolution: priority-first

@@ -1,0 +1,130 @@
+{
+  "$schema": "./schemas/json/routing-rules.json",
+  "version": "v2.0",
+  "rules": [
+    {
+      "id": "R-001",
+      "priority": 10,
+      "when": {
+        "phase": "reanclaje",
+        "artifacts_absent": ["00-OBJETIVO.yaml"]
+      },
+      "then": {
+        "next_agent": "planner",
+        "reason": "No hay objetivo. El planner debe producir 00-OBJETIVO.yaml antes de cualquier otra cosa."
+      }
+    },
+    {
+      "id": "R-002",
+      "priority": 20,
+      "when": {
+        "phase": "planning-bootstrap",
+        "artifacts_present": ["00-OBJETIVO.yaml"],
+        "artifacts_absent": ["01-ASR.yaml"]
+      },
+      "then": {
+        "next_agent": "surface-scanner",
+        "reason": "Objetivo definido pero falta ASR. Surface-scanner debe escanear la superficie del repo."
+      }
+    },
+    {
+      "id": "R-003",
+      "priority": 20,
+      "when": {
+        "phase": "asr",
+        "artifacts_present": ["00-OBJETIVO.yaml", "01-ASR.yaml"],
+        "artifacts_absent": ["02-VERDAD.yaml"]
+      },
+      "then": {
+        "next_agent": "truth-auditor",
+        "reason": "ASR listo. Truth-auditor debe confirmar verdad por componente."
+      }
+    },
+    {
+      "id": "R-004",
+      "priority": 20,
+      "when": {
+        "phase": "verdad",
+        "artifacts_present": ["02-VERDAD.yaml"],
+        "artifacts_absent": ["02.5-PLAN-SHAPING.yaml"]
+      },
+      "then": {
+        "next_agent": "planner",
+        "reason": "Verdad confirmada. Planner debe construir plan shaping."
+      }
+    },
+    {
+      "id": "R-005",
+      "priority": 20,
+      "when": {
+        "phase": "shaping",
+        "artifacts_present": ["02.5-PLAN-SHAPING.yaml"],
+        "artifacts_absent": ["03-PLAN-INDICE-DYNAMIC.yaml"]
+      },
+      "then": {
+        "next_agent": "microplanner",
+        "reason": "Shaping listo. Microplanner debe generar el plan índice dinámico."
+      }
+    },
+    {
+      "id": "R-006",
+      "priority": 30,
+      "when": {
+        "phase": "implementation",
+        "mp_ready": true,
+        "blocker_active": false
+      },
+      "then": {
+        "next_agent": "implementer",
+        "reason": "MP listo para ejecutar. Implementer debe aplicar el cambio."
+      }
+    },
+    {
+      "id": "R-007",
+      "priority": 30,
+      "when": {
+        "phase": "critical-validation",
+        "mp_ready": true
+      },
+      "then": {
+        "next_agent": "mutation-guardian",
+        "reason": "MP implementado. Mutation-guardian debe evaluar admisión."
+      }
+    },
+    {
+      "id": "R-008",
+      "priority": 40,
+      "when": {
+        "blocker_active": true
+      },
+      "then": {
+        "next_agent": "blocked",
+        "reason": "Hay bloqueo activo en BLOCK-LOG.yaml. El operador debe resolverlo antes de continuar.",
+        "circuit_breaker": true
+      }
+    },
+    {
+      "id": "R-009",
+      "priority": 15,
+      "when": {
+        "phase": "verdad",
+        "deep_evidence_required": true
+      },
+      "then": {
+        "next_agent": "evidence-acquisition",
+        "reason": "La captura profunda es obligatoria. Evidence-acquisition debe recolectar evidencia."
+      }
+    },
+    {
+      "id": "R-010",
+      "priority": 5,
+      "when": {
+        "phase": "cierre-flow"
+      },
+      "then": {
+        "next_agent": "closed",
+        "reason": "Flow cerrado."
+      }
+    }
+  ]
+}

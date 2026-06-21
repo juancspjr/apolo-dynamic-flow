@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://apolo-dynamic-flow/schemas/json/runtime-audit-log.json",
+  "title": "Runtime Audit Log Entry",
+  "description": "Formato de cada entrada del runtime-audit.log. JSON Lines (una entrada por línea). Log en tiempo real para auditoría.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ts", "actor", "action", "outcome", "flow_id", "seq"],
+  "properties": {
+    "ts": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "seq": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Secuencia monotónica dentro del flow"
+    },
+    "flow_id": {
+      "type": "string",
+      "pattern": "^APOLO-\\d{8}-[A-Z0-9-]+$"
+    },
+    "actor": {
+      "type": "string",
+      "enum": [
+        "plugin:apolo-dynamic-flow",
+        "agent:orchestrator",
+        "agent:planner",
+        "agent:surface-scanner",
+        "agent:truth-auditor",
+        "agent:microplanner",
+        "agent:implementer",
+        "agent:mutation-guardian",
+        "agent:evidence-acquisition",
+        "command:apolo-inspect",
+        "command:apolo-init-flow",
+        "command:apolo-absorb",
+        "command:apolo-serve-panel",
+        "operator",
+        "system"
+      ]
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "session_start",
+        "session_end",
+        "command_executed",
+        "agent_invoked",
+        "artifact_read",
+        "artifact_written",
+        "artifact_validated",
+        "test_executed",
+        "test_passed",
+        "test_failed",
+        "decision_made",
+        "blocker_raised",
+        "blocker_resolved",
+        "phase_transition",
+        "mp_admitted",
+        "mp_rejected",
+        "flow_created",
+        "flow_closed",
+        "mcp_invoked",
+        "mcp_fallback",
+        "parallel_hypothesis_started",
+        "parallel_hypothesis_winner",
+        "script_generated",
+        "script_executed",
+        "circuit_breaker_triggered",
+        "warning",
+        "error"
+      ]
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["next_agent", "admission", "block", "route", "complete"]
+        },
+        "value": { "type": "string" },
+        "reasoning": { "type": "string" },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "rule_id": {
+          "type": "string",
+          "pattern": "^R-\\d{3}$"
+        }
+      }
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["success", "failure", "warning", "blocked", "skipped"]
+    },
+    "target": {
+      "type": ["string", "null"]
+    },
+    "duration_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "produced": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "consumed": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://apolo-dynamic-flow/schemas/json/agent-io.json",
+  "title": "Agent Input/Output Contract",
+  "description": "Contrato estricto de inputs y outputs para cada agent de APOLO. Permite validar con jsonschema antes de invocar un agent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["agent", "version", "inputs", "outputs"],
+  "properties": {
+    "agent": {
+      "type": "string",
+      "enum": [
+        "orchestrator",
+        "planner",
+        "surface-scanner",
+        "truth-auditor",
+        "microplanner",
+        "implementer",
+        "mutation-guardian",
+        "evidence-acquisition"
+      ],
+      "description": "Nombre canónico del agent"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^v\\d+\\.\\d+$",
+      "description": "Versión del contrato (ej. v2.0)"
+    },
+    "inputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifacts", "context"],
+      "properties": {
+        "artifacts": {
+          "type": "array",
+          "description": "Lista de artefactos YAML que el agent debe leer",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "required"],
+            "properties": {
+              "path": { "type": "string" },
+              "required": { "type": "boolean" }
+            }
+          }
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["flow_id", "phase", "objective"],
+          "properties": {
+            "flow_id": {
+              "type": "string",
+              "pattern": "^APOLO-\\d{8}-[A-Z0-9-]+$"
+            },
+            "phase": {
+              "type": "string",
+              "enum": ["reanclaje", "planning-bootstrap", "asr", "verdad", "shaping", "plan-indice", "mp-validation", "implementation", "critical-validation", "cierre-flow"]
+            },
+            "objective": {
+              "type": "string",
+              "minLength": 10
+            },
+            "mp_id": {
+              "type": ["string", "null"],
+              "pattern": "^MP-[A-Z0-9_-]+$"
+            }
+          }
+        }
+      }
+    },
+    "outputs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifacts_produced", "decision", "evidence"],
+      "properties": {
+        "artifacts_produced": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "schema"],
+            "properties": {
+              "path": { "type": "string" },
+              "schema": {
+                "type": "string",
+                "enum": [
+                  "00-OBJETIVO.schema.yaml",
+                  "01-ASR.schema.yaml",
+                  "02-VERDAD.schema.yaml",
+                  "dynamic-plan.schema.yaml",
+                  "flow-state.schema.yaml",
+                  "evidence-pack.schema.yaml",
+                  "test-result.schema.yaml",
+                  "loop-engine-decision.json"
+                ]
+              }
+            }
+          }
+        },
+        "decision": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "value", "reasoning"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["next_agent", "admission", "block", "route", "complete"]
+            },
+            "value": { "type": "string", "minLength": 1 },
+            "reasoning": { "type": "string", "minLength": 20 },
+            "evidence_refs": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["kind", "path", "reproducible"],
+            "properties": {
+              "kind": {
+                "type": "string",
+                "enum": ["capture", "replay", "validate", "compare", "summary", "raw"]
+              },
+              "path": { "type": "string" },
+              "reproducible": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

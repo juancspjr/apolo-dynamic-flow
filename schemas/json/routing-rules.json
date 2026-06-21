@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://apolo-dynamic-flow/schemas/json/routing-rules.json",
+  "title": "Declarative Routing Rules",
+  "description": "Reglas deterministas que deciden qué agent se invoca en cada fase. El operador edita este JSON para cambiar routing, no el código TS.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "rules"],
+  "properties": {
+    "version": { "type": "string", "pattern": "^v\\d+\\.\\d+$" },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "when", "then"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^R-\\d{3}$"
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 50,
+            "description": "Prioridad (1 = máxima). En conflicto, gana la prioridad más baja."
+          },
+          "when": {
+            "type": "object",
+            "additionalProperties": false,
+            "description": "Condición. Todas las claves deben cumplirse (AND lógico).",
+            "properties": {
+              "phase": {
+                "type": "string",
+                "enum": ["reanclaje", "planning-bootstrap", "asr", "verdad", "shaping", "plan-indice", "mp-validation", "implementation", "critical-validation", "cierre-flow"]
+              },
+              "artifacts_present": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "artifacts_absent": {
+                "type": "array",
+                "items": { "type": "string" }
+              },
+              "blocker_active": { "type": "boolean" },
+              "mp_ready": { "type": "boolean" },
+              "deep_evidence_required": { "type": "boolean" }
+            }
+          },
+          "then": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["next_agent"],
+            "properties": {
+              "next_agent": {
+                "type": "string",
+                "enum": [
+                  "orchestrator",
+                  "planner",
+                  "surface-scanner",
+                  "truth-auditor",
+                  "microplanner",
+                  "implementer",
+                  "mutation-guardian",
+                  "evidence-acquisition",
+                  "blocked",
+                  "closed"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 10
+              },
+              "circuit_breaker": {
+                "type": "boolean",
+                "default": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
