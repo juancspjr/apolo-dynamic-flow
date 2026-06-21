@@ -104,10 +104,8 @@ print(inspector.inspectAll({'repoRoot': '$REPO_ROOT', 'flowid': '$FLOWID', 'json
 " ;;
 
   serve-panel)
-    PORT="${PORT:-8080}"
-    echo "Sirviendo panel en http://localhost:$PORT/?repo=$REPO_ROOT&flowid=$FLOWID"
-    cd "$PLUGIN_DIR/panel"
-    "$PYTHON" -m http.server "$PORT"
+    PORT="${PORT:-8765}"
+    "$PYTHON" "$PY_DIR/serve_panel.py" --repo-root "$REPO_ROOT" --flowid "$FLOWID" --port "$PORT"
     ;;
 
   help|--help|-h)

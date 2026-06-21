@@ -1,6 +1,26 @@
 #!/usr/bin/env python3
 """
-generate_plan.py — Generador determinista de planes dinámicos.
+generate_plan.py — Generador de planes dinámicos con 3 modos (v2.2.1).
+
+MODOS DE DERIVACIÓN:
+
+  1. deterministic-python (default): El script genera TODO el plan automáticamente
+     desde evidence + verdad. El agente no interviene. Ideal para cambios mecánicos,
+     fixes, refactors bien definidos. Cero variabilidad.
+
+  2. hybrid: El script genera el plan base, pero el agente puede:
+     - Ajustar unidades (añadir, quitar, modificar)
+     - Cambiar prioridades
+     - Añadir contexto cualitativo
+     - Marcar unidades como "needs-human-judgment"
+     Ideal para casos donde el determinismo no captura todo (UX, decisiones de diseño).
+
+  3. manual: El agente escribe el plan completo. El script solo:
+     - Valida contra el schema
+     - Calcula topological_sort
+     - Añade adaptative_gates default
+     - Registra en rewrite_history
+     Ideal para elementos artísticos, decisiones subjetivas, investigación.
 
 Lee:
   - EVIDENCE-PACK.yaml (evidence items)
@@ -25,7 +45,7 @@ Uso:
     --evidence /path/EVIDENCE-PACK.yaml \
     --verdad /path/02-VERDAD.yaml \
     --output /path/03-PLAN-INDICE-DYNAMIC.yaml \
-    --method deterministic-python \
+    --method deterministic-python | hybrid | manual \
     [--parent-version 1] \
     [--partition-hints '["split U-02"]']
 """
@@ -282,7 +302,14 @@ def main() -> int:
     verdad_path = Path(args.get("verdad", ""))
     output = Path(args.get("output", "03-PLAN-INDICE-DYNAMIC.yaml"))
     method = args.get("method", "deterministic-python")
+    # Validar método
+    if method not in ("deterministic-python", "hybrid", "manual"):
+        log(f"--method inválido: {method}. Debe ser: deterministic-python | hybrid | manual", "ERROR")
+        return 2
     parent_version_str = args.get("parent-version")
+    # NUEVO v2.2.1: ajustes del agente (modo hybrid)
+    agent_adjustments_json = args.get("agent-adjustments", "[]")
+    agent_context = args.get("agent-context", "")
     partition_hints_str = args.get("partition-hints", "[]")
 
     if not flowid:
@@ -348,6 +375,57 @@ def main() -> int:
                         f"separar {axis} en unidad propia" for axis in splits
                     ]
 
+    # NUEVO v2.2.1: aplicar ajustes del agente si mode=hybrid
+    if method == "hybrid" and agent_adjustments_json and agent_adjustments_json != "[]":
+        try:
+            adjustments = json.loads(agent_adjustments_json)
+            log(f"Aplicando {len(adjustments)} ajustes del agente (modo hybrid)", "INFO")
+            for adj in adjustments:
+                adj_type = adj.get("type", "")
+                if adj_type == "add-unit":
+                    new_unit = adj.get("unit", {})
+                    if new_unit.get("id"):
+                        units.append(new_unit)
+                        log(f"  + agente anadio unidad {new_unit['id']}", "INFO")
+                elif adj_type == "remove-unit":
+                    unit_id = adj.get("unit_id", "")
+                    units = [u for u in units if u.get("id") != unit_id]
+                    log(f"  - agente quito unidad {unit_id}", "INFO")
+                elif adj_type == "modify-unit":
+                    unit_id = adj.get("unit_id", "")
+                    modifications = adj.get("modifications", {})
+                    for u in units:
+                        if u.get("id") == unit_id:
+                            u.update(modifications)
+                            log(f"  ~ agente modifico unidad {unit_id}", "INFO")
+                            break
+                elif adj_type == "mark-needs-judgment":
+                    unit_id = adj.get("unit_id", "")
+                    reason = adj.get("reason", "")
+                    for u in units:
+                        if u.get("id") == unit_id:
+                            u["needs_human_judgment"] = True
+                            u["judgment_reason"] = reason
+                            u["admisibleaindice"] = False
+                            u["motivonoaadmisible"] = f"Requiere juicio humano: {reason}"
+                            log(f"  ? agente marco {unit_id} como needs-judgment: {reason}", "INFO")
+                            break
+        except Exception as e:
+            log(f"Error aplicando ajustes del agente: {e}", "WARN")
+
+    # NUEVO v2.2.1: modo manual = agente aporta todas las unidades
+    if method == "manual":
+        try:
+            manual_units = json.loads(agent_adjustments_json)
+            if isinstance(manual_units, list) and manual_units:
+                log(f"Modo manual: usando {len(manual_units)} unidades del agente", "INFO")
+                units = manual_units
+            else:
+                log("Modo manual pero no se pasaron unidades via --agent-adjustments. Generando plan vacio.", "WARN")
+                units = []
+        except Exception as e:
+            log(f"Error en modo manual: {e}", "ERROR")
+
     # 4. Topological sort
     topo = topological_sort(units)
 
@@ -381,12 +459,14 @@ def main() -> int:
         "parent_version": parent_version,
         "flowid": flowid,
         "created_at": start_iso,
+        "derivation_method": method,
+        "agent_context": agent_context or None,
         "derived_from": {
             "evidence_pack": str(evidence_path),
             "truth_artifact": str(verdad_path),
             "collected_at": evidence.get("created_at", start_iso) if isinstance(evidence, dict) else start_iso,
         },
-        "derivation_method": method,
+
         "rewrite_history": rewrite_history,
         "unidades": units,
         "topological_sort": topo,

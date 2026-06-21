@@ -1,0 +1,43 @@
+evidencescore: V1
+version: 1
+flowid: 
+generated_at: "2026-06-21T07:55:39Z"
+generator:
+  script: scripts/python/score_evidence.py
+  duration_ms: 0
+inputs:
+  evidence_pack: .
+  verdad: .
+  code_index: null
+scores:
+  coverage: 1.0
+  freshness: 1.0
+  depth: 0.0
+  conflict_risk: 0.0
+  redundancy: 0.0
+  schema_validity: 1.0
+overall_score: 0.75
+details:
+  missing_critical: []
+  freshness:
+    stale_files: []
+    fresh_files: []
+    note: no file-snapshots
+  depth:
+    shallow_items: []
+    deep_items: []
+  conflicts:
+    conflicts: []
+    note: no symbols to compare
+  redundancy:
+    duplicates: []
+  schema_validity:
+    valid: 0
+    invalid: 0
+    note: no schema-validations
+recommendation:
+  severity: info
+  actions:
+    - "SHALLOW: depth_score=0.00 < 0.5 \u2014 la evidencia contiene principalmente rutas sin contenido sustantivo"
+  should_block_agent: false
+  should_recollect: false

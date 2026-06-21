@@ -1,0 +1,23 @@
+impactprediction: V1
+version: 1
+flowid: 
+generated_at: "2026-06-21T07:55:39Z"
+generator:
+  script: scripts/python/predict_impact.py
+  duration_ms: 0
+  deep_mode: false
+inputs:
+  plan: .
+  code_index: null
+  telemetry: null
+  test_runs_dir: null
+global_risk: low
+risk_distribution:
+  low: 0
+  medium: 0
+  high: 0
+  critical: 0
+  unknown: 0
+total_predictions: 0
+predictions: []
+recommendation: all MPs safe to implement

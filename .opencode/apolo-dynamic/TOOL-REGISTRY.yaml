@@ -1,6 +1,6 @@
 toolregistry: V2
-version: 2
-updated_at: "2026-06-21T02:34:29Z"
+version: 4
+updated_at: "2026-06-21T07:55:51Z"
 tools:
   - id: "mcp:opencode.json:@playwright/mcp"
     source: "opencode.json#mcp.@playwright/mcp"
@@ -20,8 +20,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @playwright/mcp"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@playwright/mcp@latest\\\"], \\\"enabled\\\": true}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"@playwright/mcp@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": true}"
+    last_verified_at: "2026-06-21T07:55:47Z"
   - id: "mcp:opencode.json:@koderspa/mcp-skills"
     source: "opencode.json#mcp.@koderspa/mcp-skills"
     kind: mcp
@@ -39,8 +39,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @koderspa/mcp-skills"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@koderspa/mcp-skills@latest\\\"], \\\"enabled\\\": true}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"@koderspa/mcp-skills@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": true}"
+    last_verified_at: "2026-06-21T07:55:48Z"
   - id: "mcp:opencode.json:opencode-fastedit"
     source: "opencode.json#mcp.opencode-fastedit"
     kind: mcp
@@ -58,8 +58,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q opencode-fastedit"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"opencode-fastedit@latest\\\"], \\\"enabled\\\": false, \\\"description\\\": \\\"Deshabilitado temporalmente - revisar nombre correcto en npm\\\"}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"opencode-fastedit@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": false, \\\\\\\\\\\\\\\"description\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"Deshabilitado temporalmente - revisar nombre correcto en npm\\\\\\\\\\\\\\\"}"
+    last_verified_at: "2026-06-21T07:55:48Z"
   - id: "mcp:opencode.json:opencode-pty"
     source: "opencode.json#mcp.opencode-pty"
     kind: mcp
@@ -76,8 +76,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q opencode-pty"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"opencode-pty@latest\\\"], \\\"enabled\\\": false, \\\"description\\\": \\\"Deshabilitado temporalmente - revisar nombre correcto en npm\\\"}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"opencode-pty@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": false, \\\\\\\\\\\\\\\"description\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"Deshabilitado temporalmente - revisar nombre correcto en npm\\\\\\\\\\\\\\\"}"
+    last_verified_at: "2026-06-21T07:55:49Z"
   - id: "mcp:opencode.json:@obsidian-owl/opencode-specwright"
     source: "opencode.json#mcp.@obsidian-owl/opencode-specwright"
     kind: mcp
@@ -94,8 +94,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @obsidian-owl/opencode-specwright"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@obsidian-owl/opencode-specwright@latest\\\"], \\\"enabled\\\": false}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"@obsidian-owl/opencode-specwright@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": false}"
+    last_verified_at: "2026-06-21T07:55:49Z"
   - id: "mcp:opencode.json:@zenobius/opencode-skillful"
     source: "opencode.json#mcp.@zenobius/opencode-skillful"
     kind: mcp
@@ -113,8 +113,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @zenobius/opencode-skillful"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@zenobius/opencode-skillful@latest\\\"], \\\"enabled\\\": false}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"@zenobius/opencode-skillful@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": false}"
+    last_verified_at: "2026-06-21T07:55:50Z"
   - id: "mcp:opencode.json:@cortexkit/aft-opencode"
     source: "opencode.json#mcp.@cortexkit/aft-opencode"
     kind: mcp
@@ -131,8 +131,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @cortexkit/aft-opencode"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@cortexkit/aft-opencode@latest\\\"], \\\"enabled\\\": false}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"@cortexkit/aft-opencode@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": false}"
+    last_verified_at: "2026-06-21T07:55:50Z"
   - id: "mcp:opencode.json:opencode-caveman"
     source: "opencode.json#mcp.opencode-caveman"
     kind: mcp
@@ -149,8 +149,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q opencode-caveman"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"opencode-caveman@latest\\\"], \\\"enabled\\\": false}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"opencode-caveman@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": false}"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "mcp:opencode.json:@tarquinen/opencode-dcp"
     source: "opencode.json#mcp.@tarquinen/opencode-dcp"
     kind: mcp
@@ -168,8 +168,8 @@ tools:
       command: "opencode mcp list 2>&1 | grep -q @tarquinen/opencode-dcp"
       expected_exit: 0
       interval_seconds: 300
-    notes: "{\\\"type\\\": \\\"local\\\", \\\"command\\\": [\\\"npx\\\", \\\"-y\\\", \\\"@tarquinen/opencode-dcp@latest\\\"], \\\"enabled\\\": false}"
-    last_verified_at: "2026-06-20T22:28:04Z"
+    notes: "{\\\\\\\\\\\\\\\"type\\\\\\\\\\\\\\\": \\\\\\\\\\\\\\\"local\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"command\\\\\\\\\\\\\\\": [\\\\\\\\\\\\\\\"npx\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"-y\\\\\\\\\\\\\\\", \\\\\\\\\\\\\\\"@tarquinen/opencode-dcp@latest\\\\\\\\\\\\\\\"], \\\\\\\\\\\\\\\"enabled\\\\\\\\\\\\\\\": false}"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/validate_artifact.py"
     source: /home/juan/new_project/scripts/python/validate_artifact.py
     kind: external-script
@@ -185,7 +185,7 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/validate_artifact.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-20T22:28:04Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/collect_evidence.py"
     source: /home/juan/new_project/scripts/python/collect_evidence.py
     kind: external-script
@@ -202,7 +202,7 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/collect_evidence.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-20T22:28:04Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/rollback.py"
     source: /home/juan/new_project/scripts/python/rollback.py
     kind: external-script
@@ -218,7 +218,7 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/rollback.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-20T22:28:04Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/run_tests.py"
     source: /home/juan/new_project/scripts/python/run_tests.py
     kind: external-script
@@ -235,7 +235,7 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/run_tests.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-20T22:28:04Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/generate_plan.py"
     source: /home/juan/new_project/scripts/python/generate_plan.py
     kind: external-script
@@ -252,7 +252,7 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/generate_plan.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-20T22:28:04Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/absorb_mcp.py"
     source: /home/juan/new_project/scripts/python/absorb_mcp.py
     kind: external-script
@@ -269,7 +269,7 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/absorb_mcp.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-20T22:28:04Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/inspect_tools.py"
     source: /home/juan/new_project/scripts/python/inspect_tools.py
     kind: external-script
@@ -285,7 +285,7 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/inspect_tools.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-20T22:28:04Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/telemetry_aggregator.py"
     source: /home/juan/new_project/scripts/python/telemetry_aggregator.py
     kind: external-script
@@ -302,7 +302,7 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/telemetry_aggregator.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-20T22:28:04Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
   - id: "external-script:scripts/python/serve_panel.py"
     source: /home/juan/new_project/scripts/python/serve_panel.py
     kind: external-script
@@ -318,7 +318,136 @@ tools:
       command: test -f /home/juan/new_project/scripts/python/serve_panel.py
       expected_exit: 0
       interval_seconds: 600
-    last_verified_at: "2026-06-21T02:34:29Z"
+    last_verified_at: "2026-06-21T07:55:51Z"
+  - id: "external-script:scripts/python/absorb_external_skills.py"
+    source: /home/juan/new_project/scripts/python/absorb_external_skills.py
+    kind: external-script
+    name: absorb_external_skills
+    status: active
+    registered_at: "2026-06-21T07:55:39Z"
+    capabilities:
+      - absorb
+      - register
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/absorb_external_skills.py
+    health_check:
+      command: "python3 /home/juan/new_project/scripts/python/absorb_external_skills.py --help 2>&1 | head -1"
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T07:55:51Z"
+  - id: "external-script:scripts/python/scaffold_impl.py"
+    source: /home/juan/new_project/scripts/python/scaffold_impl.py
+    kind: external-script
+    name: scaffold_impl
+    status: active
+    registered_at: "2026-06-21T07:55:39Z"
+    capabilities:
+      - unknown
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/scaffold_impl.py
+    health_check:
+      command: "python3 /home/juan/new_project/scripts/python/scaffold_impl.py --help 2>&1 | head -1"
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T07:55:51Z"
+  - id: "external-script:scripts/python/predict_impact.py"
+    source: /home/juan/new_project/scripts/python/predict_impact.py
+    kind: external-script
+    name: predict_impact
+    status: active
+    registered_at: "2026-06-21T07:55:39Z"
+    capabilities:
+      - unknown
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/predict_impact.py
+    health_check:
+      command: "python3 /home/juan/new_project/scripts/python/predict_impact.py --help 2>&1 | head -1"
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T07:55:51Z"
+  - id: "external-script:scripts/python/context_query.py"
+    source: /home/juan/new_project/scripts/python/context_query.py
+    kind: external-script
+    name: context_query
+    status: active
+    registered_at: "2026-06-21T07:55:39Z"
+    capabilities:
+      - unknown
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/context_query.py
+    health_check:
+      command: "python3 /home/juan/new_project/scripts/python/context_query.py --help 2>&1 | head -1"
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T07:55:51Z"
+  - id: "external-script:scripts/python/score_evidence.py"
+    source: /home/juan/new_project/scripts/python/score_evidence.py
+    kind: external-script
+    name: score_evidence
+    status: active
+    registered_at: "2026-06-21T07:55:39Z"
+    capabilities:
+      - unknown
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/score_evidence.py
+    health_check:
+      command: "python3 /home/juan/new_project/scripts/python/score_evidence.py --help 2>&1 | head -1"
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T07:55:51Z"
+  - id: "external-script:scripts/python/registry_recommend.py"
+    source: /home/juan/new_project/scripts/python/registry_recommend.py
+    kind: external-script
+    name: registry_recommend
+    status: active
+    registered_at: "2026-06-21T07:55:39Z"
+    capabilities:
+      - unknown
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/registry_recommend.py
+    health_check:
+      command: "python3 /home/juan/new_project/scripts/python/registry_recommend.py --help 2>&1 | head -1"
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T07:55:51Z"
+  - id: "external-script:scripts/python/index_codebase.py"
+    source: /home/juan/new_project/scripts/python/index_codebase.py
+    kind: external-script
+    name: index_codebase
+    status: active
+    registered_at: "2026-06-21T07:55:39Z"
+    capabilities:
+      - unknown
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/index_codebase.py
+    health_check:
+      command: "python3 /home/juan/new_project/scripts/python/index_codebase.py --help 2>&1 | head -1"
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T07:55:51Z"
+  - id: "external-script:scripts/python/health_check.py"
+    source: /home/juan/new_project/scripts/python/health_check.py
+    kind: external-script
+    name: health_check
+    status: active
+    registered_at: "2026-06-21T07:55:39Z"
+    capabilities:
+      - unknown
+    invoke:
+      method: bash-script
+      target: python3 /home/juan/new_project/scripts/python/health_check.py
+    health_check:
+      command: "python3 /home/juan/new_project/scripts/python/health_check.py --help 2>&1 | head -1"
+      expected_exit: 0
+      interval_seconds: 600
+    last_verified_at: "2026-06-21T07:55:51Z"
 conflicts:
   - tools:
       - "mcp:opencode.json:@koderspa/mcp-skills"
@@ -336,5 +465,22 @@ conflicts:
       - "mcp:opencode.json:@obsidian-owl/opencode-specwright"
       - "mcp:opencode.json:@cortexkit/aft-opencode"
       - "external-script:scripts/python/serve_panel.py"
+      - "external-script:scripts/python/scaffold_impl.py"
+      - "external-script:scripts/python/predict_impact.py"
+      - "external-script:scripts/python/context_query.py"
+      - "external-script:scripts/python/score_evidence.py"
+      - "external-script:scripts/python/registry_recommend.py"
+      - "external-script:scripts/python/index_codebase.py"
+      - "external-script:scripts/python/health_check.py"
     capability: unknown
+    resolution: priority-first
+  - tools:
+      - "external-script:scripts/python/absorb_mcp.py"
+      - "external-script:scripts/python/absorb_external_skills.py"
+    capability: absorb
+    resolution: priority-first
+  - tools:
+      - "external-script:scripts/python/absorb_mcp.py"
+      - "external-script:scripts/python/absorb_external_skills.py"
+    capability: register
     resolution: priority-first

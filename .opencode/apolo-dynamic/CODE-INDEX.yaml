@@ -1,0 +1,5387 @@
+codeindex: V1
+version: 1
+generated_at: "2026-06-21T07:55:39Z"
+generator:
+  script: scripts/python/index_codebase.py
+  duration_ms: 341
+  files_indexed: 43
+repo_root: /home/juan/new_project
+index_hash: 34f2302f0e0c9bef01e9fcdef4c33f55bbb95e36542e2fa0f79b8d15b9167d5a
+stats:
+  total_files: 43
+  by_language:
+    ts: 19
+    py: 24
+  total_functions: 327
+  total_classes: 0
+  total_imports: 454
+  avg_functions_per_file: 7.6
+files:
+  - path: plugin/absorbers/mcp-loader.ts
+    language: ts
+    size_bytes: 8053
+    content_hash: 242ea591bcd847b96d73cddcb4c266fe6feec774425d975b88356f21ccbf3281
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 3 interfaces, 5 funciones (5 exportadas) | Exporta: _resetMcpCache(), detectAvailableMcps(), isMcpAvailable(), suggestMcpForTask(), invokeMcp(), McpDescriptor<I>, McpRegistry<I>, InvokeResult<I>"
+    symbols:
+      functions:
+        - name: _resetMcpCache
+          line: 53
+          args: []
+          is_async: false
+          is_exported: true
+        - name: detectAvailableMcps
+          line: 62
+          args:
+            - repoRoot
+          is_async: false
+          is_exported: true
+        - name: isMcpAvailable
+          line: 119
+          args:
+            - registry
+            - name
+          is_async: false
+          is_exported: true
+        - name: suggestMcpForTask
+          line: 129
+          args:
+            - registry
+            - taskDescription
+          is_async: false
+          is_exported: true
+        - name: invokeMcp
+          line: 174
+          args:
+            - flowId
+            - registry
+            - mcpName
+            - tool
+            - inputs
+            - "unknown>"
+            - fallback
+            - repoRoot
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: McpDescriptor
+          line: 23
+          is_exported: true
+        - name: McpRegistry
+          line: 31
+          is_exported: true
+        - name: InvokeResult
+          line: 37
+          is_exported: true
+      types: []
+    imports:
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 15
+      - module: path
+        name: path
+        kind: namespace
+        line: 17
+      - module: ../core/runtime-logger
+        name: log as auditLog
+        kind: named
+        line: 18
+    error: null
+  - path: plugin/block-detector.ts
+    language: ts
+    size_bytes: 5406
+    content_hash: a71b83305b18fb4acc36d7cf1ae2d84b36a123a377155ef8f2683b8a5db62095
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 1 interfaces, 4 funciones (2 exportadas) | Exporta: detectBlocks(), resolveBlock(), DetectionResult<I>"
+    symbols:
+      functions:
+        - name: detectBlocks
+          line: 28
+          args:
+            - state
+            - ctx
+          is_async: false
+          is_exported: true
+        - name: countPhaseInHistory
+          line: 136
+          args:
+            - state
+          is_async: false
+          is_exported: false
+        - name: countArtifactReferences
+          line: 144
+          args:
+            - state
+          is_async: false
+          is_exported: false
+        - name: resolveBlock
+          line: 164
+          args:
+            - state
+            - blockId
+            - resolutionPath
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: DetectionResult
+          line: 19
+          is_exported: true
+      types: []
+    imports:
+      - module: ./utils
+        name: v4 as uuid
+        kind: named
+        line: 18
+    error: null
+  - path: plugin/core/loop-engine-tree.ts
+    language: ts
+    size_bytes: 11161
+    content_hash: 163951df5709dc6794932c134d0a4937dc05155eca6f9ca5adc85be82358a2ce
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 5 interfaces, 12 funciones (6 exportadas) | Exporta: _resetTreeCache(), createRootNode(), getNode(), advance(), detectCircuitBreaker(), exportTree(), DecisionBranch<I>, DecisionNode<I>..."
+    symbols:
+      functions:
+        - name: _resetTreeCache
+          line: 109
+          args: []
+          is_async: false
+          is_exported: true
+        - name: treePath
+          line: 113
+          args:
+            - flowId
+            - repoRoot
+          is_async: false
+          is_exported: false
+        - name: ensureTreeDir
+          line: 117
+          args:
+            - p
+          is_async: false
+          is_exported: false
+        - name: persistTree
+          line: 124
+          args:
+            - tree
+            - repoRoot
+          is_async: false
+          is_exported: false
+        - name: loadTree
+          line: 131
+          args:
+            - flowId
+            - repoRoot
+          is_async: false
+          is_exported: false
+        - name: defaultBranches
+          line: 149
+          args: []
+          is_async: false
+          is_exported: false
+        - name: nextNodeId
+          line: 189
+          args:
+            - tree
+          is_async: false
+          is_exported: false
+        - name: createRootNode
+          line: 194
+          args:
+            - flowId
+            - phase
+            - opts
+          is_async: false
+          is_exported: true
+        - name: getNode
+          line: 251
+          args:
+            - flowId
+            - nodeId
+            - repoRoot
+          is_async: false
+          is_exported: true
+        - name: advance
+          line: 265
+          args:
+            - flowId
+            - flowPath
+            - nodeId
+            - condition
+            - opts
+          is_async: false
+          is_exported: true
+        - name: detectCircuitBreaker
+          line: 403
+          args:
+            - flowId
+            - mpId
+            - failures
+          is_async: false
+          is_exported: true
+        - name: exportTree
+          line: 419
+          args:
+            - flowId
+            - repoRoot
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: DecisionBranch
+          line: 62
+          is_exported: true
+        - name: DecisionNode
+          line: 70
+          is_exported: true
+        - name: DecisionTree
+          line: 88
+          is_exported: true
+        - name: AdvanceResult
+          line: 96
+          is_exported: true
+        - name: FailureEntry
+          line: 397
+          is_exported: true
+      types: []
+    imports:
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 18
+      - module: path
+        name: path
+        kind: namespace
+        line: 20
+      - module: ./runtime-logger
+        name: log as auditLog
+        kind: named
+        line: 21
+    error: null
+  - path: plugin/core/micro-test-runner.ts
+    language: ts
+    size_bytes: 7587
+    content_hash: 25c0b2eca00461501b58a7d0d72706c2e71c4fb5e011613643dfc569827221d3
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 2 interfaces, 5 funciones (2 exportadas) | Exporta: extractTestCommand(), runTest(), TestRunResult<I>"
+    symbols:
+      functions:
+        - name: parseYaml
+          line: 39
+          args:
+            - text
+          is_async: false
+          is_exported: false
+        - name: parseScalar
+          line: 98
+          args:
+            - raw
+          is_async: false
+          is_exported: false
+        - name: findKeyRecursive
+          line: 117
+          args:
+            - obj
+            - keys
+          is_async: false
+          is_exported: false
+        - name: extractTestCommand
+          line: 153
+          args:
+            - mpPath
+          is_async: false
+          is_exported: true
+        - name: runTest
+          line: 195
+          args:
+            - flowId
+            - mpId
+            - command
+            - repoRoot
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: TestRunResult
+          line: 23
+          is_exported: true
+        - name: YamlNode
+          line: 35
+          is_exported: false
+      types: []
+    imports:
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 15
+      - module: child_process
+        name: spawnSync
+        kind: named
+        line: 17
+      - module: ./runtime-logger
+        name: log as auditLog
+        kind: named
+        line: 18
+    error: null
+  - path: plugin/core/router.ts
+    language: ts
+    size_bytes: 7406
+    content_hash: abae8920f1a95d17aeeb3fb3ef9f9f2135396ac9431ba3b3f200a2953de82bb6
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 6 interfaces, 5 funciones (4 exportadas) | Exporta: _resetRulesCache(), loadRoutingRules(), buildRoutingContext(), route(), RoutingCondition<I>, RoutingAction<I>, RoutingRule<I>, RoutingRulesFile<I>..."
+    symbols:
+      functions:
+        - name: _resetRulesCache
+          line: 99
+          args: []
+          is_async: false
+          is_exported: true
+        - name: loadRoutingRules
+          line: 104
+          args:
+            - repoRoot
+          is_async: false
+          is_exported: true
+        - name: matchesCondition
+          line: 142
+          args:
+            - cond
+            - ctx
+          is_async: false
+          is_exported: false
+        - name: buildRoutingContext
+          line: 177
+          args:
+            - input
+          is_async: false
+          is_exported: true
+        - name: route
+          line: 197
+          args:
+            - ctx
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: RoutingCondition
+          line: 48
+          is_exported: true
+        - name: RoutingAction
+          line: 57
+          is_exported: true
+        - name: RoutingRule
+          line: 63
+          is_exported: true
+        - name: RoutingRulesFile
+          line: 70
+          is_exported: true
+        - name: RoutingContext
+          line: 75
+          is_exported: true
+        - name: RouteResult
+          line: 85
+          is_exported: true
+      types: []
+    imports:
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 15
+      - module: path
+        name: path
+        kind: namespace
+        line: 17
+      - module: ./runtime-logger
+        name: log as auditLog
+        kind: named
+        line: 18
+    error: null
+  - path: plugin/core/runtime-logger.ts
+    language: ts
+    size_bytes: 5152
+    content_hash: 47f7ba6757e32b034a9d049f063ac6740fd2fc24729dcedcb6c93e8b93976531
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 1 interfaces, 8 funciones (6 exportadas) | Exporta: _resetSeqCache(), resolveLogPath(), log(), readRecentEntries(), readAllEntries(), createFlowLogger(), AuditEntry<I>"
+    symbols:
+      functions:
+        - name: _resetSeqCache
+          line: 95
+          args: []
+          is_async: false
+          is_exported: true
+        - name: nextSeq
+          line: 99
+          args:
+            - flowId
+          is_async: false
+          is_exported: false
+        - name: resolveLogPath
+          line: 110
+          args:
+            - flowId
+            - repoRoot
+          is_async: false
+          is_exported: true
+        - name: ensureLogDir
+          line: 114
+          args:
+            - logPath
+          is_async: false
+          is_exported: false
+        - name: log
+          line: 125
+          args:
+            - entry
+            - repoRoot
+          is_async: false
+          is_exported: true
+        - name: readRecentEntries
+          line: 144
+          args:
+            - flowId
+            - count
+            - repoRoot
+          is_async: false
+          is_exported: true
+        - name: readAllEntries
+          line: 168
+          args:
+            - flowId
+            - repoRoot
+          is_async: false
+          is_exported: true
+        - name: createFlowLogger
+          line: 172
+          args:
+            - flowId
+            - repoRoot
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: AuditEntry
+          line: 67
+          is_exported: true
+      types: []
+    imports:
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 12
+      - module: path
+        name: path
+        kind: namespace
+        line: 14
+    error: null
+  - path: plugin/evidence-collector.ts
+    language: ts
+    size_bytes: 12148
+    content_hash: ceb573c9c7f81bc85ca4cc1cb34ff4a9f368ef576d3d1ecb9c718eb932d104e9
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 6 interfaces, 4 funciones (4 exportadas) | Exporta: runCodeIndex(), runEvidenceScore(), collectEvidence(), isEvidenceStale(), CollectOptions<I>, CollectResult<I>, RunCodeIndexOptions<I>, RunCodeIndexResult<I>..."
+    symbols:
+      functions:
+        - name: runCodeIndex
+          line: 91
+          args:
+            - ctx
+            - opts
+          is_async: false
+          is_exported: true
+        - name: runEvidenceScore
+          line: 192
+          args:
+            - ctx
+            - opts
+          is_async: false
+          is_exported: true
+        - name: collectEvidence
+          line: 285
+          args:
+            - ctx
+            - opts
+          is_async: false
+          is_exported: true
+        - name: isEvidenceStale
+          line: 411
+          args:
+            - ctx
+            - pack
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: CollectOptions
+          line: 15
+          is_exported: true
+        - name: CollectResult
+          line: 33
+          is_exported: true
+        - name: RunCodeIndexOptions
+          line: 70
+          is_exported: true
+        - name: RunCodeIndexResult
+          line: 76
+          is_exported: true
+        - name: RunEvidenceScoreOptions
+          line: 168
+          is_exported: true
+        - name: RunEvidenceScoreResult
+          line: 175
+          is_exported: true
+      types: []
+    imports:
+      - module: child_process
+        name: spawnSync
+        kind: named
+        line: 10
+      - module: path
+        name: path
+        kind: namespace
+        line: 12
+      - module: ./utils
+        name: readYaml
+        kind: named
+        line: 14
+      - module: ./utils
+        name: now
+        kind: named
+        line: 14
+      - module: ./utils
+        name: ensureDir
+        kind: named
+        line: 14
+      - module: ./utils
+        name: hashFile
+        kind: named
+        line: 14
+    error: null
+  - path: plugin/index.ts
+    language: ts
+    size_bytes: 22396
+    content_hash: 36a823dfffb9c8653e655376bb028ebdebd308f4d111cade7e32e4693171b712
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 6 interfaces, 5 funciones (0 exportadas) | Exporta: OpenCodePlugin<I>, PluginInitContext<I>, HookContext<I>, ToolHandler<I>, CommandHandler<I>"
+    symbols:
+      functions:
+        - name: buildContext
+          line: 591
+          args:
+            - repoRoot
+            - flowid
+          is_async: false
+          is_exported: false
+        - name: initFlowState
+          line: 619
+          args:
+            - flowid
+          is_async: false
+          is_exported: false
+        - name: loadState
+          line: 662
+          args:
+            - repoRoot
+            - flowid
+          is_async: false
+          is_exported: false
+        - name: saveState
+          line: 666
+          args:
+            - repoRoot
+            - state
+          is_async: false
+          is_exported: false
+        - name: appendBlock
+          line: 672
+          args:
+            - repoRoot
+            - flowid
+            - block
+          is_async: false
+          is_exported: false
+      classes: []
+      interfaces:
+        - name: OpenCodePlugin
+          line: 61
+          is_exported: true
+        - name: PluginInitContext
+          line: 70
+          is_exported: true
+        - name: HookContext
+          line: 76
+          is_exported: true
+        - name: ToolHandler
+          line: 89
+          is_exported: true
+        - name: CommandHandler
+          line: 95
+          is_exported: true
+        - name: BlocksFile
+          line: 676
+          is_exported: false
+      types: []
+    imports:
+      - module: path
+        name: path
+        kind: namespace
+        line: 20
+      - module: child_process
+        name: spawnSync
+        kind: named
+        line: 22
+      - module: ./utils
+        name: readYaml
+        kind: named
+        line: 28
+      - module: ./utils
+        name: writeYaml
+        kind: named
+        line: 28
+      - module: ./utils
+        name: now
+        kind: named
+        line: 28
+      - module: ./utils
+        name: ensureDir
+        kind: named
+        line: 28
+      - module: ./utils
+        name: flowPath
+        kind: named
+        line: 28
+      - module: ./utils
+        name: statePath
+        kind: named
+        line: 28
+      - module: ./utils
+        name: evidencePath
+        kind: named
+        line: 28
+      - module: ./utils
+        name: blocksPath
+        kind: named
+        line: 28
+      - module: ./utils
+        name: telemetryPath
+        kind: named
+        line: 28
+      - module: ./utils
+        name: toolRegistryPath
+        kind: named
+        line: 28
+      - module: ./utils
+        name: v4
+        kind: named
+        line: 28
+      - module: ./loop-engine
+        name: runLoopIteration
+        kind: named
+        line: 41
+      - module: ./block-detector
+        name: detectBlocks
+        kind: named
+        line: 42
+      - module: ./evidence-collector
+        name: collectEvidence
+        kind: named
+        line: 43
+      - module: ./plan-generator
+        name: generatePlan
+        kind: named
+        line: 44
+      - module: ./test-runner
+        name: runTests
+        kind: named
+        line: 45
+      - module: ./tool-absorber
+        name: absorbTools
+        kind: named
+        line: 46
+      - module: ./telemetry
+        name: appendEvent
+        kind: named
+        line: 47
+      - module: ./inspector
+        name: inspectState
+        kind: named
+        line: 48
+      - module: ./inspector
+        name: inspectTools
+        kind: named
+        line: 48
+      - module: ./inspector
+        name: inspectBlocks
+        kind: named
+        line: 48
+      - module: ./inspector
+        name: inspectTelemetry
+        kind: named
+        line: 48
+      - module: ./inspector
+        name: inspectEvidence
+        kind: named
+        line: 48
+      - module: ./inspector
+        name: inspectHealth
+        kind: named
+        line: 48
+      - module: ./inspector
+        name: inspectAll
+        kind: named
+        line: 48
+    error: null
+  - path: plugin/inspector.ts
+    language: ts
+    size_bytes: 9331
+    content_hash: f4d3b97fe64457cadb52ed60b150bf637b5cdb1267b4833381ef33a9d095749b
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 1 interfaces, 8 funciones (7 exportadas) | Exporta: inspectState(), inspectTools(), inspectBlocks(), inspectTelemetry(), inspectEvidence(), inspectHealth(), inspectAll(), InspectOptions<I>"
+    symbols:
+      functions:
+        - name: inspectState
+          line: 34
+          args:
+            - opts
+          is_async: false
+          is_exported: true
+        - name: inspectTools
+          line: 79
+          args:
+            - opts
+          is_async: false
+          is_exported: true
+        - name: inspectBlocks
+          line: 114
+          args:
+            - opts
+          is_async: false
+          is_exported: true
+        - name: inspectTelemetry
+          line: 156
+          args:
+            - opts
+          is_async: false
+          is_exported: true
+        - name: inspectEvidence
+          line: 191
+          args:
+            - opts
+          is_async: false
+          is_exported: true
+        - name: inspectHealth
+          line: 232
+          args:
+            - opts
+          is_async: false
+          is_exported: true
+        - name: inspectAll
+          line: 268
+          args:
+            - opts
+          is_async: false
+          is_exported: true
+        - name: error
+          line: 290
+          args:
+            - msg
+            - json
+          is_async: false
+          is_exported: false
+      classes: []
+      interfaces:
+        - name: InspectOptions
+          line: 28
+          is_exported: true
+      types: []
+    imports:
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 16
+      - module: path
+        name: path
+        kind: namespace
+        line: 18
+      - module: ./utils
+        name: readYaml
+        kind: named
+        line: 25
+      - module: ./telemetry
+        name: computeStats
+        kind: named
+        line: 26
+      - module: ./telemetry
+        name: readEvents
+        kind: named
+        line: 26
+      - module: child_process
+        name: spawnSync
+        kind: named
+        line: 27
+    error: null
+  - path: plugin/loop-engine.ts
+    language: ts
+    size_bytes: 9873
+    content_hash: 3890cb2f29c911382dba8f02f8a591df30d44c0cf98087fa41547348e2e7bd06
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 1 interfaces, 6 funciones (1 exportadas) | Exporta: runLoopIteration(), LoopResult<I>"
+    symbols:
+      functions:
+        - name: runLoopIteration
+          line: 45
+          args:
+            - state
+            - ctx
+            - gateContext
+          is_async: false
+          is_exported: true
+        - name: transit
+          line: 204
+          args:
+            - state
+            - ctx
+            - to
+            - gateResult
+            - telemetry
+            - reason
+          is_async: false
+          is_exported: false
+        - name: blockAndStay
+          line: 255
+          args:
+            - state
+            - ctx
+            - blockData
+            - telemetry
+          is_async: false
+          is_exported: false
+        - name: resetCounter
+          line: 328
+          args:
+            - loops
+            - phase
+          is_async: false
+          is_exported: false
+        - name: suggestResolution
+          line: 338
+          args:
+            - kind
+          is_async: false
+          is_exported: false
+        - name: emit
+          line: 52
+          args:
+            - e
+            - "\"eventid\" | \"at\" | \"flowid\">"
+          is_async: false
+          is_exported: false
+          is_arrow: true
+      classes: []
+      interfaces:
+        - name: LoopResult
+          line: 29
+          is_exported: true
+      types: []
+    imports:
+      - module: ./state-machine
+        name: evaluateGate
+        kind: named
+        line: 22
+      - module: ./state-machine
+        name: gateForTransition
+        kind: named
+        line: 22
+      - module: ./state-machine
+        name: nextPhase
+        kind: named
+        line: 22
+      - module: ./state-machine
+        name: canTransit
+        kind: named
+        line: 22
+      - module: ./utils
+        name: v4 as uuid
+        kind: named
+        line: 28
+    error: null
+  - path: plugin/parallel/hypothesis-runner.ts
+    language: ts
+    size_bytes: 4753
+    content_hash: c694fff0b25b2367923721115bcf4c81c5c488c256e73679378ab9f6570a04bb
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 3 interfaces, 3 funciones (3 exportadas) | Exporta: planHypotheses(), scoreHypothesis(), selectWinner(), HypothesisDecision<I>, Hypothesis<I>, WinnerResult<I>"
+    symbols:
+      functions:
+        - name: planHypotheses
+          line: 60
+          args:
+            - flowId
+            - decision
+            - count
+          is_async: false
+          is_exported: true
+        - name: scoreHypothesis
+          line: 94
+          args:
+            - h
+          is_async: false
+          is_exported: true
+        - name: selectWinner
+          line: 112
+          args:
+            - flowId
+            - hypotheses
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: HypothesisDecision
+          line: 29
+          is_exported: true
+        - name: Hypothesis
+          line: 35
+          is_exported: true
+        - name: WinnerResult
+          line: 48
+          is_exported: true
+      types: []
+    imports:
+      - module: ../core/runtime-logger
+        name: log as auditLog
+        kind: named
+        line: 21
+    error: null
+  - path: plugin/plan-generator.ts
+    language: ts
+    size_bytes: 8422
+    content_hash: fb05ae9c28676009a9bf09da86a3b204969b97b4eed67170c35755432f68411b
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 4 interfaces, 2 funciones (2 exportadas) | Exporta: runImpactPrediction(), generatePlan(), GenerateOptions<I>, GenerateResult<I>, RunImpactPredictionOptions<I>, RunImpactPredictionResult<I>"
+    symbols:
+      functions:
+        - name: runImpactPrediction
+          line: 93
+          args:
+            - ctx
+            - opts
+          is_async: false
+          is_exported: true
+        - name: generatePlan
+          line: 185
+          args:
+            - ctx
+            - opts
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: GenerateOptions
+          line: 20
+          is_exported: true
+        - name: GenerateResult
+          line: 34
+          is_exported: true
+        - name: RunImpactPredictionOptions
+          line: 48
+          is_exported: true
+        - name: RunImpactPredictionResult
+          line: 57
+          is_exported: true
+      types: []
+    imports:
+      - module: child_process
+        name: spawnSync
+        kind: named
+        line: 15
+      - module: path
+        name: path
+        kind: namespace
+        line: 17
+      - module: ./utils
+        name: readYaml
+        kind: named
+        line: 19
+      - module: ./utils
+        name: writeYaml
+        kind: named
+        line: 19
+      - module: ./utils
+        name: now
+        kind: named
+        line: 19
+      - module: ./utils
+        name: ensureDir
+        kind: named
+        line: 19
+    error: null
+  - path: plugin/state-machine.ts
+    language: ts
+    size_bytes: 10547
+    content_hash: f1a6fdaf3d31d76674b1d3ed595ce59fa7bb8c1883f83526b357d04ad1aa9918
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 2 interfaces, 7 funciones (6 exportadas) | Exporta: canTransit(), getTransitionRule(), evaluateGate(), nextPhase(), gateForTransition(), requiredArtifactsForTransition(), GateContext<I>"
+    symbols:
+      functions:
+        - name: aggregate
+          line: 273
+          args:
+            - currentPhase
+            - signals
+            - defaultNext
+          is_async: false
+          is_exported: false
+        - name: canTransit
+          line: 311
+          args:
+            - from
+            - to
+          is_async: false
+          is_exported: true
+        - name: getTransitionRule
+          line: 322
+          args:
+            - from
+            - to
+          is_async: false
+          is_exported: true
+        - name: evaluateGate
+          line: 329
+          args:
+            - gateName
+            - ctx
+          is_async: false
+          is_exported: true
+        - name: nextPhase
+          line: 344
+          args:
+            - current
+          is_async: false
+          is_exported: true
+        - name: gateForTransition
+          line: 349
+          args:
+            - from
+            - to
+          is_async: false
+          is_exported: true
+        - name: requiredArtifactsForTransition
+          line: 354
+          args:
+            - from
+            - to
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: TransitionRule
+          line: 20
+          is_exported: false
+        - name: GateContext
+          line: 104
+          is_exported: true
+      types: []
+    imports: []
+    error: null
+  - path: plugin/telemetry.ts
+    language: ts
+    size_bytes: 3215
+    content_hash: 2a1331f9fd6bc9aae74db5af2f62e71731b093f8ff56318d31e3385019db3810
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 1 interfaces, 3 funciones (3 exportadas) | Exporta: appendEvent(), readEvents(), computeStats(), TelemetryStats<I>"
+    symbols:
+      functions:
+        - name: appendEvent
+          line: 28
+          args:
+            - ctx
+            - event
+            - "\"eventid\" | \"at\" | \"flowid\">"
+          is_async: false
+          is_exported: true
+        - name: readEvents
+          line: 43
+          args:
+            - telemetryPath
+            - opts
+          is_async: false
+          is_exported: true
+        - name: computeStats
+          line: 70
+          args:
+            - telemetryPath
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: TelemetryStats
+          line: 12
+          is_exported: true
+      types: []
+    imports:
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 7
+      - module: path
+        name: path
+        kind: namespace
+        line: 9
+      - module: ./utils
+        name: v4
+        kind: named
+        line: 11
+      - module: ./utils
+        name: ensureDir
+        kind: named
+        line: 11
+      - module: ./utils
+        name: now
+        kind: named
+        line: 11
+    error: null
+  - path: plugin/test-runner.ts
+    language: ts
+    size_bytes: 10009
+    content_hash: b56416e44616ca4c3fa68ade0bcd0b4326630f98e0d8cac82b07b76ba1906392
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 4 interfaces, 2 funciones (2 exportadas) | Exporta: runScaffold(), runTests(), TestOptions<I>, RunScaffoldOptions<I>, RunScaffoldResult<I>, TestRunResult<I>"
+    symbols:
+      functions:
+        - name: runScaffold
+          line: 101
+          args:
+            - ctx
+            - opts
+          is_async: false
+          is_exported: true
+        - name: runTests
+          line: 206
+          args:
+            - ctx
+            - opts
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: TestOptions
+          line: 18
+          is_exported: true
+        - name: RunScaffoldOptions
+          line: 37
+          is_exported: true
+        - name: RunScaffoldResult
+          line: 44
+          is_exported: true
+        - name: TestRunResult
+          line: 56
+          is_exported: true
+      types: []
+    imports:
+      - module: child_process
+        name: spawnSync
+        kind: named
+        line: 13
+      - module: path
+        name: path
+        kind: namespace
+        line: 15
+      - module: ./utils
+        name: readYaml
+        kind: named
+        line: 17
+      - module: ./utils
+        name: now
+        kind: named
+        line: 17
+      - module: ./utils
+        name: ensureDir
+        kind: named
+        line: 17
+    error: null
+  - path: plugin/tool-absorber.ts
+    language: ts
+    size_bytes: 18359
+    content_hash: 4a6e56f325ef42ae04041b5d81dab1fc0af63bd9451c8136f82a94a46b9290d0
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 3 interfaces, 14 funciones (5 exportadas) | Exporta: absorbTools(), findToolByCapability(), getFallbackChain(), hotReloadRegistry(), recommendTool(), AbsorbResult<I>, HotReloadResult<I>, RecommendToolResult<I>"
+    symbols:
+      functions:
+        - name: absorbTools
+          line: 59
+          args:
+            - ctx
+            - sources
+          is_async: false
+          is_exported: true
+        - name: buildMcpTool
+          line: 199
+          args:
+            - name
+            - config
+          is_async: false
+          is_exported: false
+        - name: buildSkillTool
+          line: 222
+          args:
+            - name
+            - skillMdPath
+          is_async: false
+          is_exported: false
+        - name: buildPluginTool
+          line: 243
+          args:
+            - name
+            - pluginPath
+          is_async: false
+          is_exported: false
+        - name: buildScriptTool
+          line: 259
+          args:
+            - name
+            - scriptPath
+          is_async: false
+          is_exported: false
+        - name: inferMcpCapabilities
+          line: 284
+          args:
+            - name
+          is_async: false
+          is_exported: false
+        - name: inferSkillCapabilities
+          line: 297
+          args:
+            - name
+          is_async: false
+          is_exported: false
+        - name: inferScriptCapabilities
+          line: 311
+          args:
+            - name
+          is_async: false
+          is_exported: false
+        - name: verifyHealth
+          line: 329
+          args:
+            - tool
+            - repoRoot
+          is_async: false
+          is_exported: false
+        - name: detectConflicts
+          line: 347
+          args:
+            - tools
+          is_async: false
+          is_exported: false
+        - name: findToolByCapability
+          line: 372
+          args:
+            - registry
+            - capability
+            - preferActive = true
+          is_async: false
+          is_exported: true
+        - name: getFallbackChain
+          line: 386
+          args:
+            - registry
+            - toolId
+          is_async: false
+          is_exported: true
+        - name: hotReloadRegistry
+          line: 434
+          args:
+            - ctx
+            - opts
+          is_async: false
+          is_exported: true
+        - name: recommendTool
+          line: 574
+          args:
+            - ctx
+            - task
+            - top
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces:
+        - name: AbsorbResult
+          line: 51
+          is_exported: true
+        - name: HotReloadResult
+          line: 406
+          is_exported: true
+        - name: RecommendToolResult
+          line: 548
+          is_exported: true
+      types: []
+    imports:
+      - module: child_process
+        name: spawnSync
+        kind: named
+        line: 17
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 19
+      - module: path
+        name: path
+        kind: namespace
+        line: 20
+      - module: ./utils
+        name: readYaml
+        kind: named
+        line: 26
+      - module: ./utils
+        name: writeYaml
+        kind: named
+        line: 26
+      - module: ./utils
+        name: now
+        kind: named
+        line: 26
+      - module: ./utils
+        name: ensureDir
+        kind: named
+        line: 26
+      - module: ./utils
+        name: v4
+        kind: named
+        line: 26
+    error: null
+  - path: plugin/types.ts
+    language: ts
+    size_bytes: 8883
+    content_hash: 6f274a342c7fb26311ba59e568445aebd0407f43a41daf0bbad81dfaaaee762d
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 19 interfaces, 0 funciones (0 exportadas) | Exporta: LoopCounter<I>, Loops<I>, CircuitBreaker<I>, HistoryEntry<I>, ToolAbsorbed<I>, OperatorHint<I>, ArtifactsRef<I>, FlowState<I>..."
+    symbols:
+      functions: []
+      classes: []
+      interfaces:
+        - name: LoopCounter
+          line: 23
+          is_exported: true
+        - name: Loops
+          line: 29
+          is_exported: true
+        - name: CircuitBreaker
+          line: 41
+          is_exported: true
+        - name: HistoryEntry
+          line: 46
+          is_exported: true
+        - name: ToolAbsorbed
+          line: 55
+          is_exported: true
+        - name: OperatorHint
+          line: 64
+          is_exported: true
+        - name: ArtifactsRef
+          line: 72
+          is_exported: true
+        - name: FlowState
+          line: 84
+          is_exported: true
+        - name: GateResult
+          line: 107
+          is_exported: true
+        - name: EvidenceItem
+          line: 134
+          is_exported: true
+        - name: CapabilityMap
+          line: 147
+          is_exported: true
+        - name: EvidencePack
+          line: 158
+          is_exported: true
+        - name: TestResult
+          line: 200
+          is_exported: true
+        - name: TestRun
+          line: 217
+          is_exported: true
+        - name: RegisteredTool
+          line: 249
+          is_exported: true
+        - name: ToolRegistry
+          line: 273
+          is_exported: true
+        - name: Block
+          line: 302
+          is_exported: true
+        - name: TelemetryEvent
+          line: 342
+          is_exported: true
+        - name: PluginContext
+          line: 359
+          is_exported: true
+      types: []
+    imports: []
+    error: null
+  - path: plugin/utils.ts
+    language: ts
+    size_bytes: 8755
+    content_hash: 20f00c523307543ebd75fa13e27e87609fb2acf4c8b11178770695aafb88f550
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 0 interfaces, 19 funciones (18 exportadas) | Exporta: v4(), sha256(), hashFile(), hashChain(), toYaml(), parseYaml(), ensureDir(), writeJson()..."
+    symbols:
+      functions:
+        - name: v4
+          line: 14
+          args: []
+          is_async: false
+          is_exported: true
+        - name: sha256
+          line: 30
+          args:
+            - data
+          is_async: false
+          is_exported: true
+        - name: hashFile
+          line: 34
+          args:
+            - filePath
+          is_async: false
+          is_exported: true
+        - name: hashChain
+          line: 39
+          args:
+            - items
+          is_async: false
+          is_exported: true
+        - name: toYaml
+          line: 53
+          args:
+            - obj
+            - indent = 0
+          is_async: false
+          is_exported: true
+        - name: parseYaml
+          line: 106
+          args:
+            - text
+          is_async: false
+          is_exported: true
+        - name: parseScalar
+          line: 171
+          args:
+            - raw
+          is_async: false
+          is_exported: false
+        - name: ensureDir
+          line: 191
+          args:
+            - dir
+          is_async: false
+          is_exported: true
+        - name: writeJson
+          line: 206
+          args:
+            - filePath
+            - data
+          is_async: false
+          is_exported: true
+        - name: writeYaml
+          line: 220
+          args:
+            - filePath
+            - data
+          is_async: false
+          is_exported: true
+        - name: appendLine
+          line: 225
+          args:
+            - filePath
+            - line
+          is_async: false
+          is_exported: true
+        - name: now
+          line: 234
+          args: []
+          is_async: false
+          is_exported: true
+        - name: elapsedMs
+          line: 238
+          args:
+            - startIso
+          is_async: false
+          is_exported: true
+        - name: flowPath
+          line: 246
+          args:
+            - repoRoot
+            - flowid
+          is_async: false
+          is_exported: true
+        - name: statePath
+          line: 250
+          args:
+            - repoRoot
+            - flowid
+          is_async: false
+          is_exported: true
+        - name: evidencePath
+          line: 254
+          args:
+            - repoRoot
+            - flowid
+          is_async: false
+          is_exported: true
+        - name: blocksPath
+          line: 258
+          args:
+            - repoRoot
+            - flowid
+          is_async: false
+          is_exported: true
+        - name: telemetryPath
+          line: 262
+          args:
+            - repoRoot
+            - flowid
+          is_async: false
+          is_exported: true
+        - name: toolRegistryPath
+          line: 266
+          args:
+            - repoRoot
+          is_async: false
+          is_exported: true
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: crypto
+        name: crypto
+        kind: namespace
+        line: 6
+      - module: fs
+        name: fs
+        kind: namespace
+        line: 8
+      - module: path
+        name: path
+        kind: namespace
+        line: 9
+    error: null
+  - path: scripts/python/absorb_external_skills.py
+    language: py
+    size_bytes: 20941
+    content_hash: 0767fbf80fb96d9aef731c47e02ee8fde1fa2ea097a70ee8fd5e90d5d9a294ad
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 10 funciones (10 exportadas) | Exporta: parse_source_url(), fetch_url(), fetch_github_tree(), fetch_local(), validate_skill_content(), infer_skill_capabilities(), install_skill(), process_source()..."
+    symbols:
+      functions:
+        - name: parse_source_url
+          line: 102
+          args:
+            - source
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Parsea una URL de source y devuelve metadata estandarizada.
+        - name: fetch_url
+          line: 190
+          args:
+            - url
+            - timeout
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Descarga una URL con curl. Retorna (success, content, error).
+        - name: fetch_github_tree
+          line: 203
+          args:
+            - owner
+            - repo
+            - path
+            - branch
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lista archivos en un path de un repo de GitHub via API.
+        - name: fetch_local
+          line: 232
+          args:
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee un archivo local.
+        - name: validate_skill_content
+          line: 247
+          args:
+            - content
+            - filename
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Valida que el contenido tenga la estructura mínima de una skill.
+        - name: infer_skill_capabilities
+          line: 292
+          args:
+            - name
+            - content
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Infiere capabilities de una skill por nombre + contenido.
+        - name: install_skill
+          line: 353
+          args:
+            - name
+            - content
+            - source_url
+            - repo_root
+            - target_subdir
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Instala una skill en .opencode/skills/<name>/ o ruta personalizada."
+        - name: process_source
+          line: 467
+          args:
+            - source
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Procesa una source URL y la instala como skill.
+        - name: process_hub
+          line: 492
+          args:
+            - hub_name
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Procesa un hub conocido y absorbe todas sus skills.
+        - name: main
+          line: 557
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 42
+      - module: json
+        name: 
+        kind: import
+        line: 44
+      - module: os
+        name: 
+        kind: import
+        line: 45
+      - module: re
+        name: 
+        kind: import
+        line: 46
+      - module: shutil
+        name: 
+        kind: import
+        line: 47
+      - module: subprocess
+        name: 
+        kind: import
+        line: 48
+      - module: sys
+        name: 
+        kind: import
+        line: 49
+      - module: time
+        name: 
+        kind: import
+        line: 50
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 51
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 52
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 52
+      - module: typing
+        name: List
+        kind: from-import
+        line: 52
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 52
+      - module: typing
+        name: Tuple
+        kind: from-import
+        line: 52
+      - module: urllib.parse
+        name: urlparse
+        kind: from-import
+        line: 53
+      - module: common
+        name: cmd_available
+        kind: from-import
+        line: 56
+      - module: common
+        name: gen_uuid
+        kind: from-import
+        line: 56
+      - module: common
+        name: log
+        kind: from-import
+        line: 56
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 56
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 56
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 56
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 56
+      - module: common
+        name: sha256
+        kind: from-import
+        line: 56
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 56
+    error: null
+  - path: scripts/python/absorb_mcp.py
+    language: py
+    size_bytes: 9846
+    content_hash: b40c253d0fa38a6f52a13962e9f0874f90b828299f5c77aa6943961a29204c9a
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 10 funciones (10 exportadas) | Exporta: infer_mcp_capabilities(), infer_skill_capabilities(), infer_script_capabilities(), verify_health(), build_mcp_tool(), build_skill_tool(), build_plugin_tool(), build_script_tool()..."
+    symbols:
+      functions:
+        - name: infer_mcp_capabilities
+          line: 42
+          args:
+            - name
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: infer_skill_capabilities
+          line: 62
+          args:
+            - name
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: infer_script_capabilities
+          line: 84
+          args:
+            - name
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: verify_health
+          line: 106
+          args:
+            - command
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: build_mcp_tool
+          line: 113
+          args:
+            - name
+            - config
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: build_skill_tool
+          line: 133
+          args:
+            - name
+            - skill_md
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: build_plugin_tool
+          line: 151
+          args:
+            - name
+            - plugin_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: build_script_tool
+          line: 164
+          args:
+            - name
+            - script_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: detect_conflicts
+          line: 182
+          args:
+            - tools
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 198
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 18
+      - module: json
+        name: 
+        kind: import
+        line: 20
+      - module: os
+        name: 
+        kind: import
+        line: 21
+      - module: subprocess
+        name: 
+        kind: import
+        line: 22
+      - module: sys
+        name: 
+        kind: import
+        line: 23
+      - module: time
+        name: 
+        kind: import
+        line: 24
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 25
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 26
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 26
+      - module: typing
+        name: List
+        kind: from-import
+        line: 26
+      - module: common
+        name: cmd_available
+        kind: from-import
+        line: 29
+      - module: common
+        name: log
+        kind: from-import
+        line: 29
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 29
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 29
+      - module: common
+        name: read_json
+        kind: from-import
+        line: 29
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 29
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 29
+      - module: common
+        name: sha256
+        kind: from-import
+        line: 29
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 29
+    error: null
+  - path: scripts/python/collect_evidence.py
+    language: py
+    size_bytes: 13853
+    content_hash: 0485badec66505f34920a4e810a245c844ae2c623de735186316cdda1de0f589
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 9 funciones (9 exportadas) | Exporta: collect_file_snapshot(), collect_git_diff(), collect_git_log(), collect_endpoint_probe(), collect_db_query(), collect_screenshot(), collect_symbol_list(), collect_schema_validation()..."
+    symbols:
+      functions:
+        - name: collect_file_snapshot
+          line: 57
+          args:
+            - repo_root
+            - file_path
+            - idx
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: collect_git_diff
+          line: 89
+          args:
+            - repo_root
+            - ref
+            - idx
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: collect_git_log
+          line: 105
+          args:
+            - repo_root
+            - n
+            - idx
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: collect_endpoint_probe
+          line: 121
+          args:
+            - endpoint
+            - idx
+            - method
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: collect_db_query
+          line: 159
+          args:
+            - query
+            - idx
+            - db_url
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: collect_screenshot
+          line: 192
+          args:
+            - url
+            - idx
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: collect_symbol_list
+          line: 250
+          args:
+            - repo_root
+            - file_pattern
+            - idx
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: collect_schema_validation
+          line: 272
+          args:
+            - artifact_path
+            - schema_path
+            - idx
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Valida un YAML contra un schema YAML mínimo (required fields).
+        - name: main
+          line: 327
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 18
+      - module: json
+        name: 
+        kind: import
+        line: 20
+      - module: os
+        name: 
+        kind: import
+        line: 21
+      - module: subprocess
+        name: 
+        kind: import
+        line: 22
+      - module: sys
+        name: 
+        kind: import
+        line: 23
+      - module: time
+        name: 
+        kind: import
+        line: 24
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 25
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 26
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 26
+      - module: typing
+        name: List
+        kind: from-import
+        line: 26
+      - module: common
+        name: cmd_available
+        kind: from-import
+        line: 30
+      - module: common
+        name: detect_capabilities
+        kind: from-import
+        line: 30
+      - module: common
+        name: elapsed_ms
+        kind: from-import
+        line: 30
+      - module: common
+        name: extract_symbols
+        kind: from-import
+        line: 30
+      - module: common
+        name: gen_evidence_id
+        kind: from-import
+        line: 30
+      - module: common
+        name: gen_uuid
+        kind: from-import
+        line: 30
+      - module: common
+        name: git_diff
+        kind: from-import
+        line: 30
+      - module: common
+        name: git_log
+        kind: from-import
+        line: 30
+      - module: common
+        name: git_status
+        kind: from-import
+        line: 30
+      - module: common
+        name: hash_chain
+        kind: from-import
+        line: 30
+      - module: common
+        name: hash_file
+        kind: from-import
+        line: 30
+      - module: common
+        name: list_files
+        kind: from-import
+        line: 30
+      - module: common
+        name: log
+        kind: from-import
+        line: 30
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 30
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 30
+      - module: common
+        name: read_file_summary
+        kind: from-import
+        line: 30
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 30
+      - module: common
+        name: sha256
+        kind: from-import
+        line: 30
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 30
+    error: null
+  - path: scripts/python/common.py
+    language: py
+    size_bytes: 20409
+    content_hash: 4b2d96a59907a7c7c834fd7ae778484550040cb7339c856a11d02e7f6e983f18
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 40 funciones (39 exportadas) | Exporta: now_iso(), elapsed_ms(), sha256(), hash_file(), hash_chain(), yaml_dump(), yaml_load(), read_yaml()..."
+    symbols:
+      functions:
+        - name: now_iso
+          line: 27
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: elapsed_ms
+          line: 31
+          args:
+            - start_iso
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: sha256
+          line: 43
+          args:
+            - data
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: hash_file
+          line: 49
+          args:
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: hash_chain
+          line: 57
+          args:
+            - items
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: yaml_dump
+          line: 66
+          args:
+            - obj
+            - indent
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: yaml_load
+          line: 114
+          args:
+            - text
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Parser YAML m\u00ednimo. Soporta objetos, listas, scalars, anidados por indent.\n\nReglas:\n  - `key: value` \u2192 parent[key] = scalar\n  - `key:` (vac\u00edo) \u2192 parent[key] ser\u00e1 dict o list seg\u00fan el primer hijo\n  - `"
+        - name: _parse_scalar
+          line: 259
+          args:
+            - raw
+          is_async: false
+          is_exported: false
+          decorators: []
+          docstring: null
+        - name: read_yaml
+          line: 277
+          args:
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: write_yaml
+          line: 288
+          args:
+            - path
+            - data
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: read_json
+          line: 298
+          args:
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: write_json
+          line: 308
+          args:
+            - path
+            - data
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: run_cmd
+          line: 318
+          args:
+            - cmd
+            - cwd
+            - timeout
+            - capture
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: cmd_available
+          line: 345
+          args:
+            - cmd
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: detect_capabilities
+          line: 354
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: gen_uuid
+          line: 394
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: gen_run_id
+          line: 398
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: gen_evidence_id
+          line: 402
+          args:
+            - index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: gen_block_id
+          line: 406
+          args:
+            - existing
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: flow_dir
+          line: 415
+          args:
+            - repo_root
+            - flowid
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: evidence_path
+          line: 419
+          args:
+            - repo_root
+            - flowid
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: state_path
+          line: 423
+          args:
+            - repo_root
+            - flowid
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: blocks_path
+          line: 427
+          args:
+            - repo_root
+            - flowid
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: telemetry_path
+          line: 431
+          args:
+            - repo_root
+            - flowid
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: tool_registry_path
+          line: 435
+          args:
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: validate_required
+          line: 443
+          args:
+            - data
+            - required
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: validate_enum
+          line: 453
+          args:
+            - value
+            - allowed
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: validate_pattern
+          line: 461
+          args:
+            - value
+            - pattern
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: parse_args
+          line: 473
+          args:
+            - argv
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Parser simple: --key value o --flag."
+        - name: log
+          line: 492
+          args:
+            - msg
+            - level
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: git_diff
+          line: 500
+          args:
+            - repo_root
+            - ref
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: git_log
+          line: 505
+          args:
+            - repo_root
+            - n
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: git_status
+          line: 514
+          args:
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: git_head_sha
+          line: 519
+          args:
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: list_files
+          line: 528
+          args:
+            - repo_root
+            - patterns
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lista archivos que matchean alguno de los patrones (glob).
+        - name: read_file_summary
+          line: 540
+          args:
+            - path
+            - max_chars
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: extract_symbols_go
+          line: 553
+          args:
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Extrae nombres de funciones/structs/interfaces de un .go.
+        - name: extract_symbols_ts
+          line: 565
+          args:
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Extrae nombres de funciones/clases/interfaces de un .ts.
+        - name: extract_symbols_py
+          line: 579
+          args:
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Extrae nombres de funciones/clases de un .py.
+        - name: extract_symbols
+          line: 591
+          args:
+            - path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 8
+      - module: hashlib
+        name: 
+        kind: import
+        line: 10
+      - module: json
+        name: 
+        kind: import
+        line: 11
+      - module: os
+        name: 
+        kind: import
+        line: 12
+      - module: re
+        name: 
+        kind: import
+        line: 13
+      - module: subprocess
+        name: 
+        kind: import
+        line: 14
+      - module: sys
+        name: 
+        kind: import
+        line: 15
+      - module: time
+        name: 
+        kind: import
+        line: 16
+      - module: uuid
+        name: 
+        kind: import
+        line: 17
+      - module: datetime
+        name: datetime
+        kind: from-import
+        line: 18
+      - module: datetime
+        name: timezone
+        kind: from-import
+        line: 18
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 19
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 20
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 20
+      - module: typing
+        name: List
+        kind: from-import
+        line: 20
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 20
+      - module: typing
+        name: Tuple
+        kind: from-import
+        line: 20
+    error: null
+  - path: scripts/python/context_query.py
+    language: py
+    size_bytes: 22521
+    content_hash: 1696540b302a6e4aafd5d3ec7d6f8b86188b043fc075d909e366e53c7343dc69
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 23 funciones (22 exportadas) | Exporta: match_question(), flow_dir(), handler_next_phase(), handler_active_blocks(), handler_recent_events(), handler_available_tools(), handler_evidence_summary(), handler_evidence_score()..."
+    symbols:
+      functions:
+        - name: match_question
+          line: 71
+          args:
+            - question
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Identifica qué handler usar para la pregunta.
+        - name: flow_dir
+          line: 84
+          args:
+            - repo_root
+            - flowid
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: handler_next_phase
+          line: 88
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee FLOW-STATE.yaml y devuelve la siguiente fase esperada.
+        - name: handler_active_blocks
+          line: 114
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee BLOCK-LOG.yaml y devuelve bloqueos activos.
+        - name: handler_recent_events
+          line: 134
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee telemetry.jsonl y devuelve últimos 10 eventos.
+        - name: handler_available_tools
+          line: 161
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee TOOL-REGISTRY.yaml y devuelve tools activas.
+        - name: handler_evidence_summary
+          line: 181
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee EVIDENCE-PACK.yaml y devuelve resumen.
+        - name: _group_by_kind
+          line: 194
+          args:
+            - items
+          is_async: false
+          is_exported: false
+          decorators: []
+          docstring: null
+        - name: handler_evidence_score
+          line: 202
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee EVIDENCE-SCORE.yaml y devuelve scores.
+        - name: handler_files_for_unit
+          line: 213
+          args:
+            - repo_root
+            - flowid
+            - phase
+            - question
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee DYNAMIC-PLAN.yaml + CODE-INDEX.yaml y devuelve archivos para una unidad.
+        - name: handler_impact_prediction
+          line: 257
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee IMPACT-PREDICTION.yaml y devuelve resumen.
+        - name: handler_scaffold_summary
+          line: 276
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Lee IMPL-SCAFFOLD-*.yaml y devuelve resumen."
+        - name: handler_code_index_summary
+          line: 295
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee CODE-INDEX.yaml y devuelve resumen.
+        - name: handler_plan_summary
+          line: 308
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee DYNAMIC-PLAN.yaml y devuelve resumen.
+        - name: handler_flow_state
+          line: 334
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lee FLOW-STATE.yaml y devuelve estado completo.
+        - name: handler_missing_artifacts
+          line: 349
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Verifica qué artefactos faltan para avanzar.
+        - name: handler_available_mcps
+          line: 380
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lista MCPs disponibles del TOOL-REGISTRY.
+        - name: handler_recommended_mcp
+          line: 400
+          args:
+            - repo_root
+            - flowid
+            - phase
+            - question
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Recomienda qué MCP usar para una tarea.
+        - name: handler_health_check
+          line: 450
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Health check rápido de tools del registry.
+        - name: handler_full_summary
+          line: 458
+          args:
+            - repo_root
+            - flowid
+            - phase
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Resumen completo del estado del flow.
+        - name: handler_unknown
+          line: 474
+          args:
+            - repo_root
+            - flowid
+            - phase
+            - question
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Handler para preguntas no reconocidas.
+        - name: answer
+          line: 522
+          args:
+            - repo_root
+            - flowid
+            - phase
+            - question
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Punto de entrada principal: dada una pregunta, devuelve respuesta."
+        - name: main
+          line: 560
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 26
+      - module: json
+        name: 
+        kind: import
+        line: 28
+      - module: re
+        name: 
+        kind: import
+        line: 29
+      - module: sys
+        name: 
+        kind: import
+        line: 30
+      - module: time
+        name: 
+        kind: import
+        line: 31
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 32
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 33
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 33
+      - module: typing
+        name: List
+        kind: from-import
+        line: 33
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 33
+      - module: common
+        name: log
+        kind: from-import
+        line: 36
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 36
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 36
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 36
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 36
+    error: null
+  - path: scripts/python/generate_plan.py
+    language: py
+    size_bytes: 14531
+    content_hash: 6bc12b625a3f00106905a549ceb080c4b0270e74d63d8ddd0ef60759992623c2
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 7 funciones (7 exportadas) | Exporta: detect_dominant_axis(), estimate_mps(), should_split(), cluster_to_unit(), topological_sort(), default_adaptative_gates(), main()"
+    symbols:
+      functions:
+        - name: detect_dominant_axis
+          line: 64
+          args:
+            - cluster
+            - evidence_items
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Detecta el eje dominante de un cluster por sus acoplamientos.
+        - name: estimate_mps
+          line: 95
+          args:
+            - symbols
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Estima número de MPs por símbolos acoplados.
+        - name: should_split
+          line: 109
+          args:
+            - cluster
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Determina si un cluster debe partirse y cómo.
+        - name: cluster_to_unit
+          line: 133
+          args:
+            - cluster
+            - unit_id
+            - evidence_items
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: topological_sort
+          line: 201
+          args:
+            - units
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Ordena units por dependenciasprevias. Asume dependencias son unit_ids.
+        - name: default_adaptative_gates
+          line: 239
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 278
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 33
+      - module: json
+        name: 
+        kind: import
+        line: 35
+      - module: os
+        name: 
+        kind: import
+        line: 36
+      - module: sys
+        name: 
+        kind: import
+        line: 37
+      - module: time
+        name: 
+        kind: import
+        line: 38
+      - module: collections
+        name: defaultdict
+        kind: from-import
+        line: 39
+      - module: collections
+        name: deque
+        kind: from-import
+        line: 39
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 40
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 41
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 41
+      - module: typing
+        name: List
+        kind: from-import
+        line: 41
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 41
+      - module: typing
+        name: Set
+        kind: from-import
+        line: 41
+      - module: typing
+        name: Tuple
+        kind: from-import
+        line: 41
+      - module: common
+        name: elapsed_ms
+        kind: from-import
+        line: 44
+      - module: common
+        name: gen_uuid
+        kind: from-import
+        line: 44
+      - module: common
+        name: hash_file
+        kind: from-import
+        line: 44
+      - module: common
+        name: log
+        kind: from-import
+        line: 44
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 44
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 44
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 44
+      - module: common
+        name: sha256
+        kind: from-import
+        line: 44
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 44
+    error: null
+  - path: scripts/python/health_check.py
+    language: py
+    size_bytes: 13445
+    content_hash: 4c7b7090235d3d533530061cd7df27339a59091cf226664956bfcaaad480936c
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 7 funciones (7 exportadas) | Exporta: check_file_exists(), check_mcp_ping(), check_command_exit(), check_tool_health(), discover_new_scripts(), detect_missing_tools(), main()"
+    symbols:
+      functions:
+        - name: check_file_exists
+          line: 55
+          args:
+            - tool
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Verifica que el archivo de un script existe.
+        - name: check_mcp_ping
+          line: 72
+          args:
+            - tool
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Verifica que un MCP responde (intenta --version o similar).
+        - name: check_command_exit
+          line: 106
+          args:
+            - tool
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Ejecuta el comando de health_check y verifica exit code.
+        - name: check_tool_health
+          line: 124
+          args:
+            - tool
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Dispatch al checker apropiado según el tipo de tool.
+        - name: discover_new_scripts
+          line: 148
+          args:
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Descubre scripts Python nuevos en scripts/python/ que no están en el registry.
+        - name: detect_missing_tools
+          line: 227
+          args:
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Detecta tools en el registry cuyo archivo fue eliminado.
+        - name: main
+          line: 247
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 29
+      - module: json
+        name: 
+        kind: import
+        line: 31
+      - module: os
+        name: 
+        kind: import
+        line: 32
+      - module: subprocess
+        name: 
+        kind: import
+        line: 33
+      - module: sys
+        name: 
+        kind: import
+        line: 34
+      - module: time
+        name: 
+        kind: import
+        line: 35
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 36
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 37
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 37
+      - module: typing
+        name: List
+        kind: from-import
+        line: 37
+      - module: common
+        name: cmd_available
+        kind: from-import
+        line: 40
+      - module: common
+        name: log
+        kind: from-import
+        line: 40
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 40
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 40
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 40
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 40
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 40
+    error: null
+  - path: scripts/python/index_codebase.py
+    language: py
+    size_bytes: 23991
+    content_hash: 758cd13e6687db2f48ae4d1a4cf46d4c4be17d49fb0aa36bc9d07444864af5a5
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 11 funciones (11 exportadas) | Exporta: git_last_modified(), git_is_tracked(), extract_python_symbols(), extract_ts_symbols(), extract_go_symbols(), generate_summary(), discover_files(), index_file()..."
+    symbols:
+      functions:
+        - name: git_last_modified
+          line: 88
+          args:
+            - repo_root
+            - file_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Retorna ISO timestamp de la última modificación git del archivo.
+        - name: git_is_tracked
+          line: 104
+          args:
+            - repo_root
+            - file_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: extract_python_symbols
+          line: 121
+          args:
+            - file_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Extrae s\u00edmbolos de un archivo Python usando el m\u00f3dulo `ast` (stdlib)."
+        - name: extract_ts_symbols
+          line: 229
+          args:
+            - file_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Extrae símbolos de TS/JS usando regex (no AST — fallback robusto).
+        - name: extract_go_symbols
+          line: 366
+          args:
+            - file_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Extrae símbolos de Go usando regex.
+        - name: generate_summary
+          line: 423
+          args:
+            - symbols
+            - file_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Genera un resumen determinista de 2 líneas basado en los símbolos extraídos.
+        - name: discover_files
+          line: 480
+          args:
+            - repo_root
+            - includes
+            - excludes
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Descubre archivos que matchean includes y no matchean excludes.
+        - name: index_file
+          line: 513
+          args:
+            - repo_root
+            - file_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Indexa un archivo: extrae s\u00edmbolos, hash, git-mtime, summary."
+        - name: build_dependency_graph
+          line: 568
+          args:
+            - files_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Construye grafo de dependencias: file -> [files it imports]."
+        - name: build_reverse_dependency_graph
+          line: 594
+          args:
+            - dep_graph
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Construye grafo reverso: file -> [files that import it]."
+        - name: main
+          line: 609
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 27
+      - module: ast
+        name: 
+        kind: import
+        line: 29
+      - module: hashlib
+        name: 
+        kind: import
+        line: 30
+      - module: json
+        name: 
+        kind: import
+        line: 31
+      - module: os
+        name: 
+        kind: import
+        line: 32
+      - module: re
+        name: 
+        kind: import
+        line: 33
+      - module: subprocess
+        name: 
+        kind: import
+        line: 34
+      - module: sys
+        name: 
+        kind: import
+        line: 35
+      - module: time
+        name: 
+        kind: import
+        line: 36
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 37
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 38
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 38
+      - module: typing
+        name: List
+        kind: from-import
+        line: 38
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 38
+      - module: typing
+        name: Tuple
+        kind: from-import
+        line: 38
+      - module: common
+        name: cmd_available
+        kind: from-import
+        line: 41
+      - module: common
+        name: gen_uuid
+        kind: from-import
+        line: 41
+      - module: common
+        name: hash_file
+        kind: from-import
+        line: 41
+      - module: common
+        name: log
+        kind: from-import
+        line: 41
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 41
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 41
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 41
+      - module: common
+        name: sha256
+        kind: from-import
+        line: 41
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 41
+    error: null
+  - path: scripts/python/inspect_tools.py
+    language: py
+    size_bytes: 2407
+    content_hash: df098f265a3a4fee59bddc5c371520de7669195f6202b83d3c976befaf08ecd3
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 1 funciones (1 exportadas) | Exporta: main()"
+    symbols:
+      functions:
+        - name: main
+          line: 23
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 11
+      - module: json
+        name: 
+        kind: import
+        line: 13
+      - module: subprocess
+        name: 
+        kind: import
+        line: 14
+      - module: sys
+        name: 
+        kind: import
+        line: 15
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 16
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 17
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 17
+      - module: common
+        name: log
+        kind: from-import
+        line: 20
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 20
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 20
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 20
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 20
+    error: null
+  - path: scripts/python/predict_impact.py
+    language: py
+    size_bytes: 20986
+    content_hash: 337286a4210ac0ae72c7d22a673f7776daa2f61eda29a38524df786984a55502
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 7 funciones (7 exportadas) | Exporta: project_dependency_cascade(), project_historical_pattern(), project_test_coverage_gap(), project_symbol_contract(), project_git_blame_risk(), predict_for_mp(), main()"
+    symbols:
+      functions:
+        - name: project_dependency_cascade
+          line: 72
+          args:
+            - mp_files
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Predice el cascade de dependencias: qu\u00e9 se rompe si toco estos archivos."
+        - name: project_historical_pattern
+          line: 138
+          args:
+            - mp_id
+            - mp_phase
+            - mp_files
+            - telemetry_path
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Busca patrones similares en telemetría histórica que terminaron mal.
+        - name: project_test_coverage_gap
+          line: 230
+          args:
+            - mp_files
+            - mp_symbols
+            - test_runs_dir
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Detecta gaps entre lo que el MP toca y lo que está testeado.
+        - name: project_symbol_contract
+          line: 324
+          args:
+            - mp_files
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Detecta funciones cuyas firmas podrían romper callers.
+        - name: project_git_blame_risk
+          line: 390
+          args:
+            - mp_files
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Analiza git blame para detectar riesgo de conflicto humano.
+        - name: predict_for_mp
+          line: 451
+          args:
+            - mp
+            - code_index
+            - telemetry_path
+            - test_runs_dir
+            - repo_root
+            - deep
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Genera todas las proyecciones para un MP.
+        - name: main
+          line: 505
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 47
+      - module: json
+        name: 
+        kind: import
+        line: 49
+      - module: os
+        name: 
+        kind: import
+        line: 50
+      - module: re
+        name: 
+        kind: import
+        line: 51
+      - module: sys
+        name: 
+        kind: import
+        line: 52
+      - module: time
+        name: 
+        kind: import
+        line: 53
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 54
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 55
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 55
+      - module: typing
+        name: List
+        kind: from-import
+        line: 55
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 55
+      - module: typing
+        name: Set
+        kind: from-import
+        line: 55
+      - module: common
+        name: log
+        kind: from-import
+        line: 58
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 58
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 58
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 58
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 58
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 58
+    error: null
+  - path: scripts/python/registry_recommend.py
+    language: py
+    size_bytes: 9083
+    content_hash: 2590916997e255faf36207b7305e56a887d2f194c49aab79691c87a89635c1a4
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 3 funciones (3 exportadas) | Exporta: score_tool(), recommend(), main()"
+    symbols:
+      functions:
+        - name: score_tool
+          line: 79
+          args:
+            - tool
+            - task_lower
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Calcula score de una tool para una tarea.
+        - name: recommend
+          line: 162
+          args:
+            - task
+            - repo_root
+            - top
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Recomienda top N tools para una tarea.
+        - name: main
+          line: 218
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 26
+      - module: json
+        name: 
+        kind: import
+        line: 28
+      - module: sys
+        name: 
+        kind: import
+        line: 29
+      - module: time
+        name: 
+        kind: import
+        line: 30
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 31
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 32
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 32
+      - module: typing
+        name: List
+        kind: from-import
+        line: 32
+      - module: common
+        name: log
+        kind: from-import
+        line: 35
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 35
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 35
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 35
+    error: null
+  - path: scripts/python/rollback.py
+    language: py
+    size_bytes: 4739
+    content_hash: c0a9b1f1745852c83bbde12dfde0e0aaf0d124ca67df499ed4efdf8990c8aad8
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 5 funciones (5 exportadas) | Exporta: get_modified_files(), rollback_git_restore(), rollback_git_stash_pop(), rollback_custom_script(), main()"
+    symbols:
+      functions:
+        - name: get_modified_files
+          line: 46
+          args:
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lista archivos modificados no commiteados.
+        - name: rollback_git_restore
+          line: 62
+          args:
+            - repo_root
+            - files
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: rollback_git_stash_pop
+          line: 75
+          args:
+            - repo_root
+            - files
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: rollback_custom_script
+          line: 94
+          args:
+            - repo_root
+            - files
+            - script_path
+            - mp_id
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 109
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 24
+      - module: json
+        name: 
+        kind: import
+        line: 26
+      - module: os
+        name: 
+        kind: import
+        line: 27
+      - module: subprocess
+        name: 
+        kind: import
+        line: 28
+      - module: sys
+        name: 
+        kind: import
+        line: 29
+      - module: time
+        name: 
+        kind: import
+        line: 30
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 31
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 32
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 32
+      - module: typing
+        name: List
+        kind: from-import
+        line: 32
+      - module: common
+        name: git_head_sha
+        kind: from-import
+        line: 35
+      - module: common
+        name: git_status
+        kind: from-import
+        line: 35
+      - module: common
+        name: log
+        kind: from-import
+        line: 35
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 35
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 35
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 35
+      - module: common
+        name: sha256
+        kind: from-import
+        line: 35
+    error: null
+  - path: scripts/python/run_tests.py
+    language: py
+    size_bytes: 12342
+    content_hash: 97312103aa691b78bf7e6514c44a35176e56ede2da3768df2988a070553b3b75
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 10 funciones (10 exportadas) | Exporta: discover_pytest_tests(), discover_go_tests(), discover_jest_tests(), run_pytest(), run_go_test(), run_jest(), run_schema_validation(), parse_pytest_output()..."
+    symbols:
+      functions:
+        - name: discover_pytest_tests
+          line: 50
+          args:
+            - repo_root
+            - targets
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Descubre archivos test_*.py relacionados con los targets."
+        - name: discover_go_tests
+          line: 80
+          args:
+            - repo_root
+            - targets
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: discover_jest_tests
+          line: 91
+          args:
+            - repo_root
+            - targets
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: run_pytest
+          line: 107
+          args:
+            - test_files
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: run_go_test
+          line: 116
+          args:
+            - test_files
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: run_jest
+          line: 133
+          args:
+            - test_files
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: run_schema_validation
+          line: 142
+          args:
+            - targets
+            - repo_root
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Valida YAMLs contra schemas. targets = lista de 'artifact:schema' pairs."
+        - name: parse_pytest_output
+          line: 167
+          args:
+            - stdout
+            - stderr
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: parse_go_test_output
+          line: 199
+          args:
+            - stdout
+            - stderr
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 236
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 20
+      - module: json
+        name: 
+        kind: import
+        line: 22
+      - module: os
+        name: 
+        kind: import
+        line: 23
+      - module: re
+        name: 
+        kind: import
+        line: 24
+      - module: subprocess
+        name: 
+        kind: import
+        line: 25
+      - module: sys
+        name: 
+        kind: import
+        line: 26
+      - module: time
+        name: 
+        kind: import
+        line: 27
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 28
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 29
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 29
+      - module: typing
+        name: List
+        kind: from-import
+        line: 29
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 29
+      - module: typing
+        name: Tuple
+        kind: from-import
+        line: 29
+      - module: common
+        name: cmd_available
+        kind: from-import
+        line: 32
+      - module: common
+        name: gen_run_id
+        kind: from-import
+        line: 32
+      - module: common
+        name: hash_file
+        kind: from-import
+        line: 32
+      - module: common
+        name: log
+        kind: from-import
+        line: 32
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 32
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 32
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 32
+      - module: common
+        name: run_cmd
+        kind: from-import
+        line: 32
+      - module: common
+        name: sha256
+        kind: from-import
+        line: 32
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 32
+    error: null
+  - path: scripts/python/scaffold_impl.py
+    language: py
+    size_bytes: 23135
+    content_hash: f45a0a4f536a8de480efa7771e6b82f3405e4599b1e50b12c67b1d426566263f
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 8 funciones (8 exportadas) | Exporta: build_files_to_touch(), build_function_contracts(), build_existing_tests(), build_edit_order(), build_checkpoints(), build_circular_deps_warning(), build_change_template(), main()"
+    symbols:
+      functions:
+        - name: build_files_to_touch
+          line: 51
+          args:
+            - unidad
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Lista exacta de archivos a tocar, enriquecida con metadata del CODE-INDEX.
+        - name: build_function_contracts
+          line: 114
+          args:
+            - unidad
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Firmas de funciones que el agente debe mantener para no romper callers.
+        - name: build_existing_tests
+          line: 176
+          args:
+            - unidad
+            - code_index
+            - test_runs_dir
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Tests existentes que deben seguir pasando tras la implementación.
+        - name: build_edit_order
+          line: 224
+          args:
+            - unidad
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Sugiere orden de edici\u00f3n: archivos sin dependencias primero."
+        - name: build_checkpoints
+          line: 271
+          args:
+            - unidad
+            - edit_order
+            - impact_prediction
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Genera checkpoints intermedios: 'despu\u00e9s de X, corre tests antes de continuar Y'."
+        - name: build_circular_deps_warning
+          line: 333
+          args:
+            - unidad
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Detecta dependencias circulares entre los archivos del MP.
+        - name: build_change_template
+          line: 407
+          args:
+            - unidad
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Genera un template de estructura del cambio según patrones del repo.
+        - name: main
+          line: 495
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 29
+      - module: json
+        name: 
+        kind: import
+        line: 31
+      - module: sys
+        name: 
+        kind: import
+        line: 32
+      - module: time
+        name: 
+        kind: import
+        line: 33
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 34
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 35
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 35
+      - module: typing
+        name: List
+        kind: from-import
+        line: 35
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 35
+      - module: typing
+        name: Set
+        kind: from-import
+        line: 35
+      - module: common
+        name: log
+        kind: from-import
+        line: 38
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 38
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 38
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 38
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 38
+    error: null
+  - path: scripts/python/score_evidence.py
+    language: py
+    size_bytes: 16506
+    content_hash: a7bf1c8b8c9787b98b4acb25c6c2bec4c0abfcd5e31e777ccc3df8bb4638f9c2
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 9 funciones (9 exportadas) | Exporta: compute_coverage_score(), compute_freshness_score(), compute_depth_score(), compute_conflict_risk(), compute_redundancy_score(), compute_schema_validity_score(), compute_overall_score(), generate_recommendation()..."
+    symbols:
+      functions:
+        - name: compute_coverage_score
+          line: 55
+          args:
+            - evidence_pack
+            - verdad
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Cobertura: % de archivos mencionados en VERDAD que est\u00e1n en el pack.\n\nReturns: (score 0-1, lista de archivos faltantes)"
+        - name: compute_freshness_score
+          line: 110
+          args:
+            - evidence_pack
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Freshness: % de file-snapshots con git-mtime < 24h.\n\nReturns: (score 0-1, {stale_files: [], fresh_files: []})"
+        - name: compute_depth_score
+          line: 151
+          args:
+            - evidence_pack
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Depth: proporci\u00f3n de items con contenido sustantivo (no solo rutas).\n\nUn item tiene \"depth\" si:\n  - Tiene summary con > 30 caracteres\n  - O tiene related_symbols con > 0 items\n  - O tiene raw_path apu"
+        - name: compute_conflict_risk
+          line: 181
+          args:
+            - evidence_pack
+            - code_index
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Conflict risk: detecta 2+ archivos con funciones del mismo nombre.\n\nReturns: (score 0-1, {conflicts: [{symbol, files: []}]})"
+        - name: compute_redundancy_score
+          line: 224
+          args:
+            - evidence_pack
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Redundancy: % de items duplicados (mismo hash)."
+        - name: compute_schema_validity_score
+          line: 250
+          args:
+            - evidence_pack
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Schema validity: % de items schema-validation que pasaron."
+        - name: compute_overall_score
+          line: 278
+          args:
+            - scores
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Pesos:\n- coverage: 40% (lo m\u00e1s importante: \u00bftenemos todo lo que necesitamos?)\n- depth: 25% (\u00bfla evidencia es sustantiva?)\n- freshness: 15% (\u00bfes actual?)\n- schema_validity: 10% (\u00bfpas\u00f3 validaci\u00f3n?)\n- re"
+        - name: generate_recommendation
+          line: 305
+          args:
+            - scores
+            - missing_critical
+            - conflicts
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Genera recomendación automática para el orquestador.
+        - name: main
+          line: 367
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 32
+      - module: json
+        name: 
+        kind: import
+        line: 34
+      - module: sys
+        name: 
+        kind: import
+        line: 35
+      - module: time
+        name: 
+        kind: import
+        line: 36
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 37
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 38
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 38
+      - module: typing
+        name: List
+        kind: from-import
+        line: 38
+      - module: typing
+        name: Optional
+        kind: from-import
+        line: 38
+      - module: typing
+        name: Set
+        kind: from-import
+        line: 38
+      - module: common
+        name: log
+        kind: from-import
+        line: 41
+      - module: common
+        name: now_iso
+        kind: from-import
+        line: 41
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 41
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 41
+      - module: common
+        name: sha256
+        kind: from-import
+        line: 41
+      - module: common
+        name: write_yaml
+        kind: from-import
+        line: 41
+    error: null
+  - path: scripts/python/serve_panel.py
+    language: py
+    size_bytes: 2777
+    content_hash: 6182778e41a43511d889ec3c277c83a0b158f75d4a825064b6dbe07856eb8669
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 1 funciones (1 exportadas) | Exporta: main()"
+    symbols:
+      functions:
+        - name: main
+          line: 13
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: argparse
+        name: 
+        kind: import
+        line: 4
+      - module: http.server
+        name: 
+        kind: import
+        line: 5
+      - module: os
+        name: 
+        kind: import
+        line: 6
+      - module: socketserver
+        name: 
+        kind: import
+        line: 7
+      - module: sys
+        name: 
+        kind: import
+        line: 8
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 9
+      - module: urllib.parse
+        name: urlparse
+        kind: from-import
+        line: 10
+      - module: urllib.parse
+        name: parse_qs
+        kind: from-import
+        line: 10
+    error: null
+  - path: scripts/python/telemetry_aggregator.py
+    language: py
+    size_bytes: 3776
+    content_hash: ec25ff28ab8108bdf250d0d1682e7bf84acecc42b49b8a29752e3035975ff667
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 2 funciones (2 exportadas) | Exporta: aggregate(), main()"
+    symbols:
+      functions:
+        - name: aggregate
+          line: 24
+          args:
+            - events
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 81
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 12
+      - module: json
+        name: 
+        kind: import
+        line: 14
+      - module: sys
+        name: 
+        kind: import
+        line: 15
+      - module: collections
+        name: Counter
+        kind: from-import
+        line: 16
+      - module: collections
+        name: defaultdict
+        kind: from-import
+        line: 16
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 17
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 18
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 18
+      - module: typing
+        name: List
+        kind: from-import
+        line: 18
+      - module: common
+        name: log
+        kind: from-import
+        line: 21
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 21
+      - module: common
+        name: read_json
+        kind: from-import
+        line: 21
+      - module: common
+        name: write_json
+        kind: from-import
+        line: 21
+    error: null
+  - path: scripts/python/validate_artifact.py
+    language: py
+    size_bytes: 5052
+    content_hash: 5208895ac0e6c06f38baf4f135f0dbbda673d2317d31c70634fc17b6284e1620
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 3 funciones (3 exportadas) | Exporta: validate_value(), validate(), main()"
+    symbols:
+      functions:
+        - name: validate_value
+          line: 32
+          args:
+            - value
+            - schema
+            - path
+            - errors
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: validate
+          line: 112
+          args:
+            - artifact
+            - schema
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 118
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: __future__
+        name: annotations
+        kind: from-import
+        line: 20
+      - module: json
+        name: 
+        kind: import
+        line: 22
+      - module: re
+        name: 
+        kind: import
+        line: 23
+      - module: sys
+        name: 
+        kind: import
+        line: 24
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 25
+      - module: typing
+        name: Any
+        kind: from-import
+        line: 26
+      - module: typing
+        name: Dict
+        kind: from-import
+        line: 26
+      - module: typing
+        name: List
+        kind: from-import
+        line: 26
+      - module: typing
+        name: Tuple
+        kind: from-import
+        line: 26
+      - module: common
+        name: log
+        kind: from-import
+        line: 29
+      - module: common
+        name: parse_args
+        kind: from-import
+        line: 29
+      - module: common
+        name: read_yaml
+        kind: from-import
+        line: 29
+    error: null
+  - path: tests/plugin.test.ts
+    language: ts
+    size_bytes: 30971
+    content_hash: 7b0a9e566ee70b6c866276282d9775e3470edb3034dcc68e219504ce55af864c
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "TS/JS: 0 clases, 0 interfaces, 1 funciones (0 exportadas) | Sin s\u00edmbolos exportados"
+    symbols:
+      functions:
+        - name: setupTestRepo
+          line: 69
+          args: []
+          is_async: false
+          is_exported: false
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: "node:assert"
+        name: strict as assert
+        kind: named
+        line: 16
+      - module: "node:test"
+        name: describe
+        kind: named
+        line: 18
+      - module: "node:test"
+        name: it
+        kind: named
+        line: 18
+      - module: "node:test"
+        name: beforeEach
+        kind: named
+        line: 18
+      - module: "node:test"
+        name: afterEach
+        kind: named
+        line: 18
+      - module: "node:test"
+        name: before
+        kind: named
+        line: 18
+      - module: "node:test"
+        name: after
+        kind: named
+        line: 18
+      - module: "node:child_process"
+        name: spawnSync
+        kind: named
+        line: 19
+      - module: "node:fs"
+        name: fs
+        kind: namespace
+        line: 20
+      - module: "node:os"
+        name: os
+        kind: namespace
+        line: 21
+      - module: "node:path"
+        name: path
+        kind: namespace
+        line: 22
+      - module: ../plugin/core/runtime-logger
+        name: log
+        kind: named
+        line: 23
+      - module: ../plugin/core/runtime-logger
+        name: readRecentEntries
+        kind: named
+        line: 23
+      - module: ../plugin/core/runtime-logger
+        name: createFlowLogger
+        kind: named
+        line: 23
+      - module: ../plugin/core/runtime-logger
+        name: resolveLogPath
+        kind: named
+        line: 23
+      - module: ../plugin/core/runtime-logger
+        name: _resetSeqCache
+        kind: named
+        line: 23
+      - module: ../plugin/core/router
+        name: _resetRulesCache
+        kind: named
+        line: 31
+      - module: ../plugin/core/router
+        name: loadRoutingRules
+        kind: named
+        line: 31
+      - module: ../plugin/core/router
+        name: route
+        kind: named
+        line: 31
+      - module: ../plugin/core/router
+        name: buildRoutingContext
+        kind: named
+        line: 31
+      - module: ../plugin/core/loop-engine-tree
+        name: _resetTreeCache
+        kind: named
+        line: 37
+      - module: ../plugin/core/loop-engine-tree
+        name: createRootNode
+        kind: named
+        line: 37
+      - module: ../plugin/core/loop-engine-tree
+        name: getNode
+        kind: named
+        line: 37
+      - module: ../plugin/core/loop-engine-tree
+        name: advance
+        kind: named
+        line: 37
+      - module: ../plugin/core/loop-engine-tree
+        name: detectCircuitBreaker
+        kind: named
+        line: 37
+      - module: ../plugin/core/loop-engine-tree
+        name: exportTree
+        kind: named
+        line: 37
+      - module: ../plugin/core/micro-test-runner
+        name: extractTestCommand
+        kind: named
+        line: 45
+      - module: ../plugin/core/micro-test-runner
+        name: runTest
+        kind: named
+        line: 45
+      - module: ../plugin/absorbers/mcp-loader
+        name: _resetMcpCache
+        kind: named
+        line: 49
+      - module: ../plugin/absorbers/mcp-loader
+        name: detectAvailableMcps
+        kind: named
+        line: 49
+      - module: ../plugin/absorbers/mcp-loader
+        name: isMcpAvailable
+        kind: named
+        line: 49
+      - module: ../plugin/absorbers/mcp-loader
+        name: suggestMcpForTask
+        kind: named
+        line: 49
+      - module: ../plugin/absorbers/mcp-loader
+        name: invokeMcp
+        kind: named
+        line: 49
+      - module: ../plugin/parallel/hypothesis-runner
+        name: planHypotheses
+        kind: named
+        line: 56
+      - module: ../plugin/parallel/hypothesis-runner
+        name: scoreHypothesis
+        kind: named
+        line: 56
+      - module: ../plugin/parallel/hypothesis-runner
+        name: selectWinner
+        kind: named
+        line: 56
+    error: null
+  - path: tests/run_all_tests.py
+    language: py
+    size_bytes: 1128
+    content_hash: 173ea5fc4bd4b3fdd870872f8cafa6590d63cfedbb898b0ed3989b6f1537ec9a
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 1 funciones (1 exportadas) | Exporta: main()"
+    symbols:
+      functions:
+        - name: main
+          line: 20
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: subprocess
+        name: 
+        kind: import
+        line: 13
+      - module: sys
+        name: 
+        kind: import
+        line: 14
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 15
+    error: null
+  - path: tests/test_block_detector.py
+    language: py
+    size_bytes: 2329
+    content_hash: 1ec661411cdf2f15803c202cf9cd13d6ec0f6c96ad3744c2351aa755e9313c6e
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 8 funciones (8 exportadas) | Exporta: test_detect_blocks_function(), test_plan_cycle_threshold(), test_context_overload_threshold(), test_block_kinds_detected(), test_count_phase_in_history(), test_count_artifact_references(), test_detection_result_structure(), main()"
+    symbols:
+      functions:
+        - name: test_detect_blocks_function
+          line: 18
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_plan_cycle_threshold
+          line: 24
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_context_overload_threshold
+          line: 30
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_block_kinds_detected
+          line: 36
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_count_phase_in_history
+          line: 44
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_count_artifact_references
+          line: 50
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_detection_result_structure
+          line: 56
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 65
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: sys
+        name: 
+        kind: import
+        line: 12
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 13
+    error: null
+  - path: tests/test_loop_engine.py
+    language: py
+    size_bytes: 3137
+    content_hash: 7f17ca06e50638c413f75ea001a220e200015b7b83e3c72a88c144da76459100
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 9 funciones (9 exportadas) | Exporta: test_loop_iteration_function_exists(), test_transit_function_exists(), test_block_and_stay_function(), test_circuit_breaker_logic(), test_reset_counter_on_transit(), test_telemetry_emitted(), test_suggest_resolution_present(), test_loop_result_structure()..."
+    symbols:
+      functions:
+        - name: test_loop_iteration_function_exists
+          line: 20
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_transit_function_exists
+          line: 26
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_block_and_stay_function
+          line: 32
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_circuit_breaker_logic
+          line: 39
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Verifica que el código contiene la lógica de max iteraciones.
+        - name: test_reset_counter_on_transit
+          line: 50
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Al transitar a nueva fase, su loop counter se resetea.
+        - name: test_telemetry_emitted
+          line: 57
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Cada iteración emite eventos de telemetría.
+        - name: test_suggest_resolution_present
+          line: 68
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: suggestResolution() devuelve sugerencias por kind de bloqueo.
+        - name: test_loop_result_structure
+          line: 78
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 86
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: sys
+        name: 
+        kind: import
+        line: 13
+      - module: json
+        name: 
+        kind: import
+        line: 14
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 15
+    error: null
+  - path: tests/test_python_scripts.py
+    language: py
+    size_bytes: 7931
+    content_hash: 6470a2bf26c9d2e882192399d7c0eb0f6c5c112890ed81039a1484d0d2bba554
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 12 funciones (12 exportadas) | Exporta: test_yaml_round_trip(), test_sha256(), test_hash_chain(), test_parse_args(), test_validate_required_missing(), test_validate_artifact_script(), test_generate_plan_topological_sort(), test_generate_plan_should_split()..."
+    symbols:
+      functions:
+        - name: test_yaml_round_trip
+          line: 26
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_sha256
+          line: 54
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_hash_chain
+          line: 63
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_parse_args
+          line: 71
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_validate_required_missing
+          line: 80
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_validate_artifact_script
+          line: 89
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Ejecuta validate_artifact.py con un artifact inválido.
+        - name: test_generate_plan_topological_sort
+          line: 108
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Verifica topological_sort con dependencias.
+        - name: test_generate_plan_should_split
+          line: 126
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: should_split detecta mixed concerns.
+        - name: test_generate_plan_estimate_mps
+          line: 144
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: estimate_mps calcula MPs por símbolos.
+        - name: test_generate_plan_cluster_to_unit
+          line: 154
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: cluster_to_unit convierte cluster a unit válida.
+        - name: test_collect_evidence_produces_pack
+          line: 180
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: collect_evidence.py genera EVIDENCE-PACK.yaml con hash_chain.
+        - name: test_main
+          line: 214
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: sys
+        name: 
+        kind: import
+        line: 17
+      - module: json
+        name: 
+        kind: import
+        line: 18
+      - module: tempfile
+        name: 
+        kind: import
+        line: 19
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 20
+    error: null
+  - path: tests/test_state_machine.py
+    language: py
+    size_bytes: 3577
+    content_hash: 3de697b9b5d3248d293bfa7684f3f41099888064018a59362aead7845da1a4d7
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 7 funciones (7 exportadas) | Exporta: test_transitions_table_completeness(), test_gates_defined(), test_gate_returns_struct(), test_aggregate_function_exists(), test_can_transit_function(), test_all_phases_exported(), main()"
+    symbols:
+      functions:
+        - name: test_transitions_table_completeness
+          line: 28
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Verifica que TRANSITIONS cubre todas las fases forward.
+        - name: test_gates_defined
+          line: 48
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: Cada transición tiene su gate definido en GATES.
+        - name: test_gate_returns_struct
+          line: 68
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: "Cada gate devuelve estructura {decision, reason, signals, next_phase}."
+        - name: test_aggregate_function_exists
+          line: 78
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: aggregate() combina signals en una decisión final.
+        - name: test_can_transit_function
+          line: 89
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: canTransit permite forward + loop back + desde blocked.
+        - name: test_all_phases_exported
+          line: 98
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: ALL_PHASES exporta la lista completa.
+        - name: main
+          line: 105
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: sys
+        name: 
+        kind: import
+        line: 14
+      - module: os
+        name: 
+        kind: import
+        line: 15
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 16
+    error: null
+  - path: tests/test_tool_absorber.py
+    language: py
+    size_bytes: 3193
+    content_hash: b263533e2a6ac1e5c035ece1385241b632b63a16d05d1cf3c497c63d7faf9974
+    git_tracked: true
+    git_last_modified: "2026-06-21T03:44:09-04:00"
+    summary: "Python: 0 clases, 11 funciones (11 exportadas) | Exporta: test_absorb_tools_function(), test_build_mcp_tool(), test_build_skill_tool(), test_build_plugin_tool(), test_build_script_tool(), test_infer_capabilities(), test_verify_health(), test_detect_conflicts()..."
+    symbols:
+      functions:
+        - name: test_absorb_tools_function
+          line: 21
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_build_mcp_tool
+          line: 27
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_build_skill_tool
+          line: 33
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_build_plugin_tool
+          line: 39
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_build_script_tool
+          line: 45
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_infer_capabilities
+          line: 51
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_verify_health
+          line: 59
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_detect_conflicts
+          line: 65
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_get_fallback_chain
+          line: 72
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: test_find_tool_by_capability
+          line: 80
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+        - name: main
+          line: 86
+          args: []
+          is_async: false
+          is_exported: true
+          decorators: []
+          docstring: null
+      classes: []
+      interfaces: []
+      types: []
+    imports:
+      - module: sys
+        name: 
+        kind: import
+        line: 15
+      - module: pathlib
+        name: Path
+        kind: from-import
+        line: 16
+    error: null
+dependency_graph:
+  plugin/absorbers/mcp-loader.ts:
+    - plugin/core/runtime-logger.ts
+  plugin/block-detector.ts:
+    - plugin/utils.ts
+  plugin/core/loop-engine-tree.ts:
+    - plugin/core/runtime-logger.ts
+  plugin/core/micro-test-runner.ts:
+    - plugin/core/runtime-logger.ts
+  plugin/core/router.ts:
+    - plugin/core/runtime-logger.ts
+  plugin/core/runtime-logger.ts: []
+  plugin/evidence-collector.ts:
+    - plugin/utils.ts
+  plugin/index.ts:
+    - plugin/utils.ts
+    - plugin/loop-engine.ts
+    - plugin/block-detector.ts
+    - plugin/evidence-collector.ts
+    - plugin/plan-generator.ts
+    - plugin/test-runner.ts
+    - plugin/tool-absorber.ts
+    - plugin/telemetry.ts
+    - plugin/inspector.ts
+  plugin/inspector.ts:
+    - plugin/utils.ts
+    - plugin/telemetry.ts
+  plugin/loop-engine.ts:
+    - plugin/state-machine.ts
+    - plugin/utils.ts
+  plugin/parallel/hypothesis-runner.ts:
+    - plugin/core/runtime-logger.ts
+  plugin/plan-generator.ts:
+    - plugin/utils.ts
+  plugin/state-machine.ts: []
+  plugin/telemetry.ts:
+    - plugin/utils.ts
+  plugin/test-runner.ts:
+    - plugin/utils.ts
+  plugin/tool-absorber.ts:
+    - plugin/utils.ts
+  plugin/types.ts: []
+  plugin/utils.ts: []
+  scripts/python/absorb_external_skills.py:
+    - scripts/python/common.py
+  scripts/python/absorb_mcp.py:
+    - scripts/python/common.py
+  scripts/python/collect_evidence.py:
+    - scripts/python/common.py
+  scripts/python/common.py: []
+  scripts/python/context_query.py:
+    - scripts/python/common.py
+  scripts/python/generate_plan.py:
+    - scripts/python/common.py
+  scripts/python/health_check.py:
+    - scripts/python/common.py
+  scripts/python/index_codebase.py:
+    - scripts/python/common.py
+  scripts/python/inspect_tools.py:
+    - scripts/python/common.py
+  scripts/python/predict_impact.py:
+    - scripts/python/common.py
+  scripts/python/registry_recommend.py:
+    - scripts/python/common.py
+  scripts/python/rollback.py:
+    - scripts/python/common.py
+  scripts/python/run_tests.py:
+    - scripts/python/common.py
+  scripts/python/scaffold_impl.py:
+    - scripts/python/common.py
+  scripts/python/score_evidence.py:
+    - scripts/python/common.py
+  scripts/python/serve_panel.py: []
+  scripts/python/telemetry_aggregator.py:
+    - scripts/python/common.py
+  scripts/python/validate_artifact.py:
+    - scripts/python/common.py
+  tests/plugin.test.ts:
+    - plugin/core/runtime-logger.ts
+    - plugin/core/router.ts
+    - plugin/core/loop-engine-tree.ts
+    - plugin/core/micro-test-runner.ts
+    - plugin/absorbers/mcp-loader.ts
+    - plugin/parallel/hypothesis-runner.ts
+  tests/run_all_tests.py: []
+  tests/test_block_detector.py: []
+  tests/test_loop_engine.py: []
+  tests/test_python_scripts.py: []
+  tests/test_state_machine.py: []
+  tests/test_tool_absorber.py: []
+reverse_dependency_graph:
+  plugin/absorbers/mcp-loader.ts:
+    - tests/plugin.test.ts
+  plugin/block-detector.ts:
+    - plugin/index.ts
+  plugin/core/loop-engine-tree.ts:
+    - tests/plugin.test.ts
+  plugin/core/micro-test-runner.ts:
+    - tests/plugin.test.ts
+  plugin/core/router.ts:
+    - tests/plugin.test.ts
+  plugin/core/runtime-logger.ts:
+    - plugin/absorbers/mcp-loader.ts
+    - plugin/core/loop-engine-tree.ts
+    - plugin/core/micro-test-runner.ts
+    - plugin/core/router.ts
+    - plugin/parallel/hypothesis-runner.ts
+    - tests/plugin.test.ts
+  plugin/evidence-collector.ts:
+    - plugin/index.ts
+  plugin/index.ts: []
+  plugin/inspector.ts:
+    - plugin/index.ts
+  plugin/loop-engine.ts:
+    - plugin/index.ts
+  plugin/parallel/hypothesis-runner.ts:
+    - tests/plugin.test.ts
+  plugin/plan-generator.ts:
+    - plugin/index.ts
+  plugin/state-machine.ts:
+    - plugin/loop-engine.ts
+  plugin/telemetry.ts:
+    - plugin/index.ts
+    - plugin/inspector.ts
+  plugin/test-runner.ts:
+    - plugin/index.ts
+  plugin/tool-absorber.ts:
+    - plugin/index.ts
+  plugin/types.ts: []
+  plugin/utils.ts:
+    - plugin/block-detector.ts
+    - plugin/evidence-collector.ts
+    - plugin/index.ts
+    - plugin/inspector.ts
+    - plugin/loop-engine.ts
+    - plugin/plan-generator.ts
+    - plugin/telemetry.ts
+    - plugin/test-runner.ts
+    - plugin/tool-absorber.ts
+  scripts/python/absorb_external_skills.py: []
+  scripts/python/absorb_mcp.py: []
+  scripts/python/collect_evidence.py: []
+  scripts/python/common.py:
+    - scripts/python/absorb_external_skills.py
+    - scripts/python/absorb_mcp.py
+    - scripts/python/collect_evidence.py
+    - scripts/python/context_query.py
+    - scripts/python/generate_plan.py
+    - scripts/python/health_check.py
+    - scripts/python/index_codebase.py
+    - scripts/python/inspect_tools.py
+    - scripts/python/predict_impact.py
+    - scripts/python/registry_recommend.py
+    - scripts/python/rollback.py
+    - scripts/python/run_tests.py
+    - scripts/python/scaffold_impl.py
+    - scripts/python/score_evidence.py
+    - scripts/python/telemetry_aggregator.py
+    - scripts/python/validate_artifact.py
+  scripts/python/context_query.py: []
+  scripts/python/generate_plan.py: []
+  scripts/python/health_check.py: []
+  scripts/python/index_codebase.py: []
+  scripts/python/inspect_tools.py: []
+  scripts/python/predict_impact.py: []
+  scripts/python/registry_recommend.py: []
+  scripts/python/rollback.py: []
+  scripts/python/run_tests.py: []
+  scripts/python/scaffold_impl.py: []
+  scripts/python/score_evidence.py: []
+  scripts/python/serve_panel.py: []
+  scripts/python/telemetry_aggregator.py: []
+  scripts/python/validate_artifact.py: []
+  tests/plugin.test.ts: []
+  tests/run_all_tests.py: []
+  tests/test_block_detector.py: []
+  tests/test_loop_engine.py: []
+  tests/test_python_scripts.py: []
+  tests/test_state_machine.py: []
+  tests/test_tool_absorber.py: []
