@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""test_hash_chain.py — Test standalone para hash chain (v2.6.3)."""
+"""test_hash_chain.py — Test standalone para hash chain (v2.6.4)."""
 import sys, json, hashlib, tempfile, os
 from pathlib import Path
 
@@ -32,7 +32,8 @@ def main():
     tmpf = tempfile.NamedTemporaryFile(mode="w", suffix=".log", delete=False, encoding="utf-8")
     tmpf.write("\n".join(lines) + "\n")
     tmpf.close()
-    valid, errors = verify_hash_chain(tmpf.name)
+    # v2.6.4: pasar Path en vez de str a verify_hash_chain
+    valid, errors = verify_hash_chain(Path(tmpf.name))
     os.unlink(tmpf.name)
     if valid:
         print("VALID")
