@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# apolo-full-test.sh — Test exhaustivo v2.6.1
-# REWRITE COMPLETO: hash chain con script externo, FASE 8.5 corregida, priorización actualizada
+# apolo-full-test.sh — Test exhaustivo v2.6.5
+# REWRITE COMPLETO: todos los fixes integrados de fábrica
 set -uo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
@@ -11,9 +11,8 @@ skip() { echo -e "  ${YELLOW}⊘${NC} $*"; TOTAL_SKIP=$((TOTAL_SKIP + 1)); }
 phase() { echo -e "\n${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; echo -e "${CYAN}${BOLD}  FASE $1: $2${NC}"; echo -e "${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; }
 gap() { GAPS_FOUND+=("$1"); echo -e "  ${RED}⚠ GAP:${NC} $1"; }
 cd /home/juan/new_project 2>/dev/null || { echo "ERROR: /home/juan/new_project no existe"; exit 1; }
-echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v2.6.1              ║${NC}"; echo -e "${BOLD}${GREEN}║  Validación completa + Capability Assessment            ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v2.6.5              ║${NC}"; echo -e "${BOLD}${GREEN}║  Validación completa + Capability Assessment            ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 
-# FASE 1
 phase 1 "Prerrequisitos"
 command -v node >/dev/null 2>&1 && pass "Node.js $(node --version)" || fail "Node.js no instalado"
 command -v npm >/dev/null 2>&1 && pass "npm $(npm --version)" || fail "npm no instalado"
@@ -22,22 +21,19 @@ python3 -c "import jsonschema" 2>/dev/null && pass "jsonschema instalado" || fai
 command -v curl >/dev/null 2>&1 && pass "curl disponible" || fail "curl no disponible"
 command -v git >/dev/null 2>&1 && pass "git disponible" || fail "git no disponible"
 
-# FASE 2
 phase 2 "Compilación"
 npx tsc --noEmit 2>/dev/null && pass "TypeScript compila" || fail "TypeScript errores"
 PY_OK=0; PY_FAIL=0
 for f in scripts/python/*.py; do python3 -c "import py_compile; py_compile.compile('$f', doraise=True)" 2>/dev/null && PY_OK=$((PY_OK+1)) || PY_FAIL=$((PY_FAIL+1)); done
 [[ $PY_FAIL -eq 0 ]] && pass "Todos los $PY_OK scripts Python compilan" || fail "$PY_FAIL scripts no compilan"
 
-# FASE 3
 phase 3 "Tests Unitarios Python"
 python3 tests/run_all_tests.py >/dev/null 2>&1 && pass "5 suites Python" || fail "Suites Python"
 python3 tests/test_atomic.py >/dev/null 2>&1 && pass "9 tests atomicidad" || fail "Atomicidad"
 python3 tests/test_security.py >/dev/null 2>&1 && pass "12 tests seguridad" || fail "Seguridad"
 python3 tests/test_quality.py >/dev/null 2>&1 && pass "8 tests calidad" || fail "Calidad"
-python3 tests/test_intelligence.py >/dev/null 2>&1 && pass "12 tests inteligencia (v2.6.0)" || fail "Inteligencia"
+python3 tests/test_intelligence.py >/dev/null 2>&1 && pass "12 tests inteligencia" || fail "Inteligencia"
 
-# FASE 4
 phase 4 "Tests TypeScript"
 if [[ -f dist/tests/plugin.test.js ]]; then
   TS_OUT=$(node --test dist/tests/plugin.test.js 2>&1)
@@ -48,7 +44,6 @@ else
   fail "dist/tests/plugin.test.js no existe"
 fi
 
-# FASE 5
 phase 5 "Tests Funcionales por Script"
 python3 -c "import sys; sys.path.insert(0,'scripts/python'); from common import yaml_dump,yaml_load; d={'t':[1,2],'n':{'a':True}}; assert yaml_load(yaml_dump(d))==d" 2>/dev/null && pass "common.py: YAML round-trip" || fail "YAML round-trip"
 python3 scripts/python/index_codebase.py --repo-root . --output /tmp/ci.yaml --include "plugin/index.ts" 2>/dev/null | grep -q success && pass "index_codebase.py" || fail "index_codebase.py"
@@ -61,11 +56,7 @@ python3 scripts/python/generate_plan.py --flowid TEST --evidence /tmp/ev.yaml --
 python3 scripts/python/predict_impact.py --plan /tmp/p1.yaml --code-index /tmp/ci.yaml --output /tmp/imp.yaml --flowid TEST 2>/dev/null | grep -q success && pass "predict_impact.py BFS" || fail "predict_impact"
 python3 scripts/python/score_evidence.py --evidence /tmp/ev.yaml --output /tmp/sc.yaml --flowid TEST 2>/dev/null | grep -q success && pass "score_evidence.py" || fail "score_evidence"
 CQ_OUT=$(python3 scripts/python/code_quality.py --repo-root . --output /tmp/cq.yaml 2>&1 || true)
-if echo "$CQ_OUT" | grep -qi "success\|total_files\|languages_detected"; then
-  pass "code_quality.py"
-else
-  fail "code_quality"
-fi || fail "code_quality"
+echo "$CQ_OUT" | grep -qi "success\|total_files\|languages_detected" && pass "code_quality.py" || fail "code_quality"
 python3 scripts/python/test_coverage.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/tc.yaml 2>/dev/null && pass "test_coverage.py" || fail "test_coverage"
 python3 scripts/python/lsp_integration.py --repo-root . --symbol "init" --action find-references 2>/dev/null | grep -q "references\|method" && pass "lsp_integration.py" || fail "lsp_integration"
 bash scripts/bash/apolo-inspect.sh init-flow --flowid APOLO-FULLTEST >/dev/null 2>&1 || true
@@ -74,33 +65,30 @@ python3 scripts/python/registry_recommend.py --task "correr tests" --repo-root .
 python3 scripts/python/health_check.py --repo-root . --fix true --json true 2>/dev/null | grep -q "total_tools" && pass "health_check.py" || fail "health_check"
 ABS_OUT=$(python3 scripts/python/absorb_external_skills.py --repo-root . --source "https://evil.com/skill.md" 2>&1 || true)
 echo "$ABS_OUT" | grep -qi "failed\|error\|rechazado\|deny\|success.*false" && pass "absorb_external_skills allowlist" || fail "absorb allowlist"
-# v2.6.2: secret_scanner test más resiliente
 SECRET_OUT=$(echo 'aws_key = AKIAIOSFODNN7EXAMPLE' | python3 scripts/python/secret_scanner.py --scan-stdin 2>&1 || true)
-if echo "$SECRET_OUT" | grep -qi "aws_access_key\|findings\|count.*[1-9]\|REDACTED"; then
-  pass "secret_scanner.py"
-else
-  fail "secret_scanner"
-fi
+echo "$SECRET_OUT" | grep -qi "aws_access_key\|findings\|count.*[1-9]\|REDACTED" && pass "secret_scanner.py" || fail "secret_scanner"
 echo '{"name":"test","version":1}' > /tmp/ta.json; echo '{"type":"object","required":["name"],"properties":{"name":{"type":"string"}}}' > /tmp/ts.json
 python3 scripts/python/validate_artifact.py --artifact /tmp/ta.json --schema /tmp/ts.json 2>/dev/null && pass "validate_artifact.py" || fail "validate_artifact"
 python3 scripts/python/scaffold_impl.py --plan /tmp/p1.yaml --unit-id U-01 --code-index /tmp/ci.yaml --output /tmp/sf.yaml --flowid TEST 2>/dev/null | grep -q success && pass "scaffold_impl.py" || fail "scaffold"
 
-# FASE 6
 phase 6 "CLI apolo-inspect.sh"
 for cmd in help init-flow absorb state tools blocks telemetry evidence plan health all test; do
   case $cmd in
-    state) bash scripts/bash/apolo-inspect.sh init-flow --flowid APOLO-FULLTEST >/dev/null 2>&1 || true; bash scripts/bash/apolo-inspect.sh state --flowid APOLO-FULLTEST >/dev/null 2>&1 && pass "apolo-inspect state" || fail "apolo-inspect state" ;;
-    evidence) bash scripts/bash/apolo-inspect.sh evidence --flowid APOLO-FULLTEST >/dev/null 2>&1 && pass "apolo-inspect evidence" || fail "apolo-inspect evidence" ;;
-    test) bash scripts/bash/apolo-inspect.sh test 2>/dev/null | tail -1 | grep -q "PASSED" && pass "apolo-inspect test" || fail "apolo-inspect test" ;;
+    help) bash scripts/bash/apolo-inspect.sh help >/dev/null 2>&1 && pass "apolo-inspect help" || fail "apolo-inspect help" ;;
     init-flow) bash scripts/bash/apolo-inspect.sh init-flow --flowid APOLO-FULLTEST >/dev/null 2>&1 && pass "apolo-inspect init-flow" || fail "apolo-inspect init-flow" ;;
+    absorb) bash scripts/bash/apolo-inspect.sh absorb --repo-root . >/dev/null 2>&1 && pass "apolo-inspect absorb" || fail "apolo-inspect absorb" ;;
+    state) bash scripts/bash/apolo-inspect.sh state --flowid APOLO-FULLTEST >/dev/null 2>&1 && pass "apolo-inspect state" || fail "apolo-inspect state" ;;
+    tools) bash scripts/bash/apolo-inspect.sh tools >/dev/null 2>&1 && pass "apolo-inspect tools" || fail "apolo-inspect tools" ;;
     blocks) bash scripts/bash/apolo-inspect.sh blocks --flowid APOLO-FULLTEST >/dev/null 2>&1 && pass "apolo-inspect blocks" || fail "apolo-inspect blocks" ;;
     telemetry) bash scripts/bash/apolo-inspect.sh telemetry --flowid APOLO-FULLTEST >/dev/null 2>&1 && pass "apolo-inspect telemetry" || fail "apolo-inspect telemetry" ;;
+    evidence) bash scripts/bash/apolo-inspect.sh evidence --flowid APOLO-FULLTEST >/dev/null 2>&1 && pass "apolo-inspect evidence" || fail "apolo-inspect evidence" ;;
     plan) bash scripts/bash/apolo-inspect.sh plan --flowid APOLO-FULLTEST >/dev/null 2>&1; pass "apolo-inspect plan" ;;
-    *) bash scripts/bash/apolo-inspect.sh $cmd >/dev/null 2>&1 && pass "apolo-inspect $cmd" || fail "apolo-inspect $cmd" ;;
+    health) bash scripts/bash/apolo-inspect.sh health >/dev/null 2>&1 && pass "apolo-inspect health" || fail "apolo-inspect health" ;;
+    all) bash scripts/bash/apolo-inspect.sh all --flowid APOLO-FULLTEST >/dev/null 2>&1 && pass "apolo-inspect all" || fail "apolo-inspect all" ;;
+    test) bash scripts/bash/apolo-inspect.sh test 2>/dev/null | tail -1 | grep -q "PASSED" && pass "apolo-inspect test" || fail "apolo-inspect test" ;;
   esac
 done
 
-# FASE 7
 phase 7 "Integración End-to-End"
 rm -rf plan/active/APOLO-E2E-TEST 2>/dev/null
 bash scripts/bash/apolo-inspect.sh init-flow --flowid APOLO-E2E-TEST >/dev/null 2>&1 || true
@@ -117,24 +105,12 @@ code=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:8765/.opencode/a
 kill $PANEL_PID 2>/dev/null; wait $PANEL_PID 2>/dev/null
 python3 -c "import json,uuid;from datetime import datetime,timezone;from pathlib import Path;tel=Path('plan/active/APOLO-E2E-TEST/telemetry.jsonl');e=[{'eventid':str(uuid.uuid4()),'flowid':'APOLO-E2E-TEST','at':datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),'kind':'phase-enter','phase':'reanclaje','severity':'info','message':'E2E'}];tel.write_text(chr(10).join(json.dumps(x) for x in e)+chr(10))" 2>/dev/null && pass "Telemetry generada" || fail "Telemetry"
 
-# FASE 8
 phase 8 "Seguridad"
 python3 -c "import sys;sys.path.insert(0,'scripts/python');from secret_scanner import is_origin_allowed,load_security_config;c=load_security_config();a,_=is_origin_allowed('github://juancspjr/test/skill.md',c);assert a;b,_=is_origin_allowed('https://evil.com/skill.md',c);assert not b;c2,_=is_origin_allowed('http://169.254.169.254/',c);assert not c2" 2>/dev/null && pass "Allowlist + SSRF" || fail "Allowlist"
 SECRET_OUT2=$(echo 'aws_key = AKIAIOSFODNN7EXAMPLE' | python3 scripts/python/secret_scanner.py --scan-stdin 2>&1 || true)
-if echo "$SECRET_OUT2" | grep -qi "aws_access_key\|findings\|count.*[1-9]\|REDACTED"; then
-  pass "Secret detection"
-else
-  fail "Secret detection"
-fi
+echo "$SECRET_OUT2" | grep -qi "aws_access_key\|findings\|count.*[1-9]\|REDACTED" && pass "Secret detection" || fail "Secret detection"
+python3 tests/test_hash_chain.py 2>&1 | grep -q "VALID" && pass "Hash chain: válido + verificación" || fail "Hash chain"
 
-# HASH CHAIN — usar script Python externo (v2.6.1 fix)
-if python3 tests/test_hash_chain.py 2>&1 | grep -q "VALID"; then
-  pass "Hash chain: válido + verificación"
-else
-  fail "Hash chain"
-fi
-
-# FASE 8.5: Inteligencia (v2.6.0)
 phase "8.5" "Inteligencia (v2.6.0)"
 python3 scripts/python/self_healing.py --repo-root . --output /tmp/lrn.yaml 2>/dev/null && pass "self_healing.py" || fail "self_healing.py"
 python3 scripts/python/generate_tests.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/gt/ 2>/dev/null && pass "generate_tests.py" || fail "generate_tests.py"
@@ -142,7 +118,6 @@ python3 scripts/python/semantic_search.py --repo-root . --query "inicializar flo
 python3 scripts/python/refactor_engine.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/rf.yaml 2>/dev/null && pass "refactor_engine.py" || fail "refactor_engine.py"
 python3 -c "import sys;sys.path.insert(0,'scripts/python');from llm_bridge import is_available;exit(0)" 2>/dev/null && pass "llm_bridge.py disponible" || pass "llm_bridge.py fallback determinista"
 
-# FASE 9: Capability Assessment
 phase 9 "Capability Assessment"
 echo ""
 echo -e "  ${BOLD}Comparando capacidades del plugin vs asistente AI...${NC}"
@@ -217,7 +192,6 @@ gap "Multi-project support (instalación global)"
 gap "npm publish (distribución como paquete)"
 gap "VS Code extension (visualizar flows en el editor)"
 
-# FASE 10: Resumen
 phase 10 "Resumen Final"
 echo ""
 echo -e "${BOLD}═══════════════════════════════════════════════════════${NC}"

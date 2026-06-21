@@ -1,7 +1,7 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T18:59:58Z'
+generated_at: '2026-06-21T20:16:02Z'
 repo_root: /home/juan/new_project
-total_files: 60
+total_files: 61
 languages_detected:
 - css
 - html
@@ -10,7 +10,1954 @@ languages_detected:
 - typescript
 tools_tried:
   eslint-plugin-security: true
-security_findings: []
+  bandit: true
+security_findings:
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 22
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 28
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 34
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 35
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 42
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 43
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 44
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 45
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 46
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 53
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 60
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 61
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 62
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 63
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 64
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 71
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 72
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 73
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 74
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 80
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 81
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_loop_engine.py
+  line: 82
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 20
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 26
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 32
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 38
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 39
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 40
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 46
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 52
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 58
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 59
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 60
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_block_detector.py
+  line: 61
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 44
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 45
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 46
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 47
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 48
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 49
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 50
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 57
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 58
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 59
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 67
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 74
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 75
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 76
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 84
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 85
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 91
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 98
+  test_id: B607
+  severity: LOW
+  confidence: HIGH
+  message: Starting a process with a partial executable path
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 98
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 103
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 104
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 120
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 121
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 122
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 138
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 139
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 140
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 147
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 148
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 149
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 150
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 173
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 174
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 175
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 176
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 182
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 190
+  test_id: B607
+  severity: LOW
+  confidence: HIGH
+  message: Starting a process with a partial executable path
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 190
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 199
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 200
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 204
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 205
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 206
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 207
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 208
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 209
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_python_scripts.py
+  line: 210
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 10
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 19
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 30
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 31
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 38
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 39
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 50
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 51
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 58
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 59
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 66
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 73
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 81
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 82
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 89
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 90
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 101
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_intelligence.py
+  line: 113
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/run_all_tests.py
+  line: 13
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/tests/run_all_tests.py
+  line: 33
+  test_id: B607
+  severity: LOW
+  confidence: HIGH
+  message: Starting a process with a partial executable path
+- tool: bandit
+  file: /home/juan/new_project/tests/run_all_tests.py
+  line: 33
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 44
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 64
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 71
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 72
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 73
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 74
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 81
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 83
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 84
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 85
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 92
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 93
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 94
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_state_machine.py
+  line: 101
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 40
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 41
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 49
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 50
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 58
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 59
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 67
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 68
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 76
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 77
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 85
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 86
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 94
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 95
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 96
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 109
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 121
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 132
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 136
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 140
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 163
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 193
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_security.py
+  line: 194
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 23
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 29
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 35
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 41
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 47
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 53
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 54
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 55
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 61
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 67
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 68
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 74
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 76
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_tool_absorber.py
+  line: 82
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 60
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 61
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 62
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 63
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 64
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 65
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 66
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 67
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 68
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 69
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 83
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 85
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 86
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 103
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 104
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 105
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 116
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 120
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 125
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 126
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 160
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 164
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 165
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 187
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 213
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 233
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 234
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 235
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 236
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 237
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 249
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 250
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 251
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 255
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 268
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_atomic.py
+  line: 269
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 26
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 96
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 304
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 307
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 312
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 338
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 352
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 355
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 358
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 378
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 387
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 409
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 412
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 415
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 419
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 447
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 451
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 473
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 478
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 496
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 499
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 502
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 507
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 511
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/tests/test_quality.py
+  line: 515
+  test_id: B101
+  severity: LOW
+  confidence: HIGH
+  message: Use of assert detected. The enclosed code will be removed when compiling
+    to optimised byte code.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/common.py
+  line: 14
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/common.py
+  line: 122
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/common.py
+  line: 156
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/common.py
+  line: 200
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/common.py
+  line: 227
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/common.py
+  line: 277
+  test_id: B607
+  severity: LOW
+  confidence: HIGH
+  message: Starting a process with a partial executable path
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/common.py
+  line: 277
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/common.py
+  line: 285
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/collect_evidence.py
+  line: 22
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  line: 48
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/llm_bridge.py
+  line: 59
+  test_id: B108
+  severity: MEDIUM
+  confidence: MEDIUM
+  message: Probable insecure usage of temp file/directory.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/llm_bridge.py
+  line: 74
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/rollback.py
+  line: 28
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/lsp_integration.py
+  line: 254
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/lsp_integration.py
+  line: 383
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/serve_panel.py
+  line: 55
+  test_id: B104
+  severity: MEDIUM
+  confidence: MEDIUM
+  message: Possible binding to all interfaces.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/predict_impact.py
+  line: 263
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/predict_impact.py
+  line: 265
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/context_query.py
+  line: 144
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/run_tests.py
+  line: 25
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/self_healing.py
+  line: 37
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/index_codebase.py
+  line: 34
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/index_codebase.py
+  line: 99
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  line: 22
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/inspect_tools.py
+  line: 14
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/install_deps.py
+  line: 14
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/install_deps.py
+  line: 44
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/install_deps.py
+  line: 50
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+  line: 96
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/generate_tests.py
+  line: 147
+  test_id: B108
+  severity: MEDIUM
+  confidence: MEDIUM
+  message: Probable insecure usage of temp file/directory.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/generate_tests.py
+  line: 171
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/semantic_search.py
+  line: 115
+  test_id: B324
+  severity: HIGH
+  confidence: HIGH
+  message: Use of weak MD5 hash for security. Consider usedforsecurity=False
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/health_check.py
+  line: 33
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
 complexity_scores:
 - file: /home/juan/new_project/panel/panel.js
   function: refresh
@@ -517,450 +2464,311 @@ complexity_scores:
   tool: regex-estimation
   estimated: true
 - file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_loop_engine.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_block_detector.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_block_detector.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_block_detector.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_block_detector.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_block_detector.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_block_detector.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_block_detector.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_block_detector.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_python_scripts.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_intelligence.py
-  function: '
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/run_all_tests.py
-  function: '
-
-
-    '
+  function: test_circuit_breaker_logic
   complexity: 6
   rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_state_machine.py
-  function: '
-
-
-    '
-  complexity: 2
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: test_telemetry_emitted
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: test_suggest_resolution_present
+  complexity: 5
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_state_machine.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_state_machine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_state_machine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_state_machine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_state_machine.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_state_machine.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_hash_chain.py
-  function: '
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: test_loop_result_structure
   complexity: 4
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: test_block_and_stay_function
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: test_loop_iteration_function_exists
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: test_transit_function_exists
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: test_reset_counter_on_transit
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: main
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: test_detection_result_structure
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: test_block_kinds_detected
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: test_detect_blocks_function
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: test_plan_cycle_threshold
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: test_context_overload_threshold
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: test_count_phase_in_history
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: test_count_artifact_references
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: main
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_collect_evidence_produces_pack
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_yaml_round_trip
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_generate_plan_topological_sort
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_generate_plan_estimate_mps
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_generate_plan_cluster_to_unit
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_sha256
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_parse_args
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_generate_plan_should_split
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_validate_required_missing
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_validate_artifact_script
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_hash_chain
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: test_main
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_refactor_detect_god_class
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_refactor_detect_long
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: main
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_self_healing_success_rates
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_self_healing_suggestions
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_self_healing_patterns
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_generate_tests_stub
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_semantic_search_cosine
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_semantic_search_tf_idf
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_llm_bridge_available
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_llm_bridge_chat_no_api
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_generate_tests_ts
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_intelligence.py
+  function: test_generate_tests_go
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/run_all_tests.py
+  function: main
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: test_gate_returns_struct
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: test_aggregate_function_exists
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: test_can_transit_function
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: test_transitions_table_completeness
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: test_gates_defined
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: test_all_phases_exported
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: main
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_hash_chain.py
+  function: main
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/tests/plugin.test.ts
   function: setupTestRepo
   complexity: 10
@@ -968,526 +2776,311 @@ complexity_scores:
   tool: regex-estimation
   estimated: true
 - file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 2
+  function: test_hash_chain_tampered
+  complexity: 5
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 2
+  function: test_redaction
+  complexity: 4
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 2
+  function: test_ssrf_blocked
+  complexity: 4
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 2
+  function: main
+  complexity: 4
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
+  function: test_aws_access_key
   complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/tests/test_security.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_tool_absorber.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: "\n        "
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: "\n        "
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: "\n        "
+  function: test_github_token
   complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 1
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_security.py
+  function: test_private_key
+  complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 1
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_security.py
+  function: test_db_connection_string
+  complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 1
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_security.py
+  function: test_jwt
+  complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_atomic.py
-  function: '
-
-
-    '
-  complexity: 5
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_security.py
+  function: test_generic_password
+  complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_security.py
+  function: test_hash_chain_valid
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_security.py
+  function: test_allowlist_allowed
   complexity: 2
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: "\n    "
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_security.py
+  function: test_allowlist_denied
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_infer_capabilities
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_detect_conflicts
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_get_fallback_chain
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_absorb_tools_function
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_build_mcp_tool
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_build_skill_tool
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_build_plugin_tool
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_build_script_tool
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_verify_health
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: test_find_tool_by_capability
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: main
   complexity: 1
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: "\n    "
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: "\n    "
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: "\n    "
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_yaml_roundtrip_complex
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_no_temp_files_remaining
   complexity: 7
   rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: "\n    "
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '    '
-  complexity: 15
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: "\n    "
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: "\n    "
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_atomic_replace
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_pyyaml_anchors
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_json_atomic
   complexity: 5
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_atomic_write_no_partial
   complexity: 4
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_concurrent_writes
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: main
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_pyyaml_multiline_strings
   complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: test_concurrent_readers
   complexity: 2
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
+  function: test_code_quality_detects_high_complexity
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/tests/test_quality.py
-  function: '
-
-    '
+  function: test_code_quality_graceful_degradation
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: _make_chain_repo
   complexity: 5
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: test_code_quality_detects_security_findings
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: test_test_coverage_identifies_uncovered_symbols
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: test_predict_impact_bfs_multilevel
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: test_lsp_get_diagnostics
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: main
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: test_lsp_find_references_regex
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: _install_common_stub_if_needed
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: _import_predict_impact
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: _import_code_quality
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: _import_test_coverage
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: _import_lsp_integration
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: _make_python_repo_with_complexity
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: test_predict_impact_bfs_cycle_safe
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/tests/test_quality.py
+  function: _make_python_repo_with_secrets
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
   function: _resetMcpCache
   complexity: 1
@@ -1729,2285 +3322,1583 @@ complexity_scores:
   tool: regex-estimation
   estimated: true
 - file: /home/juan/new_project/scripts/python/validate_artifact.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/validate_artifact.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/validate_artifact.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/validate_artifact.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 10
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
+  function: main
   complexity: 7
   rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  function: load_schema
+  complexity: 5
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  function: validate_artifact
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  function: validate
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
+  function: _parse_scalar
   complexity: 10
   rank: B
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
+  function: detect_capabilities
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
+  function: run_cmd
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
+  function: read_yaml
   complexity: 6
   rank: B
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/common.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-
-    '
+  function: write_yaml
   complexity: 6
   rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: write_json
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: read_file_summary
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: parse_args
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: list_files
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: read_json
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: validate_required
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: extract_symbols_go
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: extract_symbols_ts
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: extract_symbols_py
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: extract_symbols
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: hash_file
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: validate_enum
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: validate_pattern
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: elapsed_ms
   complexity: 2
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: sha256
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: hash_chain
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: git_diff
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: git_log
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: git_status
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: git_head_sha
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: now_iso
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: yaml_dump
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: yaml_load
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: cmd_available
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: gen_uuid
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: gen_run_id
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: gen_evidence_id
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: gen_block_id
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: flow_dir
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: evidence_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: state_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: blocks_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: telemetry_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: tool_registry_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/common.py
+  function: log
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-
-    '
+  function: main
+  complexity: 22
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: collect_schema_validation
   complexity: 8
   rank: B
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-    '
-  complexity: 23
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '    '
-  complexity: 1
+  function: collect_screenshot
+  complexity: 5
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '    '
-  complexity: 1
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: collect_file_snapshot
+  complexity: 4
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-    '
-  complexity: 12
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: collect_endpoint_probe
   complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: collect_db_query
   complexity: 3
   rank: A
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: collect_git_diff
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: collect_git_log
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: collect_symbol_list
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: scan_evidence_pack
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-    '
-  complexity: 13
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-
-    '
+  function: infer_skill_capabilities
   complexity: 31
   rank: E
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-    '
-  complexity: 13
+  function: main
+  complexity: 15
   rank: C
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-
-    '
+  function: process_hub
   complexity: 14
   rank: C
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-    '
-  complexity: 16
+  function: validate_skill_content
+  complexity: 13
   rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  function: '
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/rollback.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/rollback.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/rollback.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/rollback.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/rollback.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  function: '
-
-
-    '
-  complexity: 11
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: install_skill
+  complexity: 13
   rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  function: '
-
-
-    '
-  complexity: 11
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  function: '
-
-
-    '
-  complexity: 11
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: parse_source_url
   complexity: 12
   rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: process_source
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: fetch_github_tree
   complexity: 6
   rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
-  complexity: 13
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
-  complexity: 9
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: fetch_url
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: fetch_local
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: is_origin_allowed
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: load_security_config
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: embed
+  complexity: 8
   rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
-  complexity: 15
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: chat
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: _api_call
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: main
   complexity: 4
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: _load_cache
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: _save_cache
   complexity: 2
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: _hash_embedding
   complexity: 2
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: get_api_base
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: get_api_key
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: get_model
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: is_available
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: _cache_key
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: analyze_code
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: suggest_fix
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: generate_test
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  function: suggest_refactor
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: main
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: get_modified_files
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: rollback_git_stash_pop
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: rollback_git_restore
   complexity: 2
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: rollback_custom_script
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  function: detect_smells
   complexity: 11
   rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-    '
-  complexity: 17
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/serve_panel.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/serve_panel.py
-  function: '        '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/serve_panel.py
-  function: "\n        "
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/serve_panel.py
-  function: "\n        "
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-    '
-  complexity: 17
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-
-    '
-  complexity: 20
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-
-    '
-  complexity: 24
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-
-    '
-  complexity: 15
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-
-    '
-  complexity: 13
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: "\n    "
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-    '
-  complexity: 25
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-
-    '
-  complexity: 20
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 26
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 30
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 27
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 16
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 24
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 14
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 30
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-    '
-  complexity: 19
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-
-    '
-  complexity: 15
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-
-    '
-  complexity: 13
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-    '
-  complexity: 13
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-    '
-  complexity: 26
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/registry_recommend.py
-  function: '
-
-
-    '
-  complexity: 17
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/registry_recommend.py
-  function: '
-
-
-    '
-  complexity: 12
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/registry_recommend.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  function: '
-
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  function: '
-
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  function: '
-
-
-    '
-  complexity: 18
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-    '
-  complexity: 25
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-
-    '
-  complexity: 23
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-
-    '
-  complexity: 16
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-    '
-  complexity: 21
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-    '
-  complexity: 13
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-    '
-  complexity: 16
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-
-    '
-  complexity: 2
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-    '
-  complexity: 19
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-
-    '
-  complexity: 23
-  rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-
-    '
-  complexity: 11
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-    '
-  complexity: 14
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-    '
-  complexity: 51
-  rank: F
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
-  complexity: 11
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
-  complexity: 13
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  function: count_lines
   complexity: 10
   rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  function: main
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  function: generate_refactored
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  function: estimate_complexity
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: main
+  complexity: 16
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: regex_get_hover
+  complexity: 15
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: regex_get_diagnostics
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: lsp_diagnostics_via_cli
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: analyze_repo
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: regex_go_to_definition
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: list_source_files
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: regex_find_references
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: detect_available_lsps
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: get_lsp_for_file
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: find_references
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: get_diagnostics
   complexity: 2
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: go_to_definition
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: get_hover
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: detect_language
   complexity: 1
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: lsp_find_references_via_cli
   complexity: 1
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
-  complexity: 1
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/serve_panel.py
+  function: main
+  complexity: 4
   rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
-  complexity: 28
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_existing_tests
+  complexity: 24
   rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/inspect_tools.py
-  function: '
-
-
-    '
-  complexity: 12
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
-  function: '
-
-
-    '
-  complexity: 11
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 12
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 11
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: main
+  complexity: 23
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_function_contracts
   complexity: 20
   rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-    '
-  complexity: 19
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_files_to_touch
+  complexity: 17
   rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-    '
-  complexity: 6
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_tests.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_tests.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_tests.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/generate_tests.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  function: '
-
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  function: '
-
-
-    '
-  complexity: 9
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-    '
-  complexity: 1
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-
-    '
-  complexity: 14
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_circular_deps_warning
+  complexity: 17
   rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-    '
-  complexity: 21
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_edit_order
+  complexity: 15
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_checkpoints
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_change_template
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: project_test_coverage_gap
+  complexity: 29
   rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-
-    '
-  complexity: 8
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-    '
-  complexity: 12
-  rank: C
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-
-    '
-  complexity: 61
-  rank: F
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-    '
-  complexity: 4
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-
-    '
-  complexity: 5
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-
-    '
-  complexity: 3
-  rank: A
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-
-    '
-  complexity: 7
-  rank: B
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: project_symbol_contract
+  complexity: 27
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: project_historical_pattern
   complexity: 26
   rank: D
-  tool: regex-estimation
-  estimated: true
-- file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-
-    '
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: main
+  complexity: 23
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: project_dependency_cascade
+  complexity: 20
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: project_git_blame_risk
+  complexity: 16
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: predict_for_mp
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: _resolve_dependents
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_recommended_mcp
+  complexity: 30
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_files_for_unit
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_missing_artifacts
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_available_mcps
   complexity: 7
   rank: B
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_recent_events
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_plan_summary
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_active_blocks
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_available_tools
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_next_phase
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_impact_prediction
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_scaffold_summary
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: main
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: match_question
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: answer
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_evidence_summary
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: _group_by_kind
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_evidence_score
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_code_index_summary
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_flow_state
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: flow_dir
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_health_check
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_full_summary
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_unknown
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: compute_coverage_score
+  complexity: 19
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: compute_conflict_risk
+  complexity: 15
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: generate_recommendation
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: main
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: compute_schema_validity_score
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: compute_redundancy_score
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: compute_freshness_score
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: compute_depth_score
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: compute_overall_score
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: main
+  complexity: 25
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: discover_pytest_tests
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: run_schema_validation
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: parse_go_test_output
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: discover_jest_tests
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: run_go_test
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: parse_pytest_output
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: discover_go_tests
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: run_pytest
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: run_jest
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  function: score_tool
+  complexity: 17
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  function: recommend
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  function: main
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  function: main
+  complexity: 16
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  function: compute_success_rates
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  function: apply_adjustments
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  function: analyze_failure_patterns
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  function: load_telemetry
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  function: suggest_adjustments
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: extract_python_symbols
+  complexity: 25
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: extract_ts_symbols
+  complexity: 23
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: generate_summary
+  complexity: 21
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: extract_go_symbols
+  complexity: 16
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: main
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: discover_files
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: build_dependency_graph
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: index_file
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: build_reverse_dependency_graph
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: git_last_modified
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: git_is_tracked
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: main
+  complexity: 18
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: load_patterns
+  complexity: 16
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: scan_evidence_pack
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: verify_hash_chain
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: load_security_config
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: is_origin_allowed
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: scan_text
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: redact_text
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: _match_pattern
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: compute_hash_chain_entry
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: scan_file
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: main
+  complexity: 50
+  rank: F
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: detect_dominant_axis
+  complexity: 23
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: topological_sort
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: should_split
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: cluster_to_unit
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: estimate_mps
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: default_adaptative_gates
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: main
+  complexity: 27
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: infer_skill_capabilities
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: infer_mcp_capabilities
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: infer_script_capabilities
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: detect_conflicts
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: verify_health
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: build_mcp_tool
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: build_skill_tool
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: build_plugin_tool
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: build_script_tool
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/inspect_tools.py
+  function: main
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  function: main
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  function: install_package
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  function: check_dep
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+  function: aggregate
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+  function: main
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: analyze_repo
+  complexity: 19
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: estimate_complexity_regex
+  complexity: 16
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: list_source_files
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: run_eslint_security
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: run_security_for_language
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: run_bandit
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: run_radon_cc
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: run_gosec
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: _complexity_rank
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: run_cppcheck
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: run_gocyclo
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: compute_complexity
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: main
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: detect_language
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  function: find_untested_symbols
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  function: main
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  function: generate_stub
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  function: generate_with_llm
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  function: tf_idf
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  function: cosine_sim
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  function: build_embeddings
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  function: main
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  function: _hash_embed
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  function: search
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  function: tokenize
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: analyze_coverage
+  complexity: 61
+  rank: F
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: extract_symbols_from_file
+  complexity: 21
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: is_test_file
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: heuristic_test_mapping
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: run_go_cover
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: run_coverage_py
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: run_nyc
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: main
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: load_symbols_from_code_index
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: detect_language
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-    '
-  complexity: 35
+  function: main
+  complexity: 33
   rank: E
-  tool: regex-estimation
-  estimated: true
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: discover_new_scripts
+  complexity: 26
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: check_tool_health
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: detect_missing_tools
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: check_mcp_ping
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: check_file_exists
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: check_command_exit
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
 high_complexity_functions:
 - file: /home/juan/new_project/panel/panel.js
   function: renderTelemetry
@@ -4094,405 +4985,243 @@ high_complexity_functions:
   tool: regex-estimation
   recommendation: refactor 'extractTestCommand' (complejidad 17 > 15)
 - file: /home/juan/new_project/scripts/python/collect_evidence.py
-  function: '
-
-    '
-  complexity: 23
+  function: main
+  complexity: 22
   rank: D
-  lineno: 333
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 23 > 15)'
+  lineno: 334
+  tool: radon
+  recommendation: refactor 'main' (complejidad 22 > 15)
 - file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-
-    '
+  function: infer_skill_capabilities
   complexity: 31
   rank: E
-  lineno: 302
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 31 > 15)'
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  function: '
-
-    '
+  lineno: 304
+  tool: radon
+  recommendation: refactor 'infer_skill_capabilities' (complejidad 31 > 15)
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: main
   complexity: 16
   rank: C
-  lineno: 584
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 16 > 15)'
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  function: '
-
-    '
-  complexity: 17
-  rank: C
-  lineno: 596
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 17 > 15)'
+  lineno: 597
+  tool: radon
+  recommendation: refactor 'main' (complejidad 16 > 15)
 - file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-    '
-  complexity: 17
-  rank: C
-  lineno: 50
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 17 > 15)'
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-
-    '
-  complexity: 20
-  rank: C
-  lineno: 112
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 20 > 15)'
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-
-    '
+  function: build_existing_tests
   complexity: 24
   rank: D
-  lineno: 174
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 24 > 15)'
+  lineno: 176
+  tool: radon
+  recommendation: refactor 'build_existing_tests' (complejidad 24 > 15)
 - file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  function: '
-
-    '
-  complexity: 25
+  function: main
+  complexity: 23
   rank: D
-  lineno: 494
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 25 > 15)'
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-
-    '
+  lineno: 495
+  tool: radon
+  recommendation: refactor 'main' (complejidad 23 > 15)
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_function_contracts
   complexity: 20
   rank: C
-  lineno: 106
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 20 > 15)'
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 26
-  rank: D
-  lineno: 241
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 26 > 15)'
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 30
-  rank: D
+  lineno: 114
+  tool: radon
+  recommendation: refactor 'build_function_contracts' (complejidad 20 > 15)
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_files_to_touch
+  complexity: 17
+  rank: C
+  lineno: 51
+  tool: radon
+  recommendation: refactor 'build_files_to_touch' (complejidad 17 > 15)
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: build_circular_deps_warning
+  complexity: 17
+  rank: C
   lineno: 333
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 30 > 15)'
+  tool: radon
+  recommendation: refactor 'build_circular_deps_warning' (complejidad 17 > 15)
 - file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
+  function: project_test_coverage_gap
+  complexity: 29
+  rank: D
+  lineno: 334
+  tool: radon
+  recommendation: refactor 'project_test_coverage_gap' (complejidad 29 > 15)
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: project_symbol_contract
   complexity: 27
   rank: D
-  lineno: 427
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 27 > 15)'
+  lineno: 428
+  tool: radon
+  recommendation: refactor 'project_symbol_contract' (complejidad 27 > 15)
 - file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 16
-  rank: C
-  lineno: 493
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 16 > 15)'
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  function: '
-
-    '
-  complexity: 24
-  rank: D
-  lineno: 611
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 24 > 15)'
-- file: /home/juan/new_project/scripts/python/context_query.py
-  function: '
-
-
-    '
-  complexity: 30
-  rank: D
-  lineno: 398
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 30 > 15)'
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  function: '
-
-    '
-  complexity: 19
-  rank: C
-  lineno: 54
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 19 > 15)'
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  function: '
-
-    '
+  function: project_historical_pattern
   complexity: 26
   rank: D
-  lineno: 235
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 26 > 15)'
-- file: /home/juan/new_project/scripts/python/registry_recommend.py
-  function: '
-
-
-    '
-  complexity: 17
-  rank: C
-  lineno: 77
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 17 > 15)'
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  function: '
-
-
-    '
-  complexity: 18
-  rank: C
-  lineno: 162
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 18 > 15)'
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-    '
-  complexity: 25
-  rank: D
-  lineno: 120
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 25 > 15)'
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-
-    '
+  lineno: 242
+  tool: radon
+  recommendation: refactor 'project_historical_pattern' (complejidad 26 > 15)
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: main
   complexity: 23
   rank: D
-  lineno: 227
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 23 > 15)'
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-
-    '
-  complexity: 16
-  rank: C
-  lineno: 364
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 16 > 15)'
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  function: '
-
-    '
-  complexity: 21
-  rank: D
-  lineno: 422
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 21 > 15)'
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-    '
-  complexity: 16
-  rank: C
-  lineno: 115
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 16 > 15)'
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  function: '
-
-    '
-  complexity: 19
-  rank: C
-  lineno: 415
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 19 > 15)'
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-
-    '
-  complexity: 23
-  rank: D
-  lineno: 82
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 23 > 15)'
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  function: '
-
-    '
-  complexity: 51
-  rank: F
-  lineno: 297
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 51 > 15)'
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  function: '
-
-
-    '
-  complexity: 28
-  rank: D
-  lineno: 196
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 28 > 15)'
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-
-    '
+  lineno: 612
+  tool: radon
+  recommendation: refactor 'main' (complejidad 23 > 15)
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: project_dependency_cascade
   complexity: 20
   rank: C
-  lineno: 346
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 20 > 15)'
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  function: '
-
-    '
+  lineno: 108
+  tool: radon
+  recommendation: refactor 'project_dependency_cascade' (complejidad 20 > 15)
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: project_git_blame_risk
+  complexity: 16
+  rank: C
+  lineno: 494
+  tool: radon
+  recommendation: refactor 'project_git_blame_risk' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: handler_recommended_mcp
+  complexity: 30
+  rank: D
+  lineno: 400
+  tool: radon
+  recommendation: refactor 'handler_recommended_mcp' (complejidad 30 > 15)
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: compute_coverage_score
   complexity: 19
   rank: C
-  lineno: 468
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 19 > 15)'
-- file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-    '
+  lineno: 55
+  tool: radon
+  recommendation: refactor 'compute_coverage_score' (complejidad 19 > 15)
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: main
+  complexity: 25
+  rank: D
+  lineno: 236
+  tool: radon
+  recommendation: refactor 'main' (complejidad 25 > 15)
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  function: score_tool
+  complexity: 17
+  rank: C
+  lineno: 79
+  tool: radon
+  recommendation: refactor 'score_tool' (complejidad 17 > 15)
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  function: main
+  complexity: 16
+  rank: C
+  lineno: 164
+  tool: radon
+  recommendation: refactor 'main' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: extract_python_symbols
+  complexity: 25
+  rank: D
+  lineno: 121
+  tool: radon
+  recommendation: refactor 'extract_python_symbols' (complejidad 25 > 15)
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: extract_ts_symbols
+  complexity: 23
+  rank: D
+  lineno: 229
+  tool: radon
+  recommendation: refactor 'extract_ts_symbols' (complejidad 23 > 15)
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: generate_summary
   complexity: 21
   rank: D
-  lineno: 124
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 21 > 15)'
+  lineno: 423
+  tool: radon
+  recommendation: refactor 'generate_summary' (complejidad 21 > 15)
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: extract_go_symbols
+  complexity: 16
+  rank: C
+  lineno: 366
+  tool: radon
+  recommendation: refactor 'extract_go_symbols' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: main
+  complexity: 18
+  rank: C
+  lineno: 416
+  tool: radon
+  recommendation: refactor 'main' (complejidad 18 > 15)
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: load_patterns
+  complexity: 16
+  rank: C
+  lineno: 116
+  tool: radon
+  recommendation: refactor 'load_patterns' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: main
+  complexity: 50
+  rank: F
+  lineno: 298
+  tool: radon
+  recommendation: refactor 'main' (complejidad 50 > 15)
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: detect_dominant_axis
+  complexity: 23
+  rank: D
+  lineno: 84
+  tool: radon
+  recommendation: refactor 'detect_dominant_axis' (complejidad 23 > 15)
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: main
+  complexity: 27
+  rank: D
+  lineno: 198
+  tool: radon
+  recommendation: refactor 'main' (complejidad 27 > 15)
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: analyze_repo
+  complexity: 19
+  rank: C
+  lineno: 469
+  tool: radon
+  recommendation: refactor 'analyze_repo' (complejidad 19 > 15)
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: estimate_complexity_regex
+  complexity: 16
+  rank: C
+  lineno: 348
+  tool: radon
+  recommendation: refactor 'estimate_complexity_regex' (complejidad 16 > 15)
 - file: /home/juan/new_project/scripts/python/test_coverage.py
-  function: '
-
-
-    '
+  function: analyze_coverage
   complexity: 61
   rank: F
-  lineno: 361
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-
-    '' (complejidad 61 > 15)'
+  lineno: 363
+  tool: radon
+  recommendation: refactor 'analyze_coverage' (complejidad 61 > 15)
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: extract_symbols_from_file
+  complexity: 21
+  rank: D
+  lineno: 125
+  tool: radon
+  recommendation: refactor 'extract_symbols_from_file' (complejidad 21 > 15)
 - file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-    '
+  function: main
+  complexity: 33
+  rank: E
+  lineno: 247
+  tool: radon
+  recommendation: refactor 'main' (complejidad 33 > 15)
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: discover_new_scripts
   complexity: 26
   rank: D
-  lineno: 147
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 26 > 15)'
-- file: /home/juan/new_project/scripts/python/health_check.py
-  function: '
-
-    '
-  complexity: 35
-  rank: E
-  lineno: 246
-  tool: regex-estimation
-  recommendation: 'refactor ''
-
-    '' (complejidad 35 > 15)'
+  lineno: 148
+  tool: radon
+  recommendation: refactor 'discover_new_scripts' (complejidad 26 > 15)
 degradations:
 - herramienta nativa de complejidad no disponible para javascript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para css — usando regex-estimation
@@ -4509,58 +5238,21 @@ degradations:
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
-- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 recommendations:
 - Refactorizar 46 función(es) con complejidad > 15
-- 'Instalar herramientas faltantes para análisis completo: 60 degradación(es)'
+- 'Atender 247 finding(s) de seguridad: {''low'': 243, ''medium'': 3, ''high'': 1}'
+- 'Instalar herramientas faltantes para análisis completo: 22 degradación(es)'
 summary:
-  total_security_findings: 0
-  total_functions_analyzed: 502
+  total_security_findings: 247
+  total_functions_analyzed: 490
   high_complexity_count: 46
-  degradation_count: 60
-duration_ms: 28814
+  degradation_count: 22
+duration_ms: 65026
 

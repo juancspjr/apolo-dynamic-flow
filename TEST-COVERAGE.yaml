@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T19:22:17Z'
+generated_at: '2026-06-21T20:15:38Z'
 repo_root: /home/juan/new_project
 code_index_used: false
 coverage_tool_used: coverage.py
@@ -2674,5 +2674,5 @@ summary:
   uncovered: 460
   critical_uncovered: 402
   coverage_percentage: 0.86
-duration_ms: 13072
+duration_ms: 36221
 

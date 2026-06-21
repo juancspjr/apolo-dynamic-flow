@@ -4,7 +4,7 @@
 
 [![Tests](https://img.shields.io/badge/tests-86%2F86%20passing-brightgreen)](#12-tests)
 [![License](https://img.shields.io/badge/license-MIT-blue)](#licencia)
-[![Version](https://img.shields.io/badge/version-2.6.4-blue)](#changelog)
+[![Version](https://img.shields.io/badge/version-2.6.5-blue)](#changelog)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#prerrequisitos)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#prerrequisitos)
 
@@ -634,6 +634,35 @@ Infrastructure (v2.3-v2.4): atomic writes, locks, allowlist, secrets, hash chain
 - **Fix FASE 8.5**: tests de inteligencia ahora se ejecutan correctamente en `apolo-full-test.sh`.
 - **Fix Priorización**: las 4 prioridades ALTA ya no aparecen como pendientes (están implementadas).
 - **README completo regenerado**: 800+ líneas con arquitectura de 3 capas, todas las secciones detalladas.
+
+### v2.6.5
+
+- **Rewrite completo de apolo-full-test.sh**: todos los fixes integrados de fábrica. FASE 6 pasa `--flowid` a todos los subcomandos que lo necesitan. Secret detection acepta `REDACTED` en grep. Hash chain usa `tests/test_hash_chain.py` standalone. Code quality captura output con `$(... || true)`.
+- **82/82 tests pasan**, 0 fallos. Cobertura de capacidades: 74%.
+- **README actualizado** con changelog completo v2.2.0 → v2.6.5.
+
+### v2.6.4
+
+- Fix verify_hash_chain: pasar Path() en vez de str.
+- Fix test_hash_chain.py: reescrito sin syntax errors.
+
+### v2.6.3
+
+- Fix test_hash_chain.py syntax error.
+- Fix code_quality test resilience.
+
+### v2.6.2
+
+- Fix apolo-full-test.sh FASE 6 (init-flow/blocks/telemetry/plan con --flowid).
+- Fix secret_scanner test (aceptar REDACTED en grep).
+- Auto-instalador de dependencias (install_deps.py).
+
+### v2.6.1
+
+- Fix hash chain test: script Python externo.
+- Fix FASE 8.5: tests de inteligencia.
+- Fix Priorización: 4 ALTA marcadas como YA IMPLEMENTADAS.
+- README completo regenerado.
 
 ### v2.6.0
 

@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T19:23:47Z'
+generated_at: '2026-06-21T20:16:14Z'
 repo_root: /home/juan/new_project
 available_lsps:
   typescript: typescript-language-server
@@ -281,95 +281,18 @@ diagnostics:
   diagnostics:
   - file: /home/juan/new_project/tests/test_hash_chain.py
     severity: error
-    message: Expected expression
-    range:
-      start:
-        line: 18
-        character: 2
-      end:
-        line: 19
-        character: 0
-    rule: null
-  - file: /home/juan/new_project/tests/test_hash_chain.py
-    severity: error
-    message: Type annotation not supported for this statement
-    range:
-      start:
-        line: 18
-        character: 2
-      end:
-        line: 18
-        character: 2
-    rule: reportInvalidTypeForm
-  - file: /home/juan/new_project/tests/test_hash_chain.py
-    severity: error
-    message: Unexpected indentation
-    range:
-      start:
-        line: 19
-        character: 0
-      end:
-        line: 19
-        character: 4
-    rule: null
-  - file: /home/juan/new_project/tests/test_hash_chain.py
-    severity: error
-    message: '"_for_p" is not defined'
-    range:
-      start:
-        line: 19
-        character: 8
-      end:
-        line: 19
-        character: 14
-    rule: reportUndefinedVariable
-  - file: /home/juan/new_project/tests/test_hash_chain.py
-    severity: error
-    message: '"_for_p" is not defined'
-    range:
-      start:
-        line: 20
-        character: 31
-      end:
-        line: 20
-        character: 37
-    rule: reportUndefinedVariable
-  - file: /home/juan/new_project/tests/test_hash_chain.py
-    severity: error
-    message: '"break" can be used only within a loop'
-    range:
-      start:
-        line: 21
-        character: 8
-      end:
-        line: 21
-        character: 13
-    rule: null
-  - file: /home/juan/new_project/tests/test_hash_chain.py
-    severity: error
-    message: Unindent not expected
-    range:
-      start:
-        line: 23
-        character: 0
-      end:
-        line: 23
-        character: 3
-    rule: null
-  - file: /home/juan/new_project/tests/test_hash_chain.py
-    severity: error
     message: Import "secret_scanner" could not be resolved
     range:
       start:
-        line: 24
+        line: 16
         character: 9
       end:
-        line: 24
+        line: 16
         character: 23
     rule: reportMissingImports
-  count: 8
+  count: 1
   lsp_used: pyright-langserver
-  lsp_count: 8
+  lsp_count: 1
   regex_count: 0
 - file: /home/juan/new_project/tests/test_security.py
   language: python
@@ -1869,6 +1792,6 @@ diagnostics:
 summary:
   total_files: 59
   files_with_diagnostics: 34
-  total_diagnostics: 187
-duration_ms: 67462
+  total_diagnostics: 180
+duration_ms: 81991
 
