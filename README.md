@@ -1,70 +1,79 @@
 # APOLO Dynamic Flow
 
-> **Plugin de orquestacion de agentes para OpenCode** con flujos dinamicos, recoleccion determinista de evidencia, planes generados por Python, tests automaticos tras cada cambio y absorcion de tools externas (MCPs, skills, plugins, scripts).
+> **Plugin de orquestación de agentes para OpenCode** con flujos dinámicos, recolección híbrida de evidencia (scripts Python + agente), planes con 3 modos (deterministic/hybrid/manual), tests automáticos tras cada cambio y absorción de tools externas.
 
 [![Tests](https://img.shields.io/badge/tests-40%2F40%20passing-brightgreen)](#10-tests)
 [![License](https://img.shields.io/badge/license-MIT-blue)](#licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#prerrequisitos)
-[![Version](https://img.shields.io/badge/version-2.2.1-blue)](#changelog)
+[![Version](https://img.shields.io/badge/version-2.2.2-blue)](#changelog)
 
 ---
 
 ## Tabla de contenidos
 
-1. Que es este plugin
-2. Prerequisitos
-3. Instalacion (3 metodos)
-4. Verificacion de la instalacion
-5. Integracion con OpenCode
-6. Estructura completa del plugin
-7. Uso del CLI apolo-inspect.sh
-8. Panel de telemetria
-9. Configuracion avanzada
-10. Tests
-11. Troubleshooting
-12. Como funciona internamente
-13. Documentacion adicional
-14. Changelog
-15. Licencia
+1. [Qué es este plugin](#1-qué-es-este-plugin)
+2. [Prerrequisitos](#2-prerrequisitos)
+3. [Instalación](#3-instalación)
+4. [Verificación](#4-verificación-de-la-instalación)
+5. [Integración con OpenCode](#5-integración-con-opencode)
+6. [Estructura](#6-estructura-completa-del-plugin)
+7. [CLI apolo-inspect](#7-uso-del-cli-apolo-inspectsh)
+8. [Panel de telemetría](#8-panel-de-telemetría)
+9. [Configuración](#9-configuración-avanzada)
+10. [Tests](#10-tests)
+11. [Troubleshooting](#11-troubleshooting)
+12. [Cómo funciona](#12-cómo-funciona-internamente)
+13. [Docs adicionales](#13-documentación-adicional)
+14. [Changelog](#changelog)
+15. [Licencia](#licencia)
 
 ---
 
-## 1. Que es este plugin
+## 1. Qué es este plugin
 
-`apolo-dynamic-flow` es un plugin TypeScript para OpenCode que Orquesta agentes con:
+`apolo-dynamic-flow` es un plugin TypeScript para OpenCode que **reemplaza a `apolo-flow-guardian.ts`**. Orquesta agentes con:
 
-- **State machine explicita** con transiciones legales y gates por fase (no "planificacion libre").
-- **Loop dinamico con circuit breaker adaptativo** - cada fase tiene `max` iteraciones; al agotarse, escala o bloquea (sin loops infinitos).
-- **Recoleccion determinista de evidencia** - scripts Python (no el agente) capturan archivos, git diff, simbolos, endpoints, DB queries, screenshots. Producen `EVIDENCE-PACK.yaml` con hash chain.
-- **Planes generados por Python** - `generate_plan.py` lee evidence + verdad y produce `DYNAMIC-PLAN.yaml` con topological sort y adaptative gates.
-- **Tests automaticos tras cada cambio** - `run_tests.py` se ejecuta tras micro-cambios. Si falla y el cambio fue micro, rollback automatico via `git restore`.
-- **Absorcion automatica de tools externas** - descubre MCPs en `opencode.json`, skills en `.opencode/skills/`, plugins en `.opencode/plugin/`, scripts en `scripts/python/`. Verifica salud y registra en `TOOL-REGISTRY.yaml`.
-- **Telemetria append-only** + panel HTML para visualizacion en tiempo real.
-- **Routing declarativo** - `routing-rules.json` con 10 reglas editables sin tocar codigo TS.
-- **Arbol de decision D-NNN** - reemplaza "plan tras plan" por arbol finito con circuit breaker por patron de fallos.
-- **Tests TypeScript ejecutables** - 32 tests con `node --test` que validan modulos reales del plugin.
+- **State machine explícita** con transiciones legales y gates por fase (no "planificación libre").
+- **Loop dinámico con circuit breaker adaptativo** — cada fase tiene `max` iteraciones; al agotarse, escala o bloquea (sin loops infinitos).
+- **Recolección híbrida de evidencia** (v2.2.1) — scripts Python capturan archivos, git diff, símbolos, endpoints, DB queries, screenshots, **Y el agente puede aportar evidencia propia** (observaciones, contexto cualitativo, runtime logs no capturables) vía `--agent-evidence`. Producen `EVIDENCE-PACK.yaml` con hash chain.
+- **Planes con 3 modos** (v2.2.1) — `generate_plan.py` soporta `deterministic-python` (script genera todo), `hybrid` (script genera base + agente ajusta), `manual` (agente escribe todo, script valida). Permite manejar desde fixes mecánicos hasta elementos artísticos.
+- **Tests automáticos tras cada cambio** — `run_tests.py` se ejecuta tras micro-cambios. Si falla y el cambio fue micro → rollback automático vía `git restore`.
+- **Absorción automática de tools externas** — descubre MCPs en `opencode.json`, skills en `.opencode/skills/`, plugins en `.opencode/plugin/`, scripts en `scripts/python/`. Verifica salud y registra en `TOOL-REGISTRY.yaml`.
+- **Absorción de skills externas** (v2.2.0) — `absorb_external_skills.py` descarga skills desde URLs, GitHub repos y hubs especializados (awesome-opencode, etc.).
+- **Telemetría append-only** + panel HTML para visualización en tiempo real.
+- **Routing declarativo** — `routing-rules.json` con 10 reglas editables sin tocar código TS.
+- **Árbol de decisión D-NNN** — reemplaza "plan tras plan" por árbol finito con circuit breaker por patrón de fallos.
+- **Tests TypeScript ejecutables** — 35 tests con `node --test` que validan módulos reales del plugin.
+- **4 gaps cerrados** (v2.2.0):
+  - `index_codebase.py` — comprensión de código via AST
+  - `score_evidence.py` — scoring de calidad de evidencia
+  - `predict_impact.py` — hologramas/predicción de impacto
+  - `scaffold_impl.py` — andamio de implementación
+- **Gestión activa de tools** (v2.2.0):
+  - `apolo.context.query` — responde 17 tipos de preguntas del agente
+  - `apolo.registry.recommend` — recomienda tools con scoring
+  - `apolo.health.check` — hot reload de tools
 
 ### Problemas que resuelve (vs. plugin viejo)
 
 | Problema | apolo-flow-guardian.ts | apolo-dynamic-flow |
 |---|---|---|
-| Planes estaticos | Si, no se adaptaban | Planes dinamicos con versionado y adaptative gates |
-| Loop infinito "plan tras plan" | Si | Circuit breaker por fase + arbol de decision D-NNN |
-| Recoleccion de evidencia | Agente piensa | Scripts Python deterministas |
-| Tests tras cambios | No | Automaticos con rollback |
-| MCPs absorbidos | No, solo declarados | Auto-descubrimiento + health check + fallback |
-| Telemetria | self-audit.log pasivo | telemetry.jsonl + panel HTML + runtime-audit.log |
-| Tests del propio plugin | 0 | 5 suites Python + 32 tests TypeScript |
-| Routing | Logica opaca en Python | Routing declarativo editable (routing-rules.json) |
+| Planes estáticos | Sí, no se adaptaban | Planes dinámicos con 3 modos (deterministic/hybrid/manual) |
+| Loop infinito "plan tras plan" | Sí | Circuit breaker por fase + árbol de decisión D-NNN |
+| Recolección de evidencia | Agente piensa | Scripts Python deterministas + agente aporta evidencia propia (híbrido) |
+| Tests tras cambios | No | Automáticos con rollback |
+| MCPs absorbidos | No, solo declarados | Auto-descubrimiento + health check + fallback + hot reload |
+| Skills externas | No | Absorción desde URLs/GitHub/hubs |
+| Telemetría | self-audit.log pasivo | telemetry.jsonl + panel HTML + runtime-audit.log |
+| Tests del propio plugin | 0 | 5 suites Python + 35 tests TypeScript |
+| Routing | Lógica opaca en Python | Routing declarativo editable (routing-rules.json) |
 
 ---
 
-## 2. Prerequisitos
+## 2. Prerrequisitos
 
-### Versiones minimas
-
-| Herramienta | Version minima | Verificar | Instalar en Ubuntu |
+| Herramienta | Versión mínima | Verificar | Instalar |
 |---|---|---|---|
 | **Node.js** | 18.0.0 | `node --version` | `sudo apt install -y nodejs` |
 | **npm** | 9.0.0 | `npm --version` | `sudo apt install -y npm` |
@@ -72,47 +81,28 @@
 | **curl** | cualquiera | `curl --version` | `sudo apt install -y curl` |
 | **git** | cualquiera | `git --version` | `sudo apt install -y git` |
 
-### Dependencias opcionales (recomendadas)
+Dependencias opcionales (auto-instaladas por `install.sh`):
 
-| Paquete | Para que | Instalar |
-|---|---|---|
-| **PyYAML** | Parser YAML robusto (reemplaza el minimalista) | `pip3 install --user PyYAML` |
-| **jsonschema** | Validacion completa de schemas | `pip3 install --user jsonschema` |
-| **playwright** | Capturas de pantalla para evidence pack | `npx playwright install chromium` |
-| **pytest** | Runner de tests Python del proyecto destino | `pip3 install --user pytest` |
+- **PyYAML** — `pip3 install --user PyYAML`
+- **jsonschema** — `pip3 install --user jsonschema`
+- **playwright** — `npx playwright install chromium`
 
-> **Sin estas dependencias opcionales el plugin funciona**, pero con capacidades reducidas. El `install.sh` las instala automaticamente si `pip3` esta disponible.
+---
 
-### Verificar prerequisitos en un comando
+## 3. Instalación
 
-```bash
-echo "Node: $(node --version 2>/dev/null || echo FALTA)"
-echo "npm:  $(npm --version 2>/dev/null || echo FALTA)"
-echo "Py:   $(python3 --version 2>/dev/null || echo FALTA)"
-echo "curl: $(curl --version 2>/dev/null | head -1 || echo FALTA)"
-echo "git:  $(git --version 2>/dev/null || echo FALTA)"
-```
+### Método A — `install.sh` (recomendado)
 
-## 3. Instalacion (3 metodos)
-Metodo A - Clonar repo y correr install.sh (recomendado)
 ```bash
 git clone https://github.com/juancspjr/apolo-dynamic-flow.git
 cd apolo-dynamic-flow
 ./install.sh
 ```
 
-El script install.sh hace todo automaticamente en 7 pasos:
+El script hace 7 pasos: verificar prerrequisitos, validar archivos, crear carpetas, instalar npm deps, instalar Python deps, compilar TypeScript, correr tests Python y TypeScript.
 
-    Verifica prerequisitos (node, npm, python3, curl, git)
-    Valida que los archivos del plugin esten presentes
-    Crea carpetas runtime (.opencode/apolo-dynamic/, plan/active/)
-    Instala dependencias npm (typescript, @types/node)
-    Instala dependencias Python opcionales (PyYAML, jsonschema)
-    Compila TypeScript a dist/
-    Corre los 5 suites Python + los 32 tests TypeScript
+### Método B — Manual
 
-Salida esperada: INSTALACION COMPLETA - apolo-dynamic-flow v2.2.1
-Metodo B - Instalacion manual paso a paso
 ```bash
 git clone https://github.com/juancspjr/apolo-dynamic-flow.git
 cd apolo-dynamic-flow
@@ -124,62 +114,45 @@ python3 tests/run_all_tests.py
 node --test dist/tests/plugin.test.js
 ```
 
-Metodo C - Solo verificar (sin instalar)
-```bash
-git clone https://github.com/juancspjr/apolo-dynamic-flow.git
-cd apolo-dynamic-flow
-./install.sh --check
-```
+### Opciones de `install.sh`
 
-Opciones de install.sh
 ```bash
-./install.sh                  # instalacion completa
-./install.sh --check          # solo verificar prerequisitos
+./install.sh                  # instalación completa
+./install.sh --check          # solo verificar prerrequisitos
 ./install.sh --tests          # solo correr tests
 ./install.sh --no-npm         # saltar npm install
 ./install.sh --no-python-deps # saltar pip install
-./install.sh -h, --help       # mostrar ayuda
 ```
 
-## 4. Verificacion de la instalacion
+---
 
-Despues de instalar, verifica que todo funciona:
+## 4. Verificación de la instalación
+
 ```bash
-# 1. Tests Python deben pasar (5/5 suites, 42 asserts)
+# Tests Python (5 suites, 42 asserts)
 python3 tests/run_all_tests.py
-# Resultado: "ALL 5 TESTS PASSED"
+# → "ALL 5 TESTS PASSED ✓"
 
-# 2. Tests TypeScript deben pasar (32 tests)
+# Tests TypeScript (35 tests)
 npx tsc && node --test dist/tests/plugin.test.js
-# Resultado: "pass 32 / fail 0"
+# → "pass 35 / fail 0"
 
-# 3. TypeScript compila sin errores
-npx tsc --noEmit
-# Resultado: sin output, exit code 0
-
-# 4. CLI funciona
+# CLI funciona
 bash scripts/bash/apolo-inspect.sh help
-# Resultado: muestra lista de 12 subcomandos
 
-# 5. Absorber tools del propio plugin
+# Absorber tools
 bash scripts/bash/apolo-inspect.sh absorb --repo-root $(pwd)
-# Resultado: "absorcion completa: N nuevas, N total, M conflictos"
 
-# 6. Ver tools registradas
-bash scripts/bash/apolo-inspect.sh tools
-# Resultado: tabla con todas las tools y sus capabilities
-
-# 7. Inicializar un flow de prueba
+# Init flow de prueba
 bash scripts/bash/apolo-inspect.sh init-flow --flowid APOLO-$(date +%Y%m%d)-TEST
-# Resultado: "Flow inicializado"
 ```
 
-Si los 7 pasos funcionan, el plugin esta listo para usar.
+---
 
-## 5. Integracion con OpenCode
+## 5. Integración con OpenCode
 
-Para que OpenCode cargue el plugin, edita el opencode.json de tu proyecto destino:
-Opcion A - Plugin local (recomendado para desarrollo)
+Edita el `opencode.json` de tu proyecto destino:
+
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
@@ -191,67 +164,67 @@ Opcion A - Plugin local (recomendado para desarrollo)
       "type": "local",
       "command": ["npx", "-y", "@playwright/mcp@latest"],
       "enabled": true
-    },
-    "@koderspa/mcp-skills": {
-      "type": "local",
-      "command": ["npx", "-y", "@koderspa/mcp-skills@latest"],
-      "enabled": true
     }
   }
 }
 ```
 
-> IMPORTANTE: plugin debe ser un array de strings (no un objeto). OpenCode rechaza configs con plugin como objeto.
+> **IMPORTANTE**: `plugin` debe ser un **array** de strings (no un objeto).
 
-Verificar integracion con OpenCode
-```bash
-opencode mcp list
-```
+Verificar: `opencode mcp list` debe listar MCPs sin error.
 
-Si aparece Error: Configuration is invalid, revisa:
+### Cómo el agente OpenCode absorbe este plugin
 
-     plugin es un array (no un objeto)
-     mcp es un objeto (no un array)
-     Todos los JSON son validos: python3 -c "import json; json.load(open('opencode.json'))"
+Cuando OpenCode carga el plugin, el archivo `plugin/index.ts` expone:
 
-Como el agente OpenCode absorbe este plugin
+1. **Hooks**: `tool:execute:before`, `tool:execute:after`, `session:start`
+2. **Tools** (invocables por el orquestador):
+   - `apolo.flow.init` — inicializa un flow nuevo
+   - `apolo.flow.tick` — ejecuta una iteración del loop dinámico
+   - `apolo.evidence.collect` — dispara recolección híbrida (scripts + agente)
+   - `apolo.plan.generate` — genera plan dinámico (3 modos)
+   - `apolo.tests.run` — ejecuta tests tras cambios
+   - `apolo.tools.absorb` — descubre y registra tools externas
+   - `apolo.context.query` (v2.2.0) — consulta activa al sistema
+   - `apolo.registry.recommend` (v2.2.0) — recomienda tools con scoring
+   - `apolo.health.check` (v2.2.0) — hot reload de tools
+3. **Commands**: `apolo-inspect` con 12 subcomandos
 
-Cuando OpenCode carga el plugin, el archivo plugin/index.ts expone:
+Ejemplo de uso desde el orquestador:
 
-    Hooks (eventos del lifecycle de OpenCode):
-         tool:execute:before - bloquea mutaciones si el flow esta en estado blocked
-         tool:execute:after - registra telemetria de cada tool invocada
-         session:start - absorbe tools automaticamente al iniciar sesion
-
-    Tools (invocables por el orquestador):
-         apolo.flow.init - inicializa un flow nuevo
-         apolo.flow.tick - ejecuta una iteracion del loop dinamico
-         apolo.evidence.collect - dispara recoleccion determinista
-         apolo.plan.generate - genera plan dinamico desde evidence
-         apolo.tests.run - ejecuta tests tras cambios
-         apolo.tools.absorb - descubre y registra tools externas
-
-    Commands (invocables por CLI):
-         apolo-inspect - inspector de estado con 12 subcomandos
-
-El orquestador de OpenCode puede usar el plugin en cualquier flujo:
 ```typescript
+// Inicializar un flow
 await tools["apolo.flow.init"]({ flowid: "APOLO-20260620-MI-FLOW" });
 
+// Loop principal
 while (!done) {
   const result = await tools["apolo.flow.tick"]({ evidence_pack: true });
   if (result.decision === "block") break;
 }
 
+// Recolectar evidencia en modo híbrido (agente aporta observaciones)
 await tools["apolo.evidence.collect"]({
   scope: { paths: ["src/handlers/foo.go"], endpoints: ["/api/v1/foo"] },
-  invoked_by: "orchestrator"
+  invoked_by: "orchestrator",
+  agent_evidence: [
+    { kind: "runtime-log", source: "manual observation",
+      summary: "race condition en foo()",
+      agent_reasoning: "observé que cuando se llama dos veces rápido, falla" }
+  ],
+  agent_summary: "El agente observó comportamientos no detectables por scripts"
 });
 
+// Generar plan en modo hybrid (agente ajusta)
 await tools["apolo.plan.generate"]({
-  verdad_path: "plan/active/APOLO-20260620-MI/02-VERDAD.yaml"
+  verdad_path: "plan/active/APOLO-20260620-MI/02-VERDAD.yaml",
+  method: "hybrid",
+  agent_adjustments: [
+    { type: "mark-needs-judgment", unit_id: "U-01", reason: "decisión UX subjetiva" }
+  ],
+  agent_context: "El agente considera que U-01 requiere juicio humano"
 });
 
+// Tests tras implementación
 await tools["apolo.tests.run"]({
   trigger: "micro-change",
   scope: { kind: "unit", targets: ["src/handlers/foo.go"], mp_id: "MP-01" },
@@ -259,178 +232,238 @@ await tools["apolo.tests.run"]({
 });
 ```
 
+---
+
 ## 6. Estructura completa del plugin
-```text
+
+```
 apolo-dynamic-flow/
-├── install.sh                          # Instalacion automatica (7 pasos)
+├── install.sh                          # Instalación automática (7 pasos)
 ├── README.md                           # Este archivo
-├── ARCHITECTURE.md                     # Diseno detallado
-├── MIGRATION-GUIDE.md                  # Migracion desde apolo-flow-guardian.ts
-├── ANALYSIS-REPORT.md                  # Analisis del proyecto viejo
-├── opencode.json                       # Config OpenCode
-├── package.json                        # v2.2.1
-├── tsconfig.json                       # Config TypeScript
+├── ARCHITECTURE.md / MIGRATION-GUIDE.md / ANALYSIS-REPORT.md
+├── opencode.json / package.json (v2.2.1) / tsconfig.json
 ├── routing-rules.json                  # Routing declarativo (R-001..R-010)
-├── .gitignore
 │
-├── plugin/                             # 18 modulos TypeScript
+├── plugin/                             # 18 módulos TypeScript
 │   ├── index.ts, types.ts, state-machine.ts, loop-engine.ts
 │   ├── block-detector.ts, evidence-collector.ts, plan-generator.ts
 │   ├── test-runner.ts, tool-absorber.ts, telemetry.ts, inspector.ts, utils.ts
 │   ├── core/
-│   │   ├── runtime-logger.ts           # Log JSON Lines con seq monotono
+│   │   ├── runtime-logger.ts           # Log JSON Lines con seq monotónico
 │   │   ├── router.ts                   # Router declarativo
-│   │   ├── loop-engine-tree.ts         # Arbol de decision D-NNN
+│   │   ├── loop-engine-tree.ts         # Árbol de decisión D-NNN
 │   │   └── micro-test-runner.ts        # Runner de micro-tests
 │   ├── absorbers/
 │   │   └── mcp-loader.ts               # Absorbedor MCP con fallback
 │   └── parallel/
-│       └── hypothesis-runner.ts        # Paralelizador de hipotesis
+│       └── hypothesis-runner.ts        # Paralelizador de hipótesis
 │
 ├── schemas/                            # 11 schemas
 │   ├── *.schema.yaml (7)               # Schemas YAML de artefactos
 │   └── json/                           # JSON schemas estrictos (draft-07)
 │       ├── agent-io.json
 │       ├── loop-engine-decision.json
-│       ├── routing-rules.json
+│       ├── routing-rules.schema.json   # renombrado en v2.2.1
 │       └── runtime-audit-log.json
 │
 ├── templates/                          # 5 templates YAML
 ├── scripts/
-│   ├── python/                         # 10 scripts Python
-│   └── bash/apolo-inspect.sh           # CLI (12 subcomandos)
-├── panel/                              # Panel de telemetria HTML
-└── tests/                              # 6 suites (37 tests totales)
+│   ├── python/                         # 18 scripts Python
+│   │   ├── common.py, collect_evidence.py (híbrido v2.2.1)
+│   │   ├── generate_plan.py (3 modos v2.2.1)
+│   │   ├── run_tests.py, absorb_mcp.py, validate_artifact.py
+│   │   ├── telemetry_aggregator.py, inspect_tools.py
+│   │   ├── rollback.py, serve_panel.py
+│   │   ├── index_codebase.py (Gap 1)
+│   │   ├── score_evidence.py (Gap 2)
+│   │   ├── predict_impact.py (Gap 3)
+│   │   ├── scaffold_impl.py (Gap 4)
+│   │   ├── context_query.py (apolo.context.query)
+│   │   ├── registry_recommend.py (apolo.registry.recommend)
+│   │   ├── health_check.py (apolo.health.check + hot reload)
+│   │   └── absorb_external_skills.py (URLs/GitHub/hubs)
+│   └── bash/apolo-inspect.sh           # CLI (12 subcomandos, puerto 8765)
+├── panel/                              # Panel de telemetría HTML
+└── tests/                              # 6 suites (40 tests totales)
     ├── run_all_tests.py + test_*.py (5)
     └── plugin.test.ts                  # 35 tests TS con node --test
 ```
 
-Total: 76 archivos (sin contar node_modules, .git, runtime artifacts).
-## 7. Uso del CLI apolo-inspect.sh
+**Total**: 76 archivos (sin contar `node_modules`, `.git`, runtime artifacts).
+
+---
+
+## 7. Uso del CLI `apolo-inspect.sh`
+
 ```bash
 bash scripts/bash/apolo-inspect.sh <subcomando> [opciones]
 ```
 
-Subcomandos
-| Subcomando | Descripcion |
+### Subcomandos
+
+| Subcomando | Descripción |
 |---|---|
-| init-flow | Inicializa un flow nuevo |
-| absorb | Descubre y registra tools externas |
-| state | Estado del flow activo |
-| tools | Lista tools absorbidas |
-| blocks | Lista bloqueos activos |
-| telemetry | Stats de telemetria |
-| evidence | Evidence pack actual |
-| plan | Plan dinamico actual |
-| health | Health check de tools |
-| all | Resumen completo |
-| serve-panel | Levanta panel HTTP (puerto 8765) |
-| test | Corre tests del plugin |
-| help | Muestra la ayuda |
+| `init-flow` | Inicializa un flow nuevo |
+| `absorb` | Descubre y registra tools externas |
+| `state` | Estado del flow activo |
+| `tools` | Lista tools absorbidas |
+| `blocks` | Lista bloqueos activos |
+| `telemetry` | Stats de telemetría |
+| `evidence` | Evidence pack actual |
+| `plan` | Plan dinámico actual |
+| `health` | Health check de tools |
+| `all` | Resumen completo |
+| `serve-panel` | Levanta panel HTTP (puerto 8765) |
+| `test` | Corre tests del plugin |
+| `help` | Muestra la ayuda |
 
-Opciones globales
-| Opcion | Descripcion | Default |
+### Opciones globales
+
+| Opción | Descripción | Default |
 |---|---|---|
-| --flowid FLOW | Flow ID a inspeccionar | Detecta de plan/CURRENT.md |
-| --repo-root PATH | Raiz del repo | Directorio actual |
-| --json | Output en JSON (cuando aplica) | Off |
+| `--flowid FLOW` | Flow ID a inspeccionar | Detecta de `plan/CURRENT.md` |
+| `--repo-root PATH` | Raíz del repo | Directorio actual |
+| `--json` | Output en JSON (cuando aplica) | Off |
 
-Variables de entorno
-| Variable | Descripcion | Default |
+### Variables de entorno
+
+| Variable | Descripción | Default |
 |---|---|---|
-| PYTHON | Path a python3 | python3 |
-| PORT | Puerto para serve-panel | 8765 |
+| `PYTHON` | Path a python3 | `python3` |
+| `PORT` | Puerto para `serve-panel` | `8765` |
 
-Ejemplos de uso
-```bash
-bash scripts/bash/apolo-inspect.sh absorb --repo-root $(pwd)
-bash scripts/bash/apolo-inspect.sh init-flow --flowid APOLO-20260620-MI-FLOW
-bash scripts/bash/apolo-inspect.sh state --flowid APOLO-20260620-MI-FLOW
-bash scripts/bash/apolo-inspect.sh serve-panel --flowid APOLO-20260620-MI-FLOW
-bash scripts/bash/apolo-inspect.sh all --flowid APOLO-20260620-MI-FLOW
-```
+---
 
-## 8. Panel de telemetria
+## 8. Panel de telemetría
+
 ```bash
 bash scripts/bash/apolo-inspect.sh serve-panel --flowid APOLO-20260620-MI-FLOW
-# Abrir http://localhost:8765/
+# → http://localhost:8765/
 ```
 
-Tabs del panel
-| Tab | Contenido |
-|---|---|
-| Overview | Estado del flow, metricas globales |
-| Timeline | Ultimos 100 eventos de telemetria |
-| Loops | Contadores current/max por fase con colores |
-| Blocks | Lista de bloqueos activos con resolucion sugerida |
-| Tests | Ultimos 20 runs de tests |
-| Tools | Tabla de tools absorbidas |
-| Tokens | Total de tokens consumidos |
+7 tabs: Overview, Timeline, Loops, Blocks, Tests, Tools, Tokens. Auto-refresh cada 5s.
 
-Cambiar el puerto
+### Cambiar el puerto
+
 ```bash
 PORT=9000 bash scripts/bash/apolo-inspect.sh serve-panel --flowid APOLO-20260620-MI-FLOW
 ```
 
-Auto-refresh cada 5 segundos.
+---
 
-## 9. Configuracion avanzada
-Circuit breaker
+## 9. Configuración avanzada
 
-En templates/FLOW-STATE.template.yaml:
+### Circuit breaker
+
+En `templates/FLOW-STATE.template.yaml`:
+
 ```yaml
 loops:
-  reanclaje: { current: 0, max: 2, last_decision: "" }
+  verdad: { current: 0, max: 2, last_decision: "" }
   implementation: { current: 0, max: 4, last_decision: "" }
 circuit_breaker:
   policy: fail-closed   # fail-closed | fail-open-adaptive
   escalation_path: []
 ```
 
-Politicas:
+### Routing declarativo
 
-     fail-closed (default): al agotar max, bloquea el flow.
-     fail-open-adaptive: al agotar max, escala a escalation_path[0].
+Edita `routing-rules.json` para cambiar qué agent se invoca en cada fase. 10 reglas (R-001..R-010).
 
-Routing declarativo
+### Recolección híbrida de evidencia (v2.2.1)
 
-Edita routing-rules.json para cambiar que agent se invoca en cada fase. 10 reglas (R-001..R-010):
-```json
-{
-  "id": "R-001",
-  "priority": 10,
-  "when": { "phase": "reanclaje", "artifacts_absent": ["00-OBJETIVO.yaml"] },
-  "then": { "next_agent": "planner", "reason": "No hay objetivo." }
-}
-```
+El agente puede aportar evidencia propia además de la que el script recolecta automáticamente:
 
-Validar schema
 ```bash
-python3 scripts/python/validate_artifact.py   --artifact routing-rules.json   --schema schemas/json/routing-rules.json
+python3 scripts/python/collect_evidence.py \
+  --flowid APOLO-20260620-TEST --repo-root . \
+  --output plan/active/APOLO-20260620-TEST/evidence/EVIDENCE-PACK.yaml \
+  --scope-json '{"paths":["plugin/index.ts"],"endpoints":["/api/v1/foo"],"git_diff":true}' \
+  --agent-evidence '[
+    {"kind":"runtime-log","source":"manual observation",
+     "summary":"race condition en init()",
+     "agent_reasoning":"observé que cuando se llama init() dos veces rápido, falla"},
+    {"kind":"capture","source":"screenshot UI",
+     "summary":"el botón desaparece en mobile"}
+  ]' \
+  --agent-summary "El agente observó 2 comportamientos no detectables por scripts" \
+  --agent-tags "runtime,manual-verified,ui-bug"
 ```
 
-Exit codes: 0 = valido, 1 = invalido, 2 = error.
-Agregar MCPs externos
+Los items del agente se mergean con los del script, marcados con `agent_observed: true` y IDs E-101+.
 
-Edita opencode.json y agrega entradas en mcp:
-```json
-{
-  "mcp": {
-    "mi-mcp-personalizado": {
-      "type": "local",
-      "command": ["npx", "-y", "mi-mcp@latest"],
-      "enabled": true
-    }
-  }
-}
+### 3 modos de generación de planes (v2.2.1)
+
+```bash
+# Modo 1: deterministic-python (default, para fixes/refactors mecánicos)
+python3 scripts/python/generate_plan.py \
+  --flowid APOLO-20260620-TEST --method deterministic-python \
+  --evidence ... --verdad ... --output ...
+
+# Modo 2: hybrid (para UX/diseño donde el agente ajusta)
+python3 scripts/python/generate_plan.py \
+  --flowid APOLO-20260620-TEST --method hybrid \
+  --evidence ... --verdad ... --output ... \
+  --agent-adjustments '[
+    {"type":"mark-needs-judgment","unit_id":"U-01","reason":"decisión UX subjetiva"},
+    {"type":"add-unit","unit":{"id":"U-99","resumen":"agente considera que falta este cambio"}},
+    {"type":"modify-unit","unit_id":"U-02","modifications":{"riesgooperativo":"alto"}}
+  ]' \
+  --agent-context "El agente considera que U-01 requiere decisión humana sobre UX"
+
+# Modo 3: manual (para elementos artísticos/subjetivos)
+python3 scripts/python/generate_plan.py \
+  --flowid APOLO-20260620-TEST --method manual \
+  --evidence ... --verdad ... --output ... \
+  --agent-adjustments '[
+    {"id":"U-01","resumen":"rediseño del logo","tipocambio":"feat"},
+    {"id":"U-02","resumen":"cambiar paleta de colores","tipocambio":"feat"}
+  ]'
 ```
 
-Despues re-absorber: bash scripts/bash/apolo-inspect.sh absorb --repo-root $(pwd)
+### Absorción de skills externas (v2.2.0)
+
+```bash
+# Absorber una skill de un URL directo
+python3 scripts/python/absorb_external_skills.py \
+  --repo-root . \
+  --source github://opencode-ai/awesome-opencode/skills/my-skill/SKILL.md
+
+# Absorber múltiples skills desde un archivo
+python3 scripts/python/absorb_external_skills.py \
+  --repo-root . \
+  --sources-file skills-to-absorb.txt
+
+# Absorber un hub completo
+python3 scripts/python/absorb_external_skills.py \
+  --repo-root . \
+  --hub awesome-opencode
+```
+
+### Gestión activa de tools (v2.2.0)
+
+```bash
+# Consultar al sistema en lenguaje natural
+python3 scripts/python/context_query.py \
+  --flowid APOLO-20260620-TEST --repo-root . \
+  --phase implementation --question "qué fase sigue"
+
+# Recomendar tool para una tarea
+python3 scripts/python/registry_recommend.py \
+  --task "correr tests de TypeScript" --repo-root . --top 3
+
+# Health check con hot reload
+python3 scripts/python/health_check.py --repo-root . --fix true
+```
+
+---
 
 ## 10. Tests
 
-El plugin tiene 40 tests en 2 categorias.
-Correr todos los tests
+El plugin tiene **40 tests** en 2 categorías.
+
+### Correr todos los tests
+
 ```bash
 # Tests Python (5 suites, 42 asserts)
 python3 tests/run_all_tests.py
@@ -442,39 +475,38 @@ npx tsc && node --test dist/tests/plugin.test.js
 npm run test:all
 ```
 
-Suites Python (5)
-| Suite | Que valida | # asserts |
-|---|---|---|
-| test_state_machine.py | FSM: transiciones legales, gates | 6 |
-| test_loop_engine.py | Loop dinamico, circuit breaker | 8 |
-| test_block_detector.py | Deteccion de bloqueos | 7 |
-| test_tool_absorber.py | Absorcion de tools externas | 10 |
-| test_python_scripts.py | Scripts Python (YAML, hash, generate_plan) | 11 |
+### Suites Python (5)
 
-Suite TypeScript (35 tests ejecutables)
+| Suite | Qué valida | # asserts |
+|---|---|---:|
+| `test_state_machine.py` | FSM: transiciones legales, gates | 6 |
+| `test_loop_engine.py` | Loop dinámico, circuit breaker | 8 |
+| `test_block_detector.py` | Detección de bloqueos | 7 |
+| `test_tool_absorber.py` | Absorción de tools externas | 10 |
+| `test_python_scripts.py` | Scripts Python (YAML, hash, generate_plan) | 11 |
 
-tests/plugin.test.ts valida modulos reales del plugin con node --test:
-| Describe block | Tests | Que valida |
-|---|---|---|
-| RuntimeLogger | 4 | log JSON Lines, seq monotono, createFlowLogger, pasivo |
-| DeclarativeRouter | 5 | routing-rules.json, R-001/R-002/R-008/R-010, fallback |
-| LoopEngineTree | 6 | D-001, advance, detectCircuitBreaker |
-| MicroTestRunner | 4 | extractTestCommand, runTest |
-| McpAbsorber | 7 | detectAvailableMcps, invokeMcp con fallback |
-| ParallelHypothesisRunner | 5 | planHypotheses, selectWinner, scoreHypothesis |
+### Suite TypeScript (35 tests ejecutables)
 
-Total: 35 tests TS + 42 asserts Python = 77 verificaciones
-Tests durante desarrollo
-```bash
-python3 tests/run_all_tests.py
-npx tsc --noEmit && python3 tests/run_all_tests.py
-npm run test:all
-```
+| Describe block | Tests | Qué valida |
+|---|---:|---|
+| `RuntimeLogger` | 4 | log JSON Lines, seq monotónico, pasivo |
+| `DeclarativeRouter` | 5 | routing-rules.json, R-001..R-010, fallback |
+| `LoopEngineTree` | 6 | D-001, advance, detectCircuitBreaker |
+| `MicroTestRunner` | 4 | extractTestCommand, runTest |
+| `McpAbsorber` | 7 | detectAvailableMcps, invokeMcp con fallback |
+| `ParallelHypothesisRunner` | 5 | planHypotheses, selectWinner, scoreHypothesis |
+| `ContextQueryTools` (v2.2.0) | 3 | apolo.context.query, registry.recommend, health.check |
+
+**Total**: 35 tests TS + 42 asserts Python = **77 verificaciones**
+
+---
 
 ## 11. Troubleshooting
-Error: Configuration is invalid at opencode.json
 
-plugin debe ser array, no objeto:
+### `Error: Configuration is invalid at opencode.json`
+
+`plugin` debe ser array, no objeto:
+
 ```json
 // Incorrecto
 "plugin": { "apolo-dynamic-flow": "./plugin/index.ts" }
@@ -483,26 +515,42 @@ plugin debe ser array, no objeto:
 "plugin": [ "./plugin/index.ts" ]
 ```
 
-OSError: Address already in use
+### `OSError: Address already in use`
+
 ```bash
 fuser -k 8765/tcp
 # o usar otro puerto
 PORT=9000 bash scripts/bash/apolo-inspect.sh serve-panel ...
 ```
 
-Panel devuelve 404
+### Panel devuelve 404
 
-Las rutas en panel/panel.js deben empezar con /:
+Las rutas en `panel/panel.js` deben empezar con `/` (v2.2.1 ya fixeado):
+
 ```javascript
 API.statePath = `/plan/active/${flowid}/FLOW-STATE.yaml`;
 ```
 
-MCPs aparecen como failed
+### `PY_DIR: variable sin asignar` (v2.2.1)
 
-Algunos paquetes npm no existen. Deshabilitar en opencode.json con "enabled": false.
-Tests fallan despues de modificar common.py
+Si ves este error en `apolo-inspect.sh`, la sección `serve-panel` usa `$PY_DIR` que no está definido. Fix v2.2.2: usar `$PLUGIN_DIR/scripts/python`:
 
-Instalar PyYAML y reemplazar las funciones en common.py:
+```bash
+# Incorrecto (v2.2.1 con bug)
+"$PYTHON" "$PY_DIR/serve_panel.py" ...
+
+# Correcto (v2.2.2)
+"$PYTHON" "$PLUGIN_DIR/scripts/python/serve_panel.py" ...
+```
+
+### MCPs aparecen como `failed`
+
+Algunos paquetes npm no existen. Deshabilitar en `opencode.json` con `"enabled": false`.
+
+### Tests fallan después de modificar `common.py`
+
+Instalar PyYAML y reemplazar las funciones en `common.py`:
+
 ```bash
 pip3 install --user PyYAML
 ```
@@ -513,135 +561,126 @@ def yaml_load(text): return yaml.safe_load(text)
 def yaml_dump(obj): return yaml.safe_dump(obj, default_flow_style=False, sort_keys=False, allow_unicode=True)
 ```
 
-routing-rules.json duplicado al descargar
+---
 
-Hay dos archivos: uno es el de reglas (va en la raiz) y otro es el schema JSON (va en schemas/json/).
-```bash
-head -c 100 routing-rules.json  # si dice "json-schema.org" es el schema
+## 12. Cómo funciona internamente
+
+### State machine de fases
+
+```
+reanclaje → planning-bootstrap → asr → verdad → shaping → plan-indice
+                                                                ↓
+                            cierre-flow ← critical-validation ← mp-validation ← implementation
 ```
 
-## 12. Como funciona internamente
-State machine de fases
-```text
-reanclaje -> planning-bootstrap -> asr -> verdad -> shaping -> plan-indice
-                                                                |
-                            cierre-flow <- critical-validation <- mp-validation <- implementation
+### Loop dinámico con circuit breaker
+
+```
+tick() → evaluar gate → pass/refine/escalate/block → persistir + telemetría
 ```
 
-Cada transicion requiere:
+### Recolección híbrida de evidencia (v2.2.1)
 
-    from y to validos (tabla TRANSITIONS en state-machine.ts)
-    Gate evaluado antes de transitar (G-REANCLAJE, G-BOOTSTRAP, etc.)
-    Artefactos requeridos presentes en state.artifacts
-
-Loop dinamico con circuit breaker
-```text
-tick() ->
-  1. Identificar gate de la fase actual
-  2. Evaluar gate con estado + evidence
-  3. Actuar segun decision:
-     - pass     -> transitar a siguiente fase (reset counter)
-     - refine   -> counter++ (si < max, reintentar)
-     - escalate -> transitar a escalation_path[0]
-     - block    -> transitar a 'blocked' + crear BLOQUEO
-  4. Persistir state + emitir telemetria
-  5. Detectar bloqueos activos (plan cycles, context overload)
+```
+apolo.evidence.collect({ scope, agent_evidence, agent_summary }) →
+  collect_evidence.py (Python) →
+    [1] Script recolecta automáticamente:
+        - File snapshots (hash SHA256)
+        - Git diff / git log
+        - Symbol extraction (Go/TS/Python)
+        - Endpoint probes (curl)
+        - DB queries (psql)
+        - Screenshots (playwright si disponible)
+        - Schema validation
+    [2] MERGE con evidencia del agente:
+        - Items aportados via --agent-evidence
+        - Marcados con agent_observed: true
+        - IDs E-101+ para distinguirlos
+    →
+  EVIDENCE-PACK.yaml (con hash_chain + agent_summary + agent_contributed_count)
 ```
 
-Recoleccion determinista de evidencia
-```text
-apolo.evidence.collect({ scope: {...} })
-        |
-        v
-collect_evidence.py (Python)
-        |
-        v
-- File snapshots (hash SHA256)
-- Git diff / git log
-- Symbol extraction (Go/TS/Python)
-- Endpoint probes (curl)
-- DB queries (psql)
-- Screenshots (playwright si disponible)
-- Schema validation
-        |
-        v
-EVIDENCE-PACK.yaml (con hash_chain + capabilities + degradation_log)
+### 3 modos de generación de planes (v2.2.1)
+
+```
+[1] deterministic-python:
+    evidence + verdad → script genera unidades automáticamente → plan
+
+[2] hybrid:
+    evidence + verdad → script genera plan base →
+    agente ajusta via --agent-adjustments:
+      - add-unit (añadir unidad)
+      - remove-unit (quitar unidad)
+      - modify-unit (cambiar propiedades)
+      - mark-needs-judgment (marcar como requiere decisión humana)
+    → plan ajustado
+
+[3] manual:
+    agente pasa todas las unidades via --agent-adjustments →
+    script solo valida schema, calcula topological sort, añade adaptative_gates
+    → plan del agente validado
 ```
 
-Routing declarativo
-```text
-route(ctx) -> load routing-rules.json
-           -> ordenar por prioridad (1 = maxima)
-           -> primera regla que matchea
-           -> next_agent + reason + circuit_breaker
-           -> log al runtime-audit.log
+### Routing declarativo
+
+```
+route(ctx) → load routing-rules.json
+           → ordenar por prioridad (1 = máxima)
+           → primera regla que matchea
+           → next_agent + reason + circuit_breaker
+           → log al runtime-audit.log
 ```
 
-Arbol de decision D-NNN
-```text
+### Árbol de decisión D-NNN
+
+```
 createRootNode(D-001) con 5 branches:
-  - test_passes -> advance_phase (terminal)
-  - test_fails_retriable -> retry_mp (crea D-002)
-  - test_fails_terminal -> raise_blocker (terminal)
-  - blocker_persists -> ask_operator (terminal)
-  - iteration_exceeded -> circuit_break (terminal)
-
-advance(D-001, condition) -> branch -> si next_node="AUTO", crear D-002
-
-detectCircuitBreaker: 3 fallos misma razon -> true
+  - test_passes → advance_phase (terminal)
+  - test_fails_retriable → retry_mp (crea D-002)
+  - test_fails_terminal → raise_blocker (terminal)
+  - blocker_persists → ask_operator (terminal)
+  - iteration_exceeded → circuit_break (terminal)
 ```
 
-Tests automaticos con rollback
-```text
-implementer edita archivo
-        |
-        v
-apolo.tests.run({ trigger: "micro-change" })
-        |
-        v
-run_tests.py:
-  1. Descubre tests relacionados (pytest/go test/jest)
-  2. Ejecuta tests
-  3. Parse output (status: pass/fail/skip)
-  4. Escribe TEST-RUN.yaml
-        |
-        v
-Si failed && trigger == "micro-change":
-  rollback.py:
-    - git restore <archivos afectados>
-    - Reporta archivos restaurados
+### 4 gaps cerrados (v2.2.0)
+
+```
+[Gap 1] index_codebase.py → CODE-INDEX.yaml (AST, sin LLM)
+[Gap 2] score_evidence.py → EVIDENCE-SCORE.yaml (coverage/freshness/depth/...)
+[Gap 3] predict_impact.py → IMPACT-PREDICTION.yaml (dependency cascade,
+        historical pattern, test gap)
+[Gap 4] scaffold_impl.py → IMPL-SCAFFOLD-*.yaml (archivos, contracts,
+        checkpoints, edit order, circular deps)
 ```
 
-Absorcion de tools externas
-```text
-apolo.tools.absorb()
-        |
-        v
-tool-absorber.ts escanea:
-  - opencode.json#mcp.* -> registra cada MCP
-  - .opencode/skills/*/SKILL.md -> registra cada skill
-  - .opencode/plugin/*.ts -> registra cada plugin TS
-  - scripts/python/*.py -> registra cada script Python
-        |
-        v
-Para cada tool:
-  1. Infiere capabilities por nombre
-  2. Verifica salud (test -f para scripts, skip para MCPs externos)
-  3. Construye fallback chain
-  4. Detecta conflicts (mismas capabilities)
-        |
-        v
-TOOL-REGISTRY.yaml (centralizado)
+### Gestión activa de tools (v2.2.0)
+
+```
+apolo.context.query(question) → responde desde telemetry + state + code-index
+apolo.registry.recommend(task) → scoring de tools con reasoning
+apolo.health.check(fix=true) → verifica salud + re-absorbe en caliente
 ```
 
-## 13. Documentacion adicional
+---
+
+## 13. Documentación adicional
+
 | Archivo | Contenido |
 |---|---|
-| ARCHITECTURE.md | Diseno detallado, decisiones tecnicas, diagramas de componentes |
-| MIGRATION-GUIDE.md | Migracion desde apolo-flow-guardian.ts paso a paso |
-| ANALYSIS-REPORT.md | Analisis del proyecto viejo + justificacion del nuevo |
+| `ARCHITECTURE.md` | Diseño detallado, decisiones técnicas, diagramas de componentes |
+| `MIGRATION-GUIDE.md` | Migración desde `apolo-flow-guardian.ts` paso a paso |
+| `ANALYSIS-REPORT.md` | Análisis del proyecto viejo + justificación del nuevo |
 
-## 14. Changelog
+---
+
+## Changelog
+
+### v2.2.2
+
+- **Fix `PY_DIR` bug**: la sección `serve-panel` de `apolo-inspect.sh` usaba `$PY_DIR` que no estaba definido, causando el error `scripts/bash/apolo-inspect.sh: línea 108: PY_DIR: variable sin asignar`. Fix: usar `$PLUGIN_DIR/scripts/python` que sí está definido.
+- **README regenerado completo**: el README anterior (v2.2.1 parcheado) tenía el changelog v2.2.1 pero las secciones descriptivas seguían mostrando v2.2.0 como versión actual. Ahora el README está regenerado desde cero con toda la documentación de v2.2.1/v2.2.2 como actualidad.
+- **`package.json`** — v2.2.2.
+
 ### v2.2.1
 
 - **Modo híbrido en recolección de evidencia**: `collect_evidence.py` ahora acepta `--agent-evidence` (JSON con items aportados por el agente), `--agent-summary` (resumen cualitativo) y `--agent-tags` (tags adicionales). Los items del agente se mergean con los del script, marcados con `agent_observed: true` y IDs E-101+. Permite que el agente observe captures, añada contexto cualitativo, o incluya evidencia de runtime no capturable por scripts.
@@ -651,71 +690,76 @@ TOOL-REGISTRY.yaml (centralizado)
   - **manual**: el agente escribe todas las unidades via `--agent-adjustments`. El script solo valida schema, calcula topological sort y añade adaptative_gates. Ideal para elementos artísticos.
 - **Fix panel**: `panel.js` ahora usa rutas absolutas (`/plan/active/...`) en vez de relativas — resuelve los 404s en el panel.
 - **Fix `apolo-inspect.sh`**: `serve-panel` ahora usa `serve_panel.py` (servidor Python propio) en vez de `python3 -m http.server` desde `panel/`. Puerto default cambiado a 8765 (poco común para evitar conflictos).
+- **Fix `PY_DIR` bug** (v2.2.2 micro-patch): la sección `serve-panel` usaba `$PY_DIR` que no estaba definido. Fix: usar `$PLUGIN_DIR/scripts/python`.
 - **Fix schema duplicado**: `schemas/json/routing-rules.json` renombrado a `schemas/json/routing-rules.schema.json` para evitar conflicto con `routing-rules.json` de la raíz.
 
 ### v2.2.0
 
-- **8 scripts Python nuevos** (cierre de los 4 gaps + gestion activa de tools + absorcion externa):
-  - `index_codebase.py` (Gap 1) - Indexador AST (Python `ast` + regex TS/JS/Go). Genera `CODE-INDEX.yaml`.
-  - `score_evidence.py` (Gap 2) - Scoring de evidencia (coverage/freshness/depth/conflict/redundancy/schema).
-  - `predict_impact.py` (Gap 3) - Hologramas: dependency cascade, historical pattern, test gap. Modo `--deep` añade symbol contract + git blame.
-  - `scaffold_impl.py` (Gap 4) - Andamio: archivos a tocar, contracts a mantener, checkpoints, edit order, circular deps.
-  - `context_query.py` - `apolo.context.query(question)` responde 17 tipos de preguntas en lenguaje natural.
-  - `registry_recommend.py` - `apolo.registry.recommend(task)` recomienda tools con scoring y reasoning.
-  - `health_check.py` - `apolo.health.check(fix=true)` hot reload de tools + re-absorcion en caliente.
-  - `absorb_external_skills.py` - Absorbe skills desde URLs, GitHub repos, hubs especializados (awesome-opencode, etc.).
+- **8 scripts Python nuevos** (cierre de los 4 gaps + gestión activa de tools + absorción externa):
+  - `index_codebase.py` (Gap 1) — Indexador AST (Python `ast` + regex TS/JS/Go). Genera `CODE-INDEX.yaml`.
+  - `score_evidence.py` (Gap 2) — Scoring de evidencia (coverage/freshness/depth/conflict/redundancy/schema).
+  - `predict_impact.py` (Gap 3) — Hologramas: dependency cascade, historical pattern, test gap. Modo `--deep` añade symbol contract + git blame.
+  - `scaffold_impl.py` (Gap 4) — Andamio: archivos a tocar, contracts a mantener, checkpoints, edit order, circular deps.
+  - `context_query.py` — `apolo.context.query(question)` responde 17 tipos de preguntas en lenguaje natural.
+  - `registry_recommend.py` — `apolo.registry.recommend(task)` recomienda tools con scoring y reasoning.
+  - `health_check.py` — `apolo.health.check(fix=true)` hot reload de tools + re-absorción en caliente.
+  - `absorb_external_skills.py` — Absorbe skills desde URLs, GitHub repos, hubs especializados (awesome-opencode, etc.).
 - **4 schemas YAML nuevos**: `code-index`, `evidence-score`, `impact-prediction`, `impl-scaffold`.
-- **Integracion TS** (5 archivos modificados, sin romper existentes):
-  - `evidence-collector.ts` invoca `index_codebase` + `score_evidence` automaticamente tras recolectar.
-  - `plan-generator.ts` invoca `predict_impact` automaticamente tras generar plan.
+- **Integración TS** (5 archivos modificados, sin romper existentes):
+  - `evidence-collector.ts` invoca `index_codebase` + `score_evidence` automáticamente tras recolectar.
+  - `plan-generator.ts` invoca `predict_impact` automáticamente tras generar plan.
   - `test-runner.ts` invoca `scaffold_impl` antes de tests si hay `unit_id`.
   - `tool-absorber.ts` añade `hotReloadRegistry()` y `recommendTool()`.
   - `index.ts` expone 3 tools nuevas: `apolo.context.query`, `apolo.registry.recommend`, `apolo.health.check`.
 - **3 tests TypeScript nuevos** (ContextQueryTools): total 35 tests TS + 42 asserts Python = 77 verificaciones.
-- **`package.json`** - v2.2.0.
-- **`install.sh`** - `EXPECTED_FILES` ampliada a 75 entradas.
-- **Absorcion externa**: el sistema ahora puede absorber skills de URLs externas, GitHub repos y hubs especializados, no solo locales.
+- **`package.json`** — v2.2.0.
+- **`install.sh`** — `EXPECTED_FILES` ampliada a 76 entradas.
+- **Absorción externa**: el sistema ahora puede absorber skills de URLs externas, GitHub repos y hubs especializados, no solo locales.
 
 ### v2.1.0
 
-     6 modulos TypeScript nuevos en plugin/core/, plugin/absorbers/, plugin/parallel/:
-         runtime-logger.ts - Log JSON Lines con seq monotono, pasivo
-         router.ts - Router declarativo (carga routing-rules.json)
-         loop-engine-tree.ts - Arbol de decision D-NNN + circuit breaker por patron
-         micro-test-runner.ts - Runner de micro-tests (MPs)
-         mcp-loader.ts - Absorbedor de MCPs con fallback
-         hypothesis-runner.ts - Paralelizador de hipotesis
-     4 JSON schemas estrictos en schemas/json/ (draft-07, additionalProperties: false):
-         agent-io.json - Contrato inputs/outputs de agents
-         loop-engine-decision.json - Nodo del arbol de decision
-         routing-rules.json - Reglas de routing declarativo
-         runtime-audit-log.json - Entrada del log de auditoria
-     routing-rules.json - 10 reglas declarativas (R-001..R-010) editables sin tocar codigo
-     tests/plugin.test.ts - 32 tests reales ejecutables con node --test
-     package.json - v2.2.0, scripts test:all, test:python, clean
-     tsconfig.json - incluye tests/**/*.ts en compilacion
-     install.sh - 7 pasos (añade paso 7: tests TypeScript con node --test)
-     README.md - documenta tests TS, schemas JSON, routing declarativo, absorcion externa
+- **6 módulos TypeScript nuevos** en `plugin/core/`, `plugin/absorbers/`, `plugin/parallel/`:
+  - `runtime-logger.ts` — Log JSON Lines con seq monotónico, pasivo
+  - `router.ts` — Router declarativo (carga `routing-rules.json`)
+  - `loop-engine-tree.ts` — Árbol de decisión D-NNN + circuit breaker por patrón
+  - `micro-test-runner.ts` — Runner de micro-tests (MPs)
+  - `mcp-loader.ts` — Absorbedor de MCPs con fallback
+  - `hypothesis-runner.ts` — Paralelizador de hipótesis
+- **4 JSON schemas estrictos** en `schemas/json/` (draft-07, `additionalProperties: false`):
+  - `agent-io.json` — Contrato inputs/outputs de agents
+  - `loop-engine-decision.json` — Nodo del árbol de decisión
+  - `routing-rules.json` — Reglas de routing declarativo
+  - `runtime-audit-log.json` — Entrada del log de auditoría
+- **`routing-rules.json`** — 10 reglas declarativas (R-001..R-010) editables sin tocar código
+- **`tests/plugin.test.ts`** — 32 tests reales ejecutables con `node --test`
+- **`package.json`** — v2.1.0, scripts `test:all`, `test:python`, `clean`
+- **`tsconfig.json`** — incluye `tests/**/*.ts` en compilación
+- **`install.sh`** — 7 pasos (añade paso 7: tests TypeScript con `node --test`)
 
-v2.0.0
+### v2.0.0
 
-     Release inicial con 12 modulos TypeScript, 7 schemas YAML, 5 templates, 10 scripts Python, 5 suites Python, panel HTML, CLI apolo-inspect.sh, install.sh.
+- Release inicial con 12 módulos TypeScript, 7 schemas YAML, 5 templates, 10 scripts Python, 5 suites Python, panel HTML, CLI `apolo-inspect.sh`, `install.sh`.
 
-## 15. Licencia
+---
+
+## Licencia
 
 MIT
-Contribuir
 
-    Fork el repo
-    Crear branch: git checkout -b feature/mi-feature
-    Commit: git commit -m 'Add mi-feature'
-    Push: git push origin feature/mi-feature
-    Pull request
+---
 
-Antes de hacer PR
+## Contribuir
+
+1. Fork el repo
+2. Crear branch: `git checkout -b feature/mi-feature`
+3. Commit: `git commit -m 'Add mi-feature'`
+4. Push: `git push origin feature/mi-feature`
+5. Pull request
+
+### Antes de hacer PR
+
 ```bash
 python3 tests/run_all_tests.py
 npx tsc && node --test dist/tests/plugin.test.js
 npx tsc --noEmit
 ```
-

@@ -105,7 +105,7 @@ print(inspector.inspectAll({'repoRoot': '$REPO_ROOT', 'flowid': '$FLOWID', 'json
 
   serve-panel)
     PORT="${PORT:-8765}"
-    "$PYTHON" "$PY_DIR/serve_panel.py" --repo-root "$REPO_ROOT" --flowid "$FLOWID" --port "$PORT"
+    "$PYTHON" "$PLUGIN_DIR/scripts/python/serve_panel.py" --repo-root "$REPO_ROOT" --flowid "$FLOWID" --port "$PORT"
     ;;
 
   help|--help|-h)
