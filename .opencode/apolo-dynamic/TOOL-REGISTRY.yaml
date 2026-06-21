@@ -1,6 +1,6 @@
 toolregistry: V2
-version: 26
-updated_at: '2026-06-21T18:57:30Z'
+version: 28
+updated_at: '2026-06-21T19:20:11Z'
 tools:
 - id: mcp:opencode.json:@playwright/mcp
   source: opencode.json#mcp.@playwright/mcp
@@ -23,7 +23,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@playwright/mcp@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     true}'
-  last_verified_at: '2026-06-21T18:57:23Z'
+  last_verified_at: '2026-06-21T19:20:04Z'
 - id: mcp:opencode.json:@koderspa/mcp-skills
   source: opencode.json#mcp.@koderspa/mcp-skills
   kind: mcp
@@ -44,7 +44,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@koderspa/mcp-skills@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     true}'
-  last_verified_at: '2026-06-21T18:57:24Z'
+  last_verified_at: '2026-06-21T19:20:05Z'
 - id: mcp:opencode.json:opencode-fastedit
   source: opencode.json#mcp.opencode-fastedit
   kind: mcp
@@ -66,7 +66,7 @@ tools:
     \\\\\\\"-y\\\\\\\", \\\\\\\"opencode-fastedit@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false, \\\\\\\"description\\\\\\\": \\\\\\\"Deshabilitado temporalmente - revisar
     nombre correcto en npm\\\\\\\"}'
-  last_verified_at: '2026-06-21T18:57:24Z'
+  last_verified_at: '2026-06-21T19:20:05Z'
 - id: mcp:opencode.json:opencode-pty
   source: opencode.json#mcp.opencode-pty
   kind: mcp
@@ -87,7 +87,7 @@ tools:
     \\\\\\\"-y\\\\\\\", \\\\\\\"opencode-pty@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false, \\\\\\\"description\\\\\\\": \\\\\\\"Deshabilitado temporalmente - revisar
     nombre correcto en npm\\\\\\\"}'
-  last_verified_at: '2026-06-21T18:57:25Z'
+  last_verified_at: '2026-06-21T19:20:06Z'
 - id: mcp:opencode.json:@obsidian-owl/opencode-specwright
   source: opencode.json#mcp.@obsidian-owl/opencode-specwright
   kind: mcp
@@ -107,7 +107,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@obsidian-owl/opencode-specwright@latest\\\\\\\"],
     \\\\\\\"enabled\\\\\\\": false}'
-  last_verified_at: '2026-06-21T18:57:26Z'
+  last_verified_at: '2026-06-21T19:20:07Z'
 - id: mcp:opencode.json:@zenobius/opencode-skillful
   source: opencode.json#mcp.@zenobius/opencode-skillful
   kind: mcp
@@ -128,7 +128,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@zenobius/opencode-skillful@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false}'
-  last_verified_at: '2026-06-21T18:57:27Z'
+  last_verified_at: '2026-06-21T19:20:08Z'
 - id: mcp:opencode.json:@cortexkit/aft-opencode
   source: opencode.json#mcp.@cortexkit/aft-opencode
   kind: mcp
@@ -148,7 +148,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@cortexkit/aft-opencode@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false}'
-  last_verified_at: '2026-06-21T18:57:27Z'
+  last_verified_at: '2026-06-21T19:20:09Z'
 - id: mcp:opencode.json:opencode-caveman
   source: opencode.json#mcp.opencode-caveman
   kind: mcp
@@ -168,7 +168,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"opencode-caveman@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false}'
-  last_verified_at: '2026-06-21T18:57:28Z'
+  last_verified_at: '2026-06-21T19:20:09Z'
 - id: mcp:opencode.json:@tarquinen/opencode-dcp
   source: opencode.json#mcp.@tarquinen/opencode-dcp
   kind: mcp
@@ -189,7 +189,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@tarquinen/opencode-dcp@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false}'
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/validate_artifact.py
   source: /home/juan/new_project/scripts/python/validate_artifact.py
   kind: external-script
@@ -205,7 +205,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/validate_artifact.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/collect_evidence.py
   source: /home/juan/new_project/scripts/python/collect_evidence.py
   kind: external-script
@@ -222,7 +222,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/collect_evidence.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/rollback.py
   source: /home/juan/new_project/scripts/python/rollback.py
   kind: external-script
@@ -238,7 +238,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/rollback.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/run_tests.py
   source: /home/juan/new_project/scripts/python/run_tests.py
   kind: external-script
@@ -255,7 +255,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/run_tests.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/generate_plan.py
   source: /home/juan/new_project/scripts/python/generate_plan.py
   kind: external-script
@@ -272,7 +272,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/generate_plan.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/absorb_mcp.py
   source: /home/juan/new_project/scripts/python/absorb_mcp.py
   kind: external-script
@@ -289,7 +289,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/absorb_mcp.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/inspect_tools.py
   source: /home/juan/new_project/scripts/python/inspect_tools.py
   kind: external-script
@@ -305,7 +305,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/inspect_tools.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/telemetry_aggregator.py
   source: /home/juan/new_project/scripts/python/telemetry_aggregator.py
   kind: external-script
@@ -322,7 +322,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/telemetry_aggregator.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/serve_panel.py
   source: /home/juan/new_project/scripts/python/serve_panel.py
   kind: external-script
@@ -338,7 +338,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/serve_panel.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/absorb_external_skills.py
   source: /home/juan/new_project/scripts/python/absorb_external_skills.py
   kind: external-script
@@ -356,7 +356,7 @@ tools:
       --help 2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/scaffold_impl.py
   source: /home/juan/new_project/scripts/python/scaffold_impl.py
   kind: external-script
@@ -373,7 +373,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/predict_impact.py
   source: /home/juan/new_project/scripts/python/predict_impact.py
   kind: external-script
@@ -390,7 +390,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/context_query.py
   source: /home/juan/new_project/scripts/python/context_query.py
   kind: external-script
@@ -407,7 +407,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/score_evidence.py
   source: /home/juan/new_project/scripts/python/score_evidence.py
   kind: external-script
@@ -424,7 +424,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/registry_recommend.py
   source: /home/juan/new_project/scripts/python/registry_recommend.py
   kind: external-script
@@ -441,7 +441,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/index_codebase.py
   source: /home/juan/new_project/scripts/python/index_codebase.py
   kind: external-script
@@ -458,7 +458,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/health_check.py
   source: /home/juan/new_project/scripts/python/health_check.py
   kind: external-script
@@ -475,7 +475,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/lsp_integration.py
   source: /home/juan/new_project/scripts/python/lsp_integration.py
   kind: external-script
@@ -492,7 +492,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/secret_scanner.py
   source: /home/juan/new_project/scripts/python/secret_scanner.py
   kind: external-script
@@ -509,7 +509,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/code_quality.py
   source: /home/juan/new_project/scripts/python/code_quality.py
   kind: external-script
@@ -526,7 +526,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/test_coverage.py
   source: /home/juan/new_project/scripts/python/test_coverage.py
   kind: external-script
@@ -543,7 +543,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/llm_bridge.py
   source: /home/juan/new_project/scripts/python/llm_bridge.py
   kind: external-script
@@ -560,7 +560,7 @@ tools:
       | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/refactor_engine.py
   source: /home/juan/new_project/scripts/python/refactor_engine.py
   kind: external-script
@@ -577,7 +577,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/self_healing.py
   source: /home/juan/new_project/scripts/python/self_healing.py
   kind: external-script
@@ -594,7 +594,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/generate_tests.py
   source: /home/juan/new_project/scripts/python/generate_tests.py
   kind: external-script
@@ -611,7 +611,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
 - id: external-script:scripts/python/semantic_search.py
   source: /home/juan/new_project/scripts/python/semantic_search.py
   kind: external-script
@@ -628,7 +628,22 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-21T18:57:29Z'
+  last_verified_at: '2026-06-21T19:20:10Z'
+- id: external-script:scripts/python/install_deps.py
+  source: /home/juan/new_project/scripts/python/install_deps.py
+  kind: external-script
+  name: install_deps
+  status: unverified
+  registered_at: '2026-06-21T19:20:10Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/install_deps.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/install_deps.py
+    expected_exit: 0
+    interval_seconds: 600
 conflicts:
 - tools:
   - mcp:opencode.json:@koderspa/mcp-skills
@@ -662,6 +677,7 @@ conflicts:
   - external-script:scripts/python/self_healing.py
   - external-script:scripts/python/generate_tests.py
   - external-script:scripts/python/semantic_search.py
+  - external-script:scripts/python/install_deps.py
   capability: unknown
   resolution: priority-first
 - tools:

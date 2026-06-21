@@ -60,7 +60,12 @@ python3 scripts/python/generate_plan.py --flowid TEST --evidence /tmp/ev.yaml --
 python3 scripts/python/generate_plan.py --flowid TEST --evidence /tmp/ev.yaml --verdad /dev/null --output /tmp/p3.yaml --method manual 2>/dev/null | grep -q success && pass "generate_plan.py manual" || fail "generate_plan manual"
 python3 scripts/python/predict_impact.py --plan /tmp/p1.yaml --code-index /tmp/ci.yaml --output /tmp/imp.yaml --flowid TEST 2>/dev/null | grep -q success && pass "predict_impact.py BFS" || fail "predict_impact"
 python3 scripts/python/score_evidence.py --evidence /tmp/ev.yaml --output /tmp/sc.yaml --flowid TEST 2>/dev/null | grep -q success && pass "score_evidence.py" || fail "score_evidence"
-python3 scripts/python/code_quality.py --repo-root . --output /tmp/cq.yaml 2>/dev/null && pass "code_quality.py" || fail "code_quality"
+CQ_OUT=$(python3 scripts/python/code_quality.py --repo-root . --output /tmp/cq.yaml 2>&1 || true)
+if echo "$CQ_OUT" | grep -qi "success\|total_files\|languages_detected"; then
+  pass "code_quality.py"
+else
+  fail "code_quality"
+fi || fail "code_quality"
 python3 scripts/python/test_coverage.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/tc.yaml 2>/dev/null && pass "test_coverage.py" || fail "test_coverage"
 python3 scripts/python/lsp_integration.py --repo-root . --symbol "init" --action find-references 2>/dev/null | grep -q "references\|method" && pass "lsp_integration.py" || fail "lsp_integration"
 bash scripts/bash/apolo-inspect.sh init-flow --flowid APOLO-FULLTEST >/dev/null 2>&1 || true

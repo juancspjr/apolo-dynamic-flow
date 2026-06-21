@@ -1,13 +1,13 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T18:59:34Z'
+generated_at: '2026-06-21T19:22:17Z'
 repo_root: /home/juan/new_project
 code_index_used: false
-coverage_tool_used: null
+coverage_tool_used: coverage.py
 dominant_language: python
-total_symbols: 461
+total_symbols: 464
 covered_symbols: 4
-uncovered_symbols: 457
-coverage_percentage: 0.87
+uncovered_symbols: 460
+coverage_percentage: 0.86
 critical_uncovered:
 - file: /home/juan/new_project/plugin/state-machine.ts
   name: TRANSITIONS
@@ -2223,6 +2223,24 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  name: check_dep
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  name: install_package
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
   name: aggregate
   kind: function
@@ -2613,6 +2631,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/install_deps.py:
+    total_symbols: 3
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/telemetry_aggregator.py:
     total_symbols: 2
     covered_symbols: 0
@@ -2639,18 +2662,17 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-source_files_count: 45
+source_files_count: 46
 test_files_count: 13
-degradations:
-- coverage.py no disponible — usando heurística por convención
+degradations: []
 recommendations:
-- Escribir tests para 399 símbolo(s) exportado(s) sin cobertura
-- Cobertura actual 0.87% — objetivo mínimo 50%
+- Escribir tests para 402 símbolo(s) exportado(s) sin cobertura
+- Cobertura actual 0.86% — objetivo mínimo 50%
 summary:
-  total_symbols: 461
+  total_symbols: 464
   covered: 4
-  uncovered: 457
-  critical_uncovered: 399
-  coverage_percentage: 0.87
-duration_ms: 115
+  uncovered: 460
+  critical_uncovered: 402
+  coverage_percentage: 0.86
+duration_ms: 13072
 

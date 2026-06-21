@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T19:00:17Z'
+generated_at: '2026-06-21T19:23:47Z'
 repo_root: /home/juan/new_project
 available_lsps:
   typescript: typescript-language-server
@@ -18,7 +18,7 @@ languages_detected:
 files_by_language:
   javascript: 1
   typescript: 19
-  python: 38
+  python: 39
 diagnostics:
 - file: /home/juan/new_project/tests/test_python_scripts.py
   language: python
@@ -281,18 +281,95 @@ diagnostics:
   diagnostics:
   - file: /home/juan/new_project/tests/test_hash_chain.py
     severity: error
+    message: Expected expression
+    range:
+      start:
+        line: 18
+        character: 2
+      end:
+        line: 19
+        character: 0
+    rule: null
+  - file: /home/juan/new_project/tests/test_hash_chain.py
+    severity: error
+    message: Type annotation not supported for this statement
+    range:
+      start:
+        line: 18
+        character: 2
+      end:
+        line: 18
+        character: 2
+    rule: reportInvalidTypeForm
+  - file: /home/juan/new_project/tests/test_hash_chain.py
+    severity: error
+    message: Unexpected indentation
+    range:
+      start:
+        line: 19
+        character: 0
+      end:
+        line: 19
+        character: 4
+    rule: null
+  - file: /home/juan/new_project/tests/test_hash_chain.py
+    severity: error
+    message: '"_for_p" is not defined'
+    range:
+      start:
+        line: 19
+        character: 8
+      end:
+        line: 19
+        character: 14
+    rule: reportUndefinedVariable
+  - file: /home/juan/new_project/tests/test_hash_chain.py
+    severity: error
+    message: '"_for_p" is not defined'
+    range:
+      start:
+        line: 20
+        character: 31
+      end:
+        line: 20
+        character: 37
+    rule: reportUndefinedVariable
+  - file: /home/juan/new_project/tests/test_hash_chain.py
+    severity: error
+    message: '"break" can be used only within a loop'
+    range:
+      start:
+        line: 21
+        character: 8
+      end:
+        line: 21
+        character: 13
+    rule: null
+  - file: /home/juan/new_project/tests/test_hash_chain.py
+    severity: error
+    message: Unindent not expected
+    range:
+      start:
+        line: 23
+        character: 0
+      end:
+        line: 23
+        character: 3
+    rule: null
+  - file: /home/juan/new_project/tests/test_hash_chain.py
+    severity: error
     message: Import "secret_scanner" could not be resolved
     range:
       start:
-        line: 16
+        line: 24
         character: 9
       end:
-        line: 16
+        line: 24
         character: 23
     rule: reportMissingImports
-  count: 1
+  count: 8
   lsp_used: pyright-langserver
-  lsp_count: 1
+  lsp_count: 8
   regex_count: 0
 - file: /home/juan/new_project/tests/test_security.py
   language: python
@@ -1401,6 +1478,103 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 19
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 58
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 61
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 66
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 69
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 72
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 74
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 76
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 80
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 84
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 86
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 88
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 90
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 92
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 94
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/install_deps.py
+    line: 97
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 15
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 15
 - file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
   language: python
   diagnostics:
@@ -1693,8 +1867,8 @@ diagnostics:
   lsp_count: 0
   regex_count: 14
 summary:
-  total_files: 58
-  files_with_diagnostics: 33
-  total_diagnostics: 165
-duration_ms: 52613
+  total_files: 59
+  files_with_diagnostics: 34
+  total_diagnostics: 187
+duration_ms: 67462
 
