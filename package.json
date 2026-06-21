@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.5.4",
-  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje (HTML, CSS, JS, React, Rust, C++, PHP, TS, Java, Go). Flujos dinamicos, recoleccion hibrida, planes con 3 modos, tests automaticos, absorcion de tools externas, routing declarativo, atomic writes, file locks, allowlist, secret detection, hash chain, multi-level impact prediction, code quality analysis, test coverage por simbolo, LSP integration.",
+  "version": "2.6.0",
+  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. Flujos dinamicos, recoleccion hibrida, planes con 3 modos, tests automaticos, absorcion de tools externas, routing declarativo, atomic writes, file locks, allowlist, secret detection, hash chain, multi-level impact prediction, code quality, test coverage, LSP, self-healing, test generation, semantic search, refactoring, LLM bridge (MiniMax/OpenAI compatible).",
   "main": "plugin/index.ts",
   "scripts": {
     "test": "npx tsc && node --test dist/tests/plugin.test.js",
@@ -9,44 +9,17 @@
     "test:atomic": "python3 tests/test_atomic.py",
     "test:security": "python3 tests/test_security.py",
     "test:quality": "python3 tests/test_quality.py",
-    "test:all": "npm run test:python && npm run test:atomic && npm run test:security && npm run test:quality && npm run test",
+    "test:intelligence": "python3 tests/test_intelligence.py",
+    "test:all": "npm run test:python && npm run test:atomic && npm run test:security && npm run test:quality && npm run test:intelligence && npm run test",
     "inspect": "bash scripts/bash/apolo-inspect.sh",
     "panel": "bash scripts/bash/apolo-inspect.sh serve-panel",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
-  "keywords": [
-    "opencode",
-    "plugin",
-    "apolo",
-    "dynamic-flow",
-    "loop-engine",
-    "routing",
-    "mcp",
-    "parallel-agents",
-    "evidence-pack",
-    "telemetry",
-    "atomic-writes",
-    "concurrency-safe",
-    "security",
-    "allowlist",
-    "secret-detection",
-    "hash-chain",
-    "sandboxing",
-    "multi-language",
-    "code-quality",
-    "test-coverage",
-    "lsp",
-    "bfs-impact-prediction"
-  ],
+  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge"],
   "author": "",
   "license": "MIT",
-  "devDependencies": {
-    "@types/node": "^22.0.0",
-    "typescript": "^5.5.0"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  }
+  "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.5.0" },
+  "engines": { "node": ">=18.0.0" }
 }

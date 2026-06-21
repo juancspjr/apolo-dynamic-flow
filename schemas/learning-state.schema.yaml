@@ -1,0 +1,42 @@
+# learning-state.schema.yaml
+type: object
+required: [learningstate, version, updated_at, agent_performance, suggested_adjustments]
+additionalProperties: false
+properties:
+  learningstate: { type: string, const: "V1" }
+  version: { type: integer, minimum: 1 }
+  updated_at: { type: string, format: date-time }
+  flowid: { type: string }
+  events_analyzed: { type: integer }
+  agent_performance:
+    type: object
+    additionalProperties:
+      type: object
+      additionalProperties:
+        type: object
+        properties:
+          total: { type: integer }
+          success: { type: integer }
+          fail: { type: integer }
+          success_rate: { type: number }
+  suggested_adjustments:
+    type: array
+    items:
+      type: object
+      properties:
+        agent: { type: string }
+        phase: { type: string }
+        success_rate: { type: number }
+        suggestion: { type: string }
+        alternative_agent: { type: string }
+        confidence: { type: number }
+  failure_patterns:
+    type: array
+    items:
+      type: object
+      properties:
+        pattern: { type: string }
+        count: { type: integer }
+        examples: { type: array, items: { type: string } }
+  applied_adjustments: { type: array }
+  llm_analysis: { type: string }

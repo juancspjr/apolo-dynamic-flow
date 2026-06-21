@@ -1,13 +1,13 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T17:16:13Z'
+generated_at: '2026-06-21T18:23:31Z'
 repo_root: /home/juan/new_project
 code_index_used: false
 coverage_tool_used: null
 dominant_language: python
-total_symbols: 421
+total_symbols: 461
 covered_symbols: 4
-uncovered_symbols: 417
-coverage_percentage: 0.95
+uncovered_symbols: 457
+coverage_percentage: 0.87
 critical_uncovered:
 - file: /home/juan/new_project/plugin/state-machine.ts
   name: TRANSITIONS
@@ -1371,6 +1371,72 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: get_api_base
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: get_api_key
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: get_model
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: is_available
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: chat
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: embed
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: analyze_code
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: suggest_fix
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: generate_test
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: suggest_refactor
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/rollback.py
   name: get_modified_files
   kind: function
@@ -1396,6 +1462,36 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/rollback.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: count_lines
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: estimate_complexity
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: detect_smells
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: generate_refactored
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
   name: main
   kind: function
   is_exported: true
@@ -1857,6 +1953,42 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: load_telemetry
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: compute_success_rates
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: suggest_adjustments
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: analyze_failure_patterns
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: apply_adjustments
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/index_codebase.py
   name: git_last_modified
   kind: function
@@ -2166,6 +2298,78 @@ critical_uncovered:
   covered: false
   test_files:
   - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: find_untested_symbols
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: generate_stub
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: test_
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: test_
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: generate_with_llm
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: tokenize
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: tf_idf
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: cosine_sim
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: build_embeddings
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: search
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/health_check.py
   name: check_file_exists
   kind: function
@@ -2324,7 +2528,17 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/llm_bridge.py:
+    total_symbols: 16
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/rollback.py:
+    total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/refactor_engine.py:
     total_symbols: 5
     covered_symbols: 0
     coverage_pct: 0.0
@@ -2369,6 +2583,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/self_healing.py:
+    total_symbols: 6
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/index_codebase.py:
     total_symbols: 11
     covered_symbols: 0
@@ -2405,23 +2624,33 @@ by_file:
     coverage_pct: 28.57
     associated_tests:
     - /home/juan/new_project/tests/test_quality.py
+  /home/juan/new_project/scripts/python/generate_tests.py:
+    total_symbols: 6
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/semantic_search.py:
+    total_symbols: 7
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/health_check.py:
     total_symbols: 7
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-source_files_count: 40
-test_files_count: 11
+source_files_count: 45
+test_files_count: 12
 degradations:
 - coverage.py no disponible — usando heurística por convención
 recommendations:
-- Escribir tests para 365 símbolo(s) exportado(s) sin cobertura
-- Cobertura actual 0.95% — objetivo mínimo 50%
+- Escribir tests para 399 símbolo(s) exportado(s) sin cobertura
+- Cobertura actual 0.87% — objetivo mínimo 50%
 summary:
-  total_symbols: 421
+  total_symbols: 461
   covered: 4
-  uncovered: 417
-  critical_uncovered: 365
-  coverage_percentage: 0.95
-duration_ms: 209
+  uncovered: 457
+  critical_uncovered: 399
+  coverage_percentage: 0.87
+duration_ms: 108
 
