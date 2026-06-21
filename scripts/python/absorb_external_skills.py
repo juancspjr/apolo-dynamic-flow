@@ -54,6 +54,8 @@ from urllib.parse import urlparse
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import (  # noqa: E402
+    # v2.4.0: security imports
+    
     cmd_available,
     gen_uuid,
     log,
@@ -64,6 +66,16 @@ from common import (  # noqa: E402
     sha256,
     write_yaml,
 )
+
+# v2.4.0: Security — allowlist validation
+try:
+    from secret_scanner import is_origin_allowed, load_security_config
+except ImportError:
+    # Si secret_scanner no está disponible, usar función stub que permite todo
+    def is_origin_allowed(url, config=None):
+        return True, "secret_scanner not available — allowing all"
+    def load_security_config(config_path=None):
+        return {}
 
 
 # ============================================================================
@@ -470,6 +482,14 @@ def process_source(source: str, repo_root: Path) -> Dict[str, Any]:
     if not parsed.get("valid"):
         return {"success": False, "source": source, "error": parsed.get("error")}
 
+    # v2.4.0: Security — verificar allowlist
+    security_config = load_security_config()
+    allowed, reason = is_origin_allowed(source, security_config)
+    if not allowed:
+        log(f"RECHAZADO: {source} — {reason}", "WARN")
+        return {"success": False, "source": source, "error": f"Security: {reason}"}
+    log(f"Origen verificado: {reason}", "INFO")
+
     log(f"Procesando source: {source}", "INFO")
 
     # GitHub raw / URL directa / Gist
@@ -494,6 +514,14 @@ def process_hub(hub_name: str, repo_root: Path) -> Dict[str, Any]:
     hub = KNOWN_HUBS.get(hub_name)
     if not hub:
         return {"success": False, "hub": hub_name, "error": "unknown hub"}
+
+    # v2.4.0: Security — verificar allowlist para hubs
+    security_config = load_security_config()
+    hub_source = f"hub:{hub_name}"
+    allowed, reason = is_origin_allowed(hub_source, security_config)
+    if not allowed:
+        log(f"RECHAZADO hub: {hub_name} — {reason}", "WARN")
+        return {"success": False, "hub": hub_name, "error": f"Security: {reason}"}
 
     log(f"Absorbiendo hub: {hub_name} ({hub['description']})", "INFO")
 

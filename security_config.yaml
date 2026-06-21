@@ -1,0 +1,153 @@
+# security_config.yaml
+# Configuracion de seguridad para apolo-dynamic-flow v2.4.1
+#
+# v2.4.1 FIX: patrones regex escapados correctamente para PyYAML
+# usando comillas dobles con escaping interno.
+
+# ============================================================================
+# Allowlist de origenes para absorb_external_skills.py
+# ============================================================================
+
+allowed_origins:
+  - pattern: "github://opencode-ai/*"
+    description: "OpenCode oficial"
+    trust_level: "high"
+
+  - pattern: "github://juancspjr/*"
+    description: "Repos del operador"
+    trust_level: "high"
+
+  - pattern: "github://anthropics/*"
+    description: "Anthropic oficial (skills de Claude)"
+    trust_level: "high"
+
+  - pattern: "https://raw.githubusercontent.com/opencode-ai/*"
+    description: "OpenCode raw URLs"
+    trust_level: "high"
+
+  - pattern: "https://raw.githubusercontent.com/juancspjr/*"
+    description: "Operador raw URLs"
+    trust_level: "high"
+
+  - pattern: "hub:awesome-opencode"
+    description: "Hub awesome-opencode"
+    trust_level: "medium"
+
+  - pattern: "hub:apolo-loop-engine"
+    description: "Hub apolo-loop-engine"
+    trust_level: "medium"
+
+blocked_origins:
+  - pattern: "*://localhost*"
+    description: "No permitir localhost (SSRF protection)"
+  - pattern: "*://127.0.0.1*"
+    description: "No permitir loopback (SSRF protection)"
+  - pattern: "*://169.254.169.254*"
+    description: "No permitir AWS metadata endpoint (SSRF protection)"
+  - pattern: "*://0.0.0.0*"
+    description: "No permitir wildcard bind"
+  - pattern: "file://*"
+    description: "No permitir file:// (path traversal protection)"
+
+default_policy: "deny"
+
+# ============================================================================
+# Deteccion de secretos
+# ============================================================================
+# NOTA: los patrones regex usan comillas dobles con escaping interno
+# para evitar problemas de parsing con YAML.
+
+secret_patterns:
+  - name: "aws_access_key"
+    pattern: "AKIA[0-9A-Z]{16}"
+    replacement: "***REDACTED_AWS_KEY***"
+
+  - name: "aws_secret_key"
+    pattern: "aws_secret_access_key\\s*[=:]\\s*[\"']?([A-Za-z0-9/+=]{40})[\"']?"
+    replacement: "aws_secret_access_key=***REDACTED***"
+
+  - name: "github_token"
+    pattern: "gh[pousr]_[A-Za-z0-9]{36}"
+    replacement: "***REDACTED_GITHUB_TOKEN***"
+
+  - name: "bearer_token"
+    pattern: "[Bb]earer\\s+([A-Za-z0-9_\\-.]{20,})"
+    replacement: "bearer ***REDACTED***"
+
+  - name: "private_key"
+    pattern: "-----BEGIN (RSA |EC |DSA |OPENSSH |)PRIVATE KEY-----"
+    replacement: "***REDACTED_PRIVATE_KEY***"
+
+  - name: "db_connection_string"
+    pattern: "(postgresql|mysql|mongodb|redis)://[^\\s:]+:[^\\s@]+@"
+    replacement: "***REDACTED_DB_CONNECTION***"
+
+  - name: "jwt_token"
+    pattern: "eyJ[A-Za-z0-9_\\-]+\\.eyJ[A-Za-z0-9_\\-]+\\.[A-Za-z0-9_\\-]+"
+    replacement: "***REDACTED_JWT***"
+
+  - name: "generic_password"
+    pattern: "(password|passwd|pwd)\\s*[=:]\\s*[\"']?([^\\s\"']{8,})[\"']?"
+    replacement: "***REDACTED_PASSWORD***"
+
+  - name: "slack_token"
+    pattern: "xox[baprs]-[A-Za-z0-9-]+"
+    replacement: "***REDACTED_SLACK_TOKEN***"
+
+  - name: "stripe_key"
+    pattern: "(sk|pk)_(test_|live_)[A-Za-z0-9]{24,}"
+    replacement: "***REDACTED_STRIPE_KEY***"
+
+  - name: "generic_api_key"
+    pattern: "(api[_-]?key|apikey)\\s*[=:]\\s*[\"']?([A-Za-z0-9_\\-]{20,})[\"']?"
+    replacement: "***REDACTED_API_KEY***"
+
+scan_files:
+  - "**/*.env"
+  - "**/*.env.*"
+  - "**/config.yaml"
+  - "**/config.yml"
+  - "**/config.json"
+  - "**/secrets.*"
+  - "**/credentials.*"
+  - "**/.env"
+
+skip_files:
+  - "**/*.png"
+  - "**/*.jpg"
+  - "**/*.jpeg"
+  - "**/*.gif"
+  - "**/*.pdf"
+  - "**/*.zip"
+  - "**/*.tar.gz"
+  - "**/*.pyc"
+
+# ============================================================================
+# Hash chain del audit log
+# ============================================================================
+
+hash_chain:
+  enabled: true
+  algorithm: "sha256"
+  genesis_seed: "APOLO-DYNAMIC-FLOW-GENESIS-V1"
+
+# ============================================================================
+# Sandboxing
+# ============================================================================
+
+sandbox:
+  method: "firejail"
+
+  firejail_flags:
+    - "--private"
+    - "--noroot"
+    - "--caps.drop=all"
+    - "--seccomp"
+    - "--nonewprivs"
+    - "--whitelist=."
+
+  docker_image: "python:3.12-slim"
+
+  timeout_seconds: 60
+
+  allow_without_sandbox: false

@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](#licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#prerrequisitos)
-[![Version](https://img.shields.io/badge/version-2.3.0-blue)](#changelog)
+[![Version](https://img.shields.io/badge/version-2.5.0-blue)](#changelog)
 
 ---
 
@@ -674,6 +674,24 @@ apolo.health.check(fix=true) → verifica salud + re-absorbe en caliente
 ---
 
 ## Changelog
+
+### v2.5.0
+
+- **Calidad del análisis** (4 scripts nuevos + 1 modificado):
+  - `predict_impact.py` (MODIFICADO) — `project_dependency_cascade` ahora hace **BFS multi-nivel** (no solo 1 nivel). Si A importa B que importa C que importa D, el cascade detecta A→B→C→D hasta profundidad configurable (default 5 niveles, `--cascade-depth`). Nuevos campos: `cascade_depth` (profundidad máxima alcanzada) y `affected_by_level` (conteo por nivel). Umbrales de riesgo ajustados: low <5, medium 5-15, high 16-30, critical >30.
+  - `code_quality.py` (NUEVO) — Análisis de calidad **agnóstico al lenguaje** (Python, JS/TS, Go, Rust, Java, C++, PHP, HTML, CSS). Corre `bandit`, `radon`, `eslint-plugin-security`, `gosec`, `cppcheck` cuando están disponibles; degrada gracefully a regex estimation si no. Genera `CODE-QUALITY.yaml` con `security_findings`, `complexity_scores`, `high_complexity_functions` (>15) y `recommendations`.
+  - `test_coverage.py` (NUEVO) — Análisis de cobertura de tests **por símbolo** (no por archivo). Integra `coverage.py` (Python), `nyc` (JS/TS) y `go test -cover` (Go). Si no hay herramientas, usa heurísticas por convención de nombres (`test_<name>.py`, `<name>_test.go`, `<name>.test.ts`). Genera `TEST-COVERAGE.yaml` con `total_symbols`, `covered_symbols`, `uncovered_symbols`, `coverage_percentage`, `critical_uncovered` (símbolos exportados sin test).
+  - `lsp_integration.py` (NUEVO) — Integración con LSP para análisis semántico. Soporta `typescript-language-server`, `pylsp`/`pyright`, `gopls`, `rust-analyzer`, `jdtls`, `clangd`, `intelephense`. Implementa `find_references()`, `get_diagnostics()`, `go_to_definition()`, `get_hover()`. Si un LSP no está disponible, degrada a regex fallback.
+  - `test_quality.py` (NUEVO) — 8 tests que validan las 4 nuevas capacidades. Resilientes: si una herramienta externa no está instalada, el test pasa verificando que la degradación es graceful.
+
+### v2.4.0
+
+- **Seguridad operacional**:
+  - **Allowlist de orígenes**: `absorb_external_skills.py` ahora verifica que cada URL esté en `security_config.yaml#allowed_origins` antes de descargar. URLs no allowlisted son rechazadas. SSRF protection (localhost, 169.254.169.254, file:// bloqueados).
+  - **Secret detection**: `secret_scanner.py` detecta 11 tipos de secretos (AWS keys, GitHub tokens, JWT, PEM private keys, DB connection strings, passwords, Slack tokens, Stripe keys, bearer tokens, API keys). Si detecta secretos en evidencia, los REDACTA antes de escribir el pack.
+  - **Hash chain en audit log**: cada entrada de `runtime-audit.log` incluye `prev_hash` (hash de la entrada anterior) y `entry_hash` (hash de esta entrada). Manipular una entrada rompe la cadena — detectable con `verify_hash_chain()`.
+  - **Sandboxing**: `security_config.yaml` soporta configuración de firejail (default) o Docker para ejecutar skills externas en entorno aislado.
+  - **12 tests de seguridad** (`tests/test_security.py`): validan detección de cada tipo de secreto, redacción, allowlist (permitir/denegar/SSRF), hash chain (válido/manipulado).
 
 ### v2.3.0
 

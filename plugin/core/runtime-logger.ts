@@ -10,6 +10,7 @@
  * Conforme al schema: schemas/json/runtime-audit-log.json
  */
 
+import * as crypto from "crypto";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -69,6 +70,8 @@ export interface AuditEntry {
   ts: string;
   seq: number;
   flow_id: string;
+  prev_hash?: string;  // v2.4.0: hash de la entrada anterior (hash chain)
+  entry_hash?: string; // v2.4.0: hash de esta entrada (para verificación)
   actor: AuditActor;
   action: AuditAction;
   outcome: AuditOutcome;
@@ -92,9 +95,30 @@ export type PartialAuditEntry = Omit<AuditEntry, "ts" | "seq">;
 // ============================================================================
 
 const seqCache = new Map<string, number>();
+const hashCache = new Map<string, string>();  // v2.4.0: último hash por flow_id
+
+const GENESIS_SEED = "APOLO-DYNAMIC-FLOW-GENESIS-V1";
 
 export function _resetSeqCache(): void {
   seqCache.clear();
+  hashCache.clear();
+}
+
+function computeEntryHash(entry: Partial<AuditEntry>, prevHash: string): string {
+  /** v2.4.0: Computa hash SHA256 de la entrada incluyendo el hash anterior. */
+  const entryCopy = { ...entry };
+  delete (entryCopy as any).entry_hash;
+  delete (entryCopy as any).prev_hash;
+  const entryStr = JSON.stringify(entryCopy, Object.keys(entryCopy).sort());
+  const combined = prevHash + ":" + entryStr;
+  return crypto.createHash("sha256").update(combined).digest("hex");
+}
+
+function getPrevHash(flowId: string): string {
+  const cached = hashCache.get(flowId);
+  if (cached) return cached;
+  // Genesis hash
+  return crypto.createHash("sha256").update(GENESIS_SEED).digest("hex");
 }
 
 function nextSeq(flowId: string): number {
@@ -131,11 +155,18 @@ export function log(entry: PartialAuditEntry, repoRoot: string = process.cwd()):
     }
     const logPath = resolveLogPath(entry.flow_id, repoRoot);
     ensureLogDir(logPath);
+    const prevHash = getPrevHash(entry.flow_id);
     const fullEntry: AuditEntry = {
       ts: new Date().toISOString(),
       seq: nextSeq(entry.flow_id),
       ...entry,
+      prev_hash: prevHash,
     };
+    // v2.4.0: Computar hash de esta entrada
+    fullEntry.entry_hash = computeEntryHash(fullEntry, prevHash);
+    // Actualizar cache de hash
+    hashCache.set(entry.flow_id, fullEntry.entry_hash);
+
     fs.appendFileSync(logPath, JSON.stringify(fullEntry) + "\n", "utf8");
   } catch (err) {
     console.error(`[runtime-logger] error escribiendo entrada:`, err);

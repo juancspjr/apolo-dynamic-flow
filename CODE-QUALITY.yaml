@@ -1,0 +1,4085 @@
+schema_version: 2.5.0
+generated_at: '2026-06-21T15:36:41Z'
+repo_root: /home/juan/new_project
+total_files: 53
+languages_detected:
+- css
+- html
+- javascript
+- python
+- typescript
+tools_tried:
+  eslint-plugin-security: true
+security_findings: []
+complexity_scores:
+- file: /home/juan/new_project/panel/panel.js
+  function: refresh
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: fetchYaml
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: fetchJsonl
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: parseYaml
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: parseScalar
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: renderState
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: renderTelemetry
+  complexity: 18
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: renderBlocks
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: renderTools
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/panel/panel.js
+  function: escapeHtml
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/state-machine.ts
+  function: aggregate
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/state-machine.ts
+  function: canTransit
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/state-machine.ts
+  function: getTransitionRule
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/state-machine.ts
+  function: evaluateGate
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/state-machine.ts
+  function: nextPhase
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/state-machine.ts
+  function: gateForTransition
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/state-machine.ts
+  function: requiredArtifactsForTransition
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: v4
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: sha256
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: hashFile
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: hashChain
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: toYaml
+  complexity: 21
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: parseYaml
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: parseScalar
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: ensureDir
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: writeJson
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: writeYaml
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: appendLine
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: now
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: elapsedMs
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: flowPath
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: statePath
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: evidencePath
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: blocksPath
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: telemetryPath
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/utils.ts
+  function: toolRegistryPath
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  function: runImpactPrediction
+  complexity: 17
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  function: generatePlan
+  complexity: 18
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: absorbTools
+  complexity: 29
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: buildMcpTool
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: buildSkillTool
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: buildPluginTool
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: buildScriptTool
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: inferMcpCapabilities
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: inferSkillCapabilities
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: inferScriptCapabilities
+  complexity: 10
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: verifyHealth
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: detectConflicts
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: findToolByCapability
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: getFallbackChain
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: hotReloadRegistry
+  complexity: 27
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: recommendTool
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/test-runner.ts
+  function: runScaffold
+  complexity: 16
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/test-runner.ts
+  function: runTests
+  complexity: 29
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/block-detector.ts
+  function: detectBlocks
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/block-detector.ts
+  function: countPhaseInHistory
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/block-detector.ts
+  function: countArtifactReferences
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/block-detector.ts
+  function: resolveBlock
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/inspector.ts
+  function: inspectState
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/inspector.ts
+  function: inspectTools
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/inspector.ts
+  function: inspectBlocks
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/inspector.ts
+  function: inspectTelemetry
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/inspector.ts
+  function: inspectEvidence
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/inspector.ts
+  function: inspectHealth
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/inspector.ts
+  function: inspectAll
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/inspector.ts
+  function: error
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/loop-engine.ts
+  function: runLoopIteration
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/loop-engine.ts
+  function: emit
+  complexity: 19
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/loop-engine.ts
+  function: transit
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/loop-engine.ts
+  function: blockAndStay
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/loop-engine.ts
+  function: resetCounter
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/loop-engine.ts
+  function: suggestResolution
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/index.ts
+  function: buildContext
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/index.ts
+  function: initFlowState
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/index.ts
+  function: loadState
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/index.ts
+  function: saveState
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/index.ts
+  function: appendBlock
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/telemetry.ts
+  function: appendEvent
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/telemetry.ts
+  function: readEvents
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/telemetry.ts
+  function: computeStats
+  complexity: 10
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  function: runCodeIndex
+  complexity: 15
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  function: runEvidenceScore
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  function: collectEvidence
+  complexity: 24
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  function: isEvidenceStale
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_loop_engine.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_block_detector.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/run_all_tests.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_state_machine.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/plugin.test.ts
+  function: setupTestRepo
+  complexity: 10
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_security.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_tool_absorber.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: "\n        "
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: "\n        "
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: "\n        "
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_atomic.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: "\n    "
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: "\n    "
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: "\n    "
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: "\n    "
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: "\n    "
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '    '
+  complexity: 15
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: "\n    "
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: "\n    "
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/tests/test_quality.py
+  function: '
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  function: _resetMcpCache
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  function: detectAvailableMcps
+  complexity: 12
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  function: isMcpAvailable
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  function: suggestMcpForTask
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  function: invokeMcp
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: _resetSeqCache
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: computeEntryHash
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: getPrevHash
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: nextSeq
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: resolveLogPath
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: ensureLogDir
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: log
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: readRecentEntries
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: readAllEntries
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  function: createFlowLogger
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: _resetTreeCache
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: treePath
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: ensureTreeDir
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: persistTree
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: loadTree
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: defaultBranches
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: nextNodeId
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: createRootNode
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: getNode
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: advance
+  complexity: 15
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: detectCircuitBreaker
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  function: exportTree
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/router.ts
+  function: _resetRulesCache
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/router.ts
+  function: loadRoutingRules
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/router.ts
+  function: matchesCondition
+  complexity: 17
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/router.ts
+  function: buildRoutingContext
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/router.ts
+  function: route
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  function: parseYaml
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  function: parseScalar
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  function: findKeyRecursive
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  function: extractTestCommand
+  complexity: 17
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  function: runTest
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  function: planHypotheses
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  function: scoreHypothesis
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  function: selectWinner
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 10
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 10
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/common.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+    '
+  complexity: 16
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+    '
+  complexity: 12
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+    '
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+
+    '
+  complexity: 31
+  rank: E
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+    '
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+
+    '
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+    '
+  complexity: 16
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/rollback.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 12
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 15
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+    '
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+    '
+  complexity: 17
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/serve_panel.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/serve_panel.py
+  function: '        '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/serve_panel.py
+  function: "\n        "
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/serve_panel.py
+  function: "\n        "
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+    '
+  complexity: 17
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+
+    '
+  complexity: 20
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+
+    '
+  complexity: 24
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+
+    '
+  complexity: 15
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+
+    '
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: "\n    "
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+    '
+  complexity: 25
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+
+    '
+  complexity: 20
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 26
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 30
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 27
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 16
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 24
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 30
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+    '
+  complexity: 19
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+
+    '
+  complexity: 15
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+
+    '
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+
+    '
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+    '
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+    '
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+    '
+  complexity: 26
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  function: '
+
+
+    '
+  complexity: 17
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  function: '
+
+
+    '
+  complexity: 12
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+    '
+  complexity: 25
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+
+    '
+  complexity: 23
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+
+    '
+  complexity: 16
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+    '
+  complexity: 21
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+    '
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+    '
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+    '
+  complexity: 12
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+
+    '
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+    '
+  complexity: 19
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+
+    '
+  complexity: 23
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+
+    '
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+
+    '
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+    '
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+    '
+  complexity: 51
+  rank: F
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 13
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 10
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 2
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 28
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/inspect_tools.py
+  function: '
+
+
+    '
+  complexity: 12
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+  function: '
+
+
+    '
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 12
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 11
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 9
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 20
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+    '
+  complexity: 19
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+    '
+  complexity: 6
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+    '
+  complexity: 1
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+
+    '
+  complexity: 14
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+    '
+  complexity: 21
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+
+    '
+  complexity: 8
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+    '
+  complexity: 12
+  rank: C
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+
+    '
+  complexity: 61
+  rank: F
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+    '
+  complexity: 4
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+
+    '
+  complexity: 5
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+
+    '
+  complexity: 3
+  rank: A
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+    '
+  complexity: 26
+  rank: D
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+
+    '
+  complexity: 7
+  rank: B
+  tool: regex-estimation
+  estimated: true
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+    '
+  complexity: 35
+  rank: E
+  tool: regex-estimation
+  estimated: true
+high_complexity_functions:
+- file: /home/juan/new_project/panel/panel.js
+  function: renderTelemetry
+  complexity: 18
+  rank: C
+  lineno: 194
+  tool: regex-estimation
+  recommendation: refactor 'renderTelemetry' (complejidad 18 > 15)
+- file: /home/juan/new_project/plugin/utils.ts
+  function: toYaml
+  complexity: 21
+  rank: D
+  lineno: 53
+  tool: regex-estimation
+  recommendation: refactor 'toYaml' (complejidad 21 > 15)
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  function: runImpactPrediction
+  complexity: 17
+  rank: C
+  lineno: 93
+  tool: regex-estimation
+  recommendation: refactor 'runImpactPrediction' (complejidad 17 > 15)
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  function: generatePlan
+  complexity: 18
+  rank: C
+  lineno: 186
+  tool: regex-estimation
+  recommendation: refactor 'generatePlan' (complejidad 18 > 15)
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: absorbTools
+  complexity: 29
+  rank: D
+  lineno: 60
+  tool: regex-estimation
+  recommendation: refactor 'absorbTools' (complejidad 29 > 15)
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  function: hotReloadRegistry
+  complexity: 27
+  rank: D
+  lineno: 434
+  tool: regex-estimation
+  recommendation: refactor 'hotReloadRegistry' (complejidad 27 > 15)
+- file: /home/juan/new_project/plugin/test-runner.ts
+  function: runScaffold
+  complexity: 16
+  rank: C
+  lineno: 101
+  tool: regex-estimation
+  recommendation: refactor 'runScaffold' (complejidad 16 > 15)
+- file: /home/juan/new_project/plugin/test-runner.ts
+  function: runTests
+  complexity: 29
+  rank: D
+  lineno: 207
+  tool: regex-estimation
+  recommendation: refactor 'runTests' (complejidad 29 > 15)
+- file: /home/juan/new_project/plugin/loop-engine.ts
+  function: emit
+  complexity: 19
+  rank: C
+  lineno: 53
+  tool: regex-estimation
+  recommendation: refactor 'emit' (complejidad 19 > 15)
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  function: collectEvidence
+  complexity: 24
+  rank: D
+  lineno: 286
+  tool: regex-estimation
+  recommendation: refactor 'collectEvidence' (complejidad 24 > 15)
+- file: /home/juan/new_project/plugin/core/router.ts
+  function: matchesCondition
+  complexity: 17
+  rank: C
+  lineno: 143
+  tool: regex-estimation
+  recommendation: refactor 'matchesCondition' (complejidad 17 > 15)
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  function: extractTestCommand
+  complexity: 17
+  rank: C
+  lineno: 153
+  tool: regex-estimation
+  recommendation: refactor 'extractTestCommand' (complejidad 17 > 15)
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  function: '
+
+    '
+  complexity: 16
+  rank: C
+  lineno: 333
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 16 > 15)'
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+
+    '
+  complexity: 31
+  rank: E
+  lineno: 302
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 31 > 15)'
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  function: '
+
+    '
+  complexity: 16
+  rank: C
+  lineno: 584
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 16 > 15)'
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  function: '
+
+    '
+  complexity: 17
+  rank: C
+  lineno: 596
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 17 > 15)'
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+    '
+  complexity: 17
+  rank: C
+  lineno: 50
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 17 > 15)'
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+
+    '
+  complexity: 20
+  rank: C
+  lineno: 112
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 20 > 15)'
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+
+    '
+  complexity: 24
+  rank: D
+  lineno: 174
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 24 > 15)'
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  function: '
+
+    '
+  complexity: 25
+  rank: D
+  lineno: 494
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 25 > 15)'
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+
+    '
+  complexity: 20
+  rank: C
+  lineno: 106
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 20 > 15)'
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 26
+  rank: D
+  lineno: 241
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 26 > 15)'
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 30
+  rank: D
+  lineno: 333
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 30 > 15)'
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 27
+  rank: D
+  lineno: 427
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 27 > 15)'
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 16
+  rank: C
+  lineno: 493
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 16 > 15)'
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  function: '
+
+    '
+  complexity: 24
+  rank: D
+  lineno: 611
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 24 > 15)'
+- file: /home/juan/new_project/scripts/python/context_query.py
+  function: '
+
+
+    '
+  complexity: 30
+  rank: D
+  lineno: 398
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 30 > 15)'
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  function: '
+
+    '
+  complexity: 19
+  rank: C
+  lineno: 54
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 19 > 15)'
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  function: '
+
+    '
+  complexity: 26
+  rank: D
+  lineno: 235
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 26 > 15)'
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  function: '
+
+
+    '
+  complexity: 17
+  rank: C
+  lineno: 77
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 17 > 15)'
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+    '
+  complexity: 25
+  rank: D
+  lineno: 120
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 25 > 15)'
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+
+    '
+  complexity: 23
+  rank: D
+  lineno: 227
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 23 > 15)'
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+
+    '
+  complexity: 16
+  rank: C
+  lineno: 364
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 16 > 15)'
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  function: '
+
+    '
+  complexity: 21
+  rank: D
+  lineno: 422
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 21 > 15)'
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  function: '
+
+    '
+  complexity: 19
+  rank: C
+  lineno: 402
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 19 > 15)'
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+
+    '
+  complexity: 23
+  rank: D
+  lineno: 82
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 23 > 15)'
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  function: '
+
+    '
+  complexity: 51
+  rank: F
+  lineno: 297
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 51 > 15)'
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  function: '
+
+
+    '
+  complexity: 28
+  rank: D
+  lineno: 196
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 28 > 15)'
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+
+    '
+  complexity: 20
+  rank: C
+  lineno: 346
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 20 > 15)'
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  function: '
+
+    '
+  complexity: 19
+  rank: C
+  lineno: 468
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 19 > 15)'
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+    '
+  complexity: 21
+  rank: D
+  lineno: 124
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 21 > 15)'
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  function: '
+
+
+    '
+  complexity: 61
+  rank: F
+  lineno: 361
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+
+    '' (complejidad 61 > 15)'
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+    '
+  complexity: 26
+  rank: D
+  lineno: 147
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 26 > 15)'
+- file: /home/juan/new_project/scripts/python/health_check.py
+  function: '
+
+    '
+  complexity: 35
+  rank: E
+  lineno: 246
+  tool: regex-estimation
+  recommendation: 'refactor ''
+
+    '' (complejidad 35 > 15)'
+degradations:
+- herramienta nativa de complejidad no disponible para javascript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para css — usando regex-estimation
+- herramienta nativa de complejidad no disponible para html — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+- herramienta nativa de complejidad no disponible para python — usando regex-estimation
+recommendations:
+- Refactorizar 44 función(es) con complejidad > 15
+- 'Instalar herramientas faltantes para análisis completo: 53 degradación(es)'
+summary:
+  total_security_findings: 0
+  total_functions_analyzed: 450
+  high_complexity_count: 44
+  degradation_count: 53
+duration_ms: 23396
+

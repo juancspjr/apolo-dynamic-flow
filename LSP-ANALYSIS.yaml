@@ -1,0 +1,1289 @@
+schema_version: 2.5.0
+generated_at: '2026-06-21T15:36:46Z'
+repo_root: /home/juan/new_project
+available_lsps:
+  typescript: typescript-language-server
+  javascript: typescript-language-server
+  python: pyright-langserver
+  go: gopls
+  rust: rust-analyzer
+degradations:
+- LSP para java no disponible — usando regex fallback
+- LSP para cpp no disponible — usando regex fallback
+- LSP para php no disponible — usando regex fallback
+languages_detected:
+- javascript
+- python
+- typescript
+files_by_language:
+  javascript: 1
+  typescript: 19
+  python: 31
+diagnostics:
+- file: /home/juan/new_project/tests/test_python_scripts.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "common" could not be resolved
+    range:
+      start:
+        line: 26
+        character: 11
+      end:
+        line: 26
+        character: 17
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "common" could not be resolved
+    range:
+      start:
+        line: 54
+        character: 11
+      end:
+        line: 54
+        character: 17
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "common" could not be resolved
+    range:
+      start:
+        line: 63
+        character: 11
+      end:
+        line: 63
+        character: 17
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "common" could not be resolved
+    range:
+      start:
+        line: 71
+        character: 11
+      end:
+        line: 71
+        character: 17
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "common" could not be resolved
+    range:
+      start:
+        line: 80
+        character: 11
+      end:
+        line: 80
+        character: 17
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "generate_plan" could not be resolved
+    range:
+      start:
+        line: 109
+        character: 11
+      end:
+        line: 109
+        character: 24
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "generate_plan" could not be resolved
+    range:
+      start:
+        line: 127
+        character: 11
+      end:
+        line: 127
+        character: 24
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "generate_plan" could not be resolved
+    range:
+      start:
+        line: 145
+        character: 11
+      end:
+        line: 145
+        character: 24
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "generate_plan" could not be resolved
+    range:
+      start:
+        line: 155
+        character: 11
+      end:
+        line: 155
+        character: 24
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_python_scripts.py
+    severity: error
+    message: Import "common" could not be resolved
+    range:
+      start:
+        line: 201
+        character: 15
+      end:
+        line: 201
+        character: 21
+    rule: reportMissingImports
+  count: 10
+  lsp_used: pyright-langserver
+  lsp_count: 10
+  regex_count: 0
+- file: /home/juan/new_project/tests/test_security.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/tests/test_security.py
+    severity: error
+    message: Import "secret_scanner" could not be resolved
+    range:
+      start:
+        line: 29
+        character: 5
+      end:
+        line: 29
+        character: 19
+    rule: reportMissingImports
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 1
+  regex_count: 0
+- file: /home/juan/new_project/tests/test_atomic.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/tests/test_atomic.py
+    severity: error
+    message: Import "common" could not be resolved
+    range:
+      start:
+        line: 27
+        character: 9
+      end:
+        line: 27
+        character: 15
+    rule: reportMissingImports
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 1
+  regex_count: 0
+- file: /home/juan/new_project/tests/test_quality.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "common" could not be resolved
+    range:
+      start:
+        line: 60
+        character: 15
+      end:
+        line: 60
+        character: 21
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: 'Cannot assign to attribute "now_iso" for class "ModuleType"
+
+        Attribute "now_iso" is unknown'
+    range:
+      start:
+        line: 164
+        character: 9
+      end:
+        line: 164
+        character: 16
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: 'Cannot assign to attribute "log" for class "ModuleType"
+
+        Attribute "log" is unknown'
+    range:
+      start:
+        line: 165
+        character: 9
+      end:
+        line: 165
+        character: 12
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: 'Cannot assign to attribute "parse_args" for class "ModuleType"
+
+        Attribute "parse_args" is unknown'
+    range:
+      start:
+        line: 166
+        character: 9
+      end:
+        line: 166
+        character: 19
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: 'Cannot assign to attribute "run_cmd" for class "ModuleType"
+
+        Attribute "run_cmd" is unknown'
+    range:
+      start:
+        line: 167
+        character: 9
+      end:
+        line: 167
+        character: 16
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: 'Cannot assign to attribute "cmd_available" for class "ModuleType"
+
+        Attribute "cmd_available" is unknown'
+    range:
+      start:
+        line: 168
+        character: 9
+      end:
+        line: 168
+        character: 22
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: 'Cannot assign to attribute "read_yaml" for class "ModuleType"
+
+        Attribute "read_yaml" is unknown'
+    range:
+      start:
+        line: 169
+        character: 9
+      end:
+        line: 169
+        character: 18
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: 'Cannot assign to attribute "write_yaml" for class "ModuleType"
+
+        Attribute "write_yaml" is unknown'
+    range:
+      start:
+        line: 170
+        character: 9
+      end:
+        line: 170
+        character: 19
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: 'Cannot assign to attribute "yaml_dump" for class "ModuleType"
+
+        Attribute "yaml_dump" is unknown'
+    range:
+      start:
+        line: 171
+        character: 9
+      end:
+        line: 171
+        character: 18
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "predict_impact" could not be resolved
+    range:
+      start:
+        line: 182
+        character: 15
+      end:
+        line: 182
+        character: 29
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "predict_impact" could not be resolved
+    range:
+      start:
+        line: 187
+        character: 15
+      end:
+        line: 187
+        character: 29
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "code_quality" could not be resolved
+    range:
+      start:
+        line: 193
+        character: 15
+      end:
+        line: 193
+        character: 27
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "code_quality" could not be resolved
+    range:
+      start:
+        line: 197
+        character: 15
+      end:
+        line: 197
+        character: 27
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "test_coverage" could not be resolved
+    range:
+      start:
+        line: 203
+        character: 15
+      end:
+        line: 203
+        character: 28
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "test_coverage" could not be resolved
+    range:
+      start:
+        line: 207
+        character: 15
+      end:
+        line: 207
+        character: 28
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "lsp_integration" could not be resolved
+    range:
+      start:
+        line: 213
+        character: 15
+      end:
+        line: 213
+        character: 30
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    severity: error
+    message: Import "lsp_integration" could not be resolved
+    range:
+      start:
+        line: 217
+        character: 15
+      end:
+        line: 217
+        character: 30
+    rule: reportMissingImports
+  - file: /home/juan/new_project/tests/test_quality.py
+    line: 463
+    severity: info
+    message: 'Marcar pendiente: # Crear archivo Python con TODO y print().'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/tests/test_quality.py
+    line: 466
+    severity: info
+    message: 'Marcar pendiente: "# TODO: refactorizar esto\n"'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/tests/test_quality.py
+    line: 474
+    severity: info
+    message: 'Marcar pendiente: f"Esperado >=2 diagnostics (TODO + print), got {result[''count'']}"'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/tests/test_quality.py
+    line: 476
+    severity: info
+    message: 'Marcar pendiente: # Verificar que detectó el TODO.'
+    rule: todo-comment
+    method: regex
+  count: 21
+  lsp_used: pyright-langserver
+  lsp_count: 17
+  regex_count: 4
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/validate_artifact.py
+    line: 34
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/validate_artifact.py
+    line: 35
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/validate_artifact.py
+    line: 136
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/validate_artifact.py
+    line: 143
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 4
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 4
+- file: /home/juan/new_project/scripts/python/common.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/common.py
+    line: 30
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/common.py
+    line: 31
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/common.py
+    line: 127
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/common.py
+    line: 393
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 4
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 4
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/collect_evidence.py
+    line: 437
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+    severity: error
+    message: 'Type "(url: str, config: Dict[str, Any] | None = None) -> Tuple[bool,
+      str]" is not assignable to declared type "(url: Unknown, config: Unknown | None
+      = None) -> tuple[Literal[True], Literal[''secret_scanner not available — allowing
+      all'']]"
+
+        Type "(url: str, config: Dict[str, Any] | None = None) -> Tuple[bool, str]"
+      is not assignable to type "(url: Unknown, config: Unknown | None = None) ->
+      tuple[Literal[True], Literal[''secret_scanner not available — allowing all'']]"
+
+          Function return type "Tuple[bool, str]" is incompatible with type "tuple[Literal[True],
+      Literal[''secret_scanner not available — allowing all'']]"
+
+            "Tuple[bool, str]" is not assignable to "tuple[Literal[True], Literal[''secret_scanner
+      not available — allowing all'']]"
+
+              Tuple entry 1 is incorrect type
+
+                "bool" is not assignable to type "Literal[True]"'
+    range:
+      start:
+        line: 71
+        character: 31
+      end:
+        line: 71
+        character: 48
+    rule: reportAssignmentType
+  - file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+    line: 645
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 2
+  lsp_used: pyright-langserver
+  lsp_count: 1
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/rollback.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/rollback.py
+    line: 142
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/lsp_integration.py
+    line: 274
+    severity: info
+    message: 'Marcar pendiente: - TODO/FIXME/XXX comments'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/lsp_integration.py
+    line: 290
+    severity: info
+    message: 'Marcar pendiente: # TODO/FIXME/XXX'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/lsp_integration.py
+    line: 291
+    severity: info
+    message: 'Marcar pendiente: if re.search(r"\b(TODO|FIXME|XXX|HACK)\b", stripped):'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/lsp_integration.py
+    line: 628
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/lsp_integration.py
+    line: 644
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 5
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 5
+- file: /home/juan/new_project/scripts/python/serve_panel.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/serve_panel.py
+    line: 57
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/serve_panel.py
+    line: 58
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/serve_panel.py
+    line: 59
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/serve_panel.py
+    line: 60
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/serve_panel.py
+    line: 63
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/serve_panel.py
+    line: 66
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/serve_panel.py
+    line: 67
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/serve_panel.py
+    line: 68
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 8
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 8
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/scaffold_impl.py
+    severity: error
+    message: 'Argument of type "frozenset[Any]" cannot be assigned to parameter "element"
+      of type "str" in function "add"
+
+        "frozenset[Any]" is not assignable to "str"'
+    range:
+      start:
+        line: 400
+        character: 32
+      end:
+        line: 400
+        character: 35
+    rule: reportArgumentType
+  - file: /home/juan/new_project/scripts/python/scaffold_impl.py
+    line: 607
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 2
+  lsp_used: pyright-langserver
+  lsp_count: 1
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/predict_impact.py
+    line: 717
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/context_query.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/context_query.py
+    severity: error
+    message: '"inspect_tools_cli" is unknown import symbol'
+    range:
+      start:
+        line: 451
+        character: 30
+      end:
+        line: 451
+        character: 47
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/scripts/python/context_query.py
+    line: 574
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 2
+  lsp_used: pyright-langserver
+  lsp_count: 1
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/score_evidence.py
+    line: 445
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/run_tests.py
+    severity: error
+    message: 'Type "set[Unknown]" is not assignable to declared type "List[Path]"
+
+        "set[Unknown]" is not assignable to "List[Path]"'
+    range:
+      start:
+        line: 51
+        character: 29
+      end:
+        line: 51
+        character: 34
+    rule: reportAssignmentType
+  - file: /home/juan/new_project/scripts/python/run_tests.py
+    severity: error
+    message: 'Cannot access attribute "add" for class "List[Path]"
+
+        Attribute "add" is unknown'
+    range:
+      start:
+        line: 75
+        character: 39
+      end:
+        line: 75
+        character: 42
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/scripts/python/run_tests.py
+    severity: error
+    message: 'Type "set[Unknown]" is not assignable to declared type "List[Path]"
+
+        "set[Unknown]" is not assignable to "List[Path]"'
+    range:
+      start:
+        line: 80
+        character: 29
+      end:
+        line: 80
+        character: 34
+    rule: reportAssignmentType
+  - file: /home/juan/new_project/scripts/python/run_tests.py
+    severity: error
+    message: 'Cannot access attribute "add" for class "List[Path]"
+
+        Attribute "add" is unknown'
+    range:
+      start:
+        line: 86
+        character: 27
+      end:
+        line: 86
+        character: 30
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/scripts/python/run_tests.py
+    severity: error
+    message: 'Type "set[Unknown]" is not assignable to declared type "List[Path]"
+
+        "set[Unknown]" is not assignable to "List[Path]"'
+    range:
+      start:
+        line: 91
+        character: 29
+      end:
+        line: 91
+        character: 34
+    rule: reportAssignmentType
+  - file: /home/juan/new_project/scripts/python/run_tests.py
+    severity: error
+    message: 'Cannot access attribute "add" for class "List[Path]"
+
+        Attribute "add" is unknown'
+    range:
+      start:
+        line: 98
+        character: 35
+      end:
+        line: 98
+        character: 38
+    rule: reportAttributeAccessIssue
+  - file: /home/juan/new_project/scripts/python/run_tests.py
+    line: 343
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 7
+  lsp_used: pyright-langserver
+  lsp_count: 6
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/registry_recommend.py
+    line: 237
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/index_codebase.py
+    severity: error
+    message: Object of type "None" is not subscriptable
+    range:
+      start:
+        line: 149
+        character: 29
+      end:
+        line: 149
+        character: 64
+    rule: reportOptionalSubscript
+  - file: /home/juan/new_project/scripts/python/index_codebase.py
+    severity: error
+    message: Object of type "None" is not subscriptable
+    range:
+      start:
+        line: 171
+        character: 29
+      end:
+        line: 171
+        character: 64
+    rule: reportOptionalSubscript
+  - file: /home/juan/new_project/scripts/python/index_codebase.py
+    severity: error
+    message: Object of type "None" is not subscriptable
+    range:
+      start:
+        line: 196
+        character: 28
+      end:
+        line: 196
+        character: 63
+    rule: reportOptionalSubscript
+  - file: /home/juan/new_project/scripts/python/index_codebase.py
+    line: 698
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 4
+  lsp_used: pyright-langserver
+  lsp_count: 3
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    severity: error
+    message: 'Argument of type "Pattern[str]" cannot be assigned to parameter "value"
+      of type "str" in function "__setitem__"
+
+        "Pattern[str]" is not assignable to "str"'
+    range:
+      start:
+        line: 145
+        character: 12
+      end:
+        line: 145
+        character: 26
+    rule: reportArgumentType
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    severity: error
+    message: 'Argument of type "None" cannot be assigned to parameter "value" of type
+      "str" in function "__setitem__"
+
+        "None" is not assignable to "str"'
+    range:
+      start:
+        line: 147
+        character: 12
+      end:
+        line: 147
+        character: 26
+    rule: reportArgumentType
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    line: 417
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    line: 424
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    line: 435
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    line: 438
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    line: 455
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    line: 459
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/secret_scanner.py
+    line: 464
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 9
+  lsp_used: pyright-langserver
+  lsp_count: 2
+  regex_count: 7
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/generate_plan.py
+    line: 7
+    severity: info
+    message: 'Marcar pendiente: 1. deterministic-python (default): El script genera
+      TODO el plan automáticamente'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/generate_plan.py
+    line: 483
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 2
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 2
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/absorb_mcp.py
+    line: 296
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/inspect_tools.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 34
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 37
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 38
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 39
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 40
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 41
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 43
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 44
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 50
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 52
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 56
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 57
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 58
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 60
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 62
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 65
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 66
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 67
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/inspect_tools.py
+    line: 75
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 19
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 19
+- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+    line: 102
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/code_quality.py
+    line: 621
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/test_coverage.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/test_coverage.py
+    severity: error
+    message: No overloads for "max" match the provided arguments
+    range:
+      start:
+        line: 458
+        character: 20
+      end:
+        line: 458
+        character: 57
+    rule: reportCallIssue
+  - file: /home/juan/new_project/scripts/python/test_coverage.py
+    severity: error
+    message: 'Argument of type "Overload[(key: str, default: None = None, /) -> (int
+      | None), (key: str, default: int, /) -> int, (key: str, default: _T@get, /)
+      -> (int | _T@get)]" cannot be assigned to parameter "key" of type "(_T@max)
+      -> SupportsRichComparison" in function "max"
+
+        No overloaded function matches type "(str) -> SupportsRichComparison"'
+    range:
+      start:
+        line: 458
+        character: 41
+      end:
+        line: 458
+        character: 56
+    rule: reportArgumentType
+  - file: /home/juan/new_project/scripts/python/test_coverage.py
+    severity: error
+    message: 'Argument of type "str | None" cannot be assigned to parameter "args"
+      of type "StrPath" in function "__new__"
+
+        Type "str | None" is not assignable to type "StrPath"
+
+          Type "None" is not assignable to type "StrPath"
+
+            "None" is not assignable to "str"
+
+            "None" is incompatible with protocol "PathLike[str]"
+
+              "__fspath__" is not present'
+    range:
+      start:
+        line: 606
+        character: 13
+      end:
+        line: 606
+        character: 35
+    rule: reportArgumentType
+  - file: /home/juan/new_project/scripts/python/test_coverage.py
+    severity: error
+    message: 'Argument of type "str | None" cannot be assigned to parameter "args"
+      of type "StrPath" in function "__init__"
+
+        Type "str | None" is not assignable to type "StrPath"
+
+          Type "None" is not assignable to type "StrPath"
+
+            "None" is not assignable to "str"
+
+            "None" is incompatible with protocol "PathLike[str]"
+
+              "__fspath__" is not present'
+    range:
+      start:
+        line: 606
+        character: 13
+      end:
+        line: 606
+        character: 35
+    rule: reportArgumentType
+  count: 4
+  lsp_used: pyright-langserver
+  lsp_count: 4
+  regex_count: 0
+- file: /home/juan/new_project/scripts/python/health_check.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 347
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 356
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 357
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 358
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 361
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 363
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 364
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 366
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 368
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 369
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 371
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 373
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 374
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/health_check.py
+    line: 376
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 14
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 14
+summary:
+  total_files: 51
+  files_with_diagnostics: 26
+  total_diagnostics: 127
+duration_ms: 38519
+

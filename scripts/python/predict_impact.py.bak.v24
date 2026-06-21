@@ -4,19 +4,12 @@ predict_impact.py — Generador de hologramas/predicciones de impacto.
 
 GAP 3: Hologramas y predicción de soluciones.
 
-v2.5.0: project_dependency_cascade ahora hace BFS multi-nivel (no solo 1 nivel
-de dependencias directas). Si A importa B que importa C que importa D, el
-cascade detecta A->B->C->D hasta profundidad configurable (default 5 niveles).
-
 Para cada Micro-Plan (MP) en DYNAMIC-PLAN.yaml genera 3 proyecciones:
 
-[1] DEPENDENCY CASCADE (multi-nivel BFS desde v2.5.0)
+[1] DEPENDENCY CASCADE
     -> dado que MP-XX modifica archivos A, B, C,
       ¿qué otros módulos importan A, B, C? (desde CODE-INDEX)
-      ¿y qué módulos importan ESOS? ¿y los siguientes? (BFS)
-      -> riesgo: bajo/medio/alto/crítico por número total de afectados
-      -> cascade_depth: profundidad máxima alcanzada
-      -> affected_by_level: cuántos archivos afectados a cada nivel
+      -> riesgo: alto/medio/bajo por número de dependientes
 
 [2] HISTORICAL PATTERN MATCH
     -> busca en telemetry.jsonl patrones similares de fases/gates
@@ -48,7 +41,7 @@ Uso:
     --telemetry plan/active/<FLOW>/telemetry.jsonl \\
     --test-runs-dir plan/active/<FLOW>/tests/ \\
     --output plan/active/<FLOW>/IMPACT-PREDICTION.yaml \\
-    [--deep] [--flowid APOLO-...] [--cascade-depth 5]
+    [--deep] [--flowid APOLO-...]
 """
 
 from __future__ import annotations
@@ -58,9 +51,8 @@ import os
 import re
 import sys
 import time
-from collections import deque
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Optional, Set
 
 sys.path.insert(0, str(Path(__file__).parent))
 from common import (  # noqa: E402
@@ -74,164 +66,68 @@ from common import (  # noqa: E402
 
 
 # ============================================================================
-# Projection 1: Dependency Cascade (multi-nivel BFS, v2.5.0)
+# Projection 1: Dependency Cascade
 # ============================================================================
-
-# Profundidad por defecto del BFS. Puede override con --cascade-depth.
-DEFAULT_CASCADE_DEPTH = 5
-
-# Umbrales de riesgo por número total de afectados (v2.5.0).
-# Antes (v2.4.x): 0=low, 1-3=medium, 4-8=high, >8=critical.
-# Ahora (v2.5.0): al hacer BFS multi-nivel el número crece, así que los
-# umbrales son más generosos: <5=low, 5-15=medium, 16-30=high, >30=critical.
-RISK_THRESHOLD_LOW = 5
-RISK_THRESHOLD_MEDIUM = 15
-RISK_THRESHOLD_HIGH = 30
-
-
-def _resolve_dependents(file_path: str, reverse_graph: Dict[str, List[str]]) -> List[str]:
-    """Busca los dependientes de un archivo en el reverse_graph.
-
-    Si no hay match exacto, prueba por stem (sin extensión) para archivos
-    cuyo path relativo no coincide exactamente con el indexado.
-    """
-    deps = reverse_graph.get(file_path, [])
-    if deps:
-        return deps
-    stem = Path(file_path).stem
-    for fpath, deps_list in reverse_graph.items():
-        if Path(fpath).stem == stem:
-            return deps_list
-    return []
-
 
 def project_dependency_cascade(
     mp_files: List[str],
     code_index: Optional[Dict[str, Any]],
-    cascade_depth: int = DEFAULT_CASCADE_DEPTH,
 ) -> Dict[str, Any]:
-    """Predice el cascade de dependencias multi-nivel vía BFS (v2.5.0).
-
-    Dado que MP-XX modifica archivos A, B, C, explora recursivamente:
-      nivel 1: quién importa A, B, C directamente (dependientes directos)
-      nivel 2: quién importa a los del nivel 1
-      nivel 3: quién importa a los del nivel 2
-      ...hasta cascade_depth
-
-    Esto detecta cascades como A -> B -> C -> D, no solo A -> B.
-
-    El risk_level ahora considera:
-      - low     si total_affected < 5
-      - medium  si 5 <= total_affected <= 15
-      - high    si 16 <= total_affected <= 30
-      - critical si total_affected > 30
-
-    Devuelve además:
-      - cascade_depth: profundidad máxima alcanzada en el BFS
-      - affected_by_level: {nivel: número de archivos afectados a ese nivel}
-      - per_file: dependientes directos por cada archivo del MP
-      - per_level: listado de archivos afectados por nivel (para debugging)
-    """
+    """Predice el cascade de dependencias: qué se rompe si toco estos archivos."""
     if not code_index:
         return {
             "risk_level": "unknown",
             "affected_modules": [],
-            "cascade_depth": 0,
-            "affected_by_level": {},
             "note": "no CODE-INDEX available",
         }
 
     reverse_graph = code_index.get("reverse_dependency_graph", {})
     files_index = {f["path"]: f for f in code_index.get("files", [])}
 
-    # Dependientes directos por cada archivo del MP (nivel 1).
-    per_file: Dict[str, List[str]] = {}
+    affected: Dict[str, List[str]] = {}
+    total_affected = 0
+
     for mp_file in mp_files:
-        deps = _resolve_dependents(mp_file, reverse_graph)
-        if deps:
-            per_file[mp_file] = list(deps)
+        # Buscar el archivo en el índice (puede ser path relativo)
+        dependents = reverse_graph.get(mp_file, [])
+        # También buscar por stem (sin extensión) por si el path no coincide exacto
+        if not dependents:
+            stem = Path(mp_file).stem
+            for fpath, deps in reverse_graph.items():
+                if Path(fpath).stem == stem:
+                    dependents = deps
+                    break
 
-    # BFS multi-nivel: arrancamos con los archivos del MP como semillas (nivel 0).
-    # visited guarda todos los archivos ya vistos (incluye semillas) para evitar ciclos.
-    visited: Set[str] = set()
-    for mp_file in mp_files:
-        visited.add(mp_file)
+        if dependents:
+            affected[mp_file] = dependents
+            total_affected += len(dependents)
 
-    # per_level_files[level] = lista de archivos afectados a ese nivel.
-    # nivel 1 = dependientes directos de los archivos del MP.
-    # affected_by_level_counts[level] = número de archivos afectados a ese nivel.
-    per_level_files: Dict[int, List[str]] = {}
-
-    # Cola BFS: cada entrada es (archivo, nivel_en_el_que_es_afectado).
-    # Arrancamos con los archivos del MP en nivel 0 (semillas).
-    queue: deque = deque()
-    for mp_file in mp_files:
-        queue.append((mp_file, 0))
-
-    max_depth_reached = 0
-
-    while queue:
-        current_file, level = queue.popleft()
-        if level >= cascade_depth:
-            # No explorar más allá de la profundidad máxima.
-            continue
-        # Dependientes directos de current_file (estos están a nivel+1).
-        deps = _resolve_dependents(current_file, reverse_graph)
-        for dep in deps:
-            if dep in visited:
-                # Ya vimos este archivo, no lo contamos dos veces.
-                continue
-            visited.add(dep)
-            next_level = level + 1
-            if next_level > max_depth_reached:
-                max_depth_reached = next_level
-            # Acumular archivo en su nivel.
-            per_level_files.setdefault(next_level, []).append(dep)
-            # Encolar para explorar SUS dependientes en el siguiente nivel.
-            queue.append((dep, next_level))
-
-    # Conteos por nivel (para el campo affected_by_level del output).
-    affected_by_level_counts: Dict[int, int] = {
-        lvl: len(files) for lvl, files in per_level_files.items()
-    }
-
-    # Total de afectados = todos los archivos únicos que no son semillas.
-    total_affected = sum(affected_by_level_counts.values())
-
-    # Calcular nivel de riesgo con umbrales v2.5.0.
-    if total_affected < RISK_THRESHOLD_LOW:
+    # Calcular nivel de riesgo
+    if total_affected == 0:
         risk = "low"
-    elif total_affected <= RISK_THRESHOLD_MEDIUM:
+    elif total_affected <= 3:
         risk = "medium"
-    elif total_affected <= RISK_THRESHOLD_HIGH:
+    elif total_affected <= 8:
         risk = "high"
     else:
         risk = "critical"
 
-    # Identificar módulos afectados únicos (todos los alcanzados por el BFS).
+    # Identificar módulos afectados únicos
     unique_affected: Set[str] = set()
-    for files_at_level in per_level_files.values():
-        unique_affected.update(files_at_level)
-
-    # Recommendation acorde al risk_level.
-    if risk == "low":
-        recommendation = "safe to proceed"
-    elif risk == "medium":
-        recommendation = "proceed with caution"
-    elif risk == "high":
-        recommendation = "consider splitting MP"
-    else:
-        recommendation = "BLOCK: too many dependents, refactor first"
+    for deps in affected.values():
+        unique_affected.update(deps)
 
     return {
         "risk_level": risk,
         "total_affected_modules": len(unique_affected),
         "affected_modules": sorted(list(unique_affected))[:20],  # top 20
-        "per_file": per_file,
-        "cascade_depth": max_depth_reached,
-        "affected_by_level": affected_by_level_counts,
-        "per_level": per_level_files,
-        "recommendation": recommendation,
+        "per_file": affected,
+        "recommendation": (
+            "safe to proceed" if risk == "low"
+            else "proceed with caution" if risk == "medium"
+            else "consider splitting MP" if risk == "high"
+            else "BLOCK: too many dependents, refactor first"
+        ),
     }
 
 
@@ -559,7 +455,6 @@ def predict_for_mp(
     test_runs_dir: Optional[Path],
     repo_root: Path,
     deep: bool = False,
-    cascade_depth: int = DEFAULT_CASCADE_DEPTH,
 ) -> Dict[str, Any]:
     """Genera todas las proyecciones para un MP."""
     mp_id = mp.get("id", "?")
@@ -569,9 +464,7 @@ def predict_for_mp(
     mp_symbols = acopl.get("simbolos", []) or []
 
     projections: Dict[str, Any] = {
-        "dependency_cascade": project_dependency_cascade(
-            mp_files, code_index, cascade_depth=cascade_depth
-        ),
+        "dependency_cascade": project_dependency_cascade(mp_files, code_index),
         "historical_pattern": project_historical_pattern(mp_id, mp_phase, mp_files, telemetry_path),
         "test_coverage_gap": project_test_coverage_gap(mp_files, mp_symbols, test_runs_dir, code_index),
     }
@@ -620,14 +513,6 @@ def main() -> int:
     flowid = args.get("flowid", "")
     deep = args.get("deep", "") == "true"
 
-    # --cascade-depth: profundidad máxima del BFS multi-nivel (default 5).
-    try:
-        cascade_depth = int(args.get("cascade-depth", str(DEFAULT_CASCADE_DEPTH)))
-    except ValueError:
-        cascade_depth = DEFAULT_CASCADE_DEPTH
-    if cascade_depth < 1:
-        cascade_depth = 1
-
     if not plan_path.exists():
         log(f"Plan no encontrado: {plan_path}", "ERROR")
         return 2
@@ -654,7 +539,6 @@ def main() -> int:
             test_runs_dir,
             repo_root,
             deep,
-            cascade_depth=cascade_depth,
         )
         mp_predictions.append(prediction)
 
@@ -676,15 +560,12 @@ def main() -> int:
     impact_prediction = {
         "impactprediction": "V1",
         "version": 1,
-        "schema_version": "2.5.0",
         "flowid": flowid,
         "generated_at": now_iso(),
         "generator": {
             "script": "scripts/python/predict_impact.py",
             "duration_ms": duration_ms,
             "deep_mode": deep,
-            "cascade_depth": cascade_depth,
-            "bfs_multilevel": True,
         },
         "inputs": {
             "plan": str(plan_path),
@@ -706,8 +587,7 @@ def main() -> int:
     write_yaml(output, impact_prediction)
 
     log(
-        f"Impact prediction (v2.5.0 BFS depth={cascade_depth}): "
-        f"{len(mp_predictions)} MPs analyzed | "
+        f"Impact prediction: {len(mp_predictions)} MPs analyzed | "
         f"global_risk={global_risk} | "
         f"distribution={risk_counts} | "
         f"{duration_ms}ms",
@@ -716,8 +596,6 @@ def main() -> int:
 
     print(json.dumps({
         "success": True,
-        "schema_version": "2.5.0",
-        "cascade_depth": cascade_depth,
         "global_risk": global_risk,
         "risk_distribution": risk_counts,
         "total_predictions": len(mp_predictions),

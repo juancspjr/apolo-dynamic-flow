@@ -1,37 +1,18 @@
 #!/usr/bin/env python3
 """
-collect_evidence.py — Recolector determinista de evidencia con modo híbrido.
+collect_evidence.py — Recolector determinista de evidencia.
 
 NO piensa. Solo recopila data del repo, git, archivos, símbolos, endpoints,
 DB queries, screenshots (si playwright disponible) y produce EVIDENCE-PACK.yaml
 conforme al schema.
 
-MODO HÍBRIDO (v2.2.1):
-  El agente puede APORTAR evidencia propia además de la que el script recolecta
-  automáticamente. Esto permite que el agente observe captures, añada contexto
-  cualitativo, o incluya evidencia que el script no puede obtener.
-
-  --agent-evidence '<json>'  : items de evidencia aportados por el agente
-                               (mismo formato que items del pack)
-  --agent-summary '<text>'   : resumen cualitativo del agente sobre la evidencia
-  --agent-tags '<csv>'       : tags adicionales para todo el pack
-
-  Los items del agente se MERGEAN con los del script (no se sobrescriben).
-  El agente puede aportar:
-    - Observaciones de captures ya hechos
-    - Contexto cualitativo ("esta función parece tener race condition")
-    - Evidencia de runtime que el script no puede capturar
-    - Hipótesis verificadas manualmente
-
 Uso:
-  python3 collect_evidence.py \\
-    --flowid APOLO-20260620-MI \\
-    --repo-root /path \\
-    --output /path/EVIDENCE-PACK.yaml \\
-    --invoked-by orchestrator \\
-    --scope-json '{"paths":["src/foo.go"],"endpoints":["/api/v1/foo"],"git_diff":true}' \\
-    --agent-evidence '[{"kind":"runtime-log","source":"manual observation","summary":"race condition en foo()","agent_observed":true}]' \\
-    --agent-summary 'El agente observó comportamientos no detectables por scripts'
+  python3 collect_evidence.py \
+    --flowid APOLO-20260620-MI-FLOW \
+    --repo-root /path/to/repo \
+    --output /path/to/EVIDENCE-PACK.yaml \
+    --invoked-by orchestrator \
+    --scope-json '{"paths":["src/foo.go"],"endpoints":["/api/v1/foo"],"git_diff":true}'
 """
 
 from __future__ import annotations
@@ -68,9 +49,16 @@ from common import (  # noqa: E402
     write_yaml,
 )
 
+# v2.4.0: Security — secret detection and redaction
+try:
+    from secret_scanner import scan_evidence_pack
+except ImportError:
+    def scan_evidence_pack(pack, patterns=None):
+        return pack, []  # stub: no redaction if secret_scanner unavailable
+
 
 # ============================================================================
-# Collectors (los mismos de v2.2.0)
+# Collectors
 # ============================================================================
 
 def collect_file_snapshot(repo_root: Path, file_path: str, idx: int) -> Dict[str, Any]:
@@ -137,7 +125,9 @@ def collect_git_log(repo_root: Path, n: int, idx: int) -> Dict[str, Any]:
     }
 
 
-def collect_endpoint_probe(endpoint: str, idx: int, method: str = "GET") -> Dict[str, Any]:
+def collect_endpoint_probe(
+    endpoint: str, idx: int, method: str = "GET"
+) -> Dict[str, Any]:
     if not cmd_available("curl"):
         return {
             "id": gen_evidence_id(idx),
@@ -207,6 +197,7 @@ def collect_db_query(query: str, idx: int, db_url: str | None = None) -> Dict[st
 
 
 def collect_screenshot(url: str, idx: int, repo_root: Path) -> Dict[str, Any]:
+    # Intentar playwright vía npx
     if not cmd_available("npx"):
         return {
             "id": gen_evidence_id(idx),
@@ -223,7 +214,16 @@ def collect_screenshot(url: str, idx: int, repo_root: Path) -> Dict[str, Any]:
     shot_path = repo_root / ".opencode" / "apolo-dynamic" / "screenshots" / f"{gen_uuid()}.png"
     shot_path.parent.mkdir(parents=True, exist_ok=True)
     code, out, err = run_cmd(
-        ["npx", "-y", "playwright", "screenshot", "--wait-for-timeout", "1000", url, str(shot_path)],
+        [
+            "npx",
+            "-y",
+            "playwright",
+            "screenshot",
+            "--wait-for-timeout",
+            "1000",
+            url,
+            str(shot_path),
+        ],
         timeout=60,
     )
     if code != 0 or not shot_path.exists():
@@ -254,7 +254,9 @@ def collect_screenshot(url: str, idx: int, repo_root: Path) -> Dict[str, Any]:
     }
 
 
-def collect_symbol_list(repo_root: Path, file_pattern: str, idx: int) -> Dict[str, Any]:
+def collect_symbol_list(
+    repo_root: Path, file_pattern: str, idx: int
+) -> Dict[str, Any]:
     files = list_files(repo_root, [file_pattern])
     all_symbols: List[str] = []
     for f in files[:50]:
@@ -274,7 +276,9 @@ def collect_symbol_list(repo_root: Path, file_pattern: str, idx: int) -> Dict[st
     }
 
 
-def collect_schema_validation(artifact_path: Path, schema_path: Path, idx: int) -> Dict[str, Any]:
+def collect_schema_validation(
+    artifact_path: Path, schema_path: Path, idx: int
+) -> Dict[str, Any]:
     """Valida un YAML contra un schema YAML mínimo (required fields)."""
     if not artifact_path.exists():
         return {
@@ -302,6 +306,7 @@ def collect_schema_validation(artifact_path: Path, schema_path: Path, idx: int) 
             "tags": ["schema", "missing-schema"],
             "related_symbols": [],
         }
+    # Importar common.yaml_load
     from common import read_yaml, validate_required
     artifact = read_yaml(artifact_path) or {}
     schema = read_yaml(schema_path) or {}
@@ -323,68 +328,6 @@ def collect_schema_validation(artifact_path: Path, schema_path: Path, idx: int) 
 
 
 # ============================================================================
-# NUEVO v2.2.1: Agent evidence merge
-# ============================================================================
-
-def merge_agent_evidence(
-    script_items: List[Dict[str, Any]],
-    agent_evidence_json: str,
-    agent_summary: str,
-    agent_tags: str,
-) -> List[Dict[str, Any]]:
-    """Mergea items del agente con los del script.
-
-    El agente puede aportar:
-      - Observaciones de captures ya hechos
-      - Contexto cualitativo
-      - Evidencia de runtime no capturable
-      - Hipótesis verificadas manualmente
-
-    Los items del agente se añaden DESPUÉS de los del script, con IDs
-    continuos (E-101, E-102, ... para distinguirlos).
-    """
-    if not agent_evidence_json:
-        return script_items
-
-    try:
-        agent_items = json.loads(agent_evidence_json)
-    except Exception as e:
-        log(f"--agent-evidence JSON inválido: {e}", "WARN")
-        return script_items
-
-    if not isinstance(agent_items, list):
-        log("--agent-evidence debe ser una lista JSON", "WARN")
-        return script_items
-
-    # Los items del agente empiezan en E-101 para distinguirlos
-    merged = list(script_items)
-    base_idx = 100  # E-101, E-102, ...
-
-    for i, item in enumerate(agent_items):
-        if not isinstance(item, dict):
-            continue
-        agent_item = {
-            "id": f"E-{base_idx + i + 1:03d}",
-            "kind": item.get("kind", "agent-observation"),
-            "source": item.get("source", "agent"),
-            "hash": item.get("hash", sha256(json.dumps(item, sort_keys=True))),
-            "size_bytes": item.get("size_bytes", 0),
-            "captured_at": now_iso(),
-            "summary": item.get("summary", "(agente sin summary)"),
-            "raw_path": item.get("raw_path", ""),
-            "tags": item.get("tags", []) + ["agent-contributed"],
-            "related_symbols": item.get("related_symbols", []),
-            "agent_observed": True,  # marca de origen
-        }
-        if "agent_reasoning" in item:
-            agent_item["agent_reasoning"] = item["agent_reasoning"]
-        merged.append(agent_item)
-
-    log(f"Agente aportó {len(agent_items)} items de evidencia", "INFO")
-    return merged
-
-
-# ============================================================================
 # Main
 # ============================================================================
 
@@ -395,11 +338,6 @@ def main() -> int:
     output = Path(args.get("output", "EVIDENCE-PACK.yaml"))
     invoked_by = args.get("invoked-by", "orchestrator")
     scope_json = args.get("scope-json", "{}")
-
-    # NUEVO v2.2.1: agent evidence híbrida
-    agent_evidence_json = args.get("agent-evidence", "")
-    agent_summary = args.get("agent-summary", "")
-    agent_tags = args.get("agent-tags", "")
 
     if not flowid:
         log("--flowid requerido", "ERROR")
@@ -458,13 +396,9 @@ def main() -> int:
             )
         ); idx += 1
 
-    # NUEVO v2.2.1: MERGE con evidencia del agente (modo híbrido)
-    script_count = len(items)
-    items = merge_agent_evidence(items, agent_evidence_json, agent_summary, agent_tags)
-    agent_count = len(items) - script_count
-
     # Capabilities
     caps = detect_capabilities()
+    # Registrar degradaciones
     if caps["playwright"] == "unavailable":
         degradations.append({
             "tool": "playwright",
@@ -472,17 +406,6 @@ def main() -> int:
             "fallback_used": "curl + DOM inspection",
             "at": now_iso(),
         })
-
-    # Tags adicionales del agente
-    if agent_tags:
-        for item in items:
-            if "agent-contributed" in item.get("tags", []):
-                continue
-            item.setdefault("tags", [])
-            for t in agent_tags.split(","):
-                t = t.strip()
-                if t and t not in item["tags"]:
-                    item["tags"].append(t)
 
     duration_ms = int((time.time() - start_time) * 1000)
     script_path = Path(__file__)
@@ -507,25 +430,13 @@ def main() -> int:
         "degradation_log": degradations,
     }
 
-    # NUEVO v2.2.1: añadir agent_summary al pack si se proporcionó
-    if agent_summary:
-        pack["agent_summary"] = agent_summary
-    if agent_count > 0:
-        pack["agent_contributed_count"] = agent_count
-
     write_yaml(output, pack)
-    log(
-        f"evidence pack escrito: {output} "
-        f"({len(items)} items: {script_count} script + {agent_count} agent, "
-        f"{duration_ms}ms)",
-        "INFO",
-    )
+    log(f"evidence pack escrito: {output} ({len(items)} items, {duration_ms}ms)", "INFO")
 
+    # Stdout para el caller (TS)
     print(json.dumps({
         "success": True,
         "items": len(items),
-        "script_items": script_count,
-        "agent_items": agent_count,
         "hash_chain": pack["hash_chain"],
         "capabilities": caps,
         "duration_ms": duration_ms,
