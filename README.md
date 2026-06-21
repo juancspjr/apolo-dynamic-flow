@@ -32,7 +32,7 @@
 
 ## 1. Que es este plugin
 
-`apolo-dynamic-flow` es un plugin TypeScript para OpenCode que **reemplaza a `apolo-flow-guardian.ts`**. Orquesta agentes con:
+`apolo-dynamic-flow` es un plugin TypeScript para OpenCode que Orquesta agentes con:
 
 - **State machine explicita** con transiciones legales y gates por fase (no "planificacion libre").
 - **Loop dinamico con circuit breaker adaptativo** - cada fase tiene `max` iteraciones; al agotarse, escala o bloquea (sin loops infinitos).
