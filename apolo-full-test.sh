@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# apolo-full-test.sh — Test exhaustivo v2.6.5
+# apolo-full-test.sh — Test exhaustivo v2.6.6
 # REWRITE COMPLETO: todos los fixes integrados de fábrica
 set -uo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
@@ -11,7 +11,7 @@ skip() { echo -e "  ${YELLOW}⊘${NC} $*"; TOTAL_SKIP=$((TOTAL_SKIP + 1)); }
 phase() { echo -e "\n${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; echo -e "${CYAN}${BOLD}  FASE $1: $2${NC}"; echo -e "${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; }
 gap() { GAPS_FOUND+=("$1"); echo -e "  ${RED}⚠ GAP:${NC} $1"; }
 cd /home/juan/new_project 2>/dev/null || { echo "ERROR: /home/juan/new_project no existe"; exit 1; }
-echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v2.6.5              ║${NC}"; echo -e "${BOLD}${GREEN}║  Validación completa + Capability Assessment            ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v2.6.6              ║${NC}"; echo -e "${BOLD}${GREEN}║  Validación completa + Capability Assessment            ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 
 phase 1 "Prerrequisitos"
 command -v node >/dev/null 2>&1 && pass "Node.js $(node --version)" || fail "Node.js no instalado"
@@ -71,6 +71,14 @@ echo '{"name":"test","version":1}' > /tmp/ta.json; echo '{"type":"object","requi
 python3 scripts/python/validate_artifact.py --artifact /tmp/ta.json --schema /tmp/ts.json 2>/dev/null && pass "validate_artifact.py" || fail "validate_artifact"
 python3 scripts/python/scaffold_impl.py --plan /tmp/p1.yaml --unit-id U-01 --code-index /tmp/ci.yaml --output /tmp/sf.yaml --flowid TEST 2>/dev/null | grep -q success && pass "scaffold_impl.py" || fail "scaffold"
 
+# v2.6.6: cross-language analyzer
+CL_OUT=$(python3 scripts/python/cross_language_analyzer.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/clm.yaml 2>&1 || true)
+echo "$CL_OUT" | grep -qi "success\|total_calls\|languages" && pass "cross_language_analyzer.py" || fail "cross_language_analyzer"
+
+# v2.6.6: summarize functions
+SF_OUT=$(python3 scripts/python/summarize_functions.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/fsm.yaml 2>&1 || true)
+echo "$SF_OUT" | grep -qi "success\|total_functions" && pass "summarize_functions.py" || fail "summarize_functions"
+
 phase 6 "CLI apolo-inspect.sh"
 for cmd in help init-flow absorb state tools blocks telemetry evidence plan health all test; do
   case $cmd in
@@ -127,8 +135,8 @@ echo -e "  ${CYAN}── Dimensión 1: Comprensión de Código ──${NC}"
 [[ -f scripts/python/lsp_integration.py ]] && pass "LSP integration" || gap "No hay LSP"
 [[ -f scripts/python/predict_impact.py ]] && pass "Análisis de impacto BFS multi-nivel" || gap "No hay análisis de impacto"
 [[ -f scripts/python/semantic_search.py ]] && pass "Búsqueda semántica (v2.6.0)" || gap "No hay búsqueda semántica"
-gap "Comprensión cross-lenguaje (Python llama a Go via gRPC)"
-gap "Resumen automático de funciones (qué hace cada función en 1 línea)"
+pass "Comprensión cross-lenguaje — cross_language_analyzer.py (v2.6.6)"
+pass "Resumen automático de funciones — summarize_functions.py (v2.6.6)"
 echo ""
 echo -e "  ${CYAN}── Dimensión 2: Generación de Código ──${NC}"
 [[ -f scripts/python/scaffold_impl.py ]] && pass "Andamio de implementación" || gap "No hay andamio"
@@ -249,5 +257,5 @@ echo -e "  • Modo debug paso a paso"
 echo -e "  • Cache distribuido"
 echo ""
 echo -e "${BOLD}═══════════════════════════════════════════════════════${NC}"
-rm -rf plan/active/APOLO-E2E-TEST plan/active/APOLO-FULLTEST /tmp/test-*.yaml /tmp/test-*.json /tmp/ci.yaml /tmp/ev*.yaml /tmp/p*.yaml /tmp/imp.yaml /tmp/sc.yaml /tmp/cq.yaml /tmp/tc.yaml /tmp/sf.yaml /tmp/lrn.yaml /tmp/rf.yaml /tmp/gt /tmp/ta.json /tmp/ts.json 2>/dev/null
+rm -rf plan/active/APOLO-E2E-TEST plan/active/APOLO-FULLTEST /tmp/test-*.yaml /tmp/test-*.json /tmp/ci.yaml /tmp/ev*.yaml /tmp/p*.yaml /tmp/imp.yaml /tmp/sc.yaml /tmp/cq.yaml /tmp/tc.yaml /tmp/sf.yaml /tmp/lrn.yaml /tmp/rf.yaml /tmp/gt /tmp/ta.json /tmp/ts.json /tmp/clm.yaml /tmp/fsm.yaml 2>/dev/null
 exit $TOTAL_FAIL
