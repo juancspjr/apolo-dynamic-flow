@@ -1,6 +1,6 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. Flujos dinamicos, recoleccion hibrida, planes con 3 modos, tests automaticos, absorcion de tools externas, routing declarativo, atomic writes, file locks, allowlist, secret detection, hash chain, multi-level impact prediction, code quality, test coverage, LSP, self-healing, test generation, semantic search, refactoring, LLM bridge (MiniMax/OpenAI compatible).",
   "main": "plugin/index.ts",
   "scripts": {
@@ -17,9 +17,42 @@
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf dist"
   },
-  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge"],
+  "keywords": [
+    "opencode",
+    "plugin",
+    "apolo",
+    "dynamic-flow",
+    "loop-engine",
+    "routing",
+    "mcp",
+    "parallel-agents",
+    "evidence-pack",
+    "telemetry",
+    "atomic-writes",
+    "concurrency-safe",
+    "security",
+    "allowlist",
+    "secret-detection",
+    "hash-chain",
+    "sandboxing",
+    "multi-language",
+    "code-quality",
+    "test-coverage",
+    "lsp",
+    "bfs-impact-prediction",
+    "self-healing",
+    "test-generation",
+    "semantic-search",
+    "refactoring",
+    "llm-bridge"
+  ],
   "author": "",
   "license": "MIT",
-  "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.5.0" },
-  "engines": { "node": ">=18.0.0" }
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
