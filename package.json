@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "3.4.0",
-  "description": "Plugin de orquestacion de agentes para OpenCode. v3.4.0: 4 GAPs cerrados (multi-agent coordination, smart rollback, mp prioritizer, pre-commit hooks) + flow_verifier que valida que TODOS los super poderes funcionan. El orquestador integra todo: cross_flow → score → decision_loop → plan → mp_prioritizer → scaffold → gates → EXECUTE commands → smart_rollback on fail → visual_diff → evidence_replay → cross_flow learning → pre_commit_hooks → feedback. 160+ tests, 98% capability.",
+  "version": "3.5.0",
+  "description": "Plugin de orquestacion de agentes para OpenCode. v3.5.0: 4 validadores que aseguran integraciones sin daños colaterales. integration_validator (handoffs entre scripts), data_flow_validator (data fluye por donde debe), agent_honesty_enforcer (previene autoengaño), static_analyzer (dependencias circulares). Fix flow_verifier (no mas falsos positivos). 165+ tests, 98% capability.",
   "main": "plugin/index.ts",
   "bin": {
     "apolo": "scripts/bash/apolo_cli_router.sh"
@@ -47,6 +47,10 @@
     "prioritize": "python3 scripts/python/mp_prioritizer.py",
     "pre-commit": "python3 scripts/python/pre_commit_hooks.py",
     "verify-flow": "python3 scripts/python/flow_verifier.py",
+    "validate-integration": "python3 scripts/python/integration_validator.py",
+    "validate-dataflow": "python3 scripts/python/data_flow_validator.py",
+    "verify-honesty": "python3 scripts/python/agent_honesty_enforcer.py",
+    "static-analyze": "python3 scripts/python/static_analyzer.py",
     "run": "bash scripts/bash/apolo_cli_router.sh run",
     "continue": "bash scripts/bash/apolo_cli_router.sh continue",
     "apolo": "bash scripts/bash/apolo_cli_router.sh",

@@ -1,13 +1,13 @@
 flowverifier: V1
 schema_version: 3.4.0
-generated_at: '2026-06-22T05:09:11Z'
+generated_at: '2026-06-22T05:37:15Z'
 repo_root: /home/juan/new_project
 total_checks: 55
-passed: 39
-failed: 16
-success_rate: 70.9
+passed: 47
+failed: 8
+success_rate: 85.5
 overall_pass: false
-verdict: 16 super poderes fallaron
+verdict: 8 super poderes fallaron
 super_powers:
 - name: common
   script: common.py
@@ -28,8 +28,8 @@ super_powers:
   description: Recoleccion determinista de evidencia
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: score_evidence
   script: score_evidence.py
   description: Scoring de evidencia (6 metricas)
@@ -42,8 +42,8 @@ super_powers:
   description: Generacion de plan (3 modos)
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: predict_impact
   script: predict_impact.py
   description: BFS multi-nivel de impacto
@@ -56,8 +56,8 @@ super_powers:
   description: Andamio de implementacion (v2.2)
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: scaffold_v3
   script: scaffold_v3.py
   description: Scaffold v3 con auto-select U-NN (v3.1)
@@ -196,36 +196,36 @@ super_powers:
   description: Deteccion de secretos (11 patrones)
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: absorb_external_skills
   script: absorb_external_skills.py
   description: Absorcion con allowlist + SSRF
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: validate_artifact
   script: validate_artifact.py
   description: Validacion contra schemas
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: context_query
   script: context_query.py
   description: Context query (17 tipos)
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: registry_recommend
   script: registry_recommend.py
   description: Recomendador de tools
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: health_check
   script: health_check.py
   description: Health check del entorno

@@ -104,18 +104,47 @@ def verify_script_compiles(repo_root: Path, script_name: str) -> bool:
 
 
 def verify_script_runs(repo_root: Path, script_name: str) -> bool:
-    """Verifica que el script responde a invocacion basica (no crashea al arrancar)."""
+    """Verifica que el script responde a invocacion basica (no crashea al arrancar).
+
+    Estrategia v3.5.0: muchos scripts requieren args obligatorios (--flowid, --plan)
+    y dan error graceful cuando se les llama sin args. Eso NO es un fallo — es
+    comportamiento correcto. Verificamos que el script:
+      1. No crashee con traceback de Python (error de sintaxis/import)
+      2. De un mensaje de error graceful (JSON con "error" o texto explicativo)
+    """
     script_path = repo_root / "scripts" / "python" / script_name
     if not script_path.exists():
         return False
-    # Intentar con --help o argumentos vacios
+
+    # Intentar con --help primero (algunos scripts lo soportan)
     code, out, err = run_cmd(["python3", str(script_path), "--help"], cwd=repo_root, timeout=10)
-    if code == 0:
+    if code == 0 and out.strip():
         return True
-    # Algunos scripts no soportan --help, intentar sin args (debe dar error graceful, no crash)
+
+    # Sin args: el script debe dar error graceful, NO un traceback de Python
     code, out, err = run_cmd(["python3", str(script_path)], cwd=repo_root, timeout=10)
-    # Si responde con JSON de error, esta OK
-    return "success" in out or "error" in out or "usage" in out.lower()
+
+    # Si hay traceback de Python (SyntaxError, ImportError, etc.) = fallo real
+    combined = out + err
+    if "Traceback (most recent call last)" in combined:
+        # Pero si el traceback es por argumentos faltantes (SystemExit), es OK
+        if "SystemExit" in combined or "argparse" in combined.lower():
+            return True
+        return False  # traceback real = fallo
+
+    # Si responde con JSON de error o mensaje explicativo = OK (error graceful)
+    if "success" in combined or "error" in combined.lower() or "usage" in combined.lower() or "falta" in combined.lower():
+        return True
+
+    # Si el exit code es 2 (argparse error) = OK (esperado sin args)
+    if code == 2:
+        return True
+
+    # Si no hay output y no hay error, asumir OK (script silencioso)
+    if code == 0 and not combined.strip():
+        return True
+
+    return False
 
 
 def verify_orchestrator_integration(repo_root: Path) -> Dict[str, Any]:

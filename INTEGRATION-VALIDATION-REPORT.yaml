@@ -1,13 +1,13 @@
 integration_validation: V1
 schema_version: 2.8.1
-generated_at: '2026-06-22T05:09:02Z'
+generated_at: '2026-06-22T05:37:05Z'
 repo_root: /home/juan/new_project
 flowid: APOLO-INTEG-TEST
 phases:
   init:
     status: success
     exit_code: 0
-    duration_ms: 194
+    duration_ms: 180
     stdout_preview: 'Flow inicializado
 
       Flow APOLO-INTEG-TEST inicializado en /home/juan/new_project/plan/active/APOLO-INTEG-TEST
@@ -16,8 +16,8 @@ phases:
     stderr_preview: ''
     state_yaml_exists: true
     state_yaml_preview: "flowstate: V2\nflowid: APOLO-INTEG-TEST\nversion: 1\nschema_version:\
-      \ V2\ncreated_at: '2026-06-22T05:09:02Z'\nupdated_at: '2026-06-22T05:09:02Z'\n\
-      phase: reanclaje\nphase_entered_at: '2026-06-22T05:09:02Z'\nhistory: []\nloops:\n\
+      \ V2\ncreated_at: '2026-06-22T05:37:05Z'\nupdated_at: '2026-06-22T05:37:05Z'\n\
+      phase: reanclaje\nphase_entered_at: '2026-06-22T05:37:05Z'\nhistory: []\nloops:\n\
       \  reanclaje:\n    current: 0\n    max: 2\n    last_decision: ''\n  planning-bootstrap:\n\
       \    current: 0\n    max: 2\n    last_decision: ''\n  asr:\n    current: 0\n\
       \    max: 2\n    last_decision: ''\n  verdad:\n    current: 0\n    max: 2\n\
@@ -34,90 +34,92 @@ phases:
   index_codebase:
     status: success
     exit_code: 0
-    duration_ms: 2394
-    stdout: '{"success": true, "files_indexed": 145, "total_functions": 764, "total_classes":
-      1, "duration_ms": 1756, "index_hash": "6113adee6089fad433080d6f2c5625548bd3bb5fea0aac2eb7f6e5fdc126a353",
+    duration_ms: 2468
+    stdout: '{"success": true, "files_indexed": 154, "total_functions": 786, "total_classes":
+      1, "duration_ms": 1815, "index_hash": "2761059c7c6286ffc5325748aed322f0b78870b8016be63b12c6900fec5c00d7",
       "output": "/home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml"}
 
       '
     stderr: '[INFO] Indexando codebase en /home/juan/new_project...
 
-      [INFO] Encontrados 145 archivos para indexar
+      [INFO] Encontrados 154 archivos para indexar
 
-      [INFO]   Progreso: 50/145
+      [INFO]   Progreso: 50/154
 
-      [INFO]   Progreso: 100/145
+      [INFO]   Progreso: 100/154
 
-      [INFO] Code index generado: 145 archivos, 764 funciones, 1 clases, 1756ms
+      [INFO]   Progreso: 150/154
+
+      [INFO] Code index generado: 154 archivos, 786 funciones, 1 clases, 1815ms
 
       '
     parsed_json:
       success: true
-      files_indexed: 145
-      total_functions: 764
+      files_indexed: 154
+      total_functions: 786
       total_classes: 1
-      duration_ms: 1756
-      index_hash: 6113adee6089fad433080d6f2c5625548bd3bb5fea0aac2eb7f6e5fdc126a353
+      duration_ms: 1815
+      index_hash: 2761059c7c6286ffc5325748aed322f0b78870b8016be63b12c6900fec5c00d7
       output: /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml
     ci_yaml_exists: true
-    ci_yaml_preview: "codeindex: V1\nversion: 1\ngenerated_at: '2026-06-22T05:09:04Z'\n\
-      generator:\n  script: scripts/python/index_codebase.py\n  duration_ms: 1756\n\
-      \  files_indexed: 145\nrepo_root: /home/juan/new_project\nindex_hash: 6113adee6089fad433080d6f2c5625548bd3bb5fea0aac2eb7f6e5fdc126a353\n\
-      stats:\n  total_files: 145\n  by_language:\n    yaml: 39\n    json: 14\n   \
-      \ py: 72\n    js: 1\n    ts: 19\n  total_functions: 764\n  total_classes: 1\n\
-      \  total_imports: 1236\n  avg_functions_per_file: 5.27\nfiles:\n- path: .opencode/apolo-dynamic/CODE-INDEX.yaml\n\
-      \  language: yaml\n  size_bytes: 325134\n  content_hash: 4f5f360030fd29b50022d881959b1242c7e28ef5533e36768d81fa06c16f87dd\n\
-      \  git_tracked: true\n  git_last_modified: '2026-06-22T00:34:27-04:00'\n  summary:\
+    ci_yaml_preview: "codeindex: V1\nversion: 1\ngenerated_at: '2026-06-22T05:37:07Z'\n\
+      generator:\n  script: scripts/python/index_codebase.py\n  duration_ms: 1815\n\
+      \  files_indexed: 154\nrepo_root: /home/juan/new_project\nindex_hash: 2761059c7c6286ffc5325748aed322f0b78870b8016be63b12c6900fec5c00d7\n\
+      stats:\n  total_files: 154\n  by_language:\n    yaml: 44\n    json: 14\n   \
+      \ py: 76\n    js: 1\n    ts: 19\n  total_functions: 786\n  total_classes: 1\n\
+      \  total_imports: 1303\n  avg_functions_per_file: 5.1\nfiles:\n- path: .opencode/apolo-dynamic/CODE-INDEX.yaml\n\
+      \  language: yaml\n  size_bytes: 343313\n  content_hash: 292fbdcde720e2d5d2ed9c68d344d6e221a89a7f5a7f23bd4f4a188d61e8cab2\n\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T01:15:17-04:00'\n  summary:\
       \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
       \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
       \ null\n- path: .opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml\n  language:\
       \ yaml\n  size_bytes: 808\n  content_hash: 2eb0adcf58ab7d681107917d5ff229cebc658b7ba4e4213a1de82c1e000495f7\n\
-      \  git_tracked: true\n  git_last_modified: '2026-06-22T00:34:27-04:00'\n  summary:\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T01:15:17-04:00'\n  summary:\
       \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
       \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
       \ null\n- path: .opencode/apolo-dynamic/DOCS-INDEX.yaml\n  language: yaml\n\
       \  size_bytes: 2427963\n  content_hash: ce1d8f6ec70b467939b0daaa4789598045375913784590f3671d1a323afe4934\n\
-      \  git_tracked: false\n  git_last_modified: null\n  summary: Archivo .yaml |\
-      \ Sin símbolos exportados\n  symbols:\n    functions: []\n    classes: []\n\
-      \    interfaces: []\n    types: []\n  imports: []\n  error: null\n- path: .opencode/apolo-dynamic/EMBEDDINGS-CACHE.json\n\
-      \  language: json\n  size_bytes: 185677\n  content_hash: 1ff6260455845d16d72ac00ed5923beca398774f9f2ccc18c063e6cfc521066a\n\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T01:15:17-04:00'\n  summary:\
+      \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
+      \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
+      \ null\n- path: .opencode/apolo-dynamic/EMBEDDINGS-CACHE.json\n  language: json\n\
+      \  size_bytes: 185677\n  content_hash: 1ff6260455845d16d72ac00ed5923beca398774f9f2ccc18c063e6cfc521066a\n\
       \  git_tracked: true\n  git_last_modified: '2026-06-21T14:31:14-04:00'\n  summary:\
       \ Archivo .json | Sin símbolos exportados\n  symbols:\n    functions: []\n \
       \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
       \ null\n- path: .opencode/apolo-dynamic/TOOL-REGISTRY.yaml\n  language: yaml\n\
       \  size_bytes: 40369\n  content_hash: f74ccb191534e149df4c446d7d603a4572b7b23e8335bffb00d7c598abe1224c\n\
-      \  git_tracked: true\n  git_last_modified: '2026-06-22T00:34:27-04:00'\n  summary:\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T01:15:17-04:00'\n  summary:\
+      \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
+      \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
+      \ null\n- path: .opencode/apolo-dynamic/apolo-auto-hooks.yaml\n  language: yaml\n\
+      \  size_bytes: 5435\n  content_hash: c215c8c99ee9099ca9337c27c8bdaade31376411cc4d62de55009ff89e67e2b3\n\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T01:15:17-04:00'\n  summary:\
       \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
       \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
       \ null\n- path: .opencode/apolo-dynamic/apolo-config.yaml\n  language: yaml\n\
-      \  size_bytes: 2108\n  content_hash: 2a24fb4c04327a9b51a60461727d991ac92f9d103db4d114a9713a735bdfa812\n\
-      \  git_tracked: true\n  git_last_modified: '2026-06-22T00:34:27-04:00'\n  summary:\
-      \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
-      \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
-      \ null\n- path: .opencode/package-lock.json\n  language: json\n  size_bytes:\
-      \ 13853\n  content_hash: 82ee0e44665dfe671ced70e8d0d74f4483d1bcf431f76dfa69d55904599137c2\n\
-      \  git_tracked: false\n  git"
+      \  size_bytes: 2108\n  content_hash: 2a24fb4c04327a9b51a60461727d991ac92f9d103db4d114a9713"
     ci_yaml_path: /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml
   collect_evidence:
     status: success
     exit_code: 0
-    duration_ms: 177
-    stdout: '{"success": true, "items": 2, "hash_chain": "ec0f10c40fa223b50736df8aefc819d912b831616a9627b3b09a06ad15368c1c",
+    duration_ms: 162
+    stdout: '{"success": true, "items": 2, "hash_chain": "8aa48fe4f21594046853baeeffc3a6b651f56b09815d4a77760923fce6eb133a",
       "capabilities": {"playwright": "unavailable", "lsp": "available", "git": "available",
       "python": "available", "node": "available", "curl": "available", "psql": "available"},
-      "duration_ms": 92, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml"}
+      "duration_ms": 77, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml"}
 
       '
     stderr: '[INFO] recolectando evidencia para flow APOLO-INTEG-TEST
 
       [INFO] evidence pack escrito: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml
-      (2 items, 92ms)
+      (2 items, 77ms)
 
       '
     parsed_json:
       success: true
       items: 2
-      hash_chain: ec0f10c40fa223b50736df8aefc819d912b831616a9627b3b09a06ad15368c1c
+      hash_chain: 8aa48fe4f21594046853baeeffc3a6b651f56b09815d4a77760923fce6eb133a
       capabilities:
         playwright: unavailable
         lsp: available
@@ -126,16 +128,16 @@ phases:
         node: available
         curl: available
         psql: available
-      duration_ms: 92
+      duration_ms: 77
       output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml
     evidence_yaml_exists: true
     evidence_yaml_preview: "evidencepack: V2\nversion: 1\nflowid: APOLO-INTEG-TEST\n\
-      created_at: '2026-06-22T05:09:05Z'\ncollector:\n  script: scripts/python/collect_evidence.py\n\
+      created_at: '2026-06-22T05:37:08Z'\ncollector:\n  script: scripts/python/collect_evidence.py\n\
       \  script_hash: 30eae9f6850597c6fbc3ee912ea3428557ac493244a52bee13e4292c54ee14d4\n\
       \  env_fingerprint: 5cb09cef434ce7e19d6b5141ad4cfd9796c43618e4edf1931faaef165ee7a88d\n\
-      \  duration_ms: 92\n  invoked_by: integration_validation\nitems:\n- id: E-001\n\
+      \  duration_ms: 77\n  invoked_by: integration_validation\nitems:\n- id: E-001\n\
       \  kind: file-snapshot\n  source: plugin/index.ts\n  hash: 36a823dfffb9c8653e655376bb028ebdebd308f4d111cade7e32e4693171b712\n\
-      \  size_bytes: 22396\n  captured_at: '2026-06-22T05:09:05Z'\n  summary: '/**\
+      \  size_bytes: 22396\n  captured_at: '2026-06-22T05:37:08Z'\n  summary: '/**\
       \ |  * index.ts — Entry point del plugin apolo-dynamic-flow. |  * |  *\n   \
       \ Reemplaza a apolo-flow-guardian.ts como plugin principal del sistema. |  *\
       \ |  *\n    Registro: |  *   - Plugin OpenCode con hooks de lifecycle |  * \
@@ -145,19 +147,19 @@ phases:
       \  - ToolHandler\n  - CommandHandler\n  - PLUGIN\n  - pc\n  - state\n  - pc\n\
       \  - pc\n  - state\n  - state\n  - result\n  - detection\n  - result\n  - state\n\
       \  - state\n  - result\n  - result\n- id: E-002\n  kind: git-diff\n  source:\
-      \ git diff HEAD\n  hash: 59d94c33f7cde1884214c9c8864683f839d3a0ff630a0ab55ebe0574a8756949\n\
-      \  size_bytes: 299504\n  captured_at: '2026-06-22T05:09:05Z'\n  summary: 'diff\
-      \ contra HEAD: 9582 líneas'\n  raw_path: ''\n  tags:\n  - git\n  - diff\n  related_symbols:\
-      \ []\nhash_chain: ec0f10c40fa223b50736df8aefc819d912b831616a9627b3b09a06ad15368c1c\n\
+      \ git diff HEAD\n  hash: f970030b36d3f13c5d6a45e78d316e6e785772ea482199684f701b161afb39e6\n\
+      \  size_bytes: 132156\n  captured_at: '2026-06-22T05:37:08Z'\n  summary: 'diff\
+      \ contra HEAD: 3758 líneas'\n  raw_path: ''\n  tags:\n  - git\n  - diff\n  related_symbols:\
+      \ []\nhash_chain: 8aa48fe4f21594046853baeeffc3a6b651f56b09815d4a77760923fce6eb133a\n\
       capabilities:\n  playwright: unavailable\n  lsp: available\n  git: available\n\
       \  python: available\n  node: available\n  curl: available\n  psql: available\n\
       degradation_log:\n- tool: playwright\n  reason: no instalado\n  fallback_used:\
-      \ curl + DOM inspection\n  at: '2026-06-22T05:09:05Z'\n\n"
+      \ curl + DOM inspection\n  at: '2026-06-22T05:37:08Z'\n\n"
     evidence_yaml_path: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml
   score_evidence:
     status: success
     exit_code: 0
-    duration_ms: 89
+    duration_ms: 88
     stdout: '{"success": true, "overall_score": 0.875, "scores": {"coverage": 1.0,
       "freshness": 1.0, "depth": 0.5, "conflict_risk": 0.0, "redundancy": 0.0, "schema_validity":
       1.0}, "severity": "info", "should_block_agent": false, "should_recollect": false,
@@ -188,7 +190,7 @@ phases:
       output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml
     score_yaml_exists: true
     score_yaml_preview: "evidencescore: V1\nversion: 1\nflowid: APOLO-INTEG-TEST\n\
-      generated_at: '2026-06-22T05:09:05Z'\ngenerator:\n  script: scripts/python/score_evidence.py\n\
+      generated_at: '2026-06-22T05:37:08Z'\ngenerator:\n  script: scripts/python/score_evidence.py\n\
       \  duration_ms: 5\ninputs:\n  evidence_pack: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml\n\
       \  verdad: .\n  code_index: null\nscores:\n  coverage: 1.0\n  freshness: 1.0\n\
       \  depth: 0.5\n  conflict_risk: 0.0\n  redundancy: 0.0\n  schema_validity: 1.0\n\
@@ -203,14 +205,14 @@ phases:
   generate_plan:
     status: success
     exit_code: 0
-    duration_ms: 97
+    duration_ms: 90
     stdout: '{"success": true, "version": 1, "units": 1, "topological_order": ["U-01"],
-      "duration_ms": 8, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml"}
+      "duration_ms": 7, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml"}
 
       '
     stderr: '[WARN] no se encontraron clusters en /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml
 
-      [INFO] plan dinámico v1 generado: 1 unidades, 8ms
+      [INFO] plan dinámico v1 generado: 1 unidades, 7ms
 
       '
     parsed_json:
@@ -219,14 +221,14 @@ phases:
       units: 1
       topological_order:
       - U-01
-      duration_ms: 8
+      duration_ms: 7
       output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml
     plan_yaml_exists: true
     plan_yaml_preview: "dynamicplan: V2\nversion: 1\nparent_version: null\nflowid:\
-      \ APOLO-INTEG-TEST\ncreated_at: '2026-06-22T05:09:05Z'\nderivation_method: hybrid\n\
+      \ APOLO-INTEG-TEST\ncreated_at: '2026-06-22T05:37:08Z'\nderivation_method: hybrid\n\
       agent_context: null\nderived_from:\n  evidence_pack: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml\n\
       \  truth_artifact: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml\n\
-      \  collected_at: '2026-06-22T05:09:05Z'\nrewrite_history: []\nunidades:\n- id:\
+      \  collected_at: '2026-06-22T05:37:08Z'\nrewrite_history: []\nunidades:\n- id:\
       \ U-01\n  origenverdad:\n    componente: default\n    estado5: ER\n    referencias:\
       \ []\n  resumen: Sin clusters en verdad — generar unidad por defecto\n  tipocambio:\
       \ fix\n  ejedominante: handler\n  subeje: ''\n  acoplamientosreales:\n    archivos:\
@@ -250,15 +252,15 @@ phases:
   predict_impact:
     status: success
     exit_code: 0
-    duration_ms: 1072
+    duration_ms: 1103
     stdout: '{"success": true, "schema_version": "2.5.0", "cascade_depth": 5, "global_risk":
       "low", "risk_distribution": {"low": 1, "medium": 0, "high": 0, "critical": 0,
-      "unknown": 0}, "total_predictions": 1, "duration_ms": 981, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/IMPACT-PREDICTION.yaml"}
+      "unknown": 0}, "total_predictions": 1, "duration_ms": 1018, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/IMPACT-PREDICTION.yaml"}
 
       '
     stderr: '[INFO] Impact prediction (v2.5.0 BFS depth=5): 1 MPs analyzed | global_risk=low
       | distribution={''low'': 1, ''medium'': 0, ''high'': 0, ''critical'': 0, ''unknown'':
-      0} | 981ms
+      0} | 1018ms
 
       '
     parsed_json:
@@ -273,12 +275,12 @@ phases:
         critical: 0
         unknown: 0
       total_predictions: 1
-      duration_ms: 981
+      duration_ms: 1018
       output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/IMPACT-PREDICTION.yaml
     impact_yaml_exists: true
     impact_yaml_preview: "impactprediction: V1\nversion: 1\nschema_version: 2.5.0\n\
-      flowid: APOLO-INTEG-TEST\ngenerated_at: '2026-06-22T05:09:06Z'\ngenerator:\n\
-      \  script: scripts/python/predict_impact.py\n  duration_ms: 981\n  deep_mode:\
+      flowid: APOLO-INTEG-TEST\ngenerated_at: '2026-06-22T05:37:09Z'\ngenerator:\n\
+      \  script: scripts/python/predict_impact.py\n  duration_ms: 1018\n  deep_mode:\
       \ false\n  cascade_depth: 5\n  bfs_multilevel: true\ninputs:\n  plan: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml\n\
       \  code_index: /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml\n\
       \  telemetry: null\n  test_runs_dir: null\nglobal_risk: low\nrisk_distribution:\n\
@@ -296,15 +298,15 @@ phases:
   scaffold:
     status: success
     exit_code: 0
-    duration_ms: 1051
+    duration_ms: 1114
     stdout: '{"success": true, "unit_id": "U-01", "verdict": "proceed", "verdict_reason":
       "andamio generado, todos los archivos indexados, tests encontrados", "total_files":
       0, "total_contracts": 0, "total_checkpoints": 2, "has_circular_deps": false,
-      "duration_ms": 965, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/scaffolds/SCAFFOLD.yaml"}
+      "duration_ms": 1029, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/scaffolds/SCAFFOLD.yaml"}
 
       '
     stderr: '[INFO] Scaffold for U-01: 0 files, 0 contracts, 2 checkpoints, verdict=proceed,
-      965ms
+      1029ms
 
       '
     parsed_json:
@@ -316,12 +318,12 @@ phases:
       total_contracts: 0
       total_checkpoints: 2
       has_circular_deps: false
-      duration_ms: 965
+      duration_ms: 1029
       output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/scaffolds/SCAFFOLD.yaml
     scaffold_yaml_exists: true
     scaffold_yaml_preview: "implscaffold: V1\nversion: 1\nflowid: APOLO-INTEG-TEST\n\
-      unit_id: U-01\ngenerated_at: '2026-06-22T05:09:07Z'\ngenerator:\n  script: scripts/python/scaffold_impl.py\n\
-      \  duration_ms: 965\ninputs:\n  plan: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml\n\
+      unit_id: U-01\ngenerated_at: '2026-06-22T05:37:11Z'\ngenerator:\n  script: scripts/python/scaffold_impl.py\n\
+      \  duration_ms: 1029\ninputs:\n  plan: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml\n\
       \  code_index: /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml\n\
       \  impact_prediction: null\nverdict: proceed\nverdict_reason: andamio generado,\
       \ todos los archivos indexados, tests encontrados\nfiles_to_touch: []\nfunction_contracts:\
@@ -495,5 +497,5 @@ verdict:
       exit code 0), el loop engine TS puede avanzar de fase sin evidencia real. telemetry.jsonl
       solo registra lo que el TS layer reporta.
   overall_verdict: DEGRADED — flow runs but scaffold is abstract or telemetry is incomplete
-total_duration_ms: 5087
+total_duration_ms: 5218
 

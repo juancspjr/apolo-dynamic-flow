@@ -533,6 +533,27 @@ case "$CMD" in
     run_py flow_verifier.py verify "$@"
     ;;
 
+  # === v3.5.0 NEW: INTEGRATION VALIDATION ===
+  validate-integration)
+    # integration validator: valida handoffs entre scripts
+    run_py integration_validator.py validate "$@"
+    ;;
+
+  validate-dataflow)
+    # data flow validator: verifica que la data fluye por donde debe
+    run_py data_flow_validator.py validate "$@"
+    ;;
+
+  verify-honesty)
+    # agent honesty enforcer: previene que el agente se autoengañe
+    run_py agent_honesty_enforcer.py verify "$@"
+    ;;
+
+  static-analyze)
+    # static analyzer: análisis estático de dependencias
+    run_py static_analyzer.py analyze "$@"
+    ;;
+
   # === ALIASES ÚTILES ===
   help|--help|-h)
     usage

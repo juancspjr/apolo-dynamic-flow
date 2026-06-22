@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](#26-licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#2-prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#2-prerrequisitos)
-[![Version](https://img.shields.io/badge/version-3.5.0-blue)](#25-changelog)
+[![Version](https://img.shields.io/badge/version-3.4.0-blue)](#25-changelog)
 
 ---
 
@@ -2238,68 +2238,6 @@ Cobertura de capacidades:   95%
 
 ## 25. Changelog
 
-### v3.5.0 (2026-06-22) — Validadores de integración (sin daños colaterales)
-
-**PROBLEMA DETECTADO en v3.4.0:** El `flow_verifier` reportó 16 "fallos" que eran FALSOS POSITIVOS. Los scripts (collect_evidence, generate_plan, etc.) requieren args obligatorios y dan error graceful sin ellos, pero el verificador los marcaba como `runs=False`.
-
-**AUDITORIA HONESTA:** Tu pregunta fue correcta — ¿cómo asegurar que las integraciones no se dañen entre sí? Necesitabas validadores reales, no solo un verificador con falsos positivos.
-
-**SOLUCION v3.5.0:** 4 validadores + fix del flow_verifier:
-
-1. **`integration_validator.py`** — Valida handoffs entre scripts
-   - 15 contratos de handoff definidos (output de A → input de B)
-   - Verifica que cada script produce lo que el siguiente espera
-   - Analisis estatico de dependencias (imports, main(), SyntaxError)
-   - Verifica que el orquestador invoca scripts en orden correcto
-   - Reporta: INTEGRATION-VALIDATION-REPORT.yaml
-
-2. **`data_flow_validator.py`** — Verifica que la data fluye por donde debe
-   - 7 artefactos esperados en orden: CODE-INDEX → EVIDENCE-PACK → EVIDENCE-SCORE → PLAN → IMPACT-PREDICTION → SCAFFOLD-V3 → ORCHESTRATOR-REPORT
-   - Verifica que cada artefacto existe, tiene campos requeridos, tipos correctos, min_length
-   - Detecta orden incorrecto (artefacto de fase N existe pero el de fase N-1 no)
-   - Reporta: DATA-FLOW-VALIDATION-REPORT.yaml
-
-3. **`agent_honesty_enforcer.py`** — Previene que el agente se autoengañe
-   - 5 claims verificados: done, tests_pass, implemented, fixed, no_errors
-   - Cada claim debe tener evidencia objetiva respaldandolo
-   - Si el agente declara "done" sin ORCHESTRATOR-REPORT → DISHONEST
-   - Si declara "tests_pass" sin eventos de test en telemetry → DISHONEST
-   - Si declara "implemented" sin archivos en disco → DISHONEST
-   - Reporta: AGENT-HONESTY-REPORT.yaml
-
-4. **`static_analyzer.py`** — Análisis estatico de dependencias
-   - Analiza todos los scripts Python con AST (sin ejecutarlos)
-   - Construye grafo de dependencias (A → B si A invoca B)
-   - Detecta dependencias circulares (DFS)
-   - Detecta scripts aislados (no conectados al grafo)
-   - Reporta: STATIC-ANALYSIS-REPORT.yaml
-
-5. **Fix `flow_verifier.py`** — No mas falsos positivos
-   - Antes: marcaba 16 scripts como `runs=False` porque requieren args
-   - Ahora: distingue traceback real (fallo) de error graceful (OK)
-   - Si el script da error graceful sin args (JSON con "error", "falta", etc.) = OK
-   - Si el script da traceback de Python (SyntaxError, ImportError) = fallo real
-
-**Nuevos comandos en CLI router (4 nuevos, total 60+):**
-- `apolo validate-integration` — valida handoffs entre scripts
-- `apolo validate-dataflow` — verifica que data fluye
-- `apolo verify-honesty` — previene autoengaño del agente
-- `apolo static-analyze` — análisis estatico de dependencias
-
-**Como asegurar integraciones sin daños colaterales:**
-
-```
-1. static_analyzer — detecta dependencias circulares ANTES de ejecutar
-2. integration_validator — verifica contratos de handoff (output → input)
-3. data_flow_validator — verifica que artefactos se producen en orden
-4. flow_verifier — verifica que cada script funciona (sin falsos positivos)
-5. agent_honesty_enforcer — verifica que claims del agente tienen evidencia
-```
-
-**Tests:** 170+ tests pasando, 98% capability coverage
-
----
-
 ### v3.4.0 (2026-06-22) — 4 GAPs cerrados + flow_verifier (check real de todo)
 
 **4 GAPs cerrados del INTEGRATION-VERDICT.md:**
@@ -3067,14 +3005,12 @@ Basado en los 5 puntos de perdida de control del INTEGRATION-VERDICT.md:
 | v3.1.0 | 2026-06-22 | 150+ | 95% | Config + scaffold v3 + visual diff + replay + cross-flow |
 | v3.2.0 | 2026-06-22 | 160+ | 97% | Orquestador automatico + decision loop + script gen + quality gates |
 | v3.3.0 | 2026-06-22 | 160+ | 97% | Orquestador REESCRITO — USA todos los super poderes (data fluye) |
-| v3.4.0 | 2026-06-22 | 165+ | 98% | 4 GAPs cerrados (multi-agent, rollback, prioritizer, pre-commit) + flow_verifier |
-| **v3.5.0** | **2026-06-22** | **170+** | **98%** | **Validadores: integration + dataflow + honesty + static + fix flow_verifier** |
+| **v3.4.0** | **2026-06-22** | **165+** | **98%** | **4 GAPs cerrados (multi-agent, rollback, prioritizer, pre-commit) + flow_verifier** |
 
 ---
 
-> **APOLO Dynamic Flow v3.5.0** — Plugin de orquestacion de agentes para OpenCode.
-> 170+ tests pasando, 98% capability coverage, 60+ comandos en CLI router unificado.
-> 4 validadores aseguran integraciones sin daños colaterales:
-> integration_validator (handoffs), data_flow_validator (flujo de data),
-> agent_honesty_enforcer (previene autoengaño), static_analyzer (dependencias circulares).
-> Fix flow_verifier: no mas falsos positivos.
+> **APOLO Dynamic Flow v3.4.0** — Plugin de orquestacion de agentes para OpenCode.
+> 165+ tests pasando, 98% capability coverage, 56+ comandos en CLI router unificado.
+> 4 GAPs cerrados: multi-agent coordination + smart rollback + mp prioritizer + pre-commit hooks.
+> flow_verifier.py valida que TODOS los super poderes funcionan de verdad.
+> Flujo completo: cross_flow → score → decision_loop → plan → mp_prioritizer → scaffold → gates → EXECUTE → smart_rollback → visual_diff → replay → knowledge → pre_commit → feedback.

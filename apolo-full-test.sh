@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# apolo-full-test.sh — Test exhaustivo v3.4.0
-# v3.4.0 = 4 GAPs cerrados (multi-agent, smart rollback, mp prioritizer, pre-commit) + flow_verifier
+# apolo-full-test.sh — Test exhaustivo v3.5.0
+# v3.5.0 = fix flow_verifier + 4 validadores (integration/dataflow/honesty/static)
 set -uo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
@@ -11,7 +11,7 @@ skip() { echo -e "  ${YELLOW}⊘${NC} $*"; TOTAL_SKIP=$((TOTAL_SKIP + 1)); }
 phase() { echo -e "\n${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; echo -e "${CYAN}${BOLD}  FASE $1: $2${NC}"; echo -e "${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; }
 gap() { GAPS_FOUND+=("$1"); echo -e "  ${RED}⚠ GAP:${NC} $1"; }
 cd /home/juan/new_project 2>/dev/null || { echo "ERROR: /home/juan/new_project no existe"; exit 1; }
-echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.4.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  4 GAPs cerrados + flow_verifier (check real)           ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.5.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  Validadores: integration + dataflow + honesty + static ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 
 phase 1 "Prerrequisitos"
 command -v node >/dev/null 2>&1 && pass "Node.js $(node --version)" || fail "Node.js no instalado"
@@ -229,6 +229,26 @@ echo "$FV_OUT" | grep -qi "success_rate\|total_checks\|verdict" && pass "flow_ve
 # Cleanup v3.4.0
 rm -rf plan/active/APOLO-V340-TEST 2>/dev/null
 rm -f .opencode/apolo-dynamic/apolo-auto-hooks.yaml .opencode/apolo-dynamic/apolo-post-script-gates.yaml .opencode/apolo-dynamic/apolo-config.yaml 2>/dev/null
+
+# v3.5.0: integration_validator, data_flow_validator, agent_honesty_enforcer, static_analyzer
+IV_OUT=$(python3 scripts/python/integration_validator.py validate --repo-root . --json 2>&1 | tail -5 || true)
+echo "$IV_OUT" | grep -qi "overall_pass\|handoff_contracts\|verdict" && pass "integration_validator.py (v3.5.0 — valida handoffs entre scripts)" || fail "integration_validator"
+
+DFV_OUT=$(python3 scripts/python/data_flow_validator.py validate --repo-root . --flowid APOLO-V350-TEST 2>&1 | tail -5 || true)
+echo "$DFV_OUT" | grep -qi "overall_pass\|artifacts\|verdict" && pass "data_flow_validator.py (v3.5.0 — verifica que data fluye)" || fail "data_flow_validator"
+
+AHE_OUT=$(python3 scripts/python/agent_honesty_enforcer.py verify --repo-root . --flowid APOLO-V350-TEST 2>&1 | tail -5 || true)
+echo "$AHE_OUT" | grep -qi "overall_honest\|honest_claims\|verdict" && pass "agent_honesty_enforcer.py (v3.5.0 — previene autoengaño del agente)" || fail "agent_honesty_enforcer"
+
+SA_OUT=$(python3 scripts/python/static_analyzer.py analyze --repo-root . --json 2>&1 | tail -5 || true)
+echo "$SA_OUT" | grep -qi "overall_healthy\|circular\|verdict\|total_scripts" && pass "static_analyzer.py (v3.5.0 — análisis estático de dependencias)" || fail "static_analyzer"
+
+# v3.5.0: flow_verifier fix (no mas falsos positivos)
+FV_V35=$(python3 scripts/python/flow_verifier.py verify --repo-root . --json 2>&1 | tail -5 || true)
+echo "$FV_V35" | grep -qi "success_rate\|total_checks\|verdict" && pass "flow_verifier.py v3.5.0 (fix: no marca falsos positivos)" || fail "flow_verifier v3.5.0"
+
+# Cleanup v3.5.0
+rm -rf plan/active/APOLO-V350-TEST 2>/dev/null
 
 phase 6 "CLI apolo-inspect.sh"
 for cmd in help init-flow absorb state tools blocks telemetry evidence plan health all test; do
