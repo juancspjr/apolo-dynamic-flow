@@ -414,6 +414,17 @@ def phase_plan(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
     result["scripts"].append(r)
     state.setdefault("user_inputs", {})["method"] = method
 
+    # NUEVO v3.4.0: mp_prioritizer reprioritiza unidades basado en telemetria
+    prio_result = run_script("mp_prioritizer.py", [
+        "reprioritize", "--repo-root", ".", "--flowid", flowid,
+    ], repo_root, 15)
+    result["scripts"].append(prio_result)
+    if prio_result.get("parsed", {}).get("success"):
+        priority_order = prio_result["parsed"].get("priority_order", [])
+        log(f"  → mp_prioritizer: {len(priority_order)} unidades re-prioritizadas", "INFO")
+        if priority_order:
+            log(f"    → Siguiente unidad: {priority_order[0].get('unit_id', '?')} (score: {priority_order[0].get('score', 0)})", "INFO")
+
     result["status"] = "success"
     result["completed_at"] = now_iso()
     return result
@@ -505,8 +516,8 @@ def phase_scaffold(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
 
 
 def phase_implement(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
-    """Fase 8: implement — EXECUTES scaffold commands + captures visual diff."""
-    log("FASE 8/11: IMPLEMENT — ejecuta scaffold commands + visual diff", "INFO")
+    """Fase 8: implement — EXECUTES scaffold commands + captures visual diff + smart rollback on fail."""
+    log("FASE 8/11: IMPLEMENT — ejecuta scaffold commands + visual diff + smart rollback", "INFO")
     result = {"phase": "implement", "started_at": now_iso(), "scripts": []}
 
     # 8a. NUEVO v3.3.0: force_quality_gates antes de implementar
@@ -541,7 +552,6 @@ def phase_implement(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]
         command = cmd_spec.get("command", "")
 
         if cmd_phase == "setup" and command.startswith("mkdir"):
-            # Ejecutar mkdir
             try:
                 subprocess.run(command.split(), cwd=str(repo_root), capture_output=True, timeout=10)
                 log(f"    ✓ {cmd_id}: mkdir ejecutado", "INFO")
@@ -549,7 +559,6 @@ def phase_implement(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]
                 log(f"    ✗ {cmd_id}: mkdir fallo: {e}", "WARN")
 
         elif cmd_phase == "create_files" and files_to_create:
-            # Crear archivos con templates
             for f_spec in files_to_create:
                 f_path = repo_root / f_spec["path"]
                 template = f_spec.get("template", "")
@@ -559,7 +568,6 @@ def phase_implement(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]
                     log(f"    ✓ {cmd_id}: creado {f_spec['path']}", "INFO")
 
         elif cmd_phase == "verify" and "pytest" in command:
-            # Ejecutar tests
             test_result = subprocess.run(
                 command.split(), cwd=str(repo_root),
                 capture_output=True, text=True, timeout=60,
@@ -575,12 +583,22 @@ def phase_implement(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]
                 # 8d. NUEVO v3.3.0: tests fallaron → capture broken + replay
                 log("  ⚠ Tests fallaron — capturando broken state + replay", "WARN")
                 _capture_and_replay(repo_root, flowid, state, result)
+
+                # NUEVO v3.4.0: smart_rollback — revertir SOLO archivos que fallaron
+                log("  → Smart rollback: analizando que revertir...", "INFO")
+                rollback_result = run_script("smart_rollback.py", [
+                    "rollback", "--repo-root", ".", "--flowid", flowid, "--dry-run",
+                ], repo_root, 30)
+                result["scripts"].append(rollback_result)
+                if rollback_result.get("parsed", {}).get("success"):
+                    rb = rollback_result["parsed"]
+                    log(f"    → Rollback: {rb.get('rolled_back', 0)} archivos a revertir, {rb.get('preserved', 0)} a preservar", "INFO")
+
                 result["status"] = "paused"
-                result["pause_reason"] = "Tests fallaron — ver VISUAL-DIFF-REPORT y BUG-REPLAY"
+                result["pause_reason"] = "Tests fallaron — ver VISUAL-DIFF-REPORT, BUG-REPLAY y ROLLBACK-REPORT"
                 return result
 
         elif cmd_phase == "evidence":
-            # Capturar baseline si no se capturo en fase 4
             r = run_script("evidence_visual_diff.py", [
                 "capture", "--repo-root", ".",
                 "--flowid", flowid, "--phase", "baseline",
@@ -694,8 +712,8 @@ def phase_validate(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
 
 
 def phase_complete(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
-    """Fase 11: complete — report + feedback."""
-    log("FASE 11/11: COMPLETE — reporte + feedback", "INFO")
+    """Fase 11: complete — report + feedback + pre-commit hooks."""
+    log("FASE 11/11: COMPLETE — reporte + feedback + pre-commit hooks", "INFO")
     result = {"phase": "complete", "started_at": now_iso(), "scripts": []}
 
     # 11a. NUEVO v3.3.0: feedback_loop para pedir feedback al usuario
@@ -707,8 +725,22 @@ def phase_complete(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
     ], repo_root, 15)
     result["scripts"].append(r)
 
+    # NUEVO v3.4.0: pre_commit_hooks install (asegura calidad en futuros commits)
+    r2 = run_script("pre_commit_hooks.py", [
+        "install", "--repo-root", ".",
+    ], repo_root, 15)
+    result["scripts"].append(r2)
+    if r2.get("parsed", {}).get("success"):
+        log("  → pre_commit_hooks instalados", "INFO")
+
+    # NUEVO v3.4.0: multi_agent_coordinator merge (si habia multiples agentes)
+    r3 = run_script("multi_agent_coordinator.py", [
+        "merge", "--repo-root", ".", "--flowid", flowid,
+    ], repo_root, 15)
+    result["scripts"].append(r3)
+
     result["status"] = "complete"
-    result["message"] = "Ciclo completo — todos los super poderes usados"
+    result["message"] = "Ciclo completo — todos los super poderes usados + pre-commit hooks instalados"
     result["completed_at"] = now_iso()
     return result
 

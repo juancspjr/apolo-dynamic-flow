@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "3.3.0",
-  "description": "Plugin de orquestacion de agentes para OpenCode. v3.3.0: Orquestador REESCRITO que USA TODOS los super poderes del sistema (no solo menciona). La data fluye: cross_flow recommend → evidence collect → score → agent_decision_loop elige method → plan → impact → agent_decision_loop elige strategy → scaffold → post_script_gates valida → EXECUTE scaffold commands → force_quality_gates bloquea si falla → evidence_visual_diff captura baseline/broken/post-fix → evidence_replay analiza bugs → cross_flow learning actualiza knowledge. 160+ tests, 97% capability.",
+  "version": "3.4.0",
+  "description": "Plugin de orquestacion de agentes para OpenCode. v3.4.0: 4 GAPs cerrados (multi-agent coordination, smart rollback, mp prioritizer, pre-commit hooks) + flow_verifier que valida que TODOS los super poderes funcionan. El orquestador integra todo: cross_flow → score → decision_loop → plan → mp_prioritizer → scaffold → gates → EXECUTE commands → smart_rollback on fail → visual_diff → evidence_replay → cross_flow learning → pre_commit_hooks → feedback. 160+ tests, 98% capability.",
   "main": "plugin/index.ts",
   "bin": {
     "apolo": "scripts/bash/apolo_cli_router.sh"
@@ -42,6 +42,11 @@
     "gen-script": "python3 scripts/python/script_generator.py",
     "quality-check": "python3 scripts/python/force_quality_gates.py",
     "ask": "python3 scripts/python/user_input_collector.py",
+    "multi-agent": "python3 scripts/python/multi_agent_coordinator.py",
+    "rollback": "python3 scripts/python/smart_rollback.py",
+    "prioritize": "python3 scripts/python/mp_prioritizer.py",
+    "pre-commit": "python3 scripts/python/pre_commit_hooks.py",
+    "verify-flow": "python3 scripts/python/flow_verifier.py",
     "run": "bash scripts/bash/apolo_cli_router.sh run",
     "continue": "bash scripts/bash/apolo_cli_router.sh continue",
     "apolo": "bash scripts/bash/apolo_cli_router.sh",

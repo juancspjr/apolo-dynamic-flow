@@ -1,0 +1,437 @@
+flowverifier: V1
+schema_version: 3.4.0
+generated_at: '2026-06-22T05:09:11Z'
+repo_root: /home/juan/new_project
+total_checks: 55
+passed: 39
+failed: 16
+success_rate: 70.9
+overall_pass: false
+verdict: 16 super poderes fallaron
+super_powers:
+- name: common
+  script: common.py
+  description: Utilidades base (YAML, hash, atomic writes)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: index_codebase
+  script: index_codebase.py
+  description: Indexacion AST multi-lenguaje
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: collect_evidence
+  script: collect_evidence.py
+  description: Recoleccion determinista de evidencia
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: score_evidence
+  script: score_evidence.py
+  description: Scoring de evidencia (6 metricas)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: generate_plan
+  script: generate_plan.py
+  description: Generacion de plan (3 modos)
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: predict_impact
+  script: predict_impact.py
+  description: BFS multi-nivel de impacto
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: scaffold_impl
+  script: scaffold_impl.py
+  description: Andamio de implementacion (v2.2)
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: scaffold_v3
+  script: scaffold_v3.py
+  description: Scaffold v3 con auto-select U-NN (v3.1)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: code_quality
+  script: code_quality.py
+  description: Analisis de calidad multi-lenguaje
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: test_coverage
+  script: test_coverage.py
+  description: Coverage por simbolo
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: lsp_integration
+  script: lsp_integration.py
+  description: LSP integration (7 LSPs)
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: vulnerability_scanner
+  script: vulnerability_scanner.py
+  description: Escaneo CVE
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: code_smells
+  script: code_smells.py
+  description: Code smells + dead code
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: full_audit
+  script: full_audit.py
+  description: Auditoria completa (11 pasos)
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: self_healing
+  script: self_healing.py
+  description: Self-healing (aprende de telemetria)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: generate_tests
+  script: generate_tests.py
+  description: Generacion automatica de tests
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: semantic_search
+  script: semantic_search.py
+  description: Busqueda semantica TF-IDF
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: refactor_engine
+  script: refactor_engine.py
+  description: Refactoring automatico
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: llm_bridge
+  script: llm_bridge.py
+  description: LLM bridge (MiniMax/OpenAI)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: cross_language_analyzer
+  script: cross_language_analyzer.py
+  description: Analisis cross-language
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: summarize_functions
+  script: summarize_functions.py
+  description: Resumenes de funciones
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: code_generator
+  script: code_generator.py
+  description: Generacion de codigo (8 lenguajes)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: doc_generator
+  script: doc_generator.py
+  description: Generacion de documentacion
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: project_templates
+  script: project_templates.py
+  description: Plantillas de proyecto (8 frameworks)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: onboarding
+  script: onboarding.py
+  description: Onboarding guiado
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: github_actions
+  script: github_actions.py
+  description: GitHub Actions generator
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: secret_scanner
+  script: secret_scanner.py
+  description: Deteccion de secretos (11 patrones)
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: absorb_external_skills
+  script: absorb_external_skills.py
+  description: Absorcion con allowlist + SSRF
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: validate_artifact
+  script: validate_artifact.py
+  description: Validacion contra schemas
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: context_query
+  script: context_query.py
+  description: Context query (17 tipos)
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: registry_recommend
+  script: registry_recommend.py
+  description: Recomendador de tools
+  exists: true
+  compiles: true
+  runs: false
+  passed: false
+- name: health_check
+  script: health_check.py
+  description: Health check del entorno
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: feedback_loop
+  script: feedback_loop.py
+  description: Feedback loop con usuario
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: interactive_docs
+  script: interactive_docs.py
+  description: Documentacion interactiva TF-IDF
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: debug_mode
+  script: debug_mode.py
+  description: Modo debug paso a paso
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: integration_validation
+  script: integration_validation.py
+  description: Validacion E2E real
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: hooks_validator
+  script: hooks_validator.py
+  description: Verificador de hooks OpenCode (7 capas)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: auto_hooks
+  script: auto_hooks.py
+  description: Auto-hooks (19 triggers)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: post_script_gates
+  script: post_script_gates.py
+  description: Post-script gates (15 gates)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: apolo_config
+  script: apolo_config.py
+  description: Configuracion centralizada de thresholds
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: evidence_visual_diff
+  script: evidence_visual_diff.py
+  description: Evidence visual diff (baseline/broken/post-fix)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: evidence_replay
+  script: evidence_replay.py
+  description: Replay de bug paso a paso
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: cross_flow_learning
+  script: cross_flow_learning.py
+  description: Cross-flow learning
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: apolo_orchestrator
+  script: apolo_orchestrator.py
+  description: Orquestador automatico (11 fases)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: agent_decision_loop
+  script: agent_decision_loop.py
+  description: Loop sobre decisiones del agente
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: script_generator
+  script: script_generator.py
+  description: Generador de scripts nuevos
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: force_quality_gates
+  script: force_quality_gates.py
+  description: Force quality gates (7 gates)
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: user_input_collector
+  script: user_input_collector.py
+  description: Recolector de input del usuario
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: multi_agent_coordinator
+  script: multi_agent_coordinator.py
+  description: Multi-agent coordination
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: smart_rollback
+  script: smart_rollback.py
+  description: Rollback inteligente
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: mp_prioritizer
+  script: mp_prioritizer.py
+  description: Priorizacion dinamica de MPs
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+- name: pre_commit_hooks
+  script: pre_commit_hooks.py
+  description: Pre-commit hooks
+  exists: true
+  compiles: true
+  runs: true
+  passed: true
+orchestrator_integration:
+  passed: true
+  found:
+  - name: evidence_visual_diff
+    references: 12
+  - name: evidence_replay
+    references: 3
+  - name: cross_flow_learning
+    references: 7
+  - name: agent_decision_loop
+    references: 16
+  - name: force_quality_gates
+    references: 11
+  - name: user_input_collector
+    references: 7
+  - name: post_script_gates
+    references: 5
+  - name: feedback_loop
+    references: 3
+  - name: apolo_config
+    references: 5
+  - name: auto_hooks
+    references: 2
+  missing: []
+  total_integrations: 10
+cli_router:
+  passed: true
+  commands_found:
+  - run
+  - continue
+  - decide
+  - gen-script
+  - quality-check
+  - ask
+  - answer
+  - init
+  - collect
+  - score
+  - plan
+  - impact
+  - scaffold
+  - scaffold-v3
+  - index
+  - quality
+  - coverage
+  - vulnerability
+  - smells
+  - full-audit
+  - visual-diff
+  - evidence-replay
+  - cross-flow
+  - config
+  - hooks-check
+  - hooks-trigger
+  - gates-check
+  - feedback
+  - docs
+  - debug
+  - health
+  total_commands: 31
+opencode_hooks_healthy: true
+

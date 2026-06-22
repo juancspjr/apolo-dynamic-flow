@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T04:26:10Z'
+generated_at: '2026-06-22T04:42:44Z'
 repo_root: /home/juan/new_project
 available_lsps:
   typescript: typescript-language-server
@@ -765,57 +765,45 @@ diagnostics:
   language: python
   diagnostics:
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 16
-    severity: info
-    message: 'Marcar pendiente: DESPUES de v3.2.0: un solo comando ejecuta TODO:'
-    rule: todo-comment
-    method: regex
-  - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 622
+    line: 873
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 628
+    line: 879
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 632
+    line: 883
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 637
+    line: 888
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 642
+    line: 893
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 647
+    line: 902
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
-  - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 651
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  count: 8
+  count: 6
   lsp_used: pyright-langserver
   lsp_count: 0
-  regex_count: 8
+  regex_count: 6
 - file: /home/juan/new_project/scripts/python/collect_evidence.py
   language: python
   diagnostics:
@@ -3324,6 +3312,6 @@ diagnostics:
 summary:
   total_files: 87
   files_with_diagnostics: 62
-  total_diagnostics: 391
-duration_ms: 152334
+  total_diagnostics: 389
+duration_ms: 155517
 

@@ -507,6 +507,32 @@ case "$CMD" in
     run_py user_input_collector.py answer "$@"
     ;;
 
+  # === v3.4.0 NEW: MULTI-AGENT + ROLLBACK + PRIORITIZER + PRE-COMMIT + VERIFY ===
+  multi-agent)
+    # multi-agent register|complete|status|conflicts|merge
+    run_py multi_agent_coordinator.py "$@"
+    ;;
+
+  rollback)
+    # smart rollback: analyze|rollback|preview
+    run_py smart_rollback.py "$@"
+    ;;
+
+  prioritize)
+    # mp prioritizer: reprioritize|scores|next
+    run_py mp_prioritizer.py "$@"
+    ;;
+
+  pre-commit)
+    # pre-commit hooks: install|run|status|uninstall
+    run_py pre_commit_hooks.py "$@"
+    ;;
+
+  verify-flow)
+    # flow verifier: verifica que TODOS los super poderes funcionan
+    run_py flow_verifier.py verify "$@"
+    ;;
+
   # === ALIASES ÚTILES ===
   help|--help|-h)
     usage

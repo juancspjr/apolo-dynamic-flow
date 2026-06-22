@@ -1,0 +1,230 @@
+autohooks: V1
+version: 3
+schema_version: 3.2.0
+generated_at: '2026-06-22T05:09:08Z'
+enabled: true
+triggers:
+- name: phase-complete:init
+  enabled: true
+  run:
+  - script: health_check.py
+    args:
+    - --repo-root
+    - .
+    timeout: 30
+  condition: null
+  description: Después de init, ejecutar health check del entorno
+- name: phase-complete:plan-indice
+  enabled: true
+  run:
+  - script: cross_language_analyzer.py
+    args:
+    - --repo-root
+    - .
+    - --code-index
+    - .opencode/apolo-dynamic/CODE-INDEX.yaml
+    timeout: 60
+  - script: summarize_functions.py
+    args:
+    - --repo-root
+    - .
+    - --code-index
+    - .opencode/apolo-dynamic/CODE-INDEX.yaml
+    timeout: 60
+  condition: code_index_exists
+  description: Después de indexar codebase, análisis cross-language + resúmenes
+- name: evidence:collected
+  enabled: true
+  run:
+  - script: secret_scanner.py
+    args:
+    - --scan-stdin
+    timeout: 30
+    stdin_from: evidence_files
+  condition: items >= 1
+  description: Después de recolectar evidencia, escanear secretos en archivos
+- name: phase-complete:verdad
+  enabled: true
+  run:
+  - script: code_quality.py
+    args:
+    - --repo-root
+    - .
+    timeout: 120
+  - script: vulnerability_scanner.py
+    args:
+    - --repo-root
+    - .
+    timeout: 120
+  condition: null
+  description: Después de fase verdad, análisis de calidad + vulnerabilidades
+- name: plan:generated
+  enabled: true
+  run: []
+  condition: null
+  description: Placeholder — generate_plan no requiere hooks automáticos
+- name: scaffold:produced
+  enabled: true
+  run:
+  - script: code_smells.py
+    args:
+    - --repo-root
+    - .
+    - --code-index
+    - .opencode/apolo-dynamic/CODE-INDEX.yaml
+    timeout: 60
+  condition: scaffold_concrete
+  description: Después de producir scaffold, verificar code smells
+- name: phase-complete:reanclaje
+  enabled: true
+  run:
+  - script: test_coverage.py
+    args:
+    - --repo-root
+    - .
+    - --code-index
+    - .opencode/apolo-dynamic/CODE-INDEX.yaml
+    timeout: 120
+  condition: null
+  description: Después de reanclaje, medir coverage
+- name: test:failed
+  enabled: true
+  run:
+  - script: self_healing.py
+    args:
+    - --repo-root
+    - .
+    timeout: 60
+  condition: consecutive_failures >= 3
+  description: Después de 3 fallos consecutivos, ejecutar self-healing
+- name: block:detected
+  enabled: false
+  run: []
+  condition: null
+  description: Bloqueo detectado — escalado a operador (no automático)
+- name: evidence:baseline-captured
+  enabled: true
+  version_added: 3.1.0
+  run: []
+  condition: null
+  description: Baseline capturado por evidence_visual_diff — no requiere scripts adicionales
+    (la captura es el trigger)
+- name: evidence:broken-captured
+  enabled: true
+  version_added: 3.1.0
+  run:
+  - script: evidence_replay.py
+    args:
+    - bug
+    - --repo-root
+    - .
+    timeout: 30
+  condition: null
+  description: Después de capturar estado broken, construir bug replay para análisis
+- name: evidence:post-fix-captured
+  enabled: true
+  version_added: 3.1.0
+  run:
+  - script: evidence_visual_diff.py
+    args:
+    - compare
+    - --repo-root
+    - .
+    timeout: 30
+  condition: null
+  description: Después de capturar post-fix, generar comparación visual completa (baseline
+    vs broken vs post-fix)
+- name: flow:completed
+  enabled: true
+  version_added: 3.1.0
+  run:
+  - script: cross_flow_learning.py
+    args:
+    - analyze
+    - --repo-root
+    - .
+    timeout: 60
+  condition: null
+  description: Después de completar un flow, analizar todos los flows para cross-flow
+    learning
+- name: scaffold:v3-produced
+  enabled: true
+  version_added: 3.1.0
+  run:
+  - script: post_script_gates.py
+    args:
+    - check
+    - --repo-root
+    - .
+    - --script
+    - scaffold_v3.py
+    timeout: 15
+  condition: scaffold_v3_concrete
+  description: Después de producir scaffold v3, validar con post-script gates que
+    es concreto
+- name: orchestrator:phase-start
+  enabled: true
+  version_added: 3.2.0
+  run:
+  - script: force_quality_gates.py
+    args:
+    - check
+    - --repo-root
+    - .
+    timeout: 15
+  condition: null
+  description: 'ANTES de cada fase del orquestador: verificar quality gates (obliga
+    al agente a cumplir)'
+- name: agent:decision-proposed
+  enabled: true
+  version_added: 3.2.0
+  run:
+  - script: agent_decision_loop.py
+    args:
+    - decide
+    - --repo-root
+    - .
+    timeout: 15
+  condition: null
+  description: 'Cuando el agente propone decisiones: evaluar y escoger la excelente
+    (loop sobre decisiones)'
+- name: agent:script-needed
+  enabled: true
+  version_added: 3.2.0
+  run:
+  - script: script_generator.py
+    args:
+    - create
+    - --repo-root
+    - .
+    timeout: 15
+  condition: null
+  description: 'Cuando el agente necesita un script que no existe: generar template
+    automaticamente'
+- name: orchestrator:needs-input
+  enabled: true
+  version_added: 3.2.0
+  run:
+  - script: user_input_collector.py
+    args:
+    - ask
+    - --repo-root
+    - .
+    timeout: 15
+  condition: null
+  description: 'Cuando el orquestador necesita input del usuario: generar pregunta
+    y pausar'
+- name: orchestrator:phase-complete
+  enabled: true
+  version_added: 3.2.0
+  run:
+  - script: force_quality_gates.py
+    args:
+    - check
+    - --repo-root
+    - .
+    timeout: 15
+  condition: null
+  description: 'DESPUES de cada fase del orquestador: verificar quality gates (no
+    avanzar si no cumple)'
+

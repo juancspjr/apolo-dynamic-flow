@@ -1,0 +1,499 @@
+integration_validation: V1
+schema_version: 2.8.1
+generated_at: '2026-06-22T05:09:02Z'
+repo_root: /home/juan/new_project
+flowid: APOLO-INTEG-TEST
+phases:
+  init:
+    status: success
+    exit_code: 0
+    duration_ms: 194
+    stdout_preview: 'Flow inicializado
+
+      Flow APOLO-INTEG-TEST inicializado en /home/juan/new_project/plan/active/APOLO-INTEG-TEST
+
+      '
+    stderr_preview: ''
+    state_yaml_exists: true
+    state_yaml_preview: "flowstate: V2\nflowid: APOLO-INTEG-TEST\nversion: 1\nschema_version:\
+      \ V2\ncreated_at: '2026-06-22T05:09:02Z'\nupdated_at: '2026-06-22T05:09:02Z'\n\
+      phase: reanclaje\nphase_entered_at: '2026-06-22T05:09:02Z'\nhistory: []\nloops:\n\
+      \  reanclaje:\n    current: 0\n    max: 2\n    last_decision: ''\n  planning-bootstrap:\n\
+      \    current: 0\n    max: 2\n    last_decision: ''\n  asr:\n    current: 0\n\
+      \    max: 2\n    last_decision: ''\n  verdad:\n    current: 0\n    max: 2\n\
+      \    last_decision: ''\n  shaping:\n    current: 0\n    max: 2\n    last_decision:\
+      \ ''\n  plan-indice:\n    current: 0\n    max: 2\n    last_decision: ''\n  mp-validation:\n\
+      \    current: 0\n    max: 2\n    last_decision: ''\n  implementation:\n    current:\
+      \ 0\n    max: 4\n    last_decision: ''\n  critical-validation:\n    current:\
+      \ 0\n    max: 2\n    last_decision: ''\ncircuit_breaker:\n  policy: fail-closed\n\
+      \  escalation_path: []\nartifacts:\n  objetivo: ''\n  asr: ''\n  verdad: ''\n\
+      \  shaping: ''\n  plan_indice: ''\n  current_mps: []\n  evidence_pack: ''\n\
+      \  test_runs: []\n  blocks_log: ''\ntools_absorbed: []\ntokens_consumed_total:\
+      \ 0\noperator_hints: []\n\n"
+    state_yaml_path: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/FLOW-STATE.yaml
+  index_codebase:
+    status: success
+    exit_code: 0
+    duration_ms: 2394
+    stdout: '{"success": true, "files_indexed": 145, "total_functions": 764, "total_classes":
+      1, "duration_ms": 1756, "index_hash": "6113adee6089fad433080d6f2c5625548bd3bb5fea0aac2eb7f6e5fdc126a353",
+      "output": "/home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml"}
+
+      '
+    stderr: '[INFO] Indexando codebase en /home/juan/new_project...
+
+      [INFO] Encontrados 145 archivos para indexar
+
+      [INFO]   Progreso: 50/145
+
+      [INFO]   Progreso: 100/145
+
+      [INFO] Code index generado: 145 archivos, 764 funciones, 1 clases, 1756ms
+
+      '
+    parsed_json:
+      success: true
+      files_indexed: 145
+      total_functions: 764
+      total_classes: 1
+      duration_ms: 1756
+      index_hash: 6113adee6089fad433080d6f2c5625548bd3bb5fea0aac2eb7f6e5fdc126a353
+      output: /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml
+    ci_yaml_exists: true
+    ci_yaml_preview: "codeindex: V1\nversion: 1\ngenerated_at: '2026-06-22T05:09:04Z'\n\
+      generator:\n  script: scripts/python/index_codebase.py\n  duration_ms: 1756\n\
+      \  files_indexed: 145\nrepo_root: /home/juan/new_project\nindex_hash: 6113adee6089fad433080d6f2c5625548bd3bb5fea0aac2eb7f6e5fdc126a353\n\
+      stats:\n  total_files: 145\n  by_language:\n    yaml: 39\n    json: 14\n   \
+      \ py: 72\n    js: 1\n    ts: 19\n  total_functions: 764\n  total_classes: 1\n\
+      \  total_imports: 1236\n  avg_functions_per_file: 5.27\nfiles:\n- path: .opencode/apolo-dynamic/CODE-INDEX.yaml\n\
+      \  language: yaml\n  size_bytes: 325134\n  content_hash: 4f5f360030fd29b50022d881959b1242c7e28ef5533e36768d81fa06c16f87dd\n\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T00:34:27-04:00'\n  summary:\
+      \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
+      \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
+      \ null\n- path: .opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml\n  language:\
+      \ yaml\n  size_bytes: 808\n  content_hash: 2eb0adcf58ab7d681107917d5ff229cebc658b7ba4e4213a1de82c1e000495f7\n\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T00:34:27-04:00'\n  summary:\
+      \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
+      \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
+      \ null\n- path: .opencode/apolo-dynamic/DOCS-INDEX.yaml\n  language: yaml\n\
+      \  size_bytes: 2427963\n  content_hash: ce1d8f6ec70b467939b0daaa4789598045375913784590f3671d1a323afe4934\n\
+      \  git_tracked: false\n  git_last_modified: null\n  summary: Archivo .yaml |\
+      \ Sin símbolos exportados\n  symbols:\n    functions: []\n    classes: []\n\
+      \    interfaces: []\n    types: []\n  imports: []\n  error: null\n- path: .opencode/apolo-dynamic/EMBEDDINGS-CACHE.json\n\
+      \  language: json\n  size_bytes: 185677\n  content_hash: 1ff6260455845d16d72ac00ed5923beca398774f9f2ccc18c063e6cfc521066a\n\
+      \  git_tracked: true\n  git_last_modified: '2026-06-21T14:31:14-04:00'\n  summary:\
+      \ Archivo .json | Sin símbolos exportados\n  symbols:\n    functions: []\n \
+      \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
+      \ null\n- path: .opencode/apolo-dynamic/TOOL-REGISTRY.yaml\n  language: yaml\n\
+      \  size_bytes: 40369\n  content_hash: f74ccb191534e149df4c446d7d603a4572b7b23e8335bffb00d7c598abe1224c\n\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T00:34:27-04:00'\n  summary:\
+      \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
+      \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
+      \ null\n- path: .opencode/apolo-dynamic/apolo-config.yaml\n  language: yaml\n\
+      \  size_bytes: 2108\n  content_hash: 2a24fb4c04327a9b51a60461727d991ac92f9d103db4d114a9713a735bdfa812\n\
+      \  git_tracked: true\n  git_last_modified: '2026-06-22T00:34:27-04:00'\n  summary:\
+      \ Archivo .yaml | Sin símbolos exportados\n  symbols:\n    functions: []\n \
+      \   classes: []\n    interfaces: []\n    types: []\n  imports: []\n  error:\
+      \ null\n- path: .opencode/package-lock.json\n  language: json\n  size_bytes:\
+      \ 13853\n  content_hash: 82ee0e44665dfe671ced70e8d0d74f4483d1bcf431f76dfa69d55904599137c2\n\
+      \  git_tracked: false\n  git"
+    ci_yaml_path: /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml
+  collect_evidence:
+    status: success
+    exit_code: 0
+    duration_ms: 177
+    stdout: '{"success": true, "items": 2, "hash_chain": "ec0f10c40fa223b50736df8aefc819d912b831616a9627b3b09a06ad15368c1c",
+      "capabilities": {"playwright": "unavailable", "lsp": "available", "git": "available",
+      "python": "available", "node": "available", "curl": "available", "psql": "available"},
+      "duration_ms": 92, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml"}
+
+      '
+    stderr: '[INFO] recolectando evidencia para flow APOLO-INTEG-TEST
+
+      [INFO] evidence pack escrito: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml
+      (2 items, 92ms)
+
+      '
+    parsed_json:
+      success: true
+      items: 2
+      hash_chain: ec0f10c40fa223b50736df8aefc819d912b831616a9627b3b09a06ad15368c1c
+      capabilities:
+        playwright: unavailable
+        lsp: available
+        git: available
+        python: available
+        node: available
+        curl: available
+        psql: available
+      duration_ms: 92
+      output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml
+    evidence_yaml_exists: true
+    evidence_yaml_preview: "evidencepack: V2\nversion: 1\nflowid: APOLO-INTEG-TEST\n\
+      created_at: '2026-06-22T05:09:05Z'\ncollector:\n  script: scripts/python/collect_evidence.py\n\
+      \  script_hash: 30eae9f6850597c6fbc3ee912ea3428557ac493244a52bee13e4292c54ee14d4\n\
+      \  env_fingerprint: 5cb09cef434ce7e19d6b5141ad4cfd9796c43618e4edf1931faaef165ee7a88d\n\
+      \  duration_ms: 92\n  invoked_by: integration_validation\nitems:\n- id: E-001\n\
+      \  kind: file-snapshot\n  source: plugin/index.ts\n  hash: 36a823dfffb9c8653e655376bb028ebdebd308f4d111cade7e32e4693171b712\n\
+      \  size_bytes: 22396\n  captured_at: '2026-06-22T05:09:05Z'\n  summary: '/**\
+      \ |  * index.ts — Entry point del plugin apolo-dynamic-flow. |  * |  *\n   \
+      \ Reemplaza a apolo-flow-guardian.ts como plugin principal del sistema. |  *\
+      \ |  *\n    Registro: |  *   - Plugin OpenCode con hooks de lifecycle |  * \
+      \  - Tools expuestas\n    al orquestador |  *   - Commands expuestos al CLI\
+      \ |  * |  * Carg'\n  raw_path: ''\n  tags:\n  - ts\n  - snapshot\n  related_symbols:\n\
+      \  - OpenCodePlugin\n  - PluginInitContext\n  - HookContext\n  - HookResult\n\
+      \  - ToolHandler\n  - CommandHandler\n  - PLUGIN\n  - pc\n  - state\n  - pc\n\
+      \  - pc\n  - state\n  - state\n  - result\n  - detection\n  - result\n  - state\n\
+      \  - state\n  - result\n  - result\n- id: E-002\n  kind: git-diff\n  source:\
+      \ git diff HEAD\n  hash: 59d94c33f7cde1884214c9c8864683f839d3a0ff630a0ab55ebe0574a8756949\n\
+      \  size_bytes: 299504\n  captured_at: '2026-06-22T05:09:05Z'\n  summary: 'diff\
+      \ contra HEAD: 9582 líneas'\n  raw_path: ''\n  tags:\n  - git\n  - diff\n  related_symbols:\
+      \ []\nhash_chain: ec0f10c40fa223b50736df8aefc819d912b831616a9627b3b09a06ad15368c1c\n\
+      capabilities:\n  playwright: unavailable\n  lsp: available\n  git: available\n\
+      \  python: available\n  node: available\n  curl: available\n  psql: available\n\
+      degradation_log:\n- tool: playwright\n  reason: no instalado\n  fallback_used:\
+      \ curl + DOM inspection\n  at: '2026-06-22T05:09:05Z'\n\n"
+    evidence_yaml_path: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml
+  score_evidence:
+    status: success
+    exit_code: 0
+    duration_ms: 89
+    stdout: '{"success": true, "overall_score": 0.875, "scores": {"coverage": 1.0,
+      "freshness": 1.0, "depth": 0.5, "conflict_risk": 0.0, "redundancy": 0.0, "schema_validity":
+      1.0}, "severity": "info", "should_block_agent": false, "should_recollect": false,
+      "missing_critical_count": 0, "duration_ms": 5, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml"}
+
+      '
+    stderr: '[WARN] yaml_load falló en .: [Errno 21] Is a directory: ''.''
+
+      [INFO] Evidence score: overall=0.875 | coverage=1.00 | depth=0.50 | freshness=1.00
+      | severity=info
+
+      '
+    parsed_json:
+      success: true
+      overall_score: 0.875
+      scores:
+        coverage: 1.0
+        freshness: 1.0
+        depth: 0.5
+        conflict_risk: 0.0
+        redundancy: 0.0
+        schema_validity: 1.0
+      severity: info
+      should_block_agent: false
+      should_recollect: false
+      missing_critical_count: 0
+      duration_ms: 5
+      output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml
+    score_yaml_exists: true
+    score_yaml_preview: "evidencescore: V1\nversion: 1\nflowid: APOLO-INTEG-TEST\n\
+      generated_at: '2026-06-22T05:09:05Z'\ngenerator:\n  script: scripts/python/score_evidence.py\n\
+      \  duration_ms: 5\ninputs:\n  evidence_pack: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml\n\
+      \  verdad: .\n  code_index: null\nscores:\n  coverage: 1.0\n  freshness: 1.0\n\
+      \  depth: 0.5\n  conflict_risk: 0.0\n  redundancy: 0.0\n  schema_validity: 1.0\n\
+      overall_score: 0.875\ndetails:\n  missing_critical: []\n  freshness:\n    stale_files:\
+      \ []\n    fresh_files:\n    - plugin/index.ts\n  depth:\n    shallow_items:\n\
+      \    - E-002\n    deep_items:\n    - E-001\n  conflicts:\n    conflicts: []\n\
+      \  redundancy:\n    duplicates: []\n  schema_validity:\n    valid: 0\n    invalid:\
+      \ 0\n    note: no schema-validations\nrecommendation:\n  severity: info\n  actions:\n\
+      \  - 'OK: evidence pack sufficient for agent consumption'\n  should_block_agent:\
+      \ false\n  should_recollect: false\n\n"
+    score_yaml_path: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml
+  generate_plan:
+    status: success
+    exit_code: 0
+    duration_ms: 97
+    stdout: '{"success": true, "version": 1, "units": 1, "topological_order": ["U-01"],
+      "duration_ms": 8, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml"}
+
+      '
+    stderr: '[WARN] no se encontraron clusters en /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml
+
+      [INFO] plan dinámico v1 generado: 1 unidades, 8ms
+
+      '
+    parsed_json:
+      success: true
+      version: 1
+      units: 1
+      topological_order:
+      - U-01
+      duration_ms: 8
+      output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml
+    plan_yaml_exists: true
+    plan_yaml_preview: "dynamicplan: V2\nversion: 1\nparent_version: null\nflowid:\
+      \ APOLO-INTEG-TEST\ncreated_at: '2026-06-22T05:09:05Z'\nderivation_method: hybrid\n\
+      agent_context: null\nderived_from:\n  evidence_pack: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml\n\
+      \  truth_artifact: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml\n\
+      \  collected_at: '2026-06-22T05:09:05Z'\nrewrite_history: []\nunidades:\n- id:\
+      \ U-01\n  origenverdad:\n    componente: default\n    estado5: ER\n    referencias:\
+      \ []\n  resumen: Sin clusters en verdad — generar unidad por defecto\n  tipocambio:\
+      \ fix\n  ejedominante: handler\n  subeje: ''\n  acoplamientosreales:\n    archivos:\
+      \ []\n    simbolos: []\n  fronteracambio:\n    incluye: []\n    excluye: []\n\
+      \  fronteraconfianza:\n    confirmado: []\n    pendienteoperador: []\n    paradoja:\
+      \ []\n    fueraalcance: []\n  dependenciasprevias: &id001 []\n  mpestimados:\
+      \ '1'\n  riesgooperativo: medio\n  verificacionlocal: []\n  criteriohomogeneidad:\
+      \ Un solo eje (handler), un objetivo técnico.\n  admisibleaindice: true\n  motivonoaadmisible:\
+      \ ''\n  recomendacionparticion: []\ntopological_sort:\n- order: 1\n  unit_id:\
+      \ U-01\n  depends_on: *id001\nadaptative_gates:\n- id: AG-01\n  trigger: unit-mixed-concerns\n\
+      \  action: split-unit\n  description: Si una unidad mezcla más de un eje dominante,\
+      \ partir en N unidades.\n- id: AG-02\n  trigger: new-evidence-contradicts\n\
+      \  action: escalate\n  description: Si nueva evidencia contradice la frontera\
+      \ de confianza, escalar.\n- id: AG-03\n  trigger: test-failure-pattern\n  action:\
+      \ block\n  description: Si 3 tests consecutivos fallan en el mismo MP, bloquear.\n\
+      - id: AG-04\n  trigger: block-detected\n  action: escalate\n  description: Si\
+      \ se detecta bloqueo activo, escalar a operador.\n- id: AG-05\n  trigger: operator-decision\n\
+      \  action: block\n  description: Si fronteraconfianza.paradoja no está vacía,\
+      \ bloquear hasta decisión.\nestado: ready\n\n"
+    plan_yaml_path: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml
+  predict_impact:
+    status: success
+    exit_code: 0
+    duration_ms: 1072
+    stdout: '{"success": true, "schema_version": "2.5.0", "cascade_depth": 5, "global_risk":
+      "low", "risk_distribution": {"low": 1, "medium": 0, "high": 0, "critical": 0,
+      "unknown": 0}, "total_predictions": 1, "duration_ms": 981, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/IMPACT-PREDICTION.yaml"}
+
+      '
+    stderr: '[INFO] Impact prediction (v2.5.0 BFS depth=5): 1 MPs analyzed | global_risk=low
+      | distribution={''low'': 1, ''medium'': 0, ''high'': 0, ''critical'': 0, ''unknown'':
+      0} | 981ms
+
+      '
+    parsed_json:
+      success: true
+      schema_version: 2.5.0
+      cascade_depth: 5
+      global_risk: low
+      risk_distribution:
+        low: 1
+        medium: 0
+        high: 0
+        critical: 0
+        unknown: 0
+      total_predictions: 1
+      duration_ms: 981
+      output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/IMPACT-PREDICTION.yaml
+    impact_yaml_exists: true
+    impact_yaml_preview: "impactprediction: V1\nversion: 1\nschema_version: 2.5.0\n\
+      flowid: APOLO-INTEG-TEST\ngenerated_at: '2026-06-22T05:09:06Z'\ngenerator:\n\
+      \  script: scripts/python/predict_impact.py\n  duration_ms: 981\n  deep_mode:\
+      \ false\n  cascade_depth: 5\n  bfs_multilevel: true\ninputs:\n  plan: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml\n\
+      \  code_index: /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml\n\
+      \  telemetry: null\n  test_runs_dir: null\nglobal_risk: low\nrisk_distribution:\n\
+      \  low: 1\n  medium: 0\n  high: 0\n  critical: 0\n  unknown: 0\ntotal_predictions:\
+      \ 1\npredictions:\n- mp_id: U-01\n  mp_files: []\n  mp_symbols: []\n  overall_risk:\
+      \ low\n  recommendation: safe to proceed\n  projections:\n    dependency_cascade:\n\
+      \      risk_level: low\n      total_affected_modules: 0\n      affected_modules:\
+      \ []\n      per_file: {}\n      cascade_depth: 0\n      affected_by_level: {}\n\
+      \      per_level: {}\n      recommendation: safe to proceed\n    historical_pattern:\n\
+      \      risk_level: unknown\n      similar_patterns: []\n      note: no telemetry\
+      \ available\n    test_coverage_gap:\n      risk_level: unknown\n      covered_symbols:\
+      \ []\n      uncovered_symbols: []\n      note: no test runs available\nrecommendation:\
+      \ all MPs safe to implement\n\n"
+    impact_yaml_path: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/IMPACT-PREDICTION.yaml
+  scaffold:
+    status: success
+    exit_code: 0
+    duration_ms: 1051
+    stdout: '{"success": true, "unit_id": "U-01", "verdict": "proceed", "verdict_reason":
+      "andamio generado, todos los archivos indexados, tests encontrados", "total_files":
+      0, "total_contracts": 0, "total_checkpoints": 2, "has_circular_deps": false,
+      "duration_ms": 965, "output": "/home/juan/new_project/plan/active/APOLO-INTEG-TEST/scaffolds/SCAFFOLD.yaml"}
+
+      '
+    stderr: '[INFO] Scaffold for U-01: 0 files, 0 contracts, 2 checkpoints, verdict=proceed,
+      965ms
+
+      '
+    parsed_json:
+      success: true
+      unit_id: U-01
+      verdict: proceed
+      verdict_reason: andamio generado, todos los archivos indexados, tests encontrados
+      total_files: 0
+      total_contracts: 0
+      total_checkpoints: 2
+      has_circular_deps: false
+      duration_ms: 965
+      output: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/scaffolds/SCAFFOLD.yaml
+    scaffold_yaml_exists: true
+    scaffold_yaml_preview: "implscaffold: V1\nversion: 1\nflowid: APOLO-INTEG-TEST\n\
+      unit_id: U-01\ngenerated_at: '2026-06-22T05:09:07Z'\ngenerator:\n  script: scripts/python/scaffold_impl.py\n\
+      \  duration_ms: 965\ninputs:\n  plan: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml\n\
+      \  code_index: /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml\n\
+      \  impact_prediction: null\nverdict: proceed\nverdict_reason: andamio generado,\
+      \ todos los archivos indexados, tests encontrados\nfiles_to_touch: []\nfunction_contracts:\
+      \ []\nexisting_tests:\n  inferred_test_files: {}\n  historical_runs: []\n  must_keep_passing:\
+      \ []\nedit_order: []\ncheckpoints:\n- id: CP-U-01-1\n  when: before-start\n\
+      \  action: verify-clean-git\n  command: git status --porcelain\n  expected:\
+      \ empty output (clean working tree)\n- id: CP-U-01-final\n  when: after-implementation-complete\n\
+      \  action: run-full-suite\n  command: python3 tests/run_all_tests.py\n  expected:\
+      \ ALL 5 TESTS PASSED\ncircular_dependencies: []\nchange_template:\n  pattern:\
+      \ bug-fix\n  structure:\n  - 1. Identificar la función/method con el bug (revisar\
+      \ tests existentes que fallen)\n  - 2. Reproducir el bug con un test que falle\n\
+      \  - 3. Aplicar el fix mínimo necesario\n  - 4. Verificar que el test ahora\
+      \ pasa\n  - 5. Correr tests del módulo completo\n  anti_patterns:\n  - No refactorizar\
+      \ mientras se fixea\n  - No añadir funcionalidad nueva en un fix\n  - No cambiar\
+      \ la firma de la función\nsummary:\n  total_files: 0\n  total_contracts: 0\n\
+      \  total_checkpoints: 2\n  has_circular_deps: false\n  tests_found: 0\n\n"
+    scaffold_yaml_path: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/scaffolds/SCAFFOLD.yaml
+    is_concrete: false
+    concrete_evidence: []
+    verdict_concrete: FAIL — scaffold is empty/abstract
+telemetry_verification:
+  telemetry_exists: true
+  telemetry_path: /home/juan/new_project/plan/active/APOLO-INTEG-TEST/telemetry.jsonl
+  entries_count: 0
+  invalid_lines: 0
+  timestamps_valid: false
+  timestamps_with_tz: 0
+  entries_missing_required_fields: 0
+  sample_entries: []
+  verdict: PARTIAL — some entries missing fields
+test_contracts_analysis:
+  total_test_files: 12
+  integration_tests: 3
+  isolated_tests: 9
+  ratio_integration: 0.25
+  verdict: MOSTLY ISOLATED — tests validate scripts individually, few cross-script
+    contracts
+  per_file:
+  - file: tests/test_loop_engine.py
+    scripts_referenced: []
+    is_integration_test: false
+  - file: tests/test_block_detector.py
+    scripts_referenced: []
+    is_integration_test: false
+  - file: tests/test_python_scripts.py
+    scripts_referenced:
+    - collect_evidence
+    - generate_plan
+    - validate_artifact
+    is_integration_test: true
+  - file: tests/test_intelligence.py
+    scripts_referenced:
+    - generate_tests
+    - refactor_engine
+    - self_healing
+    - semantic_search
+    is_integration_test: true
+  - file: tests/run_all_tests.py
+    scripts_referenced: []
+    is_integration_test: false
+  - file: tests/test_state_machine.py
+    scripts_referenced: []
+    is_integration_test: false
+  - file: tests/test_hash_chain.py
+    scripts_referenced: []
+    is_integration_test: false
+  - file: tests/test_security.py
+    scripts_referenced: []
+    is_integration_test: false
+  - file: tests/test_tool_absorber.py
+    scripts_referenced: []
+    is_integration_test: false
+  - file: tests/test_atomic.py
+    scripts_referenced: []
+    is_integration_test: false
+  - file: tests/test_quality.py
+    scripts_referenced:
+    - code_quality
+    - predict_impact
+    - test_coverage
+    is_integration_test: true
+  - file: tests/plugin.test.ts
+    scripts_referenced: []
+    is_integration_test: false
+scripts_catalog:
+  automatic:
+    index_codebase.py: Invocado en phase=plan-indice para construir CODE-INDEX
+    collect_evidence.py: Invocado en phase=verdad (recolección determinista + agente)
+    score_evidence.py: 'Invocado en phase=verdad (gate: score >= threshold para avanzar)'
+    generate_plan.py: 'Invocado en phase=plan-indice (3 modos: deterministic/hybrid/manual)'
+    predict_impact.py: Invocado en phase=plan-indice (BFS multi-nivel sobre CODE-INDEX)
+    scaffold_impl.py: Invocado en phase=reanclaje (genera andamio antes de implementar)
+    validate_artifact.py: Invocado por gates para validar YAMLs contra schemas
+    common.py: Librería compartida (no se invoca directo, se importa)
+    context_query.py: Invocado por el agente para obtener contexto del flow actual
+    telemetry_aggregator.py: Invocado por el loop para consolidar telemetry.jsonl
+    health_check.py: Invocado en init y post-fail para diagnóstico
+  manual:
+    code_quality.py: Agente decide cuándo analizar calidad
+    test_coverage.py: Agente decide cuándo medir coverage
+    lsp_integration.py: Agente lo usa para find-references/goto-def
+    vulnerability_scanner.py: Agente lo invoca para escaneo CVE
+    code_smells.py: Agente lo invoca para detectar smells
+    full_audit.py: Agente lo invoca para auditoría completa
+    cross_language_analyzer.py: Agente lo invoca para análisis cross-language
+    summarize_functions.py: Agente lo invoca para resúmenes
+    code_generator.py: Agente lo invoca para generar código
+    doc_generator.py: Agente lo invoca para generar docs
+    project_templates.py: Agente lo invoca para scaffolding de proyecto nuevo
+    onboarding.py: Agente lo invoca al iniciar
+    github_actions.py: Agente lo invoca para CI/CD
+    self_healing.py: Agente lo invoca cuando hay fallos repetidos
+    generate_tests.py: Agente lo invoca para tests automáticos
+    semantic_search.py: Agente lo invoca para búsqueda semántica
+    refactor_engine.py: Agente lo invoca para refactoring
+    llm_bridge.py: Agente lo invoca para llamadas LLM
+    absorb_external_skills.py: Agente lo invoca para absorber skills
+    absorb_mcp.py: Agente lo invoca para MCPs
+    secret_scanner.py: Agente lo invoca para escanear secretos
+    inspect_tools.py: Agente lo invoca para inspeccionar registry
+    rollback.py: Agente lo invoca para revertir
+    run_tests.py: Agente lo invoca para ejecutar test suite
+    feedback_loop.py: Agente lo invoca para registrar feedback (v2.8.1)
+    interactive_docs.py: Agente lo invoca para buscar docs (v2.8.1)
+    debug_mode.py: Agente lo invoca para debug paso a paso (v2.8.1)
+    integration_validation.py: Agente lo invoca para validar integración (v2.8.1)
+  automatic_count: 11
+  manual_count: 28
+  ratio_automatic: 0.28
+verdict:
+  phases_executed: 7
+  phases_successful: 7
+  phases_success_rate: 1.0
+  artifacts_produced:
+  - index_codebase
+  - collect_evidence
+  - score_evidence
+  - generate_plan
+  - predict_impact
+  - scaffold
+  artifacts_missing: []
+  scaffold_is_concrete: false
+  telemetry_records_decisions: false
+  tests_integration_ratio: 0.25
+  tests_verdict: MOSTLY ISOLATED — tests validate scripts individually, few cross-script
+    contracts
+  automatic_scripts_count: 11
+  manual_scripts_count: 28
+  control_loss_points:
+  - point: Elección de method en generate_plan
+    severity: medium
+    explanation: El agente elige deterministic/hybrid/manual sin evidencia cuantitativa
+      que justifique la elección. El sistema no impone un method por defecto basado
+      en score_evidence.
+  - point: Selección de U-NN para scaffold_impl
+    severity: high
+    explanation: El agente decide qué unidad implementar primero. Si el plan tiene
+      10 unidades, el sistema no prioriza automáticamente basándose en impacto/criticidad.
+  - point: Invocación de scripts manuales (20+ scripts)
+    severity: high
+    explanation: 20+ scripts (code_quality, vulnerability_scanner, code_smells, etc.)
+      requieren invocación manual del agente. El sistema no los ejecuta automáticamente
+      en función del contexto.
+  - point: Thresholds hardcoded en gates
+    severity: medium
+    explanation: Los thresholds de score_evidence (e.g., >=0.6 para avanzar) están
+      hardcoded en TS, no son ajustables por flow ni por proyecto.
+  - point: Silent failures en scripts Python
+    severity: high
+    explanation: Si un script Python falla silenciosamente (retorna YAML vacío pero
+      exit code 0), el loop engine TS puede avanzar de fase sin evidencia real. telemetry.jsonl
+      solo registra lo que el TS layer reporta.
+  overall_verdict: DEGRADED — flow runs but scaffold is abstract or telemetry is incomplete
+total_duration_ms: 5087
+

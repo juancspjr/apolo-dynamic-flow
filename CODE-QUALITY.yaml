@@ -1,7 +1,7 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T04:32:44Z'
+generated_at: '2026-06-22T05:08:04Z'
 repo_root: /home/juan/new_project
-total_files: 89
+total_files: 94
 languages_detected:
 - css
 - html
@@ -1816,6 +1816,14 @@ security_findings:
   confidence: MEDIUM
   message: 'Possible hardcoded password: ''False'''
 - tool: bandit
+  file: /home/juan/new_project/scripts/python/smart_rollback.py
+  line: 24
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
   file: /home/juan/new_project/scripts/python/common.py
   line: 14
   test_id: B404
@@ -1910,14 +1918,14 @@ security_findings:
   message: Try, Except, Pass detected.
 - tool: bandit
   file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-  line: 546
+  line: 556
   test_id: B603
   severity: LOW
   confidence: HIGH
   message: subprocess call - check for execution of untrusted input.
 - tool: bandit
   file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-  line: 563
+  line: 571
   test_id: B603
   severity: LOW
   confidence: HIGH
@@ -2097,6 +2105,14 @@ security_findings:
   confidence: HIGH
   message: Try, Except, Pass detected.
 - tool: bandit
+  file: /home/juan/new_project/scripts/python/flow_verifier.py
+  line: 24
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
   file: /home/juan/new_project/scripts/python/doc_generator.py
   line: 172
   test_id: B112
@@ -2165,6 +2181,14 @@ security_findings:
 - tool: bandit
   file: /home/juan/new_project/scripts/python/force_quality_gates.py
   line: 42
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  line: 29
   test_id: B404
   severity: LOW
   confidence: HIGH
@@ -3804,6 +3828,42 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  function: get_failing_files_from_telemetry
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  function: main
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  function: get_failing_files_from_scaffold
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  function: execute_rollback
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  function: get_modified_files
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  function: analyze_failure
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/common.py
   function: _parse_scalar
   complexity: 10
@@ -4046,7 +4106,7 @@ complexity_scores:
   estimated: false
 - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
   function: phase_implement
-  complexity: 18
+  complexity: 19
   rank: C
   tool: radon
   estimated: false
@@ -4057,14 +4117,14 @@ complexity_scores:
   tool: radon
   estimated: false
 - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-  function: run_script
-  complexity: 10
-  rank: B
+  function: phase_plan
+  complexity: 11
+  rank: C
   tool: radon
   estimated: false
 - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-  function: phase_plan
-  complexity: 9
+  function: run_script
+  complexity: 10
   rank: B
   tool: radon
   estimated: false
@@ -4123,6 +4183,12 @@ complexity_scores:
   tool: radon
   estimated: false
 - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: phase_complete
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
   function: continue_cycle
   complexity: 2
   rank: A
@@ -4160,12 +4226,6 @@ complexity_scores:
   estimated: false
 - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
   function: _capture_post_fix
-  complexity: 1
-  rank: A
-  tool: radon
-  estimated: false
-- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-  function: phase_complete
   complexity: 1
   rank: A
   tool: radon
@@ -4401,6 +4461,36 @@ complexity_scores:
 - file: /home/juan/new_project/scripts/python/llm_bridge.py
   function: suggest_refactor
   complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  function: reprioritize
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  function: calculate_unit_score
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  function: main
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  function: get_next_unit
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  function: get_scores
+  complexity: 2
   rank: A
   tool: radon
   estimated: false
@@ -4718,6 +4808,60 @@ complexity_scores:
   estimated: false
 - file: /home/juan/new_project/scripts/python/lsp_integration.py
   function: lsp_find_references_via_cli
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: main
+  complexity: 19
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: register_agent
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: get_status
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: merge_results
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: load_coord
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: complete_unit
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: coord_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: save_coord
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: get_conflicts
   complexity: 1
   rank: A
   tool: radon
@@ -5568,6 +5712,48 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  function: verify_all
+  complexity: 15
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  function: main
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  function: verify_script_runs
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  function: verify_cli_router
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  function: verify_orchestrator_integration
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  function: verify_script_compiles
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  function: verify_script_exists
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/secret_scanner.py
   function: main
   complexity: 18
@@ -6123,6 +6309,36 @@ complexity_scores:
 - file: /home/juan/new_project/scripts/python/feedback_loop.py
   function: feedback_path
   complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  function: main
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  function: install_hooks
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  function: run_hooks
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  function: status_hooks
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  function: uninstall_hooks
+  complexity: 2
   rank: A
   tool: radon
   estimated: false
@@ -6773,11 +6989,11 @@ high_complexity_functions:
   recommendation: refactor 'phase_scaffold' (complejidad 16 > 15)
 - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
   function: phase_implement
-  complexity: 18
+  complexity: 19
   rank: C
-  lineno: 507
+  lineno: 518
   tool: radon
-  recommendation: refactor 'phase_implement' (complejidad 18 > 15)
+  recommendation: refactor 'phase_implement' (complejidad 19 > 15)
 - file: /home/juan/new_project/scripts/python/collect_evidence.py
   function: main
   complexity: 22
@@ -6834,6 +7050,13 @@ high_complexity_functions:
   lineno: 597
   tool: radon
   recommendation: refactor 'main' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  function: main
+  complexity: 19
+  rank: C
+  lineno: 153
+  tool: radon
+  recommendation: refactor 'main' (complejidad 19 > 15)
 - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
   function: generate_diff
   complexity: 26
@@ -7222,13 +7445,13 @@ degradations:
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 recommendations:
-- Refactorizar 75 función(es) con complejidad > 15
-- 'Atender 288 finding(s) de seguridad: {''medium'': 5, ''low'': 282, ''high'': 1}'
+- Refactorizar 76 función(es) con complejidad > 15
+- 'Atender 291 finding(s) de seguridad: {''medium'': 5, ''low'': 285, ''high'': 1}'
 - 'Instalar herramientas faltantes para análisis completo: 22 degradación(es)'
 summary:
-  total_security_findings: 288
-  total_functions_analyzed: 737
-  high_complexity_count: 75
+  total_security_findings: 291
+  total_functions_analyzed: 769
+  high_complexity_count: 76
   degradation_count: 22
-duration_ms: 48978
+duration_ms: 46076
 

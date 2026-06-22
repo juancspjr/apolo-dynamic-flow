@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install PyYAML jsonschema pytest
+      - run: python3 tests/run_all_tests.py
+      - run: python3 tests/test_atomic.py
+      - run: python3 tests/test_security.py
+      - run: python3 tests/test_quality.py
+      - run: python3 tests/test_intelligence.py
+
+  test-typescript:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm install
+      - run: npx tsc --noEmit
+      - run: node --test dist/tests/plugin.test.js
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install bandit radon
+      - run: bandit -r scripts/ -f json -o bandit-report.json || true
+      - run: radon cc scripts/ -s || true

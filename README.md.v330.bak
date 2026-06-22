@@ -2,12 +2,12 @@
 
 > **Plugin de orquestacion de agentes para OpenCode** con flujos dinamicos, recoleccion determinista de evidencia, planes generados por Python, tests automaticos tras cada cambio, absorcion de tools externas (MCPs, skills, plugins, scripts), self-healing, generacion automatica de tests, busqueda semantica, refactoring, escaneo de vulnerabilidades CVE, code smells, dead code, feedback loop, documentacion interactiva, modo debug paso a paso, validacion de integracion E2E, auto-hooks, post-script gates y CLI router unificado.
 
-[![Tests](https://img.shields.io/badge/tests-165%2B%20passing-brightgreen)](#11-tests)
-[![Coverage](https://img.shields.io/badge/capability%20coverage-98%25-green)](#23-capability-assessment)
+[![Tests](https://img.shields.io/badge/tests-160%2B%20passing-brightgreen)](#11-tests)
+[![Coverage](https://img.shields.io/badge/capability%20coverage-97%25-green)](#23-capability-assessment)
 [![License](https://img.shields.io/badge/license-MIT-blue)](#26-licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#2-prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#2-prerrequisitos)
-[![Version](https://img.shields.io/badge/version-3.4.0-blue)](#25-changelog)
+[![Version](https://img.shields.io/badge/version-3.3.0-blue)](#25-changelog)
 
 ---
 
@@ -2238,108 +2238,6 @@ Cobertura de capacidades:   95%
 
 ## 25. Changelog
 
-### v3.4.0 (2026-06-22) — 4 GAPs cerrados + flow_verifier (check real de todo)
-
-**4 GAPs cerrados del INTEGRATION-VERDICT.md:**
-
-- **Multi-agent coordination** (`multi_agent_coordinator.py`): 2+ agentes en paralelo sobre el mismo MP. Coordina via archivo de lock, detecta conflicts, hace merge de results.
-- **Rollback inteligente** (`smart_rollback.py`): detecta qué archivos causaron el fallo (via telemetry + scaffold) y revierte SOLO esos, preservando el resto del trabajo.
-- **Priorización dinámica de MPs** (`mp_prioritizer.py`): reordena la cola de unidades basandose en impacto predicho, riesgo, tasa de exito historica, dependencias y velocidad.
-- **Pre-commit hooks** (`pre_commit_hooks.py`): genera hook de git que ejecuta secret_scanner + TypeScript compile + Python compile + force_quality_gates antes de cada commit.
-
-**NUEVO: flow_verifier.py — El CHECK que pediste:**
-
-Verifica que TODOS los super poderes del sistema funcionan de verdad (no solo que existen):
-- 52 scripts verificados (exists + compiles + runs)
-- Integracion del orquestador (>10 super poderes referenciados)
-- CLI router (>25 comandos)
-- Hooks de OpenCode HEALTHY
-- Genera FLOW-VERIFICATION-REPORT.yaml
-
-**Integracion en el orquestador:**
-- Fase 5 PLAN: ahora invoca `mp_prioritizer.reprioritize()` despues de generate_plan
-- Fase 8 IMPLEMENT: ahora invoca `smart_rollback.rollback()` (dry-run) cuando tests fallan
-- Fase 11 COMPLETE: ahora invoca `pre_commit_hooks.install()` y `multi_agent_coordinator.merge()`
-
-**Nuevos comandos en CLI router (5 nuevos, total 56+):**
-- `apolo multi-agent` — coordina 2+ agentes
-- `apolo rollback` — smart rollback
-- `apolo prioritize` — reprioritiza MPs
-- `apolo pre-commit` — gestiona pre-commit hooks
-- `apolo verify-flow` — verifica que TODOS los super poderes funcionan
-
-**Flujo completo verificado (lo que el sistema hace realmente):**
-
-```
-Usuario ejecuta UN comando:
-  apolo run --flowid APOLO-X --goal "implementar JWT auth"
-
-El sistema ejecuta automaticamente:
-  FASE 1 INIT:
-    ✓ health_check.py (verifica entorno)
-    ✓ cross_flow_learning.recommend() (recomendaciones de flows anteriores)
-
-  FASE 2 INDEX:
-    ✓ index_codebase.py (AST multi-lenguaje)
-    ✓ cross_language_analyzer.py (mapea calls entre lenguajes)
-    ✓ summarize_functions.py (docstrings automaticos)
-
-  FASE 3 COLLECT:
-    ✓ user_input_collector.ask() (pregunta scope al usuario si needed)
-    ✓ collect_evidence.py (recoleccion determinista + agente)
-    ✓ secret_scanner.py (escanea secretos en archivos del scope)
-
-  FASE 4 SCORE:
-    ✓ score_evidence.py (6 metricas: coverage/freshness/depth/conflict/redundancy/schema)
-    ✓ apolo_config.get_threshold() (lee threshold configurable)
-    ✓ SI score < threshold: PAUSA (necesita mas evidencia)
-    ✓ evidence_visual_diff.capture(baseline) (snapshot antes de implementar)
-
-  FASE 5 PLAN:
-    ✓ agent_decision_loop.decide() (elige method: deterministic/hybrid/manual)
-    ✓ generate_plan.py (genera plan con method elegido)
-    ✓ mp_prioritizer.reprioritize() (reordena unidades por prioridad dinamica)
-
-  FASE 6 IMPACT:
-    ✓ predict_impact.py (BFS multi-nivel, max_depth de apolo_config)
-
-  FASE 7 SCAFFOLD:
-    ✓ agent_decision_loop.decide() (elige strategy: topological/highest_impact/lowest_risk)
-    ✓ scaffold_v3.py (genera files_to_create + commands concretos)
-    ✓ post_script_gates.check(scaffold_v3) (valida que es concreto, bloquea si no)
-
-  FASE 8 IMPLEMENT:
-    ✓ force_quality_gates.check() (verifica quality antes de implementar)
-    ✓ EXECUTE scaffold commands (mkdir + create files with templates)
-    ✓ run tests
-    ✓ SI tests fallan:
-      - evidence_visual_diff.capture(broken) (snapshot del estado roto)
-      - evidence_replay.bug() (analiza causa probable del bug)
-      - smart_rollback.rollback() (revertir SOLO archivos que fallaron)
-      - PAUSA (ver reportes para fix)
-    ✓ SI tests pasan:
-      - evidence_visual_diff.capture(post-fix) (snapshot del estado arreglado)
-      - evidence_visual_diff.compare() (compara baseline/broken/post-fix)
-
-  FASE 9 TEST:
-    ✓ run_tests.py
-    ✓ force_quality_gates.check_one(tests_pass) (BLOQUEA si falla)
-
-  FASE 10 VALIDATE:
-    ✓ force_quality_gates.check() (todos los gates)
-    ✓ cross_flow_learning.analyze() (actualiza knowledge base para futuros flows)
-
-  FASE 11 COMPLETE:
-    ✓ feedback_loop.add() (pide feedback al usuario)
-    ✓ pre_commit_hooks.install() (instala hooks para futuros commits)
-    ✓ multi_agent_coordinator.merge() (merge results si habia multiples agentes)
-    ✓ ORCHESTRATOR-REPORT.yaml (reporte final consolidado)
-```
-
-**Tests:** 165+ tests pasando, 98% capability coverage (7 gaps restantes de 11 originales)
-
----
-
 ### v3.3.0 (2026-06-22) — Orquestador REESCRITO: USA TODOS los super poderes
 
 **PROBLEMA DETECTADO en v3.2.0:** El orquestador existia pero **NO usaba** los super poderes del sistema. Solo los mencionaba en docstrings. La data NO floria entre scripts.
@@ -3004,13 +2902,10 @@ Basado en los 5 puntos de perdida de control del INTEGRATION-VERDICT.md:
 | v2.9.0 | 2026-06-22 | 133 | 90% | Hooks validator + auto-hooks + gates + CLI router |
 | v3.1.0 | 2026-06-22 | 150+ | 95% | Config + scaffold v3 + visual diff + replay + cross-flow |
 | v3.2.0 | 2026-06-22 | 160+ | 97% | Orquestador automatico + decision loop + script gen + quality gates |
-| v3.3.0 | 2026-06-22 | 160+ | 97% | Orquestador REESCRITO — USA todos los super poderes (data fluye) |
-| **v3.4.0** | **2026-06-22** | **165+** | **98%** | **4 GAPs cerrados (multi-agent, rollback, prioritizer, pre-commit) + flow_verifier** |
+| **v3.3.0** | **2026-06-22** | **160+** | **97%** | **Orquestador REESCRITO — USA todos los super poderes (data fluye)** |
 
 ---
 
-> **APOLO Dynamic Flow v3.4.0** — Plugin de orquestacion de agentes para OpenCode.
-> 165+ tests pasando, 98% capability coverage, 56+ comandos en CLI router unificado.
-> 4 GAPs cerrados: multi-agent coordination + smart rollback + mp prioritizer + pre-commit hooks.
-> flow_verifier.py valida que TODOS los super poderes funcionan de verdad.
-> Flujo completo: cross_flow → score → decision_loop → plan → mp_prioritizer → scaffold → gates → EXECUTE → smart_rollback → visual_diff → replay → knowledge → pre_commit → feedback.
+> **APOLO Dynamic Flow v3.3.0** — Plugin de orquestacion de agentes para OpenCode.
+> 160+ tests pasando, 97% capability coverage, 51+ comandos en CLI router unificado.
+> Orquestador REESCRITO que USA TODOS los super poderes: cross_flow recommend → score con apolo_config → agent_decision_loop elige method/strategy → post_script_gates valida scaffold → EXECUTE scaffold commands → force_quality_gates bloquea → evidence_visual_diff captura baseline/broken/post-fix → evidence_replay analiza bugs → cross_flow learning actualiza knowledge → feedback_loop pide feedback.

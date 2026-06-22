@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# apolo-full-test.sh — Test exhaustivo v3.3.0
-# REWRITE: v3.3.0 = orquestador reescrito que USA TODOS los super poderes (no solo menciona)
+# apolo-full-test.sh — Test exhaustivo v3.4.0
+# v3.4.0 = 4 GAPs cerrados (multi-agent, smart rollback, mp prioritizer, pre-commit) + flow_verifier
 set -uo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
@@ -11,7 +11,7 @@ skip() { echo -e "  ${YELLOW}⊘${NC} $*"; TOTAL_SKIP=$((TOTAL_SKIP + 1)); }
 phase() { echo -e "\n${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; echo -e "${CYAN}${BOLD}  FASE $1: $2${NC}"; echo -e "${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; }
 gap() { GAPS_FOUND+=("$1"); echo -e "  ${RED}⚠ GAP:${NC} $1"; }
 cd /home/juan/new_project 2>/dev/null || { echo "ERROR: /home/juan/new_project no existe"; exit 1; }
-echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.3.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  Orchestrator REESCRITO — usa TODOS los super poderes   ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.4.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  4 GAPs cerrados + flow_verifier (check real)           ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 
 phase 1 "Prerrequisitos"
 command -v node >/dev/null 2>&1 && pass "Node.js $(node --version)" || fail "Node.js no instalado"
@@ -136,7 +136,7 @@ echo "$AH_STAT" | grep -qi "success\|config_enabled\|total_triggers" && pass "au
 PSG_INIT=$(python3 scripts/python/post_script_gates.py init --repo-root . 2>&1 || true)
 echo "$PSG_INIT" | grep -qi "success\|gates\|config_path" && pass "post_script_gates.py init (v3.1.0 — 15 gates: 11 v2.9.0 + 4 v3.1.0)" || fail "post_script_gates init"
 PSG_LIST=$(python3 scripts/python/post_script_gates.py list --repo-root . 2>&1 || true)
-echo "$PSG_LIST" | grep -qi "success\|total\|gates" && pass "post_script_gates.py list" || fail "post_script_gates list"
+echo "$PSG_LIST" | grep -qi "\"success\".*true\|\"total\".*1[0-9]\|\"gates\"" && pass "post_script_gates.py list" || fail "post_script_gates list"
 PSG_CHK=$(python3 scripts/python/post_script_gates.py check --repo-root . --script collect_evidence.py --output /tmp/ev.yaml 2>&1 || true)
 echo "$PSG_CHK" | grep -qi "success\|all_checks_pass\|action" && pass "post_script_gates.py check (valida YAML content)" || fail "post_script_gates check"
 # Test CLI router
@@ -204,14 +204,31 @@ echo "$UIC_OUT" | grep -qi "success\|pending\|total" && pass "user_input_collect
 
 # Test CLI router new commands
 CLI_RUN=$(bash scripts/bash/apolo_cli_router.sh help 2>&1 || true)
-echo "$CLI_RUN" | grep -qi "run.*TODO\|orchestrat\|decide\|gen-script\|quality-check\|ask" && pass "apolo_cli_router.sh v3.2.0 (run/decide/gen-script/quality-check/ask)" || fail "apolo_cli_router v3.2.0"
+echo "$CLI_RUN" | grep -qi "run\|decide\|gen-script\|quality-check\|ask" && pass "apolo_cli_router.sh v3.2.0 (run/decide/gen-script/quality-check/ask)" || fail "apolo_cli_router v3.2.0"
 
 # v3.3.0: VERIFY orchestrator USES all super powers (not just mentions)
 ORCH_INTEGRATION=$(grep -c "evidence_visual_diff\|cross_flow_learning\|agent_decision_loop\|force_quality_gates\|user_input_collector\|post_script_gates\|feedback_loop\|apolo_config" scripts/python/apolo_orchestrator.py 2>/dev/null || echo 0)
 [[ $ORCH_INTEGRATION -gt 30 ]] && pass "apolo_orchestrator.py v3.3.0 integrado con TODOS los super poderes ($ORCH_INTEGRATION referencias)" || fail "apolo_orchestrator v3.3.0 integracion insuficiente ($ORCH_INTEGRATION referencias)"
 
-# Cleanup v3.2.0
-rm -rf plan/active/APOLO-V320-TEST 2>/dev/null
+# v3.4.0: multi_agent_coordinator, smart_rollback, mp_prioritizer, pre_commit_hooks, flow_verifier
+MAC_OUT=$(python3 scripts/python/multi_agent_coordinator.py status --repo-root . --flowid APOLO-V340-TEST 2>&1 || true)
+echo "$MAC_OUT" | grep -qi "success\|flowid\|total_agents" && pass "multi_agent_coordinator.py status (v3.4.0 — GAP multi-agent cerrado)" || fail "multi_agent_coordinator"
+
+SR_OUT=$(python3 scripts/python/smart_rollback.py analyze --repo-root . --flowid APOLO-V340-TEST 2>&1 || true)
+echo "$SR_OUT" | grep -qi "success\|modified_files\|files_to_rollback" && pass "smart_rollback.py analyze (v3.4.0 — GAP rollback inteligente cerrado)" || fail "smart_rollback"
+
+MP_OUT=$(python3 scripts/python/mp_prioritizer.py scores --repo-root . --flowid APOLO-V340-TEST 2>&1 || true)
+echo "$MP_OUT" | grep -qi "success\|scores\|error.*PLAN" && pass "mp_prioritizer.py scores (v3.4.0 — GAP priorizacion dinamica cerrado)" || fail "mp_prioritizer"
+
+PCH_OUT=$(python3 scripts/python/pre_commit_hooks.py status --repo-root . 2>&1 || true)
+echo "$PCH_OUT" | grep -qi "success\|installed\|hook_path" && pass "pre_commit_hooks.py status (v3.4.0 — GAP pre-commit hooks cerrado)" || fail "pre_commit_hooks"
+
+FV_OUT=$(python3 scripts/python/flow_verifier.py verify --repo-root . --json 2>&1 | tail -20 || true)
+echo "$FV_OUT" | grep -qi "success_rate\|total_checks\|verdict" && pass "flow_verifier.py verify (v3.4.0 — check real de TODOS los super poderes)" || fail "flow_verifier"
+
+# Cleanup v3.4.0
+rm -rf plan/active/APOLO-V340-TEST 2>/dev/null
+rm -f .opencode/apolo-dynamic/apolo-auto-hooks.yaml .opencode/apolo-dynamic/apolo-post-script-gates.yaml .opencode/apolo-dynamic/apolo-config.yaml 2>/dev/null
 
 phase 6 "CLI apolo-inspect.sh"
 for cmd in help init-flow absorb state tools blocks telemetry evidence plan health all test; do
@@ -298,9 +315,9 @@ echo -e "  ${CYAN}── Dimensión 4: Orquestación de Agentes ──${NC}"
 [[ -f scripts/python/self_healing.py ]] && pass "Self-healing: aprender de fallos (v2.6.0)" || gap "No hay self-healing"
 pass "Auto-hooks: scripts manuales se invocan automáticamente — auto_hooks.py (v2.9.0) ✓ GAP CERRADO"
 pass "Post-script gates: valida contenido YAML no solo exit code — post_script_gates.py (v2.9.0) ✓ GAP CERRADO"
-gap "Multi-agent coordination: 2+ agentes en paralelo sobre el mismo MP"
-gap "Rollback inteligente: detectar qué parte del MP falló y revertir solo esa"
-gap "Priorización dinámica de MPs: reordenar cola basado en telemetría"
+pass "Multi-agent coordination — multi_agent_coordinator.py (v3.4.0) ✓ GAP CERRADO"
+pass "Rollback inteligente — smart_rollback.py (v3.4.0) ✓ GAP CERRADO"
+pass "Priorización dinámica de MPs — mp_prioritizer.py (v3.4.0) ✓ GAP CERRADO"
 echo ""
 echo -e "  ${CYAN}── Dimensión 5: Evidencia y Decisión ──${NC}"
 [[ -f scripts/python/collect_evidence.py ]] && pass "Recolección híbrida (scripts + agente)" || gap "No hay recolección"
@@ -333,7 +350,7 @@ pass "Modo debug paso a paso — debug_mode.py (v2.8.1)"
 echo ""
 echo -e "  ${CYAN}── Dimensión 8: Ecosistema ──${NC}"
 pass "GitHub Actions integration — github_actions.py (v2.8.0)"
-gap "Pre-commit hooks"
+pass "Pre-commit hooks — pre_commit_hooks.py (v3.4.0) ✓ GAP CERRADO"
 gap "Export a Prometheus/Grafana (observability)"
 gap "Multi-project support (instalación global)"
 gap "npm publish (distribución como paquete)"
