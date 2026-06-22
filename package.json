@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.8.0",
-  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. 3 capas: Infrastructure, Deterministic, Intelligence. 100+ tests, 85%+ capability coverage. Self-healing, test gen, semantic search, refactoring, LLM bridge, cross-language, function summaries, code gen, doc gen, project templates, onboarding, GitHub Actions, vulnerability scanning, code smells, dead code, full audit.",
+  "version": "2.8.1",
+  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. 3 capas: Infrastructure, Deterministic, Intelligence. 100+ tests, 88%+ capability coverage. Self-healing, test gen, semantic search, refactoring, LLM bridge, cross-language, function summaries, code gen, doc gen, project templates, onboarding, GitHub Actions, vulnerability scanning, code smells, dead code, full audit, feedback loop, interactive docs, debug mode, integration validation.",
   "main": "plugin/index.ts",
   "scripts": {
     "test": "npx tsc && node --test dist/tests/plugin.test.js",
@@ -19,9 +19,14 @@
     "install-deps": "python3 scripts/python/install_deps.py",
     "onboard": "python3 scripts/python/onboarding.py --repo-root . --non-interactive",
     "generate-actions": "python3 scripts/python/github_actions.py --repo-root .",
-    "audit": "python3 scripts/python/full_audit.py --repo-root ."
+    "audit": "python3 scripts/python/full_audit.py --repo-root .",
+    "feedback": "python3 scripts/python/feedback_loop.py",
+    "docs": "python3 scripts/python/interactive_docs.py",
+    "debug": "python3 scripts/python/debug_mode.py",
+    "validate-integration": "python3 scripts/python/integration_validation.py --repo-root . --output INTEGRATION-VALIDATION-REPORT.yaml",
+    "full-test": "bash apolo-full-test.sh"
   },
-  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions","vulnerability-scanning","code-smells","dead-code","full-audit"],
+  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions","vulnerability-scanning","code-smells","dead-code","full-audit","feedback-loop","interactive-docs","debug-mode","integration-validation"],
   "author": "",
   "license": "MIT",
   "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.5.0" },

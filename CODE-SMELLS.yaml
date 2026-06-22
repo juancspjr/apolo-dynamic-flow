@@ -1,15 +1,15 @@
 codesmells: V1
 version: 1
-generated_at: '2026-06-21T23:59:12Z'
+generated_at: '2026-06-22T00:59:18Z'
 repo_root: /home/juan/new_project
 summary:
-  total_smells: 4810
-  long_methods: 79
+  total_smells: 4981
+  long_methods: 90
   god_classes: 0
-  deep_nesting: 971
-  duplication: 3760
+  deep_nesting: 1088
+  duplication: 3803
   dead_code: 0
-  high_complexity_functions: 40
+  high_complexity_functions: 46
 smells:
 - type: long_method
   file: plugin/evidence-collector.ts
@@ -174,6 +174,18 @@ smells:
   severity: medium
   suggestion: Extract sub-logic from build_cross_language_map (58 lines)
 - type: long_method
+  file: scripts/python/debug_mode.py
+  function: step
+  lines: 66
+  severity: medium
+  suggestion: Extract sub-logic from step (66 lines)
+- type: long_method
+  file: scripts/python/debug_mode.py
+  function: main
+  lines: 101
+  severity: high
+  suggestion: Extract sub-logic from main (101 lines)
+- type: long_method
   file: scripts/python/doc_generator.py
   function: generate_readme_section
   lines: 76
@@ -186,11 +198,23 @@ smells:
   severity: medium
   suggestion: Extract sub-logic from main (58 lines)
 - type: long_method
+  file: scripts/python/feedback_loop.py
+  function: aggregate_feedback
+  lines: 71
+  severity: medium
+  suggestion: Extract sub-logic from aggregate_feedback (71 lines)
+- type: long_method
+  file: scripts/python/feedback_loop.py
+  function: main
+  lines: 55
+  severity: medium
+  suggestion: Extract sub-logic from main (55 lines)
+- type: long_method
   file: scripts/python/full_audit.py
   function: main
-  lines: 161
+  lines: 167
   severity: high
-  suggestion: Extract sub-logic from main (161 lines)
+  suggestion: Extract sub-logic from main (167 lines)
 - type: long_method
   file: scripts/python/generate_plan.py
   function: cluster_to_unit
@@ -263,6 +287,48 @@ smells:
   lines: 60
   severity: medium
   suggestion: Extract sub-logic from main (60 lines)
+- type: long_method
+  file: scripts/python/integration_validation.py
+  function: phase_scaffold
+  lines: 72
+  severity: medium
+  suggestion: Extract sub-logic from phase_scaffold (72 lines)
+- type: long_method
+  file: scripts/python/integration_validation.py
+  function: verify_telemetry
+  lines: 53
+  severity: medium
+  suggestion: Extract sub-logic from verify_telemetry (53 lines)
+- type: long_method
+  file: scripts/python/integration_validation.py
+  function: analyze_test_contracts
+  lines: 57
+  severity: medium
+  suggestion: Extract sub-logic from analyze_test_contracts (57 lines)
+- type: long_method
+  file: scripts/python/integration_validation.py
+  function: build_verdict
+  lines: 70
+  severity: medium
+  suggestion: Extract sub-logic from build_verdict (70 lines)
+- type: long_method
+  file: scripts/python/integration_validation.py
+  function: main
+  lines: 119
+  severity: high
+  suggestion: Extract sub-logic from main (119 lines)
+- type: long_method
+  file: scripts/python/interactive_docs.py
+  function: build_index
+  lines: 70
+  severity: medium
+  suggestion: Extract sub-logic from build_index (70 lines)
+- type: long_method
+  file: scripts/python/interactive_docs.py
+  function: main
+  lines: 85
+  severity: medium
+  suggestion: Extract sub-logic from main (85 lines)
 - type: long_method
   file: scripts/python/llm_bridge.py
   function: chat
@@ -487,16 +553,16 @@ smells:
   suggestion: Extract sub-logic from _install_common_stub_if_needed (121 lines)
 - type: deep_nesting
   file: .opencode/apolo-dynamic/CODE-INDEX.yaml
-  line: 2982
+  line: 2954
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 2982 (depth 4)
+  suggestion: Extract nested logic at line 2954 (depth 4)
 - type: deep_nesting
   file: .opencode/apolo-dynamic/CODE-INDEX.yaml
-  line: 2983
+  line: 2955
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 2983 (depth 4)
+  suggestion: Extract nested logic at line 2955 (depth 4)
 - type: deep_nesting
   file: LSP-ANALYSIS.yaml
   line: 1091
@@ -2118,6 +2184,174 @@ smells:
   severity: medium
   suggestion: Extract nested logic at line 318 (depth 4)
 - type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 93
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 93 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 135
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 135 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 137
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 137 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 139
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 139 (depth 6)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 141
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 141 (depth 6)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 164
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 164 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 165
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 165 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 188
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 188 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 199
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 199 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 201
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 201 (depth 6)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 203
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 203 (depth 6)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 259
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 259 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 272
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 272 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 276
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 276 (depth 6)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 277
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 277 (depth 8)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 286
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 286 (depth 6)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 287
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 287 (depth 8)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 288
+  nesting_level: 10
+  severity: medium
+  suggestion: Extract nested logic at line 288 (depth 10)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 289
+  nesting_level: 12
+  severity: medium
+  suggestion: Extract nested logic at line 289 (depth 12)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 306
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 306 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 341
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 341 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 342
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 342 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 351
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 351 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 381
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 381 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 389
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 389 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 391
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 391 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 395
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 395 (depth 4)
+- type: deep_nesting
+  file: scripts/python/debug_mode.py
+  line: 398
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 398 (depth 6)
+- type: deep_nesting
   file: scripts/python/doc_generator.py
   line: 38
   nesting_level: 4
@@ -2244,47 +2478,149 @@ smells:
   severity: medium
   suggestion: Extract nested logic at line 298 (depth 4)
 - type: deep_nesting
-  file: scripts/python/full_audit.py
-  line: 52
+  file: scripts/python/feedback_loop.py
+  line: 78
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 52 (depth 4)
+  suggestion: Extract nested logic at line 78 (depth 4)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 101
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 101 (depth 4)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 103
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 103 (depth 4)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 105
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 105 (depth 6)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 122
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 122 (depth 4)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 124
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 124 (depth 4)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 126
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 126 (depth 6)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 127
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 127 (depth 8)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 129
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 129 (depth 6)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 130
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 130 (depth 8)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 171
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 171 (depth 4)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 201
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 201 (depth 4)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 216
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 216 (depth 4)
+- type: deep_nesting
+  file: scripts/python/feedback_loop.py
+  line: 262
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 262 (depth 4)
 - type: deep_nesting
   file: scripts/python/full_audit.py
-  line: 53
+  line: 59
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 53 (depth 4)
+  suggestion: Extract nested logic at line 59 (depth 4)
 - type: deep_nesting
   file: scripts/python/full_audit.py
   line: 60
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 60 (depth 4)
-- type: deep_nesting
-  file: scripts/python/full_audit.py
-  line: 62
   nesting_level: 6
   severity: medium
-  suggestion: Extract nested logic at line 62 (depth 6)
+  suggestion: Extract nested logic at line 60 (depth 6)
 - type: deep_nesting
   file: scripts/python/full_audit.py
   line: 64
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 64 (depth 4)
+- type: deep_nesting
+  file: scripts/python/full_audit.py
+  line: 86
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 86 (depth 4)
+- type: deep_nesting
+  file: scripts/python/full_audit.py
+  line: 87
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 87 (depth 4)
+- type: deep_nesting
+  file: scripts/python/full_audit.py
+  line: 93
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 93 (depth 4)
+- type: deep_nesting
+  file: scripts/python/full_audit.py
+  line: 95
   nesting_level: 6
   severity: medium
-  suggestion: Extract nested logic at line 64 (depth 6)
+  suggestion: Extract nested logic at line 95 (depth 6)
 - type: deep_nesting
   file: scripts/python/full_audit.py
-  line: 66
-  nesting_level: 4
+  line: 97
+  nesting_level: 6
   severity: medium
-  suggestion: Extract nested logic at line 66 (depth 4)
+  suggestion: Extract nested logic at line 97 (depth 6)
 - type: deep_nesting
   file: scripts/python/full_audit.py
-  line: 209
+  line: 99
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 209 (depth 4)
+  suggestion: Extract nested logic at line 99 (depth 4)
+- type: deep_nesting
+  file: scripts/python/full_audit.py
+  line: 247
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 247 (depth 4)
 - type: deep_nesting
   file: scripts/python/generate_plan.py
   line: 93
@@ -3287,6 +3623,438 @@ smells:
   nesting_level: 6
   severity: medium
   suggestion: Extract nested logic at line 87 (depth 6)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 151
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 151 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 157
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 157 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 161
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 161 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 181
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 181 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 187
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 187 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 191
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 191 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 222
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 222 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 228
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 228 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 232
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 232 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 258
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 258 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 264
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 264 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 268
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 268 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 298
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 298 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 304
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 304 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 308
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 308 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 340
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 340 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 346
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 346 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 350
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 350 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 385
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 385 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 395
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 395 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 396
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 396 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 399
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 399 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 402
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 402 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 405
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 405 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 408
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 408 (depth 6)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 409
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 409 (depth 8)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 410
+  nesting_level: 10
+  severity: medium
+  suggestion: Extract nested logic at line 410 (depth 10)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 415
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 415 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 419
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 419 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 426
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 426 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 446
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 446 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 448
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 448 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 460
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 460 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 462
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 462 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 463
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 463 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 475
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 475 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 496
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 496 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 503
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 503 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 507
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 507 (depth 6)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 511
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 511 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 529
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 529 (depth 6)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 548
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 548 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 551
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 551 (depth 4)
+- type: deep_nesting
+  file: scripts/python/integration_validation.py
+  line: 707
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 707 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 99
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 99 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 103
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 103 (depth 6)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 130
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 130 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 148
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 148 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 169
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 169 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 170
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 170 (depth 6)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 251
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 251 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 254
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 254 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 260
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 260 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 262
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 262 (depth 6)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 268
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 268 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 269
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 269 (depth 6)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 272
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 272 (depth 6)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 278
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 278 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 280
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 280 (depth 6)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 287
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 287 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 293
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 293 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 311
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 311 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 322
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 322 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 338
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 338 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 339
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 339 (depth 6)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 345
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 345 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 348
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 348 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 373
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 373 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 421
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 421 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 432
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 432 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 441
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 441 (depth 4)
+- type: deep_nesting
+  file: scripts/python/interactive_docs.py
+  line: 449
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 449 (depth 4)
 - type: deep_nesting
   file: scripts/python/llm_bridge.py
   line: 64
@@ -7057,6 +7825,30 @@ smells:
   severity: low
   suggestion: Review extract_symbols_go and extract_symbols for duplication
 - type: possible_duplication
+  function_a: extract_symbols_go
+  file_a: scripts/python/common.py
+  function_b: extract_docstring_py
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_go and extract_docstring_py for duplication
+- type: possible_duplication
+  function_a: extract_symbols_go
+  file_a: scripts/python/common.py
+  function_b: extract_header_ts
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_go and extract_header_ts for duplication
+- type: possible_duplication
+  function_a: extract_symbols_go
+  file_a: scripts/python/common.py
+  function_b: extract_header_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_go and extract_header_bash for duplication
+- type: possible_duplication
   function_a: extract_symbols_ts
   file_a: scripts/python/common.py
   function_b: extract_symbols_py
@@ -7073,6 +7865,30 @@ smells:
   severity: low
   suggestion: Review extract_symbols_ts and extract_symbols for duplication
 - type: possible_duplication
+  function_a: extract_symbols_ts
+  file_a: scripts/python/common.py
+  function_b: extract_docstring_py
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_ts and extract_docstring_py for duplication
+- type: possible_duplication
+  function_a: extract_symbols_ts
+  file_a: scripts/python/common.py
+  function_b: extract_header_ts
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_ts and extract_header_ts for duplication
+- type: possible_duplication
+  function_a: extract_symbols_ts
+  file_a: scripts/python/common.py
+  function_b: extract_header_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_ts and extract_header_bash for duplication
+- type: possible_duplication
   function_a: extract_symbols_py
   file_a: scripts/python/common.py
   function_b: extract_symbols
@@ -7080,6 +7896,54 @@ smells:
   common_prefix: extract_symbols
   severity: low
   suggestion: Review extract_symbols_py and extract_symbols for duplication
+- type: possible_duplication
+  function_a: extract_symbols_py
+  file_a: scripts/python/common.py
+  function_b: extract_docstring_py
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_py and extract_docstring_py for duplication
+- type: possible_duplication
+  function_a: extract_symbols_py
+  file_a: scripts/python/common.py
+  function_b: extract_header_ts
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_py and extract_header_ts for duplication
+- type: possible_duplication
+  function_a: extract_symbols_py
+  file_a: scripts/python/common.py
+  function_b: extract_header_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols_py and extract_header_bash for duplication
+- type: possible_duplication
+  function_a: extract_symbols
+  file_a: scripts/python/common.py
+  function_b: extract_docstring_py
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols and extract_docstring_py for duplication
+- type: possible_duplication
+  function_a: extract_symbols
+  file_a: scripts/python/common.py
+  function_b: extract_header_ts
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols and extract_header_ts for duplication
+- type: possible_duplication
+  function_a: extract_symbols
+  file_a: scripts/python/common.py
+  function_b: extract_header_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_symbols and extract_header_bash for duplication
 - type: possible_duplication
   function_a: handler_next_phase
   file_a: scripts/python/context_query.py
@@ -8058,6 +8922,254 @@ smells:
   common_prefix: extract_
   severity: low
   suggestion: Review extract_ts_symbols and extract_go_symbols for duplication
+- type: possible_duplication
+  function_a: phase_init
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_index_codebase
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_in
+  severity: low
+  suggestion: Review phase_init and phase_index_codebase for duplication
+- type: possible_duplication
+  function_a: phase_init
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_collect_evidence
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_init and phase_collect_evidence for duplication
+- type: possible_duplication
+  function_a: phase_init
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_score_evidence
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_init and phase_score_evidence for duplication
+- type: possible_duplication
+  function_a: phase_init
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_generate_plan
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_init and phase_generate_plan for duplication
+- type: possible_duplication
+  function_a: phase_init
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_predict_impact
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_init and phase_predict_impact for duplication
+- type: possible_duplication
+  function_a: phase_init
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_scaffold
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_init and phase_scaffold for duplication
+- type: possible_duplication
+  function_a: phase_index_codebase
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_collect_evidence
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_index_codebase and phase_collect_evidence for duplication
+- type: possible_duplication
+  function_a: phase_index_codebase
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_score_evidence
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_index_codebase and phase_score_evidence for duplication
+- type: possible_duplication
+  function_a: phase_index_codebase
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_generate_plan
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_index_codebase and phase_generate_plan for duplication
+- type: possible_duplication
+  function_a: phase_index_codebase
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_predict_impact
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_index_codebase and phase_predict_impact for duplication
+- type: possible_duplication
+  function_a: phase_index_codebase
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_scaffold
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_index_codebase and phase_scaffold for duplication
+- type: possible_duplication
+  function_a: phase_collect_evidence
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_score_evidence
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_collect_evidence and phase_score_evidence for duplication
+- type: possible_duplication
+  function_a: phase_collect_evidence
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_generate_plan
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_collect_evidence and phase_generate_plan for duplication
+- type: possible_duplication
+  function_a: phase_collect_evidence
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_predict_impact
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_collect_evidence and phase_predict_impact for duplication
+- type: possible_duplication
+  function_a: phase_collect_evidence
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_scaffold
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_collect_evidence and phase_scaffold for duplication
+- type: possible_duplication
+  function_a: phase_score_evidence
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_generate_plan
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_score_evidence and phase_generate_plan for duplication
+- type: possible_duplication
+  function_a: phase_score_evidence
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_predict_impact
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_score_evidence and phase_predict_impact for duplication
+- type: possible_duplication
+  function_a: phase_score_evidence
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_scaffold
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_sc
+  severity: low
+  suggestion: Review phase_score_evidence and phase_scaffold for duplication
+- type: possible_duplication
+  function_a: phase_generate_plan
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_predict_impact
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_generate_plan and phase_predict_impact for duplication
+- type: possible_duplication
+  function_a: phase_generate_plan
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_scaffold
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_generate_plan and phase_scaffold for duplication
+- type: possible_duplication
+  function_a: phase_predict_impact
+  file_a: scripts/python/integration_validation.py
+  function_b: phase_scaffold
+  file_b: scripts/python/integration_validation.py
+  common_prefix: phase_
+  severity: low
+  suggestion: Review phase_predict_impact and phase_scaffold for duplication
+- type: possible_duplication
+  function_a: analyze_test_contracts
+  file_a: scripts/python/integration_validation.py
+  function_b: analyze_repo
+  file_b: scripts/python/lsp_integration.py
+  common_prefix: analyze_
+  severity: low
+  suggestion: Review analyze_test_contracts and analyze_repo for duplication
+- type: possible_duplication
+  function_a: extract_docstring_py
+  file_a: scripts/python/interactive_docs.py
+  function_b: extract_header_ts
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_docstring_py and extract_header_ts for duplication
+- type: possible_duplication
+  function_a: extract_docstring_py
+  file_a: scripts/python/interactive_docs.py
+  function_b: extract_header_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_
+  severity: low
+  suggestion: Review extract_docstring_py and extract_header_bash for duplication
+- type: possible_duplication
+  function_a: extract_header_ts
+  file_a: scripts/python/interactive_docs.py
+  function_b: extract_header_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: extract_header_
+  severity: low
+  suggestion: Review extract_header_ts and extract_header_bash for duplication
+- type: possible_duplication
+  function_a: index_markdown
+  file_a: scripts/python/interactive_docs.py
+  function_b: index_python
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: index_
+  severity: low
+  suggestion: Review index_markdown and index_python for duplication
+- type: possible_duplication
+  function_a: index_markdown
+  file_a: scripts/python/interactive_docs.py
+  function_b: index_typescript
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: index_
+  severity: low
+  suggestion: Review index_markdown and index_typescript for duplication
+- type: possible_duplication
+  function_a: index_markdown
+  file_a: scripts/python/interactive_docs.py
+  function_b: index_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: index_
+  severity: low
+  suggestion: Review index_markdown and index_bash for duplication
+- type: possible_duplication
+  function_a: index_python
+  file_a: scripts/python/interactive_docs.py
+  function_b: index_typescript
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: index_
+  severity: low
+  suggestion: Review index_python and index_typescript for duplication
+- type: possible_duplication
+  function_a: index_python
+  file_a: scripts/python/interactive_docs.py
+  function_b: index_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: index_
+  severity: low
+  suggestion: Review index_python and index_bash for duplication
+- type: possible_duplication
+  function_a: index_typescript
+  file_a: scripts/python/interactive_docs.py
+  function_b: index_bash
+  file_b: scripts/python/interactive_docs.py
+  common_prefix: index_
+  severity: low
+  suggestion: Review index_typescript and index_bash for duplication
 - type: possible_duplication
   function_a: get_api_base
   file_a: scripts/python/llm_bridge.py
@@ -38973,6 +40085,96 @@ complexity:
   rank: A
   severity: low
 - tool: radon
+  file: scripts/python/debug_mode.py
+  function: main
+  complexity: 27
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: step
+  complexity: 14
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: get_trace
+  complexity: 9
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: inspect_state
+  complexity: 7
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: backtrace
+  complexity: 7
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: clear_breakpoints
+  complexity: 6
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: is_breakpoint
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: is_breakpoint_active
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: _count_telemetry
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: _next_phase
+  complexity: 3
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: _yaml_preview
+  complexity: 3
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: set_breakpoints
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: breakpoints_path
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: trace_path
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/debug_mode.py
+  function: append_trace
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
   file: scripts/python/doc_generator.py
   function: generate_docstrings_for_file
   complexity: 13
@@ -39033,11 +40235,59 @@ complexity:
   rank: A
   severity: low
 - tool: radon
+  file: scripts/python/feedback_loop.py
+  function: aggregate_feedback
+  complexity: 17
+  rank: C
+  severity: high
+- tool: radon
+  file: scripts/python/feedback_loop.py
+  function: main
+  complexity: 10
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/feedback_loop.py
+  function: search_feedback
+  complexity: 9
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/feedback_loop.py
+  function: list_feedback
+  complexity: 7
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/feedback_loop.py
+  function: _extract_action
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/feedback_loop.py
+  function: add_feedback
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/feedback_loop.py
+  function: feedback_path
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
   file: scripts/python/full_audit.py
   function: main
-  complexity: 13
+  complexity: 15
   rank: C
   severity: medium
+- tool: radon
+  file: scripts/python/full_audit.py
+  function: _as_count
+  complexity: 10
+  rank: B
+  severity: low
 - tool: radon
   file: scripts/python/full_audit.py
   function: run_script
@@ -39252,6 +40502,186 @@ complexity:
   file: scripts/python/install_deps.py
   function: check_dep
   complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: verify_telemetry
+  complexity: 20
+  rank: C
+  severity: high
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: phase_scaffold
+  complexity: 16
+  rank: C
+  severity: high
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: build_verdict
+  complexity: 13
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: _overall_verdict
+  complexity: 9
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: analyze_test_contracts
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: phase_predict_impact
+  complexity: 7
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: main
+  complexity: 7
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: phase_init
+  complexity: 6
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: phase_score_evidence
+  complexity: 6
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: phase_index_codebase
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: phase_collect_evidence
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: phase_generate_plan
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: parse_json_from_stdout
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: find_script
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/integration_validation.py
+  function: run_named_script
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: build_index
+  complexity: 23
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: main
+  complexity: 18
+  rank: C
+  severity: high
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: extract_docstring_py
+  complexity: 12
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: search_docs
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: extract_header_ts
+  complexity: 7
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: extract_header_bash
+  complexity: 6
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: index_markdown
+  complexity: 6
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: _safe_str
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: tokenize
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: get_examples
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: index_python
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: index_typescript
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: index_bash
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: contextual_suggestions
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/interactive_docs.py
+  function: docs_index_path
+  complexity: 1
   rank: A
   severity: low
 - tool: radon
@@ -40736,5 +42166,5 @@ complexity:
   complexity: 1
   rank: A
   severity: low
-recommendation: 4810 smells and 40 high-complexity functions found
+recommendation: 4981 smells and 46 high-complexity functions found
 

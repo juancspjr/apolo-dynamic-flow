@@ -1,7 +1,7 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T00:05:37Z'
+generated_at: '2026-06-22T00:58:31Z'
 repo_root: /home/juan/new_project
-total_files: 71
+total_files: 75
 languages_detected:
 - css
 - html
@@ -1718,6 +1718,69 @@ security_findings:
   message: Use of assert detected. The enclosed code will be removed when compiling
     to optimised byte code.
 - tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 87
+  test_id: B105
+  severity: LOW
+  confidence: MEDIUM
+  message: 'Possible hardcoded password: ''Agente lo invoca para escanear secretos'''
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 153
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 183
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 224
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 260
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 300
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 342
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 387
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/integration_validation.py
+  line: 498
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
+- tool: bandit
   file: /home/juan/new_project/scripts/python/common.py
   line: 14
   test_id: B404
@@ -3422,6 +3485,96 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: verify_telemetry
+  complexity: 20
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: phase_scaffold
+  complexity: 16
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: build_verdict
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: _overall_verdict
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: analyze_test_contracts
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: phase_predict_impact
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: main
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: phase_init
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: phase_score_evidence
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: phase_index_codebase
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: phase_collect_evidence
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: phase_generate_plan
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: parse_json_from_stdout
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: find_script
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: run_named_script
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/common.py
   function: _parse_scalar
   complexity: 10
@@ -3953,6 +4106,96 @@ complexity_scores:
 - file: /home/juan/new_project/scripts/python/summarize_functions.py
   function: main
   complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: build_index
+  complexity: 23
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: main
+  complexity: 18
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: extract_docstring_py
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: search_docs
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: extract_header_ts
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: extract_header_bash
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: index_markdown
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: _safe_str
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: tokenize
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: get_examples
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: index_python
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: index_typescript
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: index_bash
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: contextual_suggestions
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: docs_index_path
+  complexity: 1
   rank: A
   tool: radon
   estimated: false
@@ -4690,8 +4933,14 @@ complexity_scores:
   estimated: false
 - file: /home/juan/new_project/scripts/python/full_audit.py
   function: main
-  complexity: 13
+  complexity: 15
   rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/full_audit.py
+  function: _as_count
+  complexity: 10
+  rank: B
   tool: radon
   estimated: false
 - file: /home/juan/new_project/scripts/python/full_audit.py
@@ -5060,6 +5309,48 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  function: aggregate_feedback
+  complexity: 17
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  function: main
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  function: search_feedback
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  function: list_feedback
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  function: _extract_action
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  function: add_feedback
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  function: feedback_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
   function: detect_language_calls
   complexity: 20
@@ -5348,6 +5639,96 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: main
+  complexity: 27
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: step
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: get_trace
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: inspect_state
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: backtrace
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: clear_breakpoints
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: is_breakpoint
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: is_breakpoint_active
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: _count_telemetry
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: _next_phase
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: _yaml_preview
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: set_breakpoints
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: breakpoints_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: trace_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: append_trace
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 high_complexity_functions:
 - file: /home/juan/new_project/panel/panel.js
   function: renderTelemetry
@@ -5433,6 +5814,20 @@ high_complexity_functions:
   lineno: 153
   tool: regex-estimation
   recommendation: refactor 'extractTestCommand' (complejidad 17 > 15)
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: verify_telemetry
+  complexity: 20
+  rank: C
+  lineno: 430
+  tool: radon
+  recommendation: refactor 'verify_telemetry' (complejidad 20 > 15)
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  function: phase_scaffold
+  complexity: 16
+  rank: C
+  lineno: 358
+  tool: radon
+  recommendation: refactor 'phase_scaffold' (complejidad 16 > 15)
 - file: /home/juan/new_project/scripts/python/collect_evidence.py
   function: main
   complexity: 22
@@ -5461,6 +5856,20 @@ high_complexity_functions:
   lineno: 101
   tool: radon
   recommendation: refactor 'extract_docstring_summary' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: build_index
+  complexity: 23
+  rank: D
+  lineno: 245
+  tool: radon
+  recommendation: refactor 'build_index' (complejidad 23 > 15)
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  function: main
+  complexity: 18
+  rank: C
+  lineno: 382
+  tool: radon
+  recommendation: refactor 'main' (complejidad 18 > 15)
 - file: /home/juan/new_project/scripts/python/lsp_integration.py
   function: main
   complexity: 16
@@ -5657,6 +6066,13 @@ high_complexity_functions:
   lineno: 348
   tool: radon
   recommendation: refactor 'estimate_complexity_regex' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  function: aggregate_feedback
+  complexity: 17
+  rank: C
+  lineno: 138
+  tool: radon
+  recommendation: refactor 'aggregate_feedback' (complejidad 17 > 15)
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
   function: detect_language_calls
   complexity: 20
@@ -5713,6 +6129,13 @@ high_complexity_functions:
   lineno: 191
   tool: radon
   recommendation: refactor 'detect_dead_code' (complejidad 18 > 15)
+- file: /home/juan/new_project/scripts/python/debug_mode.py
+  function: main
+  complexity: 27
+  rank: D
+  lineno: 320
+  tool: radon
+  recommendation: refactor 'main' (complejidad 27 > 15)
 degradations:
 - herramienta nativa de complejidad no disponible para javascript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para css — usando regex-estimation
@@ -5737,13 +6160,13 @@ degradations:
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 recommendations:
-- Refactorizar 52 función(es) con complejidad > 15
-- 'Atender 258 finding(s) de seguridad: {''low'': 254, ''medium'': 3, ''high'': 1}'
+- Refactorizar 58 función(es) con complejidad > 15
+- 'Atender 267 finding(s) de seguridad: {''low'': 263, ''medium'': 3, ''high'': 1}'
 - 'Instalar herramientas faltantes para análisis completo: 22 degradación(es)'
 summary:
-  total_security_findings: 258
-  total_functions_analyzed: 552
-  high_complexity_count: 52
+  total_security_findings: 267
+  total_functions_analyzed: 605
+  high_complexity_count: 58
   degradation_count: 22
-duration_ms: 68507
+duration_ms: 40525
 
