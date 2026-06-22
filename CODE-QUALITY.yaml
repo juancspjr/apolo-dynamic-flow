@@ -1,7 +1,7 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T03:06:58Z'
+generated_at: '2026-06-22T04:16:19Z'
 repo_root: /home/juan/new_project
-total_files: 84
+total_files: 89
 languages_detected:
 - css
 - html
@@ -1873,6 +1873,42 @@ security_findings:
   confidence: HIGH
   message: Try, Except, Pass detected.
 - tool: bandit
+  file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  line: 62
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  line: 253
+  test_id: B603
+  severity: LOW
+  confidence: HIGH
+  message: subprocess call - check for execution of untrusted input.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  line: 407
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  line: 487
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  line: 536
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
   file: /home/juan/new_project/scripts/python/collect_evidence.py
   line: 22
   test_id: B404
@@ -1910,6 +1946,20 @@ security_findings:
   confidence: HIGH
   message: Consider possible security implications associated with the subprocess
     module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/script_generator.py
+  line: 162
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/script_generator.py
+  line: 237
+  test_id: B103
+  severity: MEDIUM
+  confidence: HIGH
+  message: Chmod setting a permissive mask 0o755 on file (script_path).
 - tool: bandit
   file: /home/juan/new_project/scripts/python/summarize_functions.py
   line: 237
@@ -1976,7 +2026,7 @@ security_findings:
     module.
 - tool: bandit
   file: /home/juan/new_project/scripts/python/auto_hooks.py
-  line: 292
+  line: 344
   test_id: B603
   severity: LOW
   confidence: HIGH
@@ -2098,6 +2148,14 @@ security_findings:
   severity: LOW
   confidence: HIGH
   message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  line: 42
+  test_id: B404
+  severity: LOW
+  confidence: HIGH
+  message: Consider possible security implications associated with the subprocess
+    module.
 - tool: bandit
   file: /home/juan/new_project/scripts/python/hooks_validator.py
   line: 29
@@ -3972,6 +4030,78 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: execute_phase
+  complexity: 17
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: main
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: run_cycle
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: run_script
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: check_gate
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: load_state
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: format_args
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: continue_cycle
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: orchestrator_state_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: save_state
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: get_status
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: abort_cycle
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/collect_evidence.py
   function: main
   complexity: 22
@@ -4227,6 +4357,42 @@ complexity_scores:
 - file: /home/juan/new_project/scripts/python/rollback.py
   function: rollback_custom_script
   complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/script_generator.py
+  function: generate_script
+  complexity: 18
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/script_generator.py
+  function: main
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/script_generator.py
+  function: find_similar_scripts
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/script_generator.py
+  function: validate_proposal
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/script_generator.py
+  function: list_generated_scripts
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/script_generator.py
+  function: script_exists
+  complexity: 1
   rank: A
   tool: radon
   estimated: false
@@ -4890,6 +5056,42 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/agent_decision_loop.py
+  function: evaluate_option
+  complexity: 30
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/agent_decision_loop.py
+  function: main
+  complexity: 17
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/agent_decision_loop.py
+  function: get_history
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/agent_decision_loop.py
+  function: choose_best_option
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/agent_decision_loop.py
+  function: decisions_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/agent_decision_loop.py
+  function: log_decision
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/auto_hooks.py
   function: main
   complexity: 32
@@ -5168,6 +5370,60 @@ complexity_scores:
   estimated: false
 - file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
   function: main
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: main
+  complexity: 20
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: wait_for_answer
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: answer_question
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: get_pending_questions
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: ask_question
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: get_history
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: check_answer
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: questions_dir
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: answers_dir
   complexity: 1
   rank: A
   tool: radon
@@ -5678,6 +5934,78 @@ complexity_scores:
   estimated: false
 - file: /home/juan/new_project/scripts/python/github_actions.py
   function: main
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: main
+  complexity: 20
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: run_all_gates
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: check_tests_passing
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: check_phases_completed
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: check_errors_reported
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: load_jsonl
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: check_no_errors_in_telemetry
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: check_no_new_test_failures
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: check_evidence_has_items
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: check_scaffold_referenced
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: reset_gates
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: gates_state_path
   complexity: 1
   rank: A
   tool: radon
@@ -6369,6 +6697,13 @@ high_complexity_functions:
   lineno: 358
   tool: radon
   recommendation: refactor 'phase_scaffold' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
+  function: execute_phase
+  complexity: 17
+  rank: C
+  lineno: 287
+  tool: radon
+  recommendation: refactor 'execute_phase' (complejidad 17 > 15)
 - file: /home/juan/new_project/scripts/python/collect_evidence.py
   function: main
   complexity: 22
@@ -6383,6 +6718,13 @@ high_complexity_functions:
   lineno: 304
   tool: radon
   recommendation: refactor 'infer_skill_capabilities' (complejidad 31 > 15)
+- file: /home/juan/new_project/scripts/python/script_generator.py
+  function: generate_script
+  complexity: 18
+  rank: C
+  lineno: 181
+  tool: radon
+  recommendation: refactor 'generate_script' (complejidad 18 > 15)
 - file: /home/juan/new_project/scripts/python/summarize_functions.py
   function: infer_summary_from_body
   complexity: 20
@@ -6530,18 +6872,32 @@ high_complexity_functions:
   lineno: 400
   tool: radon
   recommendation: refactor 'handler_recommended_mcp' (complejidad 30 > 15)
+- file: /home/juan/new_project/scripts/python/agent_decision_loop.py
+  function: evaluate_option
+  complexity: 30
+  rank: D
+  lineno: 72
+  tool: radon
+  recommendation: refactor 'evaluate_option' (complejidad 30 > 15)
+- file: /home/juan/new_project/scripts/python/agent_decision_loop.py
+  function: main
+  complexity: 17
+  rank: C
+  lineno: 230
+  tool: radon
+  recommendation: refactor 'main' (complejidad 17 > 15)
 - file: /home/juan/new_project/scripts/python/auto_hooks.py
   function: main
   complexity: 32
   rank: E
-  lineno: 441
+  lineno: 493
   tool: radon
   recommendation: refactor 'main' (complejidad 32 > 15)
 - file: /home/juan/new_project/scripts/python/auto_hooks.py
   function: evaluate_condition
   complexity: 19
   rank: C
-  lineno: 231
+  lineno: 283
   tool: radon
   recommendation: refactor 'evaluate_condition' (complejidad 19 > 15)
 - file: /home/juan/new_project/scripts/python/score_evidence.py
@@ -6572,6 +6928,13 @@ high_complexity_functions:
   lineno: 164
   tool: radon
   recommendation: refactor 'main' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/user_input_collector.py
+  function: main
+  complexity: 20
+  rank: C
+  lineno: 266
+  tool: radon
+  recommendation: refactor 'main' (complejidad 20 > 15)
 - file: /home/juan/new_project/scripts/python/index_codebase.py
   function: extract_python_symbols
   complexity: 25
@@ -6649,6 +7012,13 @@ high_complexity_functions:
   lineno: 348
   tool: radon
   recommendation: refactor 'estimate_complexity_regex' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/force_quality_gates.py
+  function: main
+  complexity: 20
+  rank: C
+  lineno: 338
+  tool: radon
+  recommendation: refactor 'main' (complejidad 20 > 15)
 - file: /home/juan/new_project/scripts/python/feedback_loop.py
   function: aggregate_feedback
   complexity: 17
@@ -6778,13 +7148,13 @@ degradations:
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 recommendations:
-- Refactorizar 69 función(es) con complejidad > 15
-- 'Atender 278 finding(s) de seguridad: {''medium'': 4, ''low'': 273, ''high'': 1}'
+- Refactorizar 75 función(es) con complejidad > 15
+- 'Atender 286 finding(s) de seguridad: {''medium'': 5, ''low'': 280, ''high'': 1}'
 - 'Instalar herramientas faltantes para análisis completo: 22 degradación(es)'
 summary:
-  total_security_findings: 278
-  total_functions_analyzed: 682
-  high_complexity_count: 69
+  total_security_findings: 286
+  total_functions_analyzed: 727
+  high_complexity_count: 75
   degradation_count: 22
-duration_ms: 69671
+duration_ms: 46749
 
