@@ -1,12 +1,12 @@
 codeindex: V1
 version: 1
-generated_at: '2026-06-22T16:40:22Z'
+generated_at: '2026-06-22T16:42:00Z'
 generator:
   script: scripts/python/index_codebase.py
-  duration_ms: 3047
+  duration_ms: 2085
   files_indexed: 165
 repo_root: /home/juan/new_project
-index_hash: 7027bea8e60f734be28aa8b661b9585b1e8020c1d9606325ffdc827f231a55ab
+index_hash: 8d217a87e0432dd90a30e29155d64f7b4efdddd088adcbbb708a03aad641215c
 stats:
   total_files: 165
   by_language:
@@ -22,10 +22,10 @@ stats:
 files:
 - path: .opencode/apolo-dynamic/CODE-INDEX.yaml
   language: yaml
-  size_bytes: 362495
-  content_hash: 4e5530cd1d5d586ff1ee4e141cae34962d1ce5ced6af1dfc54601f67896fbdd6
+  size_bytes: 362539
+  content_hash: 954b0252eedc4f30ba4638a09a39c25dc70e9154c4568efdf2936dc9b76b2384
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -39,7 +39,7 @@ files:
   size_bytes: 808
   content_hash: d863ee249ec01c6e24995acb87ae8f23a6e6b8cc133058947dd252535a0a2da9
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -67,7 +67,7 @@ files:
   size_bytes: 14764
   content_hash: 75d56ab54b261f3cbbb7e550207cc232be83ca18066721de8534c7e9965395c4
   git_tracked: true
-  git_last_modified: '2026-06-22T03:43:20-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -81,7 +81,7 @@ files:
   size_bytes: 49757
   content_hash: bbe6ea2741c5fa055ef510a27202590da832c423c8d82a865f7acbdfeaa95fde
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -123,7 +123,7 @@ files:
   size_bytes: 1263
   content_hash: ccb12ec26132fbf2f30aa891dd5b13c43a94dc17facf64cb875b0c9a0702be98
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -137,7 +137,7 @@ files:
   size_bytes: 214303
   content_hash: e5765cbe0ee9d325d1043c2807abfb47ea73a7aa8da8cc4b4c4e0ee765254408
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -165,7 +165,7 @@ files:
   size_bytes: 816
   content_hash: b068ea88ce904d8e2346643e9bd64f0c422ccb3339eb3443f54bd4679c32de01
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -179,7 +179,7 @@ files:
   size_bytes: 2207
   content_hash: 2d49ca854730b5653bafc9f3352edb99f396b3da3def3f70bf6b2a8a131e6f1a
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -191,9 +191,9 @@ files:
 - path: EVIDENCE-SCORE.yaml
   language: yaml
   size_bytes: 893
-  content_hash: 97615ad543b63383707ef789c94677c1b92164e46499c7b4ef2936caa8d5ed61
+  content_hash: d236c0636eaad1a7f583163d94f0eded07675bce7cf79a046f452acef5ac43a4
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -207,7 +207,7 @@ files:
   size_bytes: 9454
   content_hash: 6176000c70d1f3777911c7d59a0fa68800b757d54a268638f1491db6f4f7f63d
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -220,8 +220,8 @@ files:
   language: yaml
   size_bytes: 117755
   content_hash: b4cad1a76df6cdfb8a86eff356a073f25fae70bdb58ca793847bebe3bef8ca81
-  git_tracked: false
-  git_last_modified: null
+  git_tracked: true
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -233,9 +233,9 @@ files:
 - path: IMPACT-PREDICTION.yaml
   language: yaml
   size_bytes: 485
-  content_hash: 46dabfc92de05aab8648f7719cc55cc461227b8444549702e5bbd37aa7cbc1c8
+  content_hash: 3e1cdd788fc6932d8cd8451554c312b54756f20b0ede9e63f96ee45b3693b0c6
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -249,7 +249,7 @@ files:
   size_bytes: 27248
   content_hash: ca081d189d7d4055c9e1c45f1126374bc6b5aeb6af92b4480588486daba5b078
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -263,7 +263,7 @@ files:
   size_bytes: 188
   content_hash: 7f1c0ec6d85da5364acd83f7810e8c03928901eaa1237c960c6f2b6f7e6c6299
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -277,7 +277,7 @@ files:
   size_bytes: 115420
   content_hash: 892fb32e2d736a2004cd08b475bc0aaef0b16454f8c9a7d3eb336507d7130e75
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -291,7 +291,7 @@ files:
   size_bytes: 49484
   content_hash: cae976e392460c31335c4175d68066f037301e101ef3a29d571b3e5fdbbec395
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -305,7 +305,7 @@ files:
   size_bytes: 38031
   content_hash: 7ee565962667fbd07f66cdf0976e2c3b3d1191e90c78652eb903f3ec8943b5b4
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -316,10 +316,10 @@ files:
   error: null
 - path: TEST-COVERAGE.yaml
   language: yaml
-  size_bytes: 126912
-  content_hash: 576f8b5c1d03370121013d2e5a726481f9af08c24d0dea1e300c495b82b3483d
+  size_bytes: 125916
+  content_hash: c2237d1c03828a8b1bf0e8a1d7f07f79c4066541a69fddde60d4396eed871fb7
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -331,9 +331,9 @@ files:
 - path: VULNERABILITY-REPORT.yaml
   language: yaml
   size_bytes: 15525
-  content_hash: 48f9ef8e195c78a55b27a3eaa451d5a57de618b2514c35e8853ca7b09e0db3ab
+  content_hash: 52fe1b2dedb87ea392288b1f78e99c16102554375b1712612a7ae8c8a5069e95
   git_tracked: true
-  git_last_modified: '2026-06-22T02:48:30-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -413,7 +413,7 @@ files:
   size_bytes: 5124
   content_hash: 48d6aac8e81b786412d1d0edf2842500914a0abe3827638cc82b1738f743222a
   git_tracked: true
-  git_last_modified: '2026-06-22T03:43:20-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .json | Sin símbolos exportados
   symbols:
     functions: []
@@ -3517,8 +3517,8 @@ files:
   language: py
   size_bytes: 21801
   content_hash: a2df60fd840cba9ea7c143c2194444bd9b7761d379cc1655bc8c99ce303c80cb
-  git_tracked: false
-  git_last_modified: null
+  git_tracked: true
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: 'Python: 0 clases, 6 funciones (4 exportadas) | Exporta: detect_intent(),
     execute_intent(), process_natural_request(), main()'
   symbols:
@@ -6030,7 +6030,7 @@ files:
   size_bytes: 10001
   content_hash: 72f71076a9ba236eefb94ddb2e8a7d5cf57d78686790104bab620144e5fb6e52
   git_tracked: true
-  git_last_modified: '2026-06-22T01:39:47-04:00'
+  git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: 'Python: 0 clases, 4 funciones (4 exportadas) | Exporta: check_artifact(),
     validate_data_flow(), trace_flow(), main()'
   symbols:
