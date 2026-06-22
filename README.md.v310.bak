@@ -2,12 +2,12 @@
 
 > **Plugin de orquestacion de agentes para OpenCode** con flujos dinamicos, recoleccion determinista de evidencia, planes generados por Python, tests automaticos tras cada cambio, absorcion de tools externas (MCPs, skills, plugins, scripts), self-healing, generacion automatica de tests, busqueda semantica, refactoring, escaneo de vulnerabilidades CVE, code smells, dead code, feedback loop, documentacion interactiva, modo debug paso a paso, validacion de integracion E2E, auto-hooks, post-script gates y CLI router unificado.
 
-[![Tests](https://img.shields.io/badge/tests-160%2B%20passing-brightgreen)](#11-tests)
-[![Coverage](https://img.shields.io/badge/capability%20coverage-97%25-green)](#21-capability-assessment)
-[![License](https://img.shields.io/badge/license-MIT-blue)](#24-licencia)
+[![Tests](https://img.shields.io/badge/tests-150%2B%20passing-brightgreen)](#11-tests)
+[![Coverage](https://img.shields.io/badge/capability%20coverage-95%25-green)](#18-capability-assessment)
+[![License](https://img.shields.io/badge/license-MIT-blue)](#21-licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#2-prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#2-prerrequisitos)
-[![Version](https://img.shields.io/badge/version-3.2.0-blue)](#23-changelog)
+[![Version](https://img.shields.io/badge/version-3.1.0-blue)](#20-changelog)
 
 ---
 
@@ -32,13 +32,11 @@
 17. [Validacion de integracion E2E (v2.8.1)](#17-validacion-de-integracion-e2e-v281)
 18. [Configuracion centralizada apolo-config (v3.1.0 NUEVO)](#18-configuracion-centralizada-apolo-config-v310-nuevo)
 19. [Scaffold v3 con auto-select U-NN (v3.1.0 NUEVO)](#19-scaffold-v3-con-auto-select-u-nn-v310-nuevo)
-20. [Evidence visual diff + replay + cross-flow learning (v3.1.0)](#20-evidence-visual-diff--replay--cross-flow-learning-v310)
-21. [Orquestador automatico: UN comando = TODO el ciclo (v3.2.0 NUEVO)](#21-orquestador-automatico-un-comando--todo-el-ciclo-v320-nuevo)
-22. [Agent decision loop + script generator + quality gates + user input (v3.2.0 NUEVO)](#22-agent-decision-loop--script-generator--quality-gates--user-input-v320-nuevo)
-23. [Capability assessment](#23-capability-assessment)
-24. [Documentacion adicional](#24-documentacion-adicional)
-25. [Changelog](#25-changelog)
-26. [Licencia](#26-licencia)
+20. [Evidence visual diff + replay + cross-flow learning (v3.1.0 NUEVO)](#20-evidence-visual-diff--replay--cross-flow-learning-v310-nuevo)
+21. [Capability assessment](#21-capability-assessment)
+22. [Documentacion adicional](#22-documentacion-adicional)
+23. [Changelog](#23-changelog)
+24. [Licencia](#24-licencia)
 
 ---
 
@@ -1885,233 +1883,9 @@ Los 5 nuevos triggers de auto_hooks integran estos scripts automaticamente:
 
 ---
 
-## 21. Orquestador automatico: UN comando = TODO el ciclo (v3.2.0 NUEVO)
+## 21. Capability assessment
 
-### El cambio de paradigma
-
-**ANTES de v3.2.0** (el usuario/agente tenia que invocar manualmente):
-```bash
-apolo init --flowid X
-apolo index --repo-root .
-apolo collect --flowid X --scope-json '...'
-apolo score --flowid X
-apolo plan --flowid X --method hybrid
-apolo impact --flowid X
-apolo scaffold-v3 --flowid X
-# ... implementar manualmente ...
-apolo test
-apolo validate
-# 8+ comandos, facil perderse, olvidar pasos
-```
-
-**DESPUES de v3.2.0** (un solo comando):
-```bash
-apolo run --flowid APOLO-20260622-FEATURE-X --goal "implementar JWT auth"
-# El sistema hace TODO el ciclo automaticamente
-# Pausa SOLO cuando necesita input del usuario
-```
-
-### Como funciona `apolo_orchestrator.py`
-
-Ejecuta 11 fases automaticamente:
-
-| Fase | Que hace | Pausa? |
-|------|----------|--------|
-| 1. init | inicializar flow + health check + absorber tools | No |
-| 2. index | indexar codebase (AST) | No |
-| 3. collect | recolectar evidencia | Si (si necesita scope del usuario) |
-| 4. score | scorear evidencia (gate: min_score) | Si (si score < threshold) |
-| 5. plan | generar plan (auto-seleccion segun score) | No |
-| 6. impact | predecir impacto BFS | No |
-| 7. scaffold | generar scaffold v3 (auto-select U-NN) | No |
-| 8. implement | agente implementa (guiado por scaffold) | Si (awaiting agent) |
-| 9. test | ejecutar tests (gate: deben pasar) | Si (si tests fallan) |
-| 10. validate | validar evidence + cross-flow learning | No |
-| 11. complete | reportar resultado + telemetry | No |
-
-### CLI del orquestador
-
-```bash
-# Ejecutar ciclo completo con un goal
-apolo run --flowid APOLO-20260622-FEATURE-X --goal "implementar JWT auth en plugin/index.ts"
-
-# Continuar desde donde se pauso
-apolo continue --flowid APOLO-X
-
-# Ver estado del ciclo
-apolo orchestrator status --flowid APOLO-X
-
-# Abortar ciclo
-apolo orchestrator abort --flowid APOLO-X
-```
-
-### Auto-seleccion de method en plan
-
-El orquestador lee el score de evidencia y escoge el method automaticamente:
-- score < 0.4 → `method=manual` (agente debe decidir)
-- score en [0.4, 0.8] → `method=hybrid`
-- score > 0.8 → `method=deterministic-python`
-
-### Persistencia de estado
-
-El orquestador guarda estado en `plan/active/<flow>/ORCHESTRATOR-STATE.yaml`:
-- `current_phase`: fase actual
-- `completed_phases`: fases completadas
-- `paused`: si esta pausado
-- `pause_reason`: razon de pausa
-- `user_inputs`: inputs recibidos del usuario
-
-### Reporte final
-
-Al completar (o pausar), genera `ORCHESTRATOR-REPORT.yaml` con:
-- Todas las fases ejecutadas
-- Resultados de cada fase (stdout, stderr, duration)
-- Gates evaluados
-- Estado final (complete / paused / awaiting_agent / failed)
-
----
-
-## 22. Agent decision loop + script generator + quality gates + user input (v3.2.0 NUEVO)
-
-### 22.1 Agent decision loop (`agent_decision_loop.py`)
-
-El agente propone N opciones de decision. El sistema las evalua con 5 criterios y escoge la excelente:
-
-```bash
-# El agente propone opciones
-apolo decide --flowid APOLO-X --goal "implementar JWT" --options-json '[...]'
-
-# El sistema evalua cada opcion con 5 criterios:
-#   - impact (0.25): impacto esperado
-#   - risk_reversed (0.20): (1 - riesgo)
-#   - goal_alignment (0.25): alineacion con goal
-#   - evidence_support (0.15): evidencia de soporte
-#   - feasibility (0.15): factibilidad
-#
-# Si score >= 0.7 (excellence threshold) → aceptar
-# Si score < 0.7 → obligar al agente a proponer mejores opciones
-```
-
-### 22.2 Script generator (`script_generator.py`)
-
-El agente puede crear scripts nuevos cuando los existentes no cubren la necesidad:
-
-```bash
-# Agente propone un script nuevo
-apolo gen-script \
-    --name "jwt_validator" \
-    --description "Valida tokens JWT firmados" \
-    --purpose "security" \
-    --inputs "token:string,secret:string" \
-    --outputs "valid:bool,payload:dict"
-```
-
-El sistema:
-1. Valida que el nombre es snake_case valido
-2. Verifica que no duplica un script existente (similarity check)
-3. Genera el template con estructura estandar (shebang, docstring, imports, common.py)
-4. Guarda en `scripts/python/<name>.py`
-5. Crea test skeleton en `tests/test_<name>.py`
-6. Registra en `TOOL-REGISTRY.yaml` automaticamente
-
-### 22.3 Force quality gates (`force_quality_gates.py`)
-
-7 gates que OBLIGAN al agente a actuar con calidad:
-
-| Gate | Que verifica | Bloquea? |
-|------|-------------|----------|
-| QG-01 completitud | fases requeridas completadas | Si |
-| QG-02 veracidad | no errores en telemetry | Si |
-| QG-03 evidence_valida | evidence pack con items >= 1 | Si |
-| QG-04 no_silent_fail | errores reportados (no ocultos) | Si |
-| QG-05 tests_pass | tests pasando | Si |
-| QG-06 scaffold_used | scaffold v3 con files_to_create | No (warn) |
-| QG-07 no_regression | no nuevas fallas de tests | Si |
-
-```bash
-# Verificar todos los gates
-apolo quality-check --flowid APOLO-X
-
-# Si un gate bloqueante falla, el agente NO puede avanzar de fase
-# hasta que cumpla
-```
-
-### 22.4 User input collector (`user_input_collector.py`)
-
-Cuando el orquestador necesita input del usuario, pausa y genera una pregunta:
-
-```bash
-# El sistema genera una pregunta
-apolo ask --flowid APOLO-X \
-    --question "Que archivos incluir en el scope?" \
-    --options '["plugin/","src/","tests/"]' \
-    --default "plugin/"
-
-# El usuario responde
-apolo answer --flowid APOLO-X --question-id Q-001 --answer "plugin/"
-
-# Ver preguntas pendientes
-apolo ask pending --flowid APOLO-X
-
-# Ver historial
-apolo ask history --flowid APOLO-X
-```
-
-### 22.5 Integracion con auto-hooks (v3.2.0)
-
-5 nuevos triggers que obligan al agente a seguir el flujo:
-
-| Trigger | Script | Cuando |
-|---------|--------|--------|
-| `orchestrator:phase-start` | `force_quality_gates.py check` | Antes de cada fase |
-| `agent:decision-proposed` | `agent_decision_loop.py decide` | Cuando agente propone decisiones |
-| `agent:script-needed` | `script_generator.py create` | Cuando agente necesita script nuevo |
-| `orchestrator:needs-input` | `user_input_collector.py ask` | Cuando sistema necesita input |
-| `orchestrator:phase-complete` | `force_quality_gates.py check` | Despues de cada fase |
-
-Total triggers v3.2.0: **19** (9 v2.9.0 + 5 v3.1.0 + 5 v3.2.0)
-
-### 22.6 Flujo completo automatico (ejemplo)
-
-```bash
-# 1. Usuario ejecuta UN comando
-apolo run --flowid APOLO-20260622-JWT --goal "implementar JWT auth"
-
-# 2. Sistema ejecuta automaticamente:
-#    Fase 1: init → health_check ✓
-#    Fase 2: index → index_codebase ✓
-#    Fase 3: collect → collect_evidence (usa scope default: plugin/)
-#    Fase 4: score → score_evidence (score=0.5, gate pasa con threshold 0.6... pausa!)
-#    ⚠ PAUSA: score 0.5 < 0.6 — necesita mas evidencia
-#
-# 3. Usuario responde: apolo answer --flowid APOLO-X --question-id Q-001 --answer "mas scope"
-#
-# 4. Sistema continua:
-#    apolo continue --flowid APOLO-X
-#    Fase 4: score → score_evidence (score=0.75) ✓
-#    Fase 5: plan → generate_plan (method=hybrid, score en [0.4,0.8]) ✓
-#    Fase 6: impact → predict_impact ✓
-#    Fase 7: scaffold → scaffold_v3 (auto-select U-01) ✓
-#    Fase 8: implement → awaiting agent (scaffold listo)
-#    ⏸ PAUSA: agente debe implementar usando scaffold
-#
-# 5. Agente implementa usando los commands generados por scaffold_v3
-#
-# 6. Sistema continua:
-#    apolo continue --flowid APOLO-X
-#    Fase 9: test → run_tests ✓
-#    Fase 10: validate → evidence_visual_diff compare + cross_flow_learning analyze ✓
-#    Fase 11: complete → ORCHESTRATOR-REPORT.yaml generado ✓
-#
-# 7. Usuario revisa reporte:
-#    cat plan/active/APOLO-20260622-JWT/ORCHESTRATOR-REPORT.yaml
-```
-
----
-
-## 23. Capability assessment
-
-### Resumen (v3.2.0)
+### Resumen (v3.1.0)
 
 ```text
 Capacidades implementadas: 138
@@ -2215,7 +1989,7 @@ Cobertura de capacidades:   95%
 
 ---
 
-## 24. Documentacion adicional
+## 22. Documentacion adicional
 
 | Archivo | Contenido |
 |---|---|
@@ -2236,86 +2010,7 @@ Cobertura de capacidades:   95%
 
 ---
 
-## 25. Changelog
-
-### v3.2.0 (2026-06-22) — Orquestador Automatico + Decision Loop + Script Gen + Quality Gates + User Input
-
-**EL CAMBIO DE PARADIGMA:**
-
-Antes de v3.2.0, el usuario/agente tenia que invocar manualmente 8+ comandos para completar un ciclo (init → index → collect → score → plan → impact → scaffold → implement → test → validate). Era facil perderse, olvidar pasos, o no completar el ciclo.
-
-En v3.2.0, **UN solo comando ejecuta TODO el ciclo automaticamente**:
-```bash
-apolo run --flowid APOLO-X --goal "implementar JWT auth"
-```
-El sistema hace todo el resto, pausando SOLO cuando necesita input del usuario.
-
-**Novedades:**
-
-- **`apolo_orchestrator.py`** (NEW) — Orquestador automatico de 11 fases
-  - `run`: ejecuta TODO el ciclo (init → complete) automaticamente
-  - `continue`: continua desde donde se pauso
-  - `status`: ver estado del ciclo
-  - `abort`: abortar ciclo
-  - Auto-seleccion de method segun score de evidencia
-  - Persistencia de estado en ORCHESTRATOR-STATE.yaml
-  - Reporte final en ORCHESTRATOR-REPORT.yaml
-
-- **`agent_decision_loop.py`** (NEW) — Loop sobre decisiones del agente
-  - El agente propone N opciones, el sistema las evalua con 5 criterios (impact, risk, goal_alignment, evidence, feasibility)
-  - Si score >= 0.7 → aceptar (decision excelente)
-  - Si score < 0.7 → obligar al agente a proponer mejores opciones
-  - `decide`, `history`, `reevaluate` CLI
-
-- **`script_generator.py`** (NEW) — Agente crea scripts nuevos
-  - `create`: genera script con template estandar + test skeleton + registro en TOOL-REGISTRY
-  - `list`: lista scripts generados automaticamente
-  - `validate`: valida propuesta sin crear (similarity check)
-  - Promueve que el agente mejore el sistema
-
-- **`force_quality_gates.py`** (NEW) — Gates que OBLIGAN al agente a actuar con calidad
-  - 7 gates: completitud, veracidad, evidence_valida, no_silent_fail, tests_pass, scaffold_used, no_regression
-  - Gates bloqueantes impiden avanzar de fase si no cumplen
-  - `check`, `check-one`, `list`, `reset` CLI
-
-- **`user_input_collector.py`** (NEW) — Pausa para input del usuario
-  - `ask`: genera pregunta con options + default + timeout
-  - `answer`: registra respuesta del usuario
-  - `pending`: lista preguntas pendientes
-  - `history`: historial de Q&A
-  - `wait`: espera por respuesta con timeout y default automatico
-
-- **`auto_hooks.py`** (UPD) — 5 nuevos triggers v3.2.0 (total: 19 triggers)
-  - `orchestrator:phase-start` → force_quality_gates check (ANTES de cada fase)
-  - `agent:decision-proposed` → agent_decision_loop decide
-  - `agent:script-needed` → script_generator create
-  - `orchestrator:needs-input` → user_input_collector ask
-  - `orchestrator:phase-complete` → force_quality_gates check (DESPUES de cada fase)
-
-- **`apolo_cli_router.sh`** (UPD) — 7 nuevos comandos v3.2.0 (total: 51+ comandos)
-  - `apolo run` — UN comando ejecuta TODO el ciclo
-  - `apolo continue` — continua ciclo pausado
-  - `apolo decide` — agent decision loop
-  - `apolo gen-script` — genera script nuevo
-  - `apolo quality-check` — force quality gates
-  - `apolo ask` — pregunta al usuario
-  - `apolo answer` — responde pregunta
-
-- **`apolo-full-test.sh`** (UPD) — v3.2.0 con 6+ nuevos tests para los scripts v3.2.0
-- **`package.json`** (UPD) — v3.2.0 con 7 nuevos scripts npm (orchestrate, decide, gen-script, quality-check, ask, run, continue)
-- **`README.md`** (UPD) — 2 nuevas secciones (21, 22) documentando el orquestador automatico
-
-**Filosofia v3.2.0:**
-
-- **Determinismo + Agéntico**: determinismo para obligar al agente a decir la verdad y actuar con todos los pasos; agéntico para permitir creatividad
-- **El agente es guiado, no guia**: el sistema selecciona los comandos, guarda, integra automaticamente
-- **Loop sobre decisiones**: el agente toma decisiones, el sistema las evalua y escoge las excelentes
-- **El agente puede mejorar el sistema**: script_generator permite crear scripts nuevos
-- **Solo pausa cuando necesita input**: el usuario no escribe miles de comandos
-
-**Tests:** 160+ tests pasando (146 de v3.1.0 + 6+ nuevos de v3.2.0), 97% capability coverage
-
----
+## 23. Changelog
 
 ### v3.1.0 (2026-06-22) — Config + Scaffold v3 + Visual Diff + Replay + Cross-flow Learning
 
@@ -2763,7 +2458,7 @@ El sistema hace todo el resto, pausando SOLO cuando necesita input del usuario.
 
 ---
 
-## 26. Licencia
+## 24. Licencia
 
 MIT
 
@@ -2822,12 +2517,10 @@ Basado en los 5 puntos de perdida de control del INTEGRATION-VERDICT.md:
 | v2.8.0 | 2026-06-21 | 102 | 85% | Vulnerability + code smells + dead code |
 | v2.8.1 | 2026-06-22 | 103 | 86% | Fix full_audit + feedback + docs + debug |
 | v2.9.0 | 2026-06-22 | 133 | 90% | Hooks validator + auto-hooks + gates + CLI router |
-| v3.1.0 | 2026-06-22 | 150+ | 95% | Config + scaffold v3 + visual diff + replay + cross-flow |
-| **v3.2.0** | **2026-06-22** | **160+** | **97%** | **Orquestador automatico + decision loop + script gen + quality gates** |
+| **v3.1.0** | **2026-06-22** | **150+** | **95%** | **Config + scaffold v3 + visual diff + replay + cross-flow** |
 
 ---
 
-> **APOLO Dynamic Flow v3.2.0** — Plugin de orquestacion de agentes para OpenCode.
-> 160+ tests pasando, 97% capability coverage, 51+ comandos en CLI router unificado.
-> UN solo comando (`apolo run --flowid X --goal "..."`) ejecuta TODO el ciclo automaticamente.
-> 19 auto-hooks + 15 post-script gates + 7 force quality gates que obligan al agente a actuar con calidad.
+> **APOLO Dynamic Flow v3.1.0** — Plugin de orquestacion de agentes para OpenCode.
+> 150+ tests pasando, 95% capability coverage, 44+ scripts en CLI router unificado.
+> 14 auto-hooks + 15 post-script gates + 6 GAPs críticos cerrados (visual diff, replay, cross-flow, scaffold v3, config, auto-select U-NN).

@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "3.1.0",
-  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. 3 capas: Infrastructure, Deterministic, Intelligence. 150+ tests, 95%+ capability coverage. Hooks validator + Auto-hooks (14 triggers) + Post-script gates (15 gates) + CLI router (44+ commands). v3.1.0: Config centralizada + Scaffold v3 (auto-select U-NN) + Evidence visual diff + Evidence replay + Cross-flow learning. Self-healing, test gen, semantic search, refactoring, LLM bridge, cross-language, vulnerability scanner, code smells, dead code, full audit, feedback loop, interactive docs, debug mode, integration validation.",
+  "version": "3.2.0",
+  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. 3 capas: Infrastructure, Deterministic, Intelligence. 160+ tests, 97% capability coverage. v3.2.0: Orquestador automatico (un comando = todo el ciclo) + Agent decision loop + Script generator + Force quality gates + User input collector. El usuario solo ejecuta 'apolo run --flowid X --goal ...' y el sistema hace todo.",
   "main": "plugin/index.ts",
   "bin": {
     "apolo": "scripts/bash/apolo_cli_router.sh"
@@ -37,10 +37,17 @@
     "visual-diff": "python3 scripts/python/evidence_visual_diff.py",
     "evidence-replay": "python3 scripts/python/evidence_replay.py",
     "cross-flow": "python3 scripts/python/cross_flow_learning.py",
+    "orchestrate": "python3 scripts/python/apolo_orchestrator.py",
+    "decide": "python3 scripts/python/agent_decision_loop.py",
+    "gen-script": "python3 scripts/python/script_generator.py",
+    "quality-check": "python3 scripts/python/force_quality_gates.py",
+    "ask": "python3 scripts/python/user_input_collector.py",
+    "run": "bash scripts/bash/apolo_cli_router.sh run",
+    "continue": "bash scripts/bash/apolo_cli_router.sh continue",
     "apolo": "bash scripts/bash/apolo_cli_router.sh",
     "full-test": "bash apolo-full-test.sh"
   },
-  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions","vulnerability-scanning","code-smells","dead-code","full-audit","feedback-loop","interactive-docs","debug-mode","integration-validation","hooks-validator","auto-hooks","post-script-gates","cli-router","apolo-config","scaffold-v3","evidence-visual-diff","evidence-replay","cross-flow-learning"],
+  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions","vulnerability-scanning","code-smells","dead-code","full-audit","feedback-loop","interactive-docs","debug-mode","integration-validation","hooks-validator","auto-hooks","post-script-gates","cli-router","apolo-config","scaffold-v3","evidence-visual-diff","evidence-replay","cross-flow-learning","orchestrator","agent-decision-loop","script-generator","force-quality-gates","user-input-collector"],
   "author": "",
   "license": "MIT",
   "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.5.0" },

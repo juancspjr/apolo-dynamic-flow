@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-# apolo_cli_router.sh — Router para invocar scripts de apolo desde la consola OpenCode (v3.1.0).
+# apolo_cli_router.sh — Router para invocar scripts de apolo desde la consola OpenCode (v3.2.0).
+#
+# v3.2.0: NUEVO comando 'apolo run' que ejecuta TODO el ciclo automaticamente.
+#         El usuario solo necesita: apolo run --flowid X --goal "..."
+#         El sistema hace todo el resto.
 #
 # Alinea TODOS los scripts del plugin en una sola interfaz unificada que puede
 # invocarse directamente desde la consola de OpenCode o desde bash.
@@ -464,6 +468,43 @@ case "$CMD" in
       stats)      run_py cross_flow_learning.py stats --repo-root "$REPO_ROOT" "$@" ;;
       *) err "cross-flow subcomando desconocido: $sub"; echo "Validos: analyze recommend similar stats"; exit 1 ;;
     esac
+    ;;
+
+  # === v3.2.0 NEW: AUTOMATIC ORCHESTRATION ===
+  run)
+    # UN COMANDO ejecuta TODO el ciclo automaticamente
+    # apolo run --flowid APOLO-X --goal "implementar JWT auth"
+    run_py apolo_orchestrator.py run "$@"
+    ;;
+
+  continue)
+    # Continua ciclo pausado
+    run_py apolo_orchestrator.py continue "$@"
+    ;;
+
+  decide)
+    # Agent decision loop: evalua opciones del agente, escoge la excelente
+    run_py agent_decision_loop.py decide "$@"
+    ;;
+
+  gen-script)
+    # Genera un script nuevo cuando el agente lo necesita
+    run_py script_generator.py create "$@"
+    ;;
+
+  quality-check)
+    # Force quality gates: obliga al agente a actuar con calidad
+    run_py force_quality_gates.py check "$@"
+    ;;
+
+  ask)
+    # Pregunta al usuario (cuando el sistema necesita input)
+    run_py user_input_collector.py ask "$@"
+    ;;
+
+  answer)
+    # Responde una pregunta del sistema
+    run_py user_input_collector.py answer "$@"
     ;;
 
   # === ALIASES ÚTILES ===

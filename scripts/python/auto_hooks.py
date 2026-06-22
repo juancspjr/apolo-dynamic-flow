@@ -39,8 +39,8 @@ HOOKS_LOG_FILE = "AUTO-HOOKS-LOG.jsonl"
 
 DEFAULT_HOOKS = {
     "autohooks": "V1",
-    "version": 2,
-    "schema_version": "3.1.0",
+    "version": 3,
+    "schema_version": "3.2.0",
     "generated_at": now_iso(),
     "enabled": True,
     "triggers": [
@@ -173,6 +173,58 @@ DEFAULT_HOOKS = {
             ],
             "condition": "scaffold_v3_concrete",
             "description": "Después de producir scaffold v3, validar con post-script gates que es concreto",
+        },
+
+        # === NUEVOS TRIGGERS v3.2.0 — OBLIGAN al agente ===
+        {
+            "name": "orchestrator:phase-start",
+            "enabled": True,
+            "version_added": "3.2.0",
+            "run": [
+                {"script": "force_quality_gates.py", "args": ["check", "--repo-root", "."], "timeout": 15},
+            ],
+            "condition": None,
+            "description": "ANTES de cada fase del orquestador: verificar quality gates (obliga al agente a cumplir)",
+        },
+        {
+            "name": "agent:decision-proposed",
+            "enabled": True,
+            "version_added": "3.2.0",
+            "run": [
+                {"script": "agent_decision_loop.py", "args": ["decide", "--repo-root", "."], "timeout": 15},
+            ],
+            "condition": None,
+            "description": "Cuando el agente propone decisiones: evaluar y escoger la excelente (loop sobre decisiones)",
+        },
+        {
+            "name": "agent:script-needed",
+            "enabled": True,
+            "version_added": "3.2.0",
+            "run": [
+                {"script": "script_generator.py", "args": ["create", "--repo-root", "."], "timeout": 15},
+            ],
+            "condition": None,
+            "description": "Cuando el agente necesita un script que no existe: generar template automaticamente",
+        },
+        {
+            "name": "orchestrator:needs-input",
+            "enabled": True,
+            "version_added": "3.2.0",
+            "run": [
+                {"script": "user_input_collector.py", "args": ["ask", "--repo-root", "."], "timeout": 15},
+            ],
+            "condition": None,
+            "description": "Cuando el orquestador necesita input del usuario: generar pregunta y pausar",
+        },
+        {
+            "name": "orchestrator:phase-complete",
+            "enabled": True,
+            "version_added": "3.2.0",
+            "run": [
+                {"script": "force_quality_gates.py", "args": ["check", "--repo-root", "."], "timeout": 15},
+            ],
+            "condition": None,
+            "description": "DESPUES de cada fase del orquestador: verificar quality gates (no avanzar si no cumple)",
         },
     ],
 }
