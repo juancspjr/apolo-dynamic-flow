@@ -1,0 +1,1108 @@
+refactorsuggestions: V1
+version: 1
+generated_at: '2026-06-22T00:01:35Z'
+total_smells: 121
+by_severity:
+  high: 22
+  medium: 99
+suggestions:
+- id: RF-001
+  file: panel/panel.js
+  function: fetchJsonl
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in fetchJsonl (complexity=17)
+  refactored_code: '<think>
+
+    The user wants me to refactor JS code to reduce high complexity. Let me analyze
+    the code:
+
+
+    1. The code is cut off at the end (`async function refres` - incomplete)
+
+    2. There''s a tab navigation handler that has nested logic
+
+    3. There''s path configuration mixed with initialization
+
+    4. The DOMContentLoaded handler is doing too many things
+
+
+    Let me refactor by:
+
+    - Extracting tab navigation into its own function
+
+    - Separating path configuration into a function
+
+    - Extracting the refresh logic
+
+    - Making the code more modular
+
+
+    Since the code is truncated, I''ll refactor what''s visible and add reasonable
+    structure. Let me focus on reducing complexity in the visible parts.
+
+
+    Key refactoring strategies:
+
+    1. Extract tab navigation logic into a dedicated function
+
+    2. Extract path configuration
+
+    3. Separate concerns
+
+    4. Use early returns and smaller functions
+
+    5. Reduce nesting
+
+
+    Let me write the refactored version.
+
+    </think>
+
+
+    ```js
+
+    // apolo-dynamic-flow — panel.js
+
+    // Carga datos de telemetría y state, rende'
+- id: RF-002
+  file: panel/panel.js
+  function: parseYaml
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in parseYaml (complexity=17)
+  refactored_code: '<think>
+
+    The user wants me to refactor JS code to reduce high complexity. Let me analyze
+    the code:
+
+
+    1. The code is cut off at the end (`async function refres` - incomplete)
+
+    2. There''s a tab navigation handler that has nested logic
+
+    3. There''s path configuration mixed with initialization
+
+    4. The DOMContentLoaded handler is doing too many things
+
+
+    Let me refactor by:
+
+    - Extracting tab navigation into its own function
+
+    - Separating path configuration into a function
+
+    - Extracting the refresh logic
+
+    - Making the code more modular
+
+
+    Since the code is truncated, I''ll refactor what''s visible and add reasonable
+    structure. Let me focus on reducing complexity in the visible parts.
+
+
+    Key refactoring strategies:
+
+    1. Extract tab navigation logic into a dedicated function
+
+    2. Extract path configuration
+
+    3. Separate concerns
+
+    4. Use early returns and smaller functions
+
+    5. Reduce nesting
+
+
+    Let me write the refactored version.
+
+    </think>
+
+
+    ```js
+
+    // apolo-dynamic-flow — panel.js
+
+    // Carga datos de telemetría y state, rende'
+- id: RF-003
+  file: plugin/core/micro-test-runner.ts
+  function: parseScalar
+  smell: high_complexity
+  severity: medium
+  complexity: 18
+  suggestion: Reduce branching in parseScalar (complexity=18)
+  refactored_code: '<think>
+
+    The user wants me to refactor TypeScript code that has high complexity. However,
+    the code provided is incomplete - it cuts off in the middle of a function. I should
+    refactor what''s given while noting it''s incomplete, or work with what I can
+    see.
+
+
+    Looking at the code:
+
+    1. It has a YAML parser being built inline
+
+    2. The `parseYaml` function has nested loops and complex control flow
+
+    3. The code is cut off
+
+
+    I need to:
+
+    1. Provide a refactored version focusing on reducing complexity
+
+    2. Since the code is incomplete, I should either ask for the rest or refactor
+    what''s available
+
+    3. The main complexity issues are in the YAML parser and likely in the test execution
+    logic
+
+
+    Let me refactor by:
+
+    1. Breaking down the `parseYaml` function into smaller, more focused functions
+
+    2. Extracting constants (like the 60s timeout)
+
+    3. Using early returns to reduce nesting
+
+    4. Separating concerns (parsing vs execution)
+
+    5. Reducing cyclomatic complexity through helper functions
+
+
+    Since the code is cut off, I''ll'
+- id: RF-004
+  file: plugin/evidence-collector.ts
+  function: runCodeIndex
+  smell: long_function
+  severity: medium
+  lines: 78
+  suggestion: Extract sub-logic from runCodeIndex (78 lines) into smaller functions
+  refactored_code: '<think>
+
+    The user wants me to refactor TypeScript code to address a "long_function" issue.
+    However, looking at the provided code, it''s actually incomplete - it cuts off
+    mid-comment. I need to work with what''s available and provide a reasonable refactoring
+    based on the patterns visible.
+
+
+    Let me analyze what I see:
+
+    1. There''s a `CollectOptions` interface with a `scope` property
+
+    2. There''s a `CollectResult` interface
+
+    3. Constants for script paths
+
+    4. The code is cut off, so I need to infer what the function would look like
+
+
+    Since the user wants only refactored code and this is a "long_function" issue,
+    I should:
+
+    1. Refactor the code to be more modular
+
+    2. Extract smaller helper functions
+
+    3. Improve readability
+
+
+    But since the code is incomplete, I''ll need to make reasonable assumptions about
+    the full function. The comment mentions:
+
+    - Wrappers for index_codebase.py and score_evidence.py
+
+    - The orchestrator doesn''t think, just invokes and consumes
+
+
+    Let me provide a refactored version that:
+
+    1. Ext'
+- id: RF-005
+  file: plugin/evidence-collector.ts
+  function: runEvidenceScore
+  smell: long_function
+  severity: medium
+  lines: 94
+  suggestion: Extract sub-logic from runEvidenceScore (94 lines) into smaller functions
+  refactored_code: '<think>
+
+    The user wants me to refactor TypeScript code to address a "long_function" issue.
+    However, looking at the provided code, it''s actually incomplete - it cuts off
+    mid-comment. I need to work with what''s available and provide a reasonable refactoring
+    based on the patterns visible.
+
+
+    Let me analyze what I see:
+
+    1. There''s a `CollectOptions` interface with a `scope` property
+
+    2. There''s a `CollectResult` interface
+
+    3. Constants for script paths
+
+    4. The code is cut off, so I need to infer what the function would look like
+
+
+    Since the user wants only refactored code and this is a "long_function" issue,
+    I should:
+
+    1. Refactor the code to be more modular
+
+    2. Extract smaller helper functions
+
+    3. Improve readability
+
+
+    But since the code is incomplete, I''ll need to make reasonable assumptions about
+    the full function. The comment mentions:
+
+    - Wrappers for index_codebase.py and score_evidence.py
+
+    - The orchestrator doesn''t think, just invokes and consumes
+
+
+    Let me provide a refactored version that:
+
+    1. Ext'
+- id: RF-006
+  file: plugin/loop-engine.ts
+  function: runLoopIteration
+  smell: long_function
+  severity: high
+  lines: 160
+  suggestion: Extract sub-logic from runLoopIteration (160 lines) into smaller functions
+- id: RF-007
+  file: plugin/loop-engine.ts
+  function: emit
+  smell: long_function
+  severity: high
+  lines: 153
+  suggestion: Extract sub-logic from emit (153 lines) into smaller functions
+- id: RF-008
+  file: plugin/plan-generator.ts
+  function: runImpactPrediction
+  smell: long_function
+  severity: medium
+  lines: 93
+  suggestion: Extract sub-logic from runImpactPrediction (93 lines) into smaller functions
+- id: RF-009
+  file: plugin/test-runner.ts
+  function: runScaffold
+  smell: long_function
+  severity: high
+  lines: 106
+  suggestion: Extract sub-logic from runScaffold (106 lines) into smaller functions
+- id: RF-010
+  file: plugin/tool-absorber.ts
+  function: buildScriptTool
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in buildScriptTool (complexity=16)
+- id: RF-011
+  file: plugin/tool-absorber.ts
+  function: inferMcpCapabilities
+  smell: high_complexity
+  severity: medium
+  complexity: 25
+  suggestion: Reduce branching in inferMcpCapabilities (complexity=25)
+- id: RF-012
+  file: plugin/tool-absorber.ts
+  function: inferSkillCapabilities
+  smell: high_complexity
+  severity: medium
+  complexity: 19
+  suggestion: Reduce branching in inferSkillCapabilities (complexity=19)
+- id: RF-013
+  file: plugin/tool-absorber.ts
+  function: inferScriptCapabilities
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in inferScriptCapabilities (complexity=16)
+- id: RF-014
+  file: plugin/tool-absorber.ts
+  function: hotReloadRegistry
+  smell: long_function
+  severity: high
+  lines: 115
+  suggestion: Extract sub-logic from hotReloadRegistry (115 lines) into smaller functions
+- id: RF-015
+  file: plugin/tool-absorber.ts
+  function: recommendTool
+  smell: long_function
+  severity: medium
+  lines: 61
+  suggestion: Extract sub-logic from recommendTool (61 lines) into smaller functions
+- id: RF-016
+  file: plugin/utils.ts
+  function: toYaml
+  smell: long_function
+  severity: medium
+  lines: 53
+  suggestion: Extract sub-logic from toYaml (53 lines) into smaller functions
+- id: RF-017
+  file: plugin/utils.ts
+  function: parseYaml
+  smell: long_function
+  severity: medium
+  lines: 66
+  suggestion: Extract sub-logic from parseYaml (66 lines) into smaller functions
+- id: RF-018
+  file: scripts/python/absorb_external_skills.py
+  function: parse_source_url
+  smell: long_function
+  severity: medium
+  lines: 88
+  suggestion: Extract sub-logic from parse_source_url (88 lines) into smaller functions
+- id: RF-019
+  file: scripts/python/absorb_external_skills.py
+  function: infer_skill_capabilities
+  smell: long_function
+  severity: medium
+  lines: 61
+  suggestion: Extract sub-logic from infer_skill_capabilities (61 lines) into smaller
+    functions
+- id: RF-020
+  file: scripts/python/absorb_external_skills.py
+  function: infer_skill_capabilities
+  smell: high_complexity
+  severity: medium
+  complexity: 23
+  suggestion: Reduce branching in infer_skill_capabilities (complexity=23)
+- id: RF-021
+  file: scripts/python/absorb_external_skills.py
+  function: install_skill
+  smell: long_function
+  severity: high
+  lines: 114
+  suggestion: Extract sub-logic from install_skill (114 lines) into smaller functions
+- id: RF-022
+  file: scripts/python/absorb_external_skills.py
+  function: process_hub
+  smell: long_function
+  severity: medium
+  lines: 73
+  suggestion: Extract sub-logic from process_hub (73 lines) into smaller functions
+- id: RF-023
+  file: scripts/python/absorb_external_skills.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 73
+  suggestion: Extract sub-logic from main (73 lines) into smaller functions
+- id: RF-024
+  file: scripts/python/absorb_mcp.py
+  function: infer_mcp_capabilities
+  smell: high_complexity
+  severity: medium
+  complexity: 19
+  suggestion: Reduce branching in infer_mcp_capabilities (complexity=19)
+- id: RF-025
+  file: scripts/python/absorb_mcp.py
+  function: infer_skill_capabilities
+  smell: high_complexity
+  severity: medium
+  complexity: 18
+  suggestion: Reduce branching in infer_skill_capabilities (complexity=18)
+- id: RF-026
+  file: scripts/python/absorb_mcp.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 112
+  suggestion: Extract sub-logic from main (112 lines) into smaller functions
+- id: RF-027
+  file: scripts/python/code_quality.py
+  function: run_eslint_security
+  smell: high_complexity
+  severity: medium
+  complexity: 18
+  suggestion: Reduce branching in run_eslint_security (complexity=18)
+- id: RF-028
+  file: scripts/python/code_quality.py
+  function: run_security_for_language
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in run_security_for_language (complexity=17)
+- id: RF-029
+  file: scripts/python/code_quality.py
+  function: run_radon_cc
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in run_radon_cc (complexity=16)
+- id: RF-030
+  file: scripts/python/code_quality.py
+  function: run_gocyclo
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in run_gocyclo (complexity=16)
+- id: RF-031
+  file: scripts/python/code_quality.py
+  function: estimate_complexity_regex
+  smell: long_function
+  severity: medium
+  lines: 81
+  suggestion: Extract sub-logic from estimate_complexity_regex (81 lines) into smaller
+    functions
+- id: RF-032
+  file: scripts/python/code_quality.py
+  function: estimate_complexity_regex
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in estimate_complexity_regex (complexity=16)
+- id: RF-033
+  file: scripts/python/code_quality.py
+  function: analyze_repo
+  smell: long_function
+  severity: high
+  lines: 124
+  suggestion: Extract sub-logic from analyze_repo (124 lines) into smaller functions
+- id: RF-034
+  file: scripts/python/code_smells.py
+  function: detect_god_classes
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in detect_god_classes (complexity=17)
+- id: RF-035
+  file: scripts/python/code_smells.py
+  function: detect_deep_nesting
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in detect_deep_nesting (complexity=17)
+- id: RF-036
+  file: scripts/python/code_smells.py
+  function: detect_duplication
+  smell: long_function
+  severity: medium
+  lines: 52
+  suggestion: Extract sub-logic from detect_duplication (52 lines) into smaller functions
+- id: RF-037
+  file: scripts/python/code_smells.py
+  function: detect_dead_code
+  smell: long_function
+  severity: medium
+  lines: 65
+  suggestion: Extract sub-logic from detect_dead_code (65 lines) into smaller functions
+- id: RF-038
+  file: scripts/python/code_smells.py
+  function: detect_dead_code
+  smell: high_complexity
+  severity: medium
+  complexity: 18
+  suggestion: Reduce branching in detect_dead_code (complexity=18)
+- id: RF-039
+  file: scripts/python/code_smells.py
+  function: compute_complexity_native
+  smell: long_function
+  severity: medium
+  lines: 87
+  suggestion: Extract sub-logic from compute_complexity_native (87 lines) into smaller
+    functions
+- id: RF-040
+  file: scripts/python/code_smells.py
+  function: compute_complexity_native
+  smell: high_complexity
+  severity: medium
+  complexity: 21
+  suggestion: Reduce branching in compute_complexity_native (complexity=21)
+- id: RF-041
+  file: scripts/python/code_smells.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 62
+  suggestion: Extract sub-logic from main (62 lines) into smaller functions
+- id: RF-042
+  file: scripts/python/collect_evidence.py
+  function: collect_screenshot
+  smell: long_function
+  severity: medium
+  lines: 58
+  suggestion: Extract sub-logic from collect_screenshot (58 lines) into smaller functions
+- id: RF-043
+  file: scripts/python/collect_evidence.py
+  function: collect_schema_validation
+  smell: long_function
+  severity: medium
+  lines: 55
+  suggestion: Extract sub-logic from collect_schema_validation (55 lines) into smaller
+    functions
+- id: RF-044
+  file: scripts/python/collect_evidence.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 154
+  suggestion: Extract sub-logic from main (154 lines) into smaller functions
+- id: RF-045
+  file: scripts/python/common.py
+  function: git_diff
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in git_diff (complexity=17)
+- id: RF-046
+  file: scripts/python/context_query.py
+  function: handler_available_mcps
+  smell: high_complexity
+  severity: medium
+  complexity: 21
+  suggestion: Reduce branching in handler_available_mcps (complexity=21)
+- id: RF-047
+  file: scripts/python/context_query.py
+  function: handler_recommended_mcp
+  smell: high_complexity
+  severity: medium
+  complexity: 21
+  suggestion: Reduce branching in handler_recommended_mcp (complexity=21)
+- id: RF-048
+  file: scripts/python/cross_language_analyzer.py
+  function: detect_language_calls
+  smell: long_function
+  severity: high
+  lines: 140
+  suggestion: Extract sub-logic from detect_language_calls (140 lines) into smaller
+    functions
+- id: RF-049
+  file: scripts/python/cross_language_analyzer.py
+  function: build_cross_language_map
+  smell: long_function
+  severity: medium
+  lines: 58
+  suggestion: Extract sub-logic from build_cross_language_map (58 lines) into smaller
+    functions
+- id: RF-050
+  file: scripts/python/doc_generator.py
+  function: generate_readme_section
+  smell: long_function
+  severity: medium
+  lines: 76
+  suggestion: Extract sub-logic from generate_readme_section (76 lines) into smaller
+    functions
+- id: RF-051
+  file: scripts/python/doc_generator.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 57
+  suggestion: Extract sub-logic from main (57 lines) into smaller functions
+- id: RF-052
+  file: scripts/python/full_audit.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 160
+  suggestion: Extract sub-logic from main (160 lines) into smaller functions
+- id: RF-053
+  file: scripts/python/generate_plan.py
+  function: cluster_to_unit
+  smell: long_function
+  severity: medium
+  lines: 68
+  suggestion: Extract sub-logic from cluster_to_unit (68 lines) into smaller functions
+- id: RF-054
+  file: scripts/python/generate_plan.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 198
+  suggestion: Extract sub-logic from main (198 lines) into smaller functions
+- id: RF-055
+  file: scripts/python/health_check.py
+  function: discover_new_scripts
+  smell: long_function
+  severity: medium
+  lines: 79
+  suggestion: Extract sub-logic from discover_new_scripts (79 lines) into smaller
+    functions
+- id: RF-056
+  file: scripts/python/health_check.py
+  function: discover_new_scripts
+  smell: high_complexity
+  severity: medium
+  complexity: 21
+  suggestion: Reduce branching in discover_new_scripts (complexity=21)
+- id: RF-057
+  file: scripts/python/health_check.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 136
+  suggestion: Extract sub-logic from main (136 lines) into smaller functions
+- id: RF-058
+  file: scripts/python/index_codebase.py
+  function: extract_python_symbols
+  smell: long_function
+  severity: high
+  lines: 108
+  suggestion: Extract sub-logic from extract_python_symbols (108 lines) into smaller
+    functions
+- id: RF-059
+  file: scripts/python/index_codebase.py
+  function: extract_python_symbols
+  smell: high_complexity
+  severity: medium
+  complexity: 22
+  suggestion: Reduce branching in extract_python_symbols (complexity=22)
+- id: RF-060
+  file: scripts/python/index_codebase.py
+  function: extract_ts_symbols
+  smell: long_function
+  severity: high
+  lines: 137
+  suggestion: Extract sub-logic from extract_ts_symbols (137 lines) into smaller functions
+- id: RF-061
+  file: scripts/python/index_codebase.py
+  function: extract_go_symbols
+  smell: long_function
+  severity: medium
+  lines: 57
+  suggestion: Extract sub-logic from extract_go_symbols (57 lines) into smaller functions
+- id: RF-062
+  file: scripts/python/index_codebase.py
+  function: extract_go_symbols
+  smell: high_complexity
+  severity: medium
+  complexity: 18
+  suggestion: Reduce branching in extract_go_symbols (complexity=18)
+- id: RF-063
+  file: scripts/python/index_codebase.py
+  function: generate_summary
+  smell: long_function
+  severity: medium
+  lines: 57
+  suggestion: Extract sub-logic from generate_summary (57 lines) into smaller functions
+- id: RF-064
+  file: scripts/python/index_codebase.py
+  function: generate_summary
+  smell: high_complexity
+  severity: medium
+  complexity: 24
+  suggestion: Reduce branching in generate_summary (complexity=24)
+- id: RF-065
+  file: scripts/python/index_codebase.py
+  function: index_file
+  smell: long_function
+  severity: medium
+  lines: 55
+  suggestion: Extract sub-logic from index_file (55 lines) into smaller functions
+- id: RF-066
+  file: scripts/python/index_codebase.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 103
+  suggestion: Extract sub-logic from main (103 lines) into smaller functions
+- id: RF-067
+  file: scripts/python/inspect_tools.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 59
+  suggestion: Extract sub-logic from main (59 lines) into smaller functions
+- id: RF-068
+  file: scripts/python/install_deps.py
+  function: install_package
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in install_package (complexity=17)
+- id: RF-069
+  file: scripts/python/install_deps.py
+  function: main
+  smell: high_complexity
+  severity: medium
+  complexity: 18
+  suggestion: Reduce branching in main (complexity=18)
+- id: RF-070
+  file: scripts/python/llm_bridge.py
+  function: chat
+  smell: long_function
+  severity: medium
+  lines: 54
+  suggestion: Extract sub-logic from chat (54 lines) into smaller functions
+- id: RF-071
+  file: scripts/python/lsp_integration.py
+  function: lsp_diagnostics_via_cli
+  smell: long_function
+  severity: medium
+  lines: 62
+  suggestion: Extract sub-logic from lsp_diagnostics_via_cli (62 lines) into smaller
+    functions
+- id: RF-072
+  file: scripts/python/lsp_integration.py
+  function: regex_get_diagnostics
+  smell: long_function
+  severity: medium
+  lines: 69
+  suggestion: Extract sub-logic from regex_get_diagnostics (69 lines) into smaller
+    functions
+- id: RF-073
+  file: scripts/python/lsp_integration.py
+  function: regex_go_to_definition
+  smell: long_function
+  severity: medium
+  lines: 61
+  suggestion: Extract sub-logic from regex_go_to_definition (61 lines) into smaller
+    functions
+- id: RF-074
+  file: scripts/python/lsp_integration.py
+  function: regex_get_hover
+  smell: long_function
+  severity: medium
+  lines: 52
+  suggestion: Extract sub-logic from regex_get_hover (52 lines) into smaller functions
+- id: RF-075
+  file: scripts/python/lsp_integration.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 61
+  suggestion: Extract sub-logic from main (61 lines) into smaller functions
+- id: RF-076
+  file: scripts/python/onboarding.py
+  function: run_onboarding
+  smell: long_function
+  severity: medium
+  lines: 74
+  suggestion: Extract sub-logic from run_onboarding (74 lines) into smaller functions
+- id: RF-077
+  file: scripts/python/predict_impact.py
+  function: project_dependency_cascade
+  smell: long_function
+  severity: high
+  lines: 134
+  suggestion: Extract sub-logic from project_dependency_cascade (134 lines) into smaller
+    functions
+- id: RF-078
+  file: scripts/python/predict_impact.py
+  function: project_historical_pattern
+  smell: long_function
+  severity: medium
+  lines: 92
+  suggestion: Extract sub-logic from project_historical_pattern (92 lines) into smaller
+    functions
+- id: RF-079
+  file: scripts/python/predict_impact.py
+  function: project_test_coverage_gap
+  smell: long_function
+  severity: medium
+  lines: 94
+  suggestion: Extract sub-logic from project_test_coverage_gap (94 lines) into smaller
+    functions
+- id: RF-080
+  file: scripts/python/predict_impact.py
+  function: project_symbol_contract
+  smell: long_function
+  severity: medium
+  lines: 66
+  suggestion: Extract sub-logic from project_symbol_contract (66 lines) into smaller
+    functions
+- id: RF-081
+  file: scripts/python/predict_impact.py
+  function: project_symbol_contract
+  smell: high_complexity
+  severity: high
+  complexity: 28
+  suggestion: Reduce branching in project_symbol_contract (complexity=28)
+- id: RF-082
+  file: scripts/python/predict_impact.py
+  function: project_git_blame_risk
+  smell: long_function
+  severity: medium
+  lines: 61
+  suggestion: Extract sub-logic from project_git_blame_risk (61 lines) into smaller
+    functions
+- id: RF-083
+  file: scripts/python/predict_impact.py
+  function: project_git_blame_risk
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in project_git_blame_risk (complexity=17)
+- id: RF-084
+  file: scripts/python/predict_impact.py
+  function: predict_for_mp
+  smell: long_function
+  severity: medium
+  lines: 57
+  suggestion: Extract sub-logic from predict_for_mp (57 lines) into smaller functions
+- id: RF-085
+  file: scripts/python/predict_impact.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 120
+  suggestion: Extract sub-logic from main (120 lines) into smaller functions
+- id: RF-086
+  file: scripts/python/refactor_engine.py
+  function: count_lines
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in count_lines (complexity=17)
+- id: RF-087
+  file: scripts/python/refactor_engine.py
+  function: estimate_complexity
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in estimate_complexity (complexity=17)
+- id: RF-088
+  file: scripts/python/refactor_engine.py
+  function: detect_smells
+  smell: long_function
+  severity: medium
+  lines: 57
+  suggestion: Extract sub-logic from detect_smells (57 lines) into smaller functions
+- id: RF-089
+  file: scripts/python/registry_recommend.py
+  function: score_tool
+  smell: long_function
+  severity: medium
+  lines: 83
+  suggestion: Extract sub-logic from score_tool (83 lines) into smaller functions
+- id: RF-090
+  file: scripts/python/registry_recommend.py
+  function: recommend
+  smell: long_function
+  severity: medium
+  lines: 56
+  suggestion: Extract sub-logic from recommend (56 lines) into smaller functions
+- id: RF-091
+  file: scripts/python/run_tests.py
+  function: discover_pytest_tests
+  smell: high_complexity
+  severity: medium
+  complexity: 18
+  suggestion: Reduce branching in discover_pytest_tests (complexity=18)
+- id: RF-092
+  file: scripts/python/run_tests.py
+  function: discover_go_tests
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in discover_go_tests (complexity=17)
+- id: RF-093
+  file: scripts/python/run_tests.py
+  function: discover_jest_tests
+  smell: high_complexity
+  severity: medium
+  complexity: 17
+  suggestion: Reduce branching in discover_jest_tests (complexity=17)
+- id: RF-094
+  file: scripts/python/run_tests.py
+  function: run_pytest
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in run_pytest (complexity=16)
+- id: RF-095
+  file: scripts/python/run_tests.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 120
+  suggestion: Extract sub-logic from main (120 lines) into smaller functions
+- id: RF-096
+  file: scripts/python/scaffold_impl.py
+  function: build_files_to_touch
+  smell: long_function
+  severity: medium
+  lines: 63
+  suggestion: Extract sub-logic from build_files_to_touch (63 lines) into smaller
+    functions
+- id: RF-097
+  file: scripts/python/scaffold_impl.py
+  function: build_function_contracts
+  smell: long_function
+  severity: medium
+  lines: 62
+  suggestion: Extract sub-logic from build_function_contracts (62 lines) into smaller
+    functions
+- id: RF-098
+  file: scripts/python/scaffold_impl.py
+  function: build_existing_tests
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in build_existing_tests (complexity=16)
+- id: RF-099
+  file: scripts/python/scaffold_impl.py
+  function: build_checkpoints
+  smell: long_function
+  severity: medium
+  lines: 62
+  suggestion: Extract sub-logic from build_checkpoints (62 lines) into smaller functions
+- id: RF-100
+  file: scripts/python/scaffold_impl.py
+  function: build_circular_deps_warning
+  smell: long_function
+  severity: medium
+  lines: 74
+  suggestion: Extract sub-logic from build_circular_deps_warning (74 lines) into smaller
+    functions
+- id: RF-101
+  file: scripts/python/scaffold_impl.py
+  function: build_circular_deps_warning
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in build_circular_deps_warning (complexity=16)
+- id: RF-102
+  file: scripts/python/scaffold_impl.py
+  function: build_change_template
+  smell: long_function
+  severity: medium
+  lines: 88
+  suggestion: Extract sub-logic from build_change_template (88 lines) into smaller
+    functions
+- id: RF-103
+  file: scripts/python/scaffold_impl.py
+  function: main
+  smell: long_function
+  severity: high
+  lines: 129
+  suggestion: Extract sub-logic from main (129 lines) into smaller functions
+- id: RF-104
+  file: scripts/python/scaffold_impl.py
+  function: main
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in main (complexity=16)
+- id: RF-105
+  file: scripts/python/score_evidence.py
+  function: compute_coverage_score
+  smell: long_function
+  severity: medium
+  lines: 55
+  suggestion: Extract sub-logic from compute_coverage_score (55 lines) into smaller
+    functions
+- id: RF-106
+  file: scripts/python/score_evidence.py
+  function: compute_redundancy_score
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in compute_redundancy_score (complexity=16)
+- id: RF-107
+  file: scripts/python/score_evidence.py
+  function: generate_recommendation
+  smell: long_function
+  severity: medium
+  lines: 62
+  suggestion: Extract sub-logic from generate_recommendation (62 lines) into smaller
+    functions
+- id: RF-108
+  file: scripts/python/score_evidence.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 94
+  suggestion: Extract sub-logic from main (94 lines) into smaller functions
+- id: RF-109
+  file: scripts/python/secret_scanner.py
+  function: load_patterns
+  smell: long_function
+  severity: medium
+  lines: 53
+  suggestion: Extract sub-logic from load_patterns (53 lines) into smaller functions
+- id: RF-110
+  file: scripts/python/secret_scanner.py
+  function: scan_evidence_pack
+  smell: long_function
+  severity: medium
+  lines: 58
+  suggestion: Extract sub-logic from scan_evidence_pack (58 lines) into smaller functions
+- id: RF-111
+  file: scripts/python/secret_scanner.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 72
+  suggestion: Extract sub-logic from main (72 lines) into smaller functions
+- id: RF-112
+  file: scripts/python/secret_scanner.py
+  function: main
+  smell: high_complexity
+  severity: medium
+  complexity: 20
+  suggestion: Reduce branching in main (complexity=20)
+- id: RF-113
+  file: scripts/python/self_healing.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 87
+  suggestion: Extract sub-logic from main (87 lines) into smaller functions
+- id: RF-114
+  file: scripts/python/serve_panel.py
+  function: main
+  smell: long_function
+  severity: medium
+  lines: 62
+  suggestion: Extract sub-logic from main (62 lines) into smaller functions
+- id: RF-115
+  file: scripts/python/summarize_functions.py
+  function: infer_summary_from_name
+  smell: high_complexity
+  severity: medium
+  complexity: 19
+  suggestion: Reduce branching in infer_summary_from_name (complexity=19)
+- id: RF-116
+  file: scripts/python/summarize_functions.py
+  function: infer_summary_from_body
+  smell: high_complexity
+  severity: medium
+  complexity: 24
+  suggestion: Reduce branching in infer_summary_from_body (complexity=24)
+- id: RF-117
+  file: scripts/python/telemetry_aggregator.py
+  function: aggregate
+  smell: long_function
+  severity: medium
+  lines: 57
+  suggestion: Extract sub-logic from aggregate (57 lines) into smaller functions
+- id: RF-118
+  file: scripts/python/test_coverage.py
+  function: extract_symbols_from_file
+  smell: long_function
+  severity: high
+  lines: 114
+  suggestion: Extract sub-logic from extract_symbols_from_file (114 lines) into smaller
+    functions
+- id: RF-119
+  file: scripts/python/test_coverage.py
+  function: analyze_coverage
+  smell: long_function
+  severity: high
+  lines: 285
+  suggestion: Extract sub-logic from analyze_coverage (285 lines) into smaller functions
+- id: RF-120
+  file: scripts/python/test_coverage.py
+  function: analyze_coverage
+  smell: high_complexity
+  severity: medium
+  complexity: 16
+  suggestion: Reduce branching in analyze_coverage (complexity=16)
+- id: RF-121
+  file: scripts/python/vulnerability_scanner.py
+  function: scan_all
+  smell: long_function
+  severity: medium
+  lines: 51
+  suggestion: Extract sub-logic from scan_all (51 lines) into smaller functions
+

@@ -1,0 +1,36 @@
+crosslanguagemap: V1
+version: 1
+generated_at: '2026-06-22T00:00:34Z'
+total_calls: 4
+languages_analyzed:
+- yaml
+adjacency_matrix:
+  yaml:
+    rest-api: 4
+critical_nodes: []
+calls:
+- from: yaml
+  to: rest-api
+  type: rest-endpoint
+  target: /api/v1/solicitudes/
+  file: /home/juan/new_project/templates/DYNAMIC-PLAN.template.yaml
+  line: 33
+- from: yaml
+  to: rest-api
+  type: rest-endpoint
+  target: /api/v1/solicitudes/
+  file: /home/juan/new_project/templates/DYNAMIC-PLAN.template.yaml
+  line: 33
+- from: yaml
+  to: rest-api
+  type: rest-endpoint
+  target: /api/v1/solicitudes/
+  file: /home/juan/new_project/templates/DYNAMIC-PLAN.template.yaml
+  line: 48
+- from: yaml
+  to: rest-api
+  type: rest-endpoint
+  target: /api/v1/solicitudes/
+  file: /home/juan/new_project/templates/TEST-RUN.template.yaml
+  line: 27
+

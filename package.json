@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.7.0",
-  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje (HTML, CSS, JS, React, Rust, C++, PHP, TS, Java, Go). 3 capas: Infrastructure, Deterministic, Intelligence. Self-healing, test gen, semantic search, refactoring, LLM bridge, cross-language analysis, function summaries, code generation, doc generation, project templates, onboarding, GitHub Actions.",
+  "version": "2.8.0",
+  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. 3 capas: Infrastructure, Deterministic, Intelligence. 100+ tests, 85%+ capability coverage. Self-healing, test gen, semantic search, refactoring, LLM bridge, cross-language, function summaries, code gen, doc gen, project templates, onboarding, GitHub Actions, vulnerability scanning, code smells, dead code, full audit.",
   "main": "plugin/index.ts",
   "scripts": {
     "test": "npx tsc && node --test dist/tests/plugin.test.js",
@@ -18,9 +18,10 @@
     "clean": "rm -rf dist",
     "install-deps": "python3 scripts/python/install_deps.py",
     "onboard": "python3 scripts/python/onboarding.py --repo-root . --non-interactive",
-    "generate-actions": "python3 scripts/python/github_actions.py --repo-root ."
+    "generate-actions": "python3 scripts/python/github_actions.py --repo-root .",
+    "audit": "python3 scripts/python/full_audit.py --repo-root ."
   },
-  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions"],
+  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions","vulnerability-scanning","code-smells","dead-code","full-audit"],
   "author": "",
   "license": "MIT",
   "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.5.0" },

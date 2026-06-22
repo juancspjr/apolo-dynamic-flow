@@ -1,7 +1,7 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T22:56:55Z'
+generated_at: '2026-06-22T00:05:37Z'
 repo_root: /home/juan/new_project
-total_files: 63
+total_files: 71
 languages_detected:
 - css
 - html
@@ -1877,6 +1877,27 @@ security_findings:
   confidence: HIGH
   message: Try, Except, Pass detected.
 - tool: bandit
+  file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  line: 81
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  line: 114
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  line: 141
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
   file: /home/juan/new_project/scripts/python/index_codebase.py
   line: 34
   test_id: B404
@@ -1891,6 +1912,13 @@ security_findings:
   severity: LOW
   confidence: HIGH
   message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/doc_generator.py
+  line: 172
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
 - tool: bandit
   file: /home/juan/new_project/scripts/python/absorb_mcp.py
   line: 22
@@ -1972,6 +2000,41 @@ security_findings:
   confidence: HIGH
   message: Consider possible security implications associated with the subprocess
     module.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/code_smells.py
+  line: 50
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/code_smells.py
+  line: 113
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/code_smells.py
+  line: 221
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/code_smells.py
+  line: 282
+  test_id: B110
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Pass detected.
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/code_smells.py
+  line: 319
+  test_id: B112
+  severity: LOW
+  confidence: HIGH
+  message: Try, Except, Continue detected.
 complexity_scores:
 - file: /home/juan/new_project/panel/panel.js
   function: refresh
@@ -4019,6 +4082,24 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  function: main
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  function: create_project
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  function: list_templates
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/serve_panel.py
   function: main
   complexity: 4
@@ -4427,6 +4508,54 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  function: scan_npm_audit
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  function: scan_all
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  function: scan_python_safety
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  function: scan_go_vulncheck
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  function: scan_rust_audit
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  function: scan_pip_audit
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  function: scan_python_bandit
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  function: main
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/index_codebase.py
   function: extract_python_symbols
   complexity: 25
@@ -4559,6 +4688,78 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/full_audit.py
+  function: main
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/full_audit.py
+  function: run_script
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_docstrings_for_file
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: main
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_api_docs
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_python_docstring
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_jsdoc
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_changelog_entry
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_rust_doc
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_java_doc
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_go_doc
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  function: generate_readme_section
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/generate_plan.py
   function: main
   complexity: 50
@@ -4597,6 +4798,48 @@ complexity_scores:
   estimated: false
 - file: /home/juan/new_project/scripts/python/generate_plan.py
   function: default_adaptative_gates
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  function: run_onboarding
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  function: _try_import
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  function: generate_opencode_json
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  function: main
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  function: check_prerequisites
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  function: suggest_mcps
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  function: suggest_skills
   complexity: 1
   rank: A
   tool: radon
@@ -4805,6 +5048,18 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/github_actions.py
+  function: generate_workflows
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/github_actions.py
+  function: main
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
   function: detect_language_calls
   complexity: 20
@@ -4824,6 +5079,84 @@ complexity_scores:
   tool: radon
   estimated: false
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
+  function: main
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_go_struct
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_with_llm
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_python_class
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_typescript_function
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_typescript_class
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_java_class
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_cpp_class
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_php_class
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_python_function
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_go_function
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  function: generate_rust_function
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_generator.py
   function: main
   complexity: 2
   rank: A
@@ -4970,6 +5303,48 @@ complexity_scores:
 - file: /home/juan/new_project/scripts/python/health_check.py
   function: check_command_exit
   complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: compute_complexity_native
+  complexity: 29
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: detect_dead_code
+  complexity: 18
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: detect_long_methods
+  complexity: 15
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: detect_duplication
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: detect_deep_nesting
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: main
+  complexity: 7
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: detect_god_classes
+  complexity: 4
   rank: A
   tool: radon
   estimated: false
@@ -5324,6 +5699,20 @@ high_complexity_functions:
   lineno: 148
   tool: radon
   recommendation: refactor 'discover_new_scripts' (complejidad 26 > 15)
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: compute_complexity_native
+  complexity: 29
+  rank: D
+  lineno: 256
+  tool: radon
+  recommendation: refactor 'compute_complexity_native' (complejidad 29 > 15)
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  function: detect_dead_code
+  complexity: 18
+  rank: C
+  lineno: 191
+  tool: radon
+  recommendation: refactor 'detect_dead_code' (complejidad 18 > 15)
 degradations:
 - herramienta nativa de complejidad no disponible para javascript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para css — usando regex-estimation
@@ -5348,13 +5737,13 @@ degradations:
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 recommendations:
-- Refactorizar 50 función(es) con complejidad > 15
-- 'Atender 249 finding(s) de seguridad: {''low'': 245, ''medium'': 3, ''high'': 1}'
+- Refactorizar 52 función(es) con complejidad > 15
+- 'Atender 258 finding(s) de seguridad: {''low'': 254, ''medium'': 3, ''high'': 1}'
 - 'Instalar herramientas faltantes para análisis completo: 22 degradación(es)'
 summary:
-  total_security_findings: 249
-  total_functions_analyzed: 500
-  high_complexity_count: 50
+  total_security_findings: 258
+  total_functions_analyzed: 552
+  high_complexity_count: 52
   degradation_count: 22
-duration_ms: 60218
+duration_ms: 68507
 

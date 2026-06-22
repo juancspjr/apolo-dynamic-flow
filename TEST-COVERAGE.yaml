@@ -1,13 +1,13 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T22:56:34Z'
+generated_at: '2026-06-22T00:05:08Z'
 repo_root: /home/juan/new_project
 code_index_used: false
 coverage_tool_used: coverage.py
 dominant_language: python
-total_symbols: 474
+total_symbols: 528
 covered_symbols: 4
-uncovered_symbols: 470
-coverage_percentage: 0.84
+uncovered_symbols: 524
+coverage_percentage: 0.76
 critical_uncovered:
 - file: /home/juan/new_project/plugin/state-machine.ts
   name: TRANSITIONS
@@ -1629,6 +1629,36 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: test_main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: list_templates
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: create_project
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/serve_panel.py
   name: main
   kind: function
@@ -2025,6 +2055,54 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_python_safety
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_python_bandit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_npm_audit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_pip_audit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_go_vulncheck
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_rust_audit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_all
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/index_codebase.py
   name: git_last_modified
   kind: function
@@ -2151,6 +2229,78 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/full_audit.py
+  name: run_script
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/full_audit.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_python_docstring
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_jsdoc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_go_doc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_rust_doc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_java_doc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_readme_section
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_api_docs
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_changelog_entry
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_docstrings_for_file
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/generate_plan.py
   name: detect_dominant_axis
   kind: function
@@ -2188,6 +2338,42 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: check_prerequisites
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: suggest_mcps
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: suggest_skills
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: generate_opencode_json
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: run_onboarding
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
   name: main
   kind: function
   is_exported: true
@@ -2388,6 +2574,18 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/github_actions.py
+  name: generate_workflows
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/github_actions.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
   name: detect_language_calls
   kind: function
@@ -2401,6 +2599,84 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_python_function
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_python_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_typescript_function
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_typescript_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_go_function
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_go_struct
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_rust_function
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_java_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_cpp_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_php_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_with_llm
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
   name: main
   kind: function
   is_exported: true
@@ -2479,6 +2755,48 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/health_check.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_long_methods
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_god_classes
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_deep_nesting
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_duplication
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_dead_code
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: compute_complexity_native
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
   name: main
   kind: function
   is_exported: true
@@ -2625,6 +2943,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/project_templates.py:
+    total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/serve_panel.py:
     total_symbols: 1
     covered_symbols: 0
@@ -2665,6 +2988,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/vulnerability_scanner.py:
+    total_symbols: 8
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/index_codebase.py:
     total_symbols: 11
     covered_symbols: 0
@@ -2675,7 +3003,22 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/full_audit.py:
+    total_symbols: 2
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/doc_generator.py:
+    total_symbols: 10
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/generate_plan.py:
+    total_symbols: 7
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/onboarding.py:
     total_symbols: 7
     covered_symbols: 0
     coverage_pct: 0.0
@@ -2711,8 +3054,18 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/github_actions.py:
+    total_symbols: 2
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/cross_language_analyzer.py:
     total_symbols: 4
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/code_generator.py:
+    total_symbols: 13
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -2726,17 +3079,22 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-source_files_count: 48
+  /home/juan/new_project/scripts/python/code_smells.py:
+    total_symbols: 7
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+source_files_count: 56
 test_files_count: 13
 degradations: []
 recommendations:
-- Escribir tests para 411 símbolo(s) exportado(s) sin cobertura
-- Cobertura actual 0.84% — objetivo mínimo 50%
+- Escribir tests para 464 símbolo(s) exportado(s) sin cobertura
+- Cobertura actual 0.76% — objetivo mínimo 50%
 summary:
-  total_symbols: 474
+  total_symbols: 528
   covered: 4
-  uncovered: 470
-  critical_uncovered: 411
-  coverage_percentage: 0.84
-duration_ms: 33751
+  uncovered: 524
+  critical_uncovered: 464
+  coverage_percentage: 0.76
+duration_ms: 35090
 

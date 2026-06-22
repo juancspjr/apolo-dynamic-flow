@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-21T22:57:05Z'
+generated_at: '2026-06-22T00:05:53Z'
 repo_root: /home/juan/new_project
 available_lsps:
   typescript: typescript-language-server
@@ -18,7 +18,7 @@ languages_detected:
 files_by_language:
   javascript: 1
   typescript: 19
-  python: 41
+  python: 49
 diagnostics:
 - file: /home/juan/new_project/tests/test_python_scripts.py
   language: python
@@ -820,6 +820,31 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 5
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/project_templates.py
+    line: 164
+    severity: info
+    message: 'Marcar pendiente: // TODO: wire to actual handler'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/project_templates.py
+    line: 440
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/project_templates.py
+    line: 444
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 3
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 3
 - file: /home/juan/new_project/scripts/python/serve_panel.py
   language: python
   diagnostics:
@@ -1137,6 +1162,19 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 5
   regex_count: 1
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+    line: 247
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
 - file: /home/juan/new_project/scripts/python/index_codebase.py
   language: python
   diagnostics:
@@ -1260,6 +1298,57 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 2
   regex_count: 7
+- file: /home/juan/new_project/scripts/python/full_audit.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/full_audit.py
+    line: 216
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/doc_generator.py
+    line: 62
+    severity: info
+    message: 'Marcar pendiente: return f''// {name} processes the given inputs.\n//
+      TODO: Add detailed documentation.'''
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/doc_generator.py
+    line: 263
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/doc_generator.py
+    line: 271
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/doc_generator.py
+    line: 278
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/doc_generator.py
+    line: 300
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 5
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 5
 - file: /home/juan/new_project/scripts/python/generate_plan.py
   language: python
   diagnostics:
@@ -1280,6 +1369,61 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 2
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/onboarding.py
+    line: 123
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/onboarding.py
+    line: 124
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/onboarding.py
+    line: 125
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/onboarding.py
+    line: 126
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/onboarding.py
+    line: 127
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/onboarding.py
+    line: 128
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/onboarding.py
+    line: 129
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/onboarding.py
+    line: 187
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 8
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 8
 - file: /home/juan/new_project/scripts/python/absorb_mcp.py
   language: python
   diagnostics:
@@ -1587,6 +1731,19 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 7
+- file: /home/juan/new_project/scripts/python/github_actions.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/github_actions.py
+    line: 153
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
   language: python
   diagnostics:
@@ -1600,6 +1757,109 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 1
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 32
+    severity: info
+    message: 'Marcar pendiente: doc = description or f"TODO: Implement {name}."'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 36
+    severity: info
+    message: 'Marcar pendiente: # TODO: Implement logic'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 57
+    severity: info
+    message: 'Marcar pendiente: """TODO: Implement {m}."""'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 68
+    severity: info
+    message: 'Marcar pendiente: doc = description or f"TODO: Implement {name}."'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 74
+    severity: info
+    message: 'Marcar pendiente: // TODO: Implement logic'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 97
+    severity: info
+    message: 'Marcar pendiente: // TODO: Implement {m}'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 110
+    severity: info
+    message: 'Marcar pendiente: doc = description or f"TODO: Implement {go_name}."'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 114
+    severity: info
+    message: 'Marcar pendiente: // TODO: Implement logic'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 135
+    severity: info
+    message: 'Marcar pendiente: code += f''''''// {go_m} TODO: Implement'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 147
+    severity: info
+    message: 'Marcar pendiente: doc = description or f"TODO: Implement {snake_name}."'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 151
+    severity: info
+    message: 'Marcar pendiente: // TODO: Implement logic'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 175
+    severity: info
+    message: 'Marcar pendiente: // TODO: Implement {m}'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 199
+    severity: info
+    message: 'Marcar pendiente: // TODO: Implement {m}'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 226
+    severity: info
+    message: 'Marcar pendiente: // TODO: Implement {m}'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 312
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/code_generator.py
+    line: 314
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 16
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 16
 - file: /home/juan/new_project/scripts/python/semantic_search.py
   language: python
   diagnostics:
@@ -1815,9 +2075,22 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 14
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/code_smells.py
+    line: 393
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 1
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 1
 summary:
-  total_files: 61
-  files_with_diagnostics: 36
-  total_diagnostics: 182
-duration_ms: 75677
+  total_files: 69
+  files_with_diagnostics: 44
+  total_diagnostics: 218
+duration_ms: 89804
 
