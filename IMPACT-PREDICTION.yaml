@@ -2,7 +2,7 @@ impactprediction: V1
 version: 1
 schema_version: 2.5.0
 flowid: ''
-generated_at: '2026-06-22T16:40:23Z'
+generated_at: '2026-06-22T17:40:19Z'
 generator:
   script: scripts/python/predict_impact.py
   duration_ms: 0

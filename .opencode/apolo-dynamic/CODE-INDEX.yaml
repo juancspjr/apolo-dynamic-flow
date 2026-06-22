@@ -1,16 +1,16 @@
 codeindex: V1
 version: 1
-generated_at: '2026-06-22T16:42:00Z'
+generated_at: '2026-06-22T17:36:50Z'
 generator:
   script: scripts/python/index_codebase.py
-  duration_ms: 2085
-  files_indexed: 165
+  duration_ms: 2295
+  files_indexed: 172
 repo_root: /home/juan/new_project
-index_hash: 8d217a87e0432dd90a30e29155d64f7b4efdddd088adcbbb708a03aad641215c
+index_hash: 634604e46c9ae499b2fa43a490b6935f34be9132be72b8f865707b2f126060b6
 stats:
-  total_files: 165
+  total_files: 172
   by_language:
-    yaml: 49
+    yaml: 56
     json: 14
     py: 82
     js: 1
@@ -18,14 +18,14 @@ stats:
   total_functions: 824
   total_classes: 1
   total_imports: 1414
-  avg_functions_per_file: 4.99
+  avg_functions_per_file: 4.79
 files:
 - path: .opencode/apolo-dynamic/CODE-INDEX.yaml
   language: yaml
-  size_bytes: 362539
-  content_hash: 954b0252eedc4f30ba4638a09a39c25dc70e9154c4568efdf2936dc9b76b2384
+  size_bytes: 365972
+  content_hash: 986080ad933cc1a7126ecd92beeeff12287bfb784b16430e437bc329fd7041eb
   git_tracked: true
-  git_last_modified: '2026-06-22T12:41:29-04:00'
+  git_last_modified: '2026-06-22T12:42:59-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -37,9 +37,23 @@ files:
 - path: .opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml
   language: yaml
   size_bytes: 808
-  content_hash: d863ee249ec01c6e24995acb87ae8f23a6e6b8cc133058947dd252535a0a2da9
+  content_hash: 16a8690e39dda0eedd1efa7f0588f3a071e7ecd5aae1be2327b7c4f4864e74e8
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: .opencode/apolo-dynamic/DOCS-INDEX.yaml
+  language: yaml
+  size_bytes: 2401585
+  content_hash: 7fde213f1fdddc3ef83d83acabc9c615243d4be55ff2f4bded890b3b098c4e36
+  git_tracked: true
+  git_last_modified: '2026-06-22T12:42:59-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -65,7 +79,7 @@ files:
 - path: .opencode/apolo-dynamic/SCRIPT-CLASSIFICATION.yaml
   language: yaml
   size_bytes: 14764
-  content_hash: 75d56ab54b261f3cbbb7e550207cc232be83ca18066721de8534c7e9965395c4
+  content_hash: 03d0de181eb4133d9bcb352e8a1f5e2cc08d35122fddf17373a851caaa0e2b15
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -79,9 +93,51 @@ files:
 - path: .opencode/apolo-dynamic/TOOL-REGISTRY.yaml
   language: yaml
   size_bytes: 49757
-  content_hash: bbe6ea2741c5fa055ef510a27202590da832c423c8d82a865f7acbdfeaa95fde
+  content_hash: 0d5891c3a1adbbfc84d3848c922ce333890cefb98b5b5a29fa3a6b5ec52c1dd1
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: .opencode/apolo-dynamic/apolo-auto-hooks.yaml
+  language: yaml
+  size_bytes: 5435
+  content_hash: 78f742b59f1e5bd7a901caf18d31201028ab88aeb1d298f4fbd8f8157f273ffe
+  git_tracked: false
+  git_last_modified: '2026-06-22T02:48:30-04:00'
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: .opencode/apolo-dynamic/apolo-config.yaml
+  language: yaml
+  size_bytes: 2108
+  content_hash: 09f258b57737a326b1497688a4a0d6f152065b7ea5a6166bc1dfa2e83dbfa828
+  git_tracked: false
+  git_last_modified: '2026-06-22T12:41:29-04:00'
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: .opencode/apolo-dynamic/apolo-post-script-gates.yaml
+  language: yaml
+  size_bytes: 5018
+  content_hash: 42105c365dbae5e3e17e2968bf4640bf70865516d7c61fddc004ceb7d7d618c5
+  git_tracked: false
+  git_last_modified: '2026-06-22T02:48:30-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -121,7 +177,7 @@ files:
 - path: AGENT-HONESTY-REPORT.yaml
   language: yaml
   size_bytes: 1263
-  content_hash: ccb12ec26132fbf2f30aa891dd5b13c43a94dc17facf64cb875b0c9a0702be98
+  content_hash: 4d61a778bcaa55eb38c16fe859c6faa61b92c883695ea5cc98529afe6a579731
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -135,9 +191,9 @@ files:
 - path: CODE-QUALITY.yaml
   language: yaml
   size_bytes: 214303
-  content_hash: e5765cbe0ee9d325d1043c2807abfb47ea73a7aa8da8cc4b4c4e0ee765254408
+  content_hash: 8839e3c1aaf5b917522ea2064e3874d36d2348b227768dd0cece8d665792df47
   git_tracked: true
-  git_last_modified: '2026-06-22T12:41:29-04:00'
+  git_last_modified: '2026-06-22T12:42:59-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -163,9 +219,9 @@ files:
 - path: CROSS-LANGUAGE-MAP.yaml
   language: yaml
   size_bytes: 816
-  content_hash: b068ea88ce904d8e2346643e9bd64f0c422ccb3339eb3443f54bd4679c32de01
+  content_hash: 1d389a3bc19a183942b080b9ddb1b3ac977c14dadbf4a13334dcd4aac6275f5d
   git_tracked: true
-  git_last_modified: '2026-06-22T12:41:29-04:00'
+  git_last_modified: '2026-06-22T12:42:59-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -177,7 +233,7 @@ files:
 - path: DATA-FLOW-VALIDATION-REPORT.yaml
   language: yaml
   size_bytes: 2207
-  content_hash: 2d49ca854730b5653bafc9f3352edb99f396b3da3def3f70bf6b2a8a131e6f1a
+  content_hash: ea827fb897f1065b32371c1957d04553251415baa5c237ccfe1af0c76fe92b30
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -191,7 +247,7 @@ files:
 - path: EVIDENCE-SCORE.yaml
   language: yaml
   size_bytes: 893
-  content_hash: d236c0636eaad1a7f583163d94f0eded07675bce7cf79a046f452acef5ac43a4
+  content_hash: 995a6f1f4ac6f4e9dfb8a48ca05180000ca16c46a7c5b9d33076549f1dda4409
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -205,7 +261,7 @@ files:
 - path: FLOW-VERIFICATION-REPORT.yaml
   language: yaml
   size_bytes: 9454
-  content_hash: 6176000c70d1f3777911c7d59a0fa68800b757d54a268638f1491db6f4f7f63d
+  content_hash: 18b6725cc4a411e4c1b8bf043de1cbe216817972e03174893d30dd0ac3d0e298
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -219,9 +275,9 @@ files:
 - path: FUNCTION-SUMMARIES.yaml
   language: yaml
   size_bytes: 117755
-  content_hash: b4cad1a76df6cdfb8a86eff356a073f25fae70bdb58ca793847bebe3bef8ca81
+  content_hash: 7d810aa4a82679ae020d54613a622133248cef615bd6d86dbbbb0f2eb5675097
   git_tracked: true
-  git_last_modified: '2026-06-22T12:41:29-04:00'
+  git_last_modified: '2026-06-22T12:42:59-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -233,7 +289,7 @@ files:
 - path: IMPACT-PREDICTION.yaml
   language: yaml
   size_bytes: 485
-  content_hash: 3e1cdd788fc6932d8cd8451554c312b54756f20b0ede9e63f96ee45b3693b0c6
+  content_hash: 93f71ffae9aae0d95a45e897289155b69f64901ffbbfe395506000729f005c0c
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -246,8 +302,8 @@ files:
   error: null
 - path: INTEGRATION-VALIDATION-REPORT.yaml
   language: yaml
-  size_bytes: 27248
-  content_hash: ca081d189d7d4055c9e1c45f1126374bc6b5aeb6af92b4480588486daba5b078
+  size_bytes: 27245
+  content_hash: cbc6bd655ab06d2d1721ccb0e57a28bd756a3ef85abf7c421ff2b595e2a2d46e
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -261,9 +317,9 @@ files:
 - path: LEARNING-STATE.yaml
   language: yaml
   size_bytes: 188
-  content_hash: 7f1c0ec6d85da5364acd83f7810e8c03928901eaa1237c960c6f2b6f7e6c6299
+  content_hash: 645fcc34b65a54305a94462793c5463a5abf685f6f964a95f10f1ad2e279887e
   git_tracked: true
-  git_last_modified: '2026-06-22T12:41:29-04:00'
+  git_last_modified: '2026-06-22T12:42:59-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -275,7 +331,7 @@ files:
 - path: LSP-ANALYSIS.yaml
   language: yaml
   size_bytes: 115420
-  content_hash: 892fb32e2d736a2004cd08b475bc0aaef0b16454f8c9a7d3eb336507d7130e75
+  content_hash: f81d21e56ac1eba3b894153451a71227aca09c9ca8bb83dc97025a7ab361248c
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -289,9 +345,9 @@ files:
 - path: REFACTOR-SUGGESTIONS.yaml
   language: yaml
   size_bytes: 49484
-  content_hash: cae976e392460c31335c4175d68066f037301e101ef3a29d571b3e5fdbbec395
+  content_hash: 1f9f03e9dfc882a865006cac377c2531b7b1db6c3ff5d1c4921d815a98131d1a
   git_tracked: true
-  git_last_modified: '2026-06-22T12:41:29-04:00'
+  git_last_modified: '2026-06-22T12:42:59-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -303,7 +359,7 @@ files:
 - path: STATIC-ANALYSIS-REPORT.yaml
   language: yaml
   size_bytes: 38031
-  content_hash: 7ee565962667fbd07f66cdf0976e2c3b3d1191e90c78652eb903f3ec8943b5b4
+  content_hash: 818ffd42b159cd5b19facb041cc554f98b960a67e01d14263cca0e0b1c08b5ff
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -316,8 +372,8 @@ files:
   error: null
 - path: TEST-COVERAGE.yaml
   language: yaml
-  size_bytes: 125916
-  content_hash: c2237d1c03828a8b1bf0e8a1d7f07f79c4066541a69fddde60d4396eed871fb7
+  size_bytes: 127051
+  content_hash: 19134ab9b75bdadec1d7f31dde3b9077e480273ad00848c44668ed64acb8b4da
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -331,7 +387,7 @@ files:
 - path: VULNERABILITY-REPORT.yaml
   language: yaml
   size_bytes: 15525
-  content_hash: 52fe1b2dedb87ea392288b1f78e99c16102554375b1712612a7ae8c8a5069e95
+  content_hash: da0eda36f6c6453e2d1760ad1e4f5ed9b9109882ddbbeecdfa286c6f77ce06fa
   git_tracked: true
   git_last_modified: '2026-06-22T12:41:29-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -555,7 +611,49 @@ files:
 - path: plan/active/APOLO-20260622-ONBOARDING/FLOW-STATE.yaml
   language: yaml
   size_bytes: 1070
-  content_hash: 12a0509f8a0b8265a8e942e24e58ba67e3d6aebe0b54ddd4afc99b2900576034
+  content_hash: 0f4d5dfd8c7e5558de058a72d126a020f9f1fbe2da2445a1ed7336567373b2d8
+  git_tracked: false
+  git_last_modified: null
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: plan/active/APOLO-DBG-TEST/DEBUG-BREAKPOINTS.yaml
+  language: yaml
+  size_bytes: 107
+  content_hash: a59da8d60b3b8a2ae91848330e34f999fe2a58184387a4f37556f472258ce857
+  git_tracked: false
+  git_last_modified: null
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: plan/active/APOLO-FULLTEST/BLOCK-LOG.yaml
+  language: yaml
+  size_bytes: 94
+  content_hash: 38071cc74391090ab4729bd59da145341c790703ac8edb004600dd7d276a01b6
+  git_tracked: false
+  git_last_modified: null
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: plan/active/APOLO-FULLTEST/FLOW-STATE.yaml
+  language: yaml
+  size_bytes: 1059
+  content_hash: aff56eeafc37304321971f8f14a40be9bd50df0dcd8dccaa5cfcee906ea45125
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -569,7 +667,7 @@ files:
 - path: plan/active/APOLO-INTEG-TEST/BLOCK-LOG.yaml
   language: yaml
   size_bytes: 96
-  content_hash: c638aa03a89239ccd79296135fe0dee229968bff08bfbbb4a845f40c00a38fa8
+  content_hash: 855c89387530a6e4f0a5c32064c7bda4a123a96969aec7a15d7a4cfa954c4f59
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -583,7 +681,7 @@ files:
 - path: plan/active/APOLO-INTEG-TEST/FLOW-STATE.yaml
   language: yaml
   size_bytes: 1061
-  content_hash: 278d511ba46a565a28e7cd3178fe89c97a7a77e98aef9ea72968110641116388
+  content_hash: 9c8b97c76b2732b57efeff521adb0c8dacf114c188c1bed2897c149a2ea97d17
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -596,8 +694,8 @@ files:
   error: null
 - path: plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml
   language: yaml
-  size_bytes: 1844
-  content_hash: 1a7cd227578b333c569a52c2a3d582ed1991eb12fa0be7d9d4ceb1cd7049f54e
+  size_bytes: 1843
+  content_hash: 4b75bfbb1d309fba82c9a4809e7ca2352e1d4fa01073fd8929a239f24cd8e771
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -611,7 +709,7 @@ files:
 - path: plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-SCORE.yaml
   language: yaml
   size_bytes: 906
-  content_hash: 2eb59e6a8fcfb11f49d79394729f146be5c86914dde672af63279c01e5f5247f
+  content_hash: 36ab2fe1e2046b7d4fe9a5bd504fe8fcc67bf403044ad47763d24cfb1f9d257f
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -625,7 +723,7 @@ files:
 - path: plan/active/APOLO-INTEG-TEST/plans/IMPACT-PREDICTION.yaml
   language: yaml
   size_bytes: 1221
-  content_hash: 6014f4cbcc864c244e84e65810afe1098ee0cc5682964c161663272adfe640d4
+  content_hash: 75d6f7b02059f4d03599c20573686148feadd16dd1e6869ac404e207f871261c
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -639,7 +737,7 @@ files:
 - path: plan/active/APOLO-INTEG-TEST/plans/PLAN.yaml
   language: yaml
   size_bytes: 1893
-  content_hash: 61a5b88459d65ceacdd45396ac3b05e6d453308a868c1dcdf89d912d83a9130c
+  content_hash: 708e9dbe57b270fa9278087f8bc5c5c5b4089d3e1e55418987501d616dfde5f2
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -653,7 +751,7 @@ files:
 - path: plan/active/APOLO-INTEG-TEST/scaffolds/SCAFFOLD.yaml
   language: yaml
   size_bytes: 1505
-  content_hash: d97e7a20b3f022265f6d8b8a75a703a8ed08adb119be09b1a6f3593b70adc79b
+  content_hash: 51dab8e8966d55e10c6eed0c0447beceeb7a0aae8fe0b356899997c6d6cf2b6c
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -15397,9 +15495,13 @@ files:
 dependency_graph:
   .opencode/apolo-dynamic/CODE-INDEX.yaml: []
   .opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml: []
+  .opencode/apolo-dynamic/DOCS-INDEX.yaml: []
   .opencode/apolo-dynamic/EMBEDDINGS-CACHE.json: []
   .opencode/apolo-dynamic/SCRIPT-CLASSIFICATION.yaml: []
   .opencode/apolo-dynamic/TOOL-REGISTRY.yaml: []
+  .opencode/apolo-dynamic/apolo-auto-hooks.yaml: []
+  .opencode/apolo-dynamic/apolo-config.yaml: []
+  .opencode/apolo-dynamic/apolo-post-script-gates.yaml: []
   .opencode/package-lock.json: []
   .opencode/package.json: []
   AGENT-HONESTY-REPORT.yaml: []
@@ -15428,6 +15530,9 @@ dependency_graph:
   plan/active/APOLO-20260620-TEST/telemetry-stats.json: []
   plan/active/APOLO-20260621-ONBOARDING/FLOW-STATE.yaml: []
   plan/active/APOLO-20260622-ONBOARDING/FLOW-STATE.yaml: []
+  plan/active/APOLO-DBG-TEST/DEBUG-BREAKPOINTS.yaml: []
+  plan/active/APOLO-FULLTEST/BLOCK-LOG.yaml: []
+  plan/active/APOLO-FULLTEST/FLOW-STATE.yaml: []
   plan/active/APOLO-INTEG-TEST/BLOCK-LOG.yaml: []
   plan/active/APOLO-INTEG-TEST/FLOW-STATE.yaml: []
   plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml: []
@@ -15662,9 +15767,13 @@ dependency_graph:
 reverse_dependency_graph:
   .opencode/apolo-dynamic/CODE-INDEX.yaml: []
   .opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml: []
+  .opencode/apolo-dynamic/DOCS-INDEX.yaml: []
   .opencode/apolo-dynamic/EMBEDDINGS-CACHE.json: []
   .opencode/apolo-dynamic/SCRIPT-CLASSIFICATION.yaml: []
   .opencode/apolo-dynamic/TOOL-REGISTRY.yaml: []
+  .opencode/apolo-dynamic/apolo-auto-hooks.yaml: []
+  .opencode/apolo-dynamic/apolo-config.yaml: []
+  .opencode/apolo-dynamic/apolo-post-script-gates.yaml: []
   .opencode/package-lock.json: []
   .opencode/package.json: []
   AGENT-HONESTY-REPORT.yaml: []
@@ -15693,6 +15802,9 @@ reverse_dependency_graph:
   plan/active/APOLO-20260620-TEST/telemetry-stats.json: []
   plan/active/APOLO-20260621-ONBOARDING/FLOW-STATE.yaml: []
   plan/active/APOLO-20260622-ONBOARDING/FLOW-STATE.yaml: []
+  plan/active/APOLO-DBG-TEST/DEBUG-BREAKPOINTS.yaml: []
+  plan/active/APOLO-FULLTEST/BLOCK-LOG.yaml: []
+  plan/active/APOLO-FULLTEST/FLOW-STATE.yaml: []
   plan/active/APOLO-INTEG-TEST/BLOCK-LOG.yaml: []
   plan/active/APOLO-INTEG-TEST/FLOW-STATE.yaml: []
   plan/active/APOLO-INTEG-TEST/evidence/EVIDENCE-PACK.yaml: []
