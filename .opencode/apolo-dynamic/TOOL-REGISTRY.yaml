@@ -1319,6 +1319,30 @@ tools:
     expected_exit: 0
     interval_seconds: 600
   last_verified_at: '2026-06-22T17:55:18Z'
+- name: mejorar_autenticacion_jwt.py
+  path: scripts/python/mejorar_autenticacion_jwt.py
+  type: python-script
+  purpose: dynamic_task
+  description: 'Script autogenerado para tarea: mejorar autenticacion JWT'
+  inputs:
+  - repo_root:path
+  outputs:
+  - result:dict
+  generated_by: script_generator.py
+  generated_at: '2026-06-22T19:59:42Z'
+  auto_generated: true
+- name: xyz_abc_qwerty.py
+  path: scripts/python/xyz_abc_qwerty.py
+  type: python-script
+  purpose: dynamic_task
+  description: 'Script autogenerado para tarea: xyz abc qwerty'
+  inputs:
+  - repo_root:path
+  outputs:
+  - result:dict
+  generated_by: script_generator.py
+  generated_at: '2026-06-22T19:59:47Z'
+  auto_generated: true
 conflicts:
 - tools:
   - mcp:opencode.json:@koderspa/mcp-skills

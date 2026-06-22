@@ -1,30 +1,19 @@
 #!/usr/bin/env python3
 """
-apolo_natural.py — UN solo comando en lenguaje natural (v3.5.3).
+apolo_natural.py — UN comando en lenguaje natural con clasificacion LLM (v3.5.8).
 
-RESPONDE a tu indicacion: "un solo comando que inteligentemente llame los
-comandos que el usuario solicita segun su requerimiento o cuando el mismo
-agente lo necesite"
+CAMBIO v3.5.8: añadida Capa 2 de clasificacion LLM entre keywords y dynamic invoker.
+Si keywords no matchean con suficiente confianza (score < threshold), el sistema
+consulta al LLM para clasificar la intencion dentro de las ~30 conocidas.
+Si el LLM responde con confidence > 0.7, usa esa intencion.
+Si no, cae al script_dynamic_invoker (Capa 3).
 
-El usuario escribe en lenguaje natural lo que quiere, y el sistema:
-  1. Analiza la intencion (NLP simple por keywords)
-  2. Identifica que comando/combinacion de comandos ejecutar
-  3. Lo ejecuta automaticamente
-  4. Si necesita input del usuario, lo pide
-  5. Si necesita multiples pasos, los encadena
+Flujo de clasificacion:
+  Capa 1: Keywords (INTENT_MAP) — si score >= threshold, usar directamente
+  Capa 2: LLM (llm_bridge) — si score < threshold, pedir al LLM que clasifique
+  Capa 3: Dynamic invoker — si LLM no disponible o confidence < 0.7, autogenerar
 
-Ejemplos de lo que el usuario puede escribir:
-  apolo "implementar JWT auth en plugin/index.ts"
-  apolo "analizar seguridad del codigo"
-  apolo "verificar que todo funciona"
-  apolo "auditoria completa"
-  apolo "que codigo no tiene tests"
-  apolo "crear un script para validar schemas"
-  apolo "diagnosticar el error TypeError en full_audit"
-  apolo "revertir los cambios que fallaron"
-  apolo "que fase sigue"
-
-El sistema entiende la intencion y ejecuta el comando correcto.
+El campo "intent_source" en el output indica que capa resolvio: "keywords", "llm", "dynamic".
 
 CLI:
   python3 apolo_natural.py --repo-root . --request "..."
@@ -245,11 +234,141 @@ INTENT_MAP = {
 }
 
 
-def detect_intent(request: str) -> Tuple[str, Dict]:
-    """Detecta la intencion del request en lenguaje natural."""
+# ============================================================================
+# v3.5.8: LLM classification layer
+# ============================================================================
+
+def get_llm_threshold(repo_root: Path) -> float:
+    """Obtiene el threshold para decidir si usar LLM desde apolo_config."""
+    try:
+        sys.path.insert(0, str(repo_root / "scripts" / "python"))
+        from apolo_config import get_config, get_threshold
+        cfg = get_config(repo_root)
+        return get_threshold(cfg, "apolo_natural.llm_threshold", 5.0)
+    except Exception:
+        return 5.0  # default
+
+
+def get_llm_confidence_threshold(repo_root: Path) -> float:
+    """Obtiene el threshold de confidence del LLM desde apolo_config."""
+    try:
+        sys.path.insert(0, str(repo_root / "scripts" / "python"))
+        from apolo_config import get_config, get_threshold
+        cfg = get_config(repo_root)
+        return get_threshold(cfg, "apolo_natural.llm_confidence", 0.7)
+    except Exception:
+        return 0.7  # default
+
+
+def classify_with_llm(request: str, repo_root: Path) -> Optional[Tuple[str, float]]:
+    """
+    Capa 2: Usa el LLM para clasificar la intencion del request.
+    
+    Retorna (intent_name, confidence) o None si:
+    - LLM no disponible
+    - LLM falla
+    - LLM responde con intencion invalida
+    
+    El LLM solo puede elegir entre las intenciones del INTENT_MAP.
+    """
+    try:
+        sys.path.insert(0, str(repo_root / "scripts" / "python"))
+        from llm_bridge import is_available, chat
+    except ImportError:
+        log("llm_bridge no disponible, saltando Capa 2 LLM", "WARN")
+        return None
+
+    if not is_available():
+        log("LLM no disponible (sin API key), saltando Capa 2", "INFO")
+        return None
+
+    # Construir lista de intenciones para el prompt
+    intent_list = []
+    for name, config in INTENT_MAP.items():
+        intent_list.append(f"- {name}: {config['description']}")
+
+    intents_text = "\n".join(intent_list)
+
+    # Prompt del sistema: clasificar dentro de las intenciones conocidas
+    system_prompt = f"""Eres un clasificador de intenciones para el sistema APOLO Dynamic Flow.
+Tu tarea es analizar el request del usuario y elegir la intencion mas cercana de esta lista:
+
+{intents_text}
+
+Reglas:
+1. SOLO puedes elegir una intencion de la lista anterior. No inventes nuevas.
+2. Responde en formato JSON: {{"intent": "nombre_intencion", "confidence": 0.0-1.0}}
+3. confidence = 0.0 si no hay match, 1.0 si hay match perfecto.
+4. Si ninguna intencion aplica, responde: {{"intent": "none", "confidence": 0.0}}
+5. NO agregues texto adicional, solo el JSON."""
+
+    user_prompt = f"Request del usuario: \"{request}\"\n\nClasifica la intencion:"
+
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt},
+    ]
+
+    log(f"Capa 2 LLM: clasificando '{request[:60]}...'", "INFO")
+    response = chat(messages, temperature=0.0, max_tokens=200, use_cache=True)
+
+    if response is None:
+        log("LLM no respondio, saltando a Capa 3", "WARN")
+        return None
+
+    # Parsear respuesta JSON
+    try:
+        # Buscar JSON en la respuesta
+        json_match = re.search(r'\{[^}]+\}', response)
+        if not json_match:
+            log(f"LLM respuesta sin JSON: {response[:100]}", "WARN")
+            return None
+
+        result = json.loads(json_match.group())
+        intent = result.get("intent", "").strip()
+        confidence = float(result.get("confidence", 0.0))
+
+        # Validar que la intencion existe en INTENT_MAP
+        if intent not in INTENT_MAP:
+            log(f"LLM respondio intencion invalida: '{intent}'", "WARN")
+            return None
+
+        if intent == "none" or confidence <= 0.0:
+            log("LLM dice que ninguna intencion aplica", "INFO")
+            return None
+
+        log(f"LLM clasifico: intent={intent}, confidence={confidence}", "INFO")
+        return (intent, confidence)
+
+    except (json.JSONDecodeError, ValueError) as e:
+        log(f"LLM respuesta no parseable: {e}", "WARN")
+        return None
+    except Exception as e:
+        log(f"LLM error inesperado: {e}", "WARN")
+        return None
+
+
+# ============================================================================
+# Intent detection — 3 layers
+# ============================================================================
+
+def detect_intent(request: str, repo_root: Path = None) -> Tuple[str, Dict, str]:
+    """
+    Detecta la intencion del request en lenguaje natural.
+    
+    3 capas:
+      1. Keywords (INTENT_MAP) — si score >= threshold, usar directamente
+      2. LLM (llm_bridge) — si score < threshold, pedir al LLM que clasifique
+      3. Dynamic invoker — si LLM no disponible o confidence < 0.7, autogenerar
+    
+    Returns:
+        (intent_name, config, intent_source)
+        intent_source: "keywords" | "llm" | "dynamic"
+    """
     request_lower = request.lower()
     scores: Dict[str, int] = {}
 
+    # === CAPA 1: Keywords ===
     for intent_name, config in INTENT_MAP.items():
         score = 0
         for keyword in config["keywords"]:
@@ -258,13 +377,45 @@ def detect_intent(request: str) -> Tuple[str, Dict]:
         if score > 0:
             scores[intent_name] = score
 
-    if not scores:
-        return "unknown", {"request": request, "message": "No se reconocio la intencion"}
+    # Obtener threshold desde apolo_config
+    llm_threshold = get_llm_threshold(repo_root) if repo_root else 5.0
 
-    # Mejor match
-    best_intent = max(scores, key=scores.get)
-    return best_intent, INTENT_MAP[best_intent]
+    if scores:
+        best_intent = max(scores, key=scores.get)
+        best_score = scores[best_intent]
 
+        if best_score >= llm_threshold:
+            log(f"Capa 1 Keywords: intent={best_intent} (score={best_score} >= {llm_threshold})", "INFO")
+            return best_intent, INTENT_MAP[best_intent], "keywords"
+
+        # Score bajo — probar Capa 2 LLM
+        log(f"Capa 1 Keywords: mejor score={best_score} < {llm_threshold}, probando LLM...", "INFO")
+
+    else:
+        log("Capa 1 Keywords: sin matches, probando LLM...", "INFO")
+
+    # === CAPA 2: LLM ===
+    if repo_root:
+        llm_result = classify_with_llm(request, repo_root)
+        if llm_result is not None:
+            intent_name, confidence = llm_result
+            confidence_threshold = get_llm_confidence_threshold(repo_root)
+
+            if confidence >= confidence_threshold:
+                log(f"Capa 2 LLM: intent={intent_name} (confidence={confidence} >= {confidence_threshold})", "INFO")
+                return intent_name, INTENT_MAP[intent_name], "llm"
+            else:
+                log(f"Capa 2 LLM: confidence={confidence} < {confidence_threshold}, cayendo a Capa 3", "INFO")
+        # else: LLM no disponible o fallo — continuar a Capa 3
+
+    # === CAPA 3: Dynamic invoker ===
+    log("Capa 3 Dynamic: no se reconocio intencion, usando script_dynamic_invoker", "INFO")
+    return "unknown", {"request": request, "message": "No se reconocio la intencion"}, "dynamic"
+
+
+# ============================================================================
+# Script execution (sin cambios)
+# ============================================================================
 
 def execute_intent(
     intent_name: str,
@@ -277,12 +428,12 @@ def execute_intent(
     """Ejecuta el comando correspondiente a la intencion detectada."""
     command = config["command"]
     log(f"Intent: {intent_name} → {command}", "INFO")
-    log(f"Descripcion: {config['description']}", "INFO")
+    log(f"Descripcion: {config.get('description', 'N/A')}", "INFO")
 
     # === FLOW LIFECYCLE ===
     if command == "orchestrator":
         if not goal:
-            goal = request  # usar el request como goal
+            goal = request
         if not flowid:
             flowid = f"APOLO-{now_iso().replace('-', '').replace(':', '')[:8]}-NATURAL"
         return _run_orchestrator(repo_root, flowid, goal)
@@ -336,7 +487,6 @@ def execute_intent(
 
     # === RECOVERY ===
     elif command == "guided_recovery":
-        # Extraer error del request
         error = request
         return _run_script(repo_root, "guided_recovery.py", ["diagnose", "--repo-root", str(repo_root), "--flowid", flowid or "DEFAULT", "--error", error])
 
@@ -351,7 +501,6 @@ def execute_intent(
 
     # === GENERATION ===
     elif command == "script_generator":
-        # Extraer nombre del request
         name_match = re.search(r"(?:llamado|named|nombre)\s+(\w+)", request, re.IGNORECASE)
         name = name_match.group(1) if name_match else "custom_script"
         return _run_script(repo_root, "script_generator.py", ["create", "--repo-root", str(repo_root), "--name", name, "--description", request, "--purpose", "dynamic"])
@@ -448,6 +597,10 @@ def _run_orchestrator(repo_root: Path, flowid: str, goal: str) -> Dict[str, Any]
     ])
 
 
+# ============================================================================
+# Main: process natural language request
+# ============================================================================
+
 def process_natural_request(
     repo_root: Path,
     request: str,
@@ -455,23 +608,33 @@ def process_natural_request(
 ) -> Dict[str, Any]:
     """Procesa un request en lenguaje natural y ejecuta el comando correcto."""
     log("=" * 60, "INFO")
-    log("APOLONATURAL — UN comando en lenguaje natural", "INFO")
+    log("APOLONATURAL v3.5.8 — UN comando en lenguaje natural (3 capas)", "INFO")
     log("=" * 60, "INFO")
     log(f"Request: {request}", "INFO")
     log(f"FlowID: {flowid or '(auto-generar si needed)'}", "INFO")
 
-    # 1. Detectar intencion
-    intent_name, config = detect_intent(request)
+    # 1. Detectar intencion (3 capas: keywords → LLM → dynamic)
+    intent_name, config, intent_source = detect_intent(request, repo_root)
 
     if intent_name == "unknown":
-        # Si no se reconoce, intentar con script_dynamic_invoker
+        # Capa 3: dynamic invoker
         log("Intencion no reconocida, intentando invocacion dinamica...", "WARN")
-        return _run_script(repo_root, "script_dynamic_invoker.py", [
+        result = _run_script(repo_root, "script_dynamic_invoker.py", [
             "invoke", "--repo-root", str(repo_root), "--task", request,
         ])
+        return {
+            "success": result.get("success", False),
+            "request": request,
+            "intent": "dynamic_invoker",
+            "intent_source": "dynamic",
+            "command": "script_dynamic_invoker",
+            "description": "Invocacion dinamica + autogeneracion",
+            "result": result,
+            "processed_at": now_iso(),
+        }
 
-    log(f"Intencion detectada: {intent_name}", "INFO")
-    log(f"Ejecutando: {config['description']}", "INFO")
+    log(f"Intencion detectada: {intent_name} (fuente: {intent_source})", "INFO")
+    log(f"Ejecutando: {config.get('description', 'N/A')}", "INFO")
 
     # 2. Ejecutar comando
     result = execute_intent(intent_name, config, repo_root, flowid, request=request, goal=request)
@@ -484,8 +647,9 @@ def process_natural_request(
         "success": result.get("success", False),
         "request": request,
         "intent": intent_name,
+        "intent_source": intent_source,  # v3.5.8: "keywords" | "llm" | "dynamic"
         "command": config["command"],
-        "description": config["description"],
+        "description": config.get("description", ""),
         "result": result,
         "processed_at": now_iso(),
     }
@@ -518,12 +682,13 @@ def main() -> int:
 
     # Output legible
     print("\n" + "=" * 60)
-    print(f"  APOLONATURAL — Resultado")
+    print(f"  APOLONATURAL v3.5.8 — Resultado")
     print("=" * 60)
-    print(f"  Request: {request[:80]}")
-    print(f"  Intent:  {result.get('intent', '?')}")
-    print(f"  Command: {result.get('command', '?')}")
-    print(f"  Success: {result.get('success', False)}")
+    print(f"  Request:    {request[:80]}")
+    print(f"  Intent:     {result.get('intent', '?')}")
+    print(f"  Fuente:     {result.get('intent_source', '?')}")  # v3.5.8
+    print(f"  Command:    {result.get('command', '?')}")
+    print(f"  Success:    {result.get('success', False)}")
     if result.get("result", {}).get("stdout"):
         print(f"\n  Output:\n{result['result']['stdout'][:500]}")
     print("=" * 60)

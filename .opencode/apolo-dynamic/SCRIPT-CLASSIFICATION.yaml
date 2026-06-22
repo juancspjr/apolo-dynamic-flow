@@ -1,11 +1,11 @@
 scriptclassification: V1
 schema_version: 3.5.2
-generated_at: '2026-06-22T18:02:44Z'
+generated_at: '2026-06-22T19:59:47Z'
 repo_root: /home/juan/new_project
-total_scripts: 70
+total_scripts: 71
 by_class:
   FUNCTIONAL: 66
-  FUNCTIONAL_UNINTEGRATED: 1
+  FUNCTIONAL_UNINTEGRATED: 2
   UTILITY: 2
   TEST_INTERNAL: 1
 functional_scripts:
@@ -48,6 +48,7 @@ functional_scripts:
 - interactive_docs.py
 - llm_bridge.py
 - lsp_integration.py
+- mejorar_autenticacion_jwt.py
 - mp_prioritizer.py
 - multi_agent_coordinator.py
 - onboarding.py
@@ -81,7 +82,7 @@ test_internal_scripts:
 utility_scripts:
 - install_deps.py
 - serve_panel.py
-functional_count: 67
+functional_count: 68
 test_internal_count: 1
 utility_count: 2
 unintegrated_functional:
@@ -107,6 +108,7 @@ unintegrated_functional:
 - interactive_docs.py
 - llm_bridge.py
 - lsp_integration.py
+- mejorar_autenticacion_jwt.py
 - onboarding.py
 - project_templates.py
 - refactor_engine.py
@@ -322,6 +324,12 @@ classifications:
   reason: Script funcional nativo de apolo-dynamic-flow
   invocable_by_orchestrator: true
   in_orchestrator: false
+- script: mejorar_autenticacion_jwt.py
+  classification: FUNCTIONAL_UNINTEGRATED
+  reason: Script funcional pero NO integrado en orquestador
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+  recommendation: Considerar integrar en orquestador o invocar dinamicamente
 - script: mp_prioritizer.py
   classification: FUNCTIONAL
   reason: Script funcional nativo de apolo-dynamic-flow
@@ -470,5 +478,5 @@ classifications:
   reason: Script funcional nativo de apolo-dynamic-flow
   invocable_by_orchestrator: true
   in_orchestrator: false
-verdict: 67 funcionales, 1 test interno (descartados), 2 utilidad
+verdict: 68 funcionales, 1 test interno (descartados), 2 utilidad
 
