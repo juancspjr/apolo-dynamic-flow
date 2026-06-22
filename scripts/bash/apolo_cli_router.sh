@@ -570,6 +570,17 @@ case "$CMD" in
     run_py self_healing_loop.py "$@"
     ;;
 
+  # === v3.5.2 NEW: SCRIPT CLASSIFICATION + DYNAMIC INVOCATION ===
+  classify-scripts)
+    # script classifier: classify|functional|stats
+    run_py script_classifier.py "$@"
+    ;;
+
+  invoke-script)
+    # dynamic invoker: invoke|available|generate-and-invoke
+    run_py script_dynamic_invoker.py "$@"
+    ;;
+
   # === ALIASES ÚTILES ===
   help|--help|-h)
     usage

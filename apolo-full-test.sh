@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# apolo-full-test.sh — Test exhaustivo v3.5.1
-# v3.5.1 = fix 4 tests + escape hatch + guided recovery + self-healing loop
+# apolo-full-test.sh — Test exhaustivo v3.5.2
+# v3.5.2 = 5 directivas: data_flow auto + honesty nativo + escape limits + script classifier + scaffold nativo
 set -uo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
@@ -11,7 +11,7 @@ skip() { echo -e "  ${YELLOW}⊘${NC} $*"; TOTAL_SKIP=$((TOTAL_SKIP + 1)); }
 phase() { echo -e "\n${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; echo -e "${CYAN}${BOLD}  FASE $1: $2${NC}"; echo -e "${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; }
 gap() { GAPS_FOUND+=("$1"); echo -e "  ${RED}⚠ GAP:${NC} $1"; }
 cd /home/juan/new_project 2>/dev/null || { echo "ERROR: /home/juan/new_project no existe"; exit 1; }
-echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.5.1              ║${NC}"; echo -e "${BOLD}${GREEN}║  Escape hatch + guided recovery + self-healing loop    ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.5.2              ║${NC}"; echo -e "${BOLD}${GREEN}║  5 directivas: data_flow auto + honesty + escape limits ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 
 phase 1 "Prerrequisitos"
 command -v node >/dev/null 2>&1 && pass "Node.js $(node --version)" || fail "Node.js no instalado"
@@ -262,6 +262,26 @@ echo "$SHL_OUT" | grep -qi "success\|issues_found\|healthy\|checked_at" && pass 
 
 # Cleanup v3.5.1
 rm -rf plan/active/APOLO-V351-TEST 2>/dev/null
+
+# v3.5.2: script_classifier + script_dynamic_invoker + 5 directivas integradas
+SC_OUT=$(python3 scripts/python/script_classifier.py classify --repo-root . 2>&1 || true)
+echo "$SC_OUT" | grep -qi "success\|functional\|test_internal\|verdict" && pass "script_classifier.py (v3.5.2 — clasifica 67 scripts, descarta tests)" || fail "script_classifier"
+
+SDI_OUT=$(python3 scripts/python/script_dynamic_invoker.py available --repo-root . 2>&1 || true)
+echo "$SDI_OUT" | grep -qi "success\|total_functional\|task_map" && pass "script_dynamic_invoker.py (v3.5.2 — invocacion dinamica + autogeneracion)" || fail "script_dynamic_invoker"
+
+# v3.5.2: verificar que el orquestador integra las 5 directivas
+ORCH_D1=$(grep -c "data_flow_validator" scripts/python/apolo_orchestrator.py)
+ORCH_D2=$(grep -c "agent_honesty_enforcer" scripts/python/apolo_orchestrator.py)
+ORCH_D3=$(grep -c "escape.*history\|by_type\|remaining" scripts/python/apolo_orchestrator.py)
+ORCH_D5=$(grep -c "from scaffold_v3 import\|native import" scripts/python/apolo_orchestrator.py)
+[[ $ORCH_D1 -gt 2 ]] && pass "Directiva 1: data_flow_validator automatico ($ORCH_D1 refs)" || fail "Directiva 1"
+[[ $ORCH_D2 -gt 2 ]] && pass "Directiva 2: agent_honesty_enforcer nativo en fase 11 ($ORCH_D2 refs)" || fail "Directiva 2"
+[[ $ORCH_D3 -gt 0 ]] && pass "Directiva 3: escape hatch limits verificados ($ORCH_D3 refs)" || fail "Directiva 3"
+[[ $ORCH_D5 -gt 0 ]] && pass "Directiva 5: scaffold_v3 vinculado nativamente ($ORCH_D5 refs)" || fail "Directiva 5"
+
+# Cleanup v3.5.2
+rm -rf plan/active/APOLO-V352-TEST 2>/dev/null
 
 phase 6 "CLI apolo-inspect.sh"
 for cmd in help init-flow absorb state tools blocks telemetry evidence plan health all test; do

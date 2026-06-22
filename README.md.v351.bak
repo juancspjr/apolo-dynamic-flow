@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](#26-licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#2-prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#2-prerrequisitos)
-[![Version](https://img.shields.io/badge/version-3.5.2-blue)](#25-changelog)
+[![Version](https://img.shields.io/badge/version-3.5.1-blue)](#25-changelog)
 
 ---
 
@@ -2238,67 +2238,6 @@ Cobertura de capacidades:   95%
 
 ## 25. Changelog
 
-### v3.5.2 (2026-06-22) — 5 directivas de integracion arquitectonica
-
-**DIRECTIVAS EJECUTADAS (solicitadas por el usuario):**
-
-**Directiva 1: Automatizacion del Control de Datos**
-- `data_flow_validator` ahora se ejecuta **automaticamente despues de cada fase** del orquestador
-- Eliminada la ejecucion manual — el validador corre obligatoriamente tras cada fase exitosa
-- Si detecta artefactos faltantes o invalidos, genera warning (no bloquea, es preventivo)
-- Verificado: 4 referencias en el orquestador
-
-**Directiva 2: Fusion del Enforcer de Honestidad**
-- `agent_honesty_enforcer` ahora es **NATIVO en la fase 11 (COMPLETE)** del orquestador
-- Antes de declarar "complete", el orquestador verifica que TODOS los claims del agente tienen evidencia
-- Si hay claims dishonestos (ej: "done" sin ORCHESTRATOR-REPORT), **BLOQUEA** la fase complete
-- El agente no puede declarar "done" sin evidencia objetiva
-- Verificado: 4 referencias en el orquestador
-
-**Directiva 3: Validacion Preventiva de Escape Hatches**
-- El orquestador ahora **verifica los limites de escape hatches ANTES de ofrecerlos**
-- Obtiene el history de escape hatches usados en el flow
-- Filtra los que ya alcanzaron su limite (ej: skip_with_justification max 2)
-- Muestra al agente: hatches disponibles con uses restantes, o [BLOQUEADO] si limite alcanzado
-- Evita fallos en caliente cuando el agente intenta usar un escape agotado
-
-**Directiva 4: Clasificacion y Adaptacion Dinamica de Scripts**
-- Nuevo `script_classifier.py` — clasifica los 67 scripts del repo en:
-  - FUNCTIONAL: scripts nativos de apolo-dynamic-flow (invocables por orquestador)
-  - TEST_INTERNAL: scripts de testeo del propio sistema (DESCARTADOS del flujo operativo)
-  - UTILITY: scripts de instalacion/migracion (no del flujo)
-  - UNKNOWN: no clasificados
-- Genera `SCRIPT-CLASSIFICATION.yaml` con la clasificacion completa
-- Nuevo `script_dynamic_invoker.py` — invoca scripts funcionales dinamicamente:
-  - Busca el script que cubre una tarea (map de 60+ keywords → scripts)
-  - Si no encuentra script → `script_generator` crea uno nuevo adaptado
-  - El agente puede autogenerar scripts para resolver necesidades del PRODUCTO
-  - IMPORTANTE: el agente NO puede crear scripts que modifiquen el FLUJO del orquestador
-
-**Directiva 5: Consolidacion de Aislamientos**
-- `scaffold_v3.py` ahora se ejecuta con **IMPORT DIRECTO** en el orquestador (no subprocess aislado)
-- `from scaffold_v3 import generate_scaffold_v3` — vinculacion nativa al ciclo de control
-- Si el import directo falla, fallback graceful a subprocess
-- Elimina el aislamiento detectado por `static_analyzer` en la iteracion 4 del audit
-
-**Impacto en el sistema:**
-- **Eliminacion del trabajo muerto**: scripts de testeo descartados automaticamente del flujo operativo
-- **Resiliencia adaptativa**: si falta una funcion, `script_dynamic_invoker` autogenera la solucion
-- **Integridad estructural absoluta**: data_flow_validator + agent_honesty_enforcer en bucles nativos automatizados
-- **scaffold_v3 ya no aislado**: vinculado al orquestador via import directo
-
-**2 scripts nuevos:**
-- `script_classifier.py` — clasifica 67 scripts (functional/test/utility)
-- `script_dynamic_invoker.py` — invoca dinamicamente + autogenera si falta
-
-**2 nuevos comandos en CLI router (total 65+):**
-- `apolo classify-scripts` — clasifica scripts del repo
-- `apolo invoke-script` — invoca dinamicamente por tarea
-
-**Tests:** 175+ tests pasando, 98% capability coverage
-
----
-
 ### v3.5.1 (2026-06-22) — Escape hatch guiado + guided recovery + self-healing
 
 **RESPONDE a tu indicacion:** "seria bueno indicaciones no digo que el agente se libere o que haga trampas para liberarse solo que hay que buscar una salida cuando el sistema puede dañar las soluciones"
@@ -3185,16 +3124,12 @@ Basado en los 5 puntos de perdida de control del INTEGRATION-VERDICT.md:
 | v3.3.0 | 2026-06-22 | 160+ | 97% | Orquestador REESCRITO — USA todos los super poderes (data fluye) |
 | v3.4.0 | 2026-06-22 | 165+ | 98% | 4 GAPs cerrados (multi-agent, rollback, prioritizer, pre-commit) + flow_verifier |
 | v3.5.0 | 2026-06-22 | 170+ | 98% | Validadores: integration + dataflow + honesty + static + fix flow_verifier |
-| v3.5.1 | 2026-06-22 | 170+ | 98% | Escape hatch guiado + guided recovery + self-healing loop |
-| **v3.5.2** | **2026-06-22** | **175+** | **98%** | **5 directivas: data_flow auto + honesty nativo + escape limits + classifier + scaffold nativo** |
+| **v3.5.1** | **2026-06-22** | **170+** | **98%** | **Escape hatch guiado + guided recovery + self-healing loop** |
 
 ---
 
-> **APOLO Dynamic Flow v3.5.2** — Plugin de orquestacion de agentes para OpenCode.
-> 175+ tests pasando, 98% capability coverage, 65+ comandos en CLI router unificado.
-> 5 directivas de integracion arquitectonica ejecutadas:
-> (1) data_flow_validator automatico despues de cada fase,
-> (2) agent_honesty_enforcer nativo en fase 11 (BLOQUEA si claims sin evidencia),
-> (3) escape hatch limits verificados antes de ofrecer,
-> (4) script_classifier descarta tests + script_dynamic_invoker autogenera,
-> (5) scaffold_v3 vinculado nativamente al orquestador (no subprocess aislado).
+> **APOLO Dynamic Flow v3.5.1** — Plugin de orquestacion de agentes para OpenCode.
+> 170+ tests pasando, 98% capability coverage, 63+ comandos en CLI router unificado.
+> El agente esta AMARRADO pero GUIADO: force_quality_gates bloquea, pero si se atasca
+> el sistema ofrece escape hatches con justificacion + guided recovery diagnostica errores
+> + self-healing loop auto-repara fallas. No es trampa — es salida segura documentada.

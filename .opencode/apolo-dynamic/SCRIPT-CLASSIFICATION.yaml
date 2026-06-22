@@ -1,0 +1,465 @@
+scriptclassification: V1
+schema_version: 3.5.2
+generated_at: '2026-06-22T07:41:31Z'
+repo_root: /home/juan/new_project
+total_scripts: 69
+by_class:
+  FUNCTIONAL: 66
+  UTILITY: 2
+  TEST_INTERNAL: 1
+functional_scripts:
+- absorb_external_skills.py
+- absorb_mcp.py
+- agent_decision_loop.py
+- agent_escape_hatch.py
+- agent_honesty_enforcer.py
+- apolo_config.py
+- apolo_orchestrator.py
+- auto_hooks.py
+- code_generator.py
+- code_quality.py
+- code_smells.py
+- collect_evidence.py
+- common.py
+- context_query.py
+- cross_flow_learning.py
+- cross_language_analyzer.py
+- data_flow_validator.py
+- debug_mode.py
+- doc_generator.py
+- evidence_replay.py
+- evidence_visual_diff.py
+- feedback_loop.py
+- flow_verifier.py
+- force_quality_gates.py
+- full_audit.py
+- generate_plan.py
+- generate_tests.py
+- github_actions.py
+- guided_recovery.py
+- health_check.py
+- hooks_validator.py
+- index_codebase.py
+- inspect_tools.py
+- integration_validation.py
+- integration_validator.py
+- interactive_docs.py
+- llm_bridge.py
+- lsp_integration.py
+- mp_prioritizer.py
+- multi_agent_coordinator.py
+- onboarding.py
+- post_script_gates.py
+- pre_commit_hooks.py
+- predict_impact.py
+- project_templates.py
+- refactor_engine.py
+- registry_recommend.py
+- rollback.py
+- run_tests.py
+- scaffold_impl.py
+- scaffold_v3.py
+- score_evidence.py
+- script_classifier.py
+- script_dynamic_invoker.py
+- script_generator.py
+- secret_scanner.py
+- self_healing.py
+- self_healing_loop.py
+- semantic_search.py
+- smart_rollback.py
+- static_analyzer.py
+- summarize_functions.py
+- telemetry_aggregator.py
+- user_input_collector.py
+- validate_artifact.py
+- vulnerability_scanner.py
+test_internal_scripts:
+- test_coverage.py
+utility_scripts:
+- install_deps.py
+- serve_panel.py
+functional_count: 66
+test_internal_count: 1
+utility_count: 2
+unintegrated_functional:
+- absorb_external_skills.py
+- absorb_mcp.py
+- apolo_config.py
+- code_generator.py
+- code_quality.py
+- code_smells.py
+- common.py
+- context_query.py
+- debug_mode.py
+- doc_generator.py
+- flow_verifier.py
+- full_audit.py
+- generate_tests.py
+- github_actions.py
+- hooks_validator.py
+- inspect_tools.py
+- integration_validation.py
+- integration_validator.py
+- interactive_docs.py
+- llm_bridge.py
+- lsp_integration.py
+- onboarding.py
+- project_templates.py
+- refactor_engine.py
+- registry_recommend.py
+- scaffold_impl.py
+- script_classifier.py
+- script_dynamic_invoker.py
+- script_generator.py
+- self_healing.py
+- self_healing_loop.py
+- semantic_search.py
+- static_analyzer.py
+- validate_artifact.py
+- vulnerability_scanner.py
+classifications:
+- script: absorb_external_skills.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: absorb_mcp.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: agent_decision_loop.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: agent_escape_hatch.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: agent_honesty_enforcer.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: apolo_config.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: apolo_orchestrator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: auto_hooks.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: code_generator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: code_quality.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: code_smells.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: collect_evidence.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: common.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: context_query.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: cross_flow_learning.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: cross_language_analyzer.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: data_flow_validator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: debug_mode.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: doc_generator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: evidence_replay.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: evidence_visual_diff.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: feedback_loop.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: flow_verifier.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: force_quality_gates.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: full_audit.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: generate_plan.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: generate_tests.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: github_actions.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: guided_recovery.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: health_check.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: hooks_validator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: index_codebase.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: inspect_tools.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: install_deps.py
+  classification: UTILITY
+  reason: Script de utilidad (instalacion/migracion)
+  invocable_by_orchestrator: false
+- script: integration_validation.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: integration_validator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: interactive_docs.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: llm_bridge.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: lsp_integration.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: mp_prioritizer.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: multi_agent_coordinator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: onboarding.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: post_script_gates.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: pre_commit_hooks.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: predict_impact.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: project_templates.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: refactor_engine.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: registry_recommend.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: rollback.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: run_tests.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: scaffold_impl.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: scaffold_v3.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: score_evidence.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: script_classifier.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: script_dynamic_invoker.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: script_generator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: secret_scanner.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: self_healing.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: self_healing_loop.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: semantic_search.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: serve_panel.py
+  classification: UTILITY
+  reason: Script de utilidad (instalacion/migracion)
+  invocable_by_orchestrator: false
+- script: smart_rollback.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: static_analyzer.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: summarize_functions.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: telemetry_aggregator.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: test_coverage.py
+  classification: TEST_INTERNAL
+  reason: 'Match patron de test: ^test_.*\.py$'
+  invocable_by_orchestrator: false
+- script: user_input_collector.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: true
+- script: validate_artifact.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+- script: vulnerability_scanner.py
+  classification: FUNCTIONAL
+  reason: Script funcional nativo de apolo-dynamic-flow
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+verdict: 66 funcionales, 1 test interno (descartados), 2 utilidad
+

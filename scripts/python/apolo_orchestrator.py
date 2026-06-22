@@ -451,15 +451,15 @@ def phase_impact(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
 
 
 def phase_scaffold(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
-    """Fase 7: scaffold — agent_decision_loop elige strategy + post_script_gates valida."""
-    log("FASE 7/11: SCAFFOLD — agent_decision_loop elige unidad + gates validan", "INFO")
+    """Fase 7: scaffold — DIRECTIVA 5: vinculado al orquestador (no subprocess aislado)."""
+    log("FASE 7/11: SCAFFOLD — agent_decision_loop elige + scaffold_v3 NATIVO + gates", "INFO")
     result = {"phase": "scaffold", "started_at": now_iso(), "scripts": []}
 
     plan_path = flow_dir(repo_root, flowid) / "plans" / "PLAN.yaml"
     ci_path = repo_root / ".opencode" / "apolo-dynamic" / "CODE-INDEX.yaml"
     scaffold_path = flow_dir(repo_root, flowid) / "scaffolds" / "SCAFFOLD-V3.yaml"
 
-    # 7a. NUEVO v3.3.0: agent_decision_loop elige estrategia de seleccion de unidad
+    # 7a. agent_decision_loop elige estrategia
     options_json = json.dumps([
         {"id": "topological_first", "title": "Topological first", "description": "Primera unidad sin dependencias",
          "impact_score": 0.7, "risk_score": 0.3, "steps": ["pick"], "feasibility_score": 0.9},
@@ -489,15 +489,45 @@ def phase_scaffold(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
             })
             log(f"  → agent_decision_loop eligio strategy: {strategy}", "INFO")
 
-    # 7b. scaffold_v3 con strategy elegida
-    r = run_script("scaffold_v3.py", [
-        "--plan", str(plan_path), "--code-index", str(ci_path),
-        "--output", str(scaffold_path), "--flowid", flowid,
-        "--strategy", strategy,
-    ], repo_root, 30)
-    result["scripts"].append(r)
+    # DIRECTIVA 5 v3.5.2: scaffold_v3 vinculado al orquestador (import directo, no subprocess)
+    # Esto elimina el aislamiento detectado por static_analyzer
+    try:
+        # Import directo del modulo scaffold_v3
+        sys.path.insert(0, str(repo_root / "scripts" / "python"))
+        from scaffold_v3 import generate_scaffold_v3
+        plan_data = read_yaml(plan_path) or {}
+        ci_data = read_yaml(ci_path) if ci_path.exists() else None
+        impact_data = None
+        impact_path = flow_dir(repo_root, flowid) / "plans" / "IMPACT-PREDICTION.yaml"
+        if impact_path.exists():
+            impact_data = read_yaml(impact_path)
 
-    # 7c. NUEVO v3.3.0: post_script_gates valida que el scaffold es concreto
+        scaffold = generate_scaffold_v3(
+            plan=plan_data, code_index=ci_data, impact_prediction=impact_data,
+            flowid=flowid, repo_root=repo_root,
+            strategy=strategy,
+        )
+        if scaffold.get("success", True):
+            scaffold["generator"] = {"script": "scaffold_v3.py (native import)", "version": "3.5.2"}
+            write_yaml(scaffold_path, scaffold)
+            log(f"  → scaffold_v3 NATIVO: {scaffold.get('summary', {}).get('total_files_to_create', 0)} files to create", "INFO")
+            result["scripts"].append({"script": "scaffold_v3.py (native)", "status": "success", "native_import": True})
+        else:
+            result["scripts"].append({"script": "scaffold_v3.py (native)", "status": "failed", "error": scaffold.get("error", "")})
+            result["status"] = "failed"
+            result["error"] = scaffold.get("error", "scaffold_v3 failed")
+            return result
+    except Exception as e:
+        # Fallback a subprocess si el import directo falla
+        log(f"  → scaffold_v3 native import fallo ({e}), usando subprocess fallback", "WARN")
+        r = run_script("scaffold_v3.py", [
+            "--plan", str(plan_path), "--code-index", str(ci_path),
+            "--output", str(scaffold_path), "--flowid", flowid,
+            "--strategy", strategy,
+        ], repo_root, 30)
+        result["scripts"].append(r)
+
+    # 7c. post_script_gates valida que el scaffold es concreto
     gate_result = run_script("post_script_gates.py", [
         "check", "--repo-root", ".", "--script", "scaffold_v3.py",
         "--output", str(scaffold_path),
@@ -712,11 +742,27 @@ def phase_validate(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
 
 
 def phase_complete(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
-    """Fase 11: complete — report + feedback + pre-commit hooks."""
-    log("FASE 11/11: COMPLETE — reporte + feedback + pre-commit hooks", "INFO")
+    """Fase 11: complete — honesty check + feedback + pre-commit hooks + merge."""
+    log("FASE 11/11: COMPLETE — honesty enforcer + feedback + pre-commit + merge", "INFO")
     result = {"phase": "complete", "started_at": now_iso(), "scripts": []}
 
-    # 11a. NUEVO v3.3.0: feedback_loop para pedir feedback al usuario
+    # DIRECTIVA 2 v3.5.2: agent_honesty_enforcer NATIVO en fase 11
+    # Verifica que TODOS los claims del agente tienen evidencia antes de declarar complete
+    log("  → agent_honesty_enforcer: verificando honestidad de claims...", "INFO")
+    honesty_result = run_script("agent_honesty_enforcer.py", [
+        "verify", "--repo-root", ".", "--flowid", flowid,
+    ], repo_root, 15)
+    result["scripts"].append(honesty_result)
+
+    if honesty_result.get("parsed", {}).get("overall_honest") is False:
+        dishonest_claims = honesty_result["parsed"].get("dishonest_claims", 0)
+        result["status"] = "paused"
+        result["pause_reason"] = f"agent_honesty_enforcer: {dishonest_claims} claim(s) sin evidencia — no se puede declarar complete"
+        log(f"  ⚠ PAUSA: {dishonest_claims} claims dishonestos detectados", "WARN")
+        return result
+    log("  ✓ Todos los claims son honestos — respaldados por evidencia", "INFO")
+
+    # feedback_loop para pedir feedback al usuario
     r = run_script("feedback_loop.py", [
         "add", "--repo-root", ".",
         "--flowid", flowid, "--phase", "complete",
@@ -725,7 +771,7 @@ def phase_complete(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
     ], repo_root, 15)
     result["scripts"].append(r)
 
-    # NUEVO v3.4.0: pre_commit_hooks install (asegura calidad en futuros commits)
+    # pre_commit_hooks install
     r2 = run_script("pre_commit_hooks.py", [
         "install", "--repo-root", ".",
     ], repo_root, 15)
@@ -733,14 +779,14 @@ def phase_complete(repo_root: Path, flowid: str, state: Dict) -> Dict[str, Any]:
     if r2.get("parsed", {}).get("success"):
         log("  → pre_commit_hooks instalados", "INFO")
 
-    # NUEVO v3.4.0: multi_agent_coordinator merge (si habia multiples agentes)
+    # multi_agent_coordinator merge
     r3 = run_script("multi_agent_coordinator.py", [
         "merge", "--repo-root", ".", "--flowid", flowid,
     ], repo_root, 15)
     result["scripts"].append(r3)
 
     result["status"] = "complete"
-    result["message"] = "Ciclo completo — todos los super poderes usados + pre-commit hooks instalados"
+    result["message"] = "Ciclo completo — honesty verified + todos los super poderes usados"
     result["completed_at"] = now_iso()
     return result
 
@@ -809,6 +855,16 @@ def run_cycle(repo_root: Path, flowid: str, goal: str, auto_yes: bool = False, s
             phase_result = phase_fn(repo_root, flowid, state)
         cycle_result["phases"].append(phase_result)
 
+        # DIRECTIVA 1 v3.5.2: data_flow_validator AUTOMATICO despues de cada fase
+        if phase_result["status"] == "success":
+            log(f"  → data_flow_validator: verificando artefactos...", "INFO")
+            dfv_result = run_script("data_flow_validator.py", [
+                "validate", "--repo-root", ".", "--flowid", flowid,
+            ], repo_root, 15)
+            if dfv_result.get("parsed", {}).get("overall_pass") is False:
+                log(f"  ⚠ data_flow_validator: artefactos faltantes o invalidos", "WARN")
+                # No bloquear, solo warn — el validador es preventivo
+
         # Telemetry
         append_telemetry(repo_root, flowid, {
             "kind": "orchestrator-phase", "phase": phase_name,
@@ -827,6 +883,7 @@ def run_cycle(repo_root: Path, flowid: str, goal: str, auto_yes: bool = False, s
             log(f"\n⚠ PAUSA en {phase_name}: {state['pause_reason']}", "WARN")
 
             # NUEVO v3.5.1: ofrecer escape hatch + guided recovery al agente
+            # DIRECTIVA 3 v3.5.2: verificar limites de escape hatches ANTES de ofrecer
             error_msg = state["pause_reason"]
             log(f"   → Diagnostico guiado:", "INFO")
             recovery_result = run_script("guided_recovery.py", [
@@ -838,14 +895,28 @@ def run_cycle(repo_root: Path, flowid: str, goal: str, auto_yes: bool = False, s
                 log(f"     Causa: {fix.get('diagnosis', '?')}", "INFO")
                 log(f"     Fix:   {fix.get('fix_command', '?')}", "INFO")
 
-            log(f"   → Escape hatches disponibles:", "INFO")
+            # DIRECTIVA 3 v3.5.2: obtener history de escape hatches para verificar limites
+            log(f"   → Escape hatches disponibles (verificando limites):", "INFO")
+            escape_history = run_script("agent_escape_hatch.py", [
+                "history", "--repo-root", ".", "--flowid", flowid,
+            ], repo_root, 15)
+
             escape_result = run_script("agent_escape_hatch.py", [
                 "offer", "--repo-root", ".", "--flowid", flowid,
                 "--phase", phase_name, "--reason", error_msg,
             ], repo_root, 15)
             if escape_result.get("parsed", {}).get("hatches_available"):
+                # Filtrar hatches que ya alcanzaron su limite
+                used_by_type = escape_history.get("parsed", {}).get("by_type", {})
                 for hatch in escape_result["parsed"]["hatches_available"][:3]:
-                    log(f"     [{hatch['risk_level']}] {hatch['type']}: {hatch['description']}", "INFO")
+                    hatch_type = hatch["type"]
+                    used_count = used_by_type.get(hatch_type, 0)
+                    max_uses = hatch.get("max_uses", 5)
+                    remaining = max_uses - used_count
+                    if remaining > 0:
+                        log(f"     [{hatch['risk_level']}] {hatch_type}: {hatch['description']} ({remaining}/{max_uses} restantes)", "INFO")
+                    else:
+                        log(f"     [BLOQUEADO] {hatch_type}: limite alcanzado ({used_count}/{max_uses})", "WARN")
 
             log(f"   Resolver y ejecutar: apolo continue --flowid {flowid}", "INFO")
             break
