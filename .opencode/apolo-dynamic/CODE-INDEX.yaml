@@ -1,12 +1,12 @@
 codeindex: V1
 version: 1
-generated_at: '2026-06-22T04:15:32Z'
+generated_at: '2026-06-22T04:31:54Z'
 generator:
   script: scripts/python/index_codebase.py
-  duration_ms: 1768
+  duration_ms: 2115
   files_indexed: 139
 repo_root: /home/juan/new_project
-index_hash: bfbe63d5248064b4cbe5ec9eae940727f838320dc83e345b7227d5df820a1b3b
+index_hash: b6aea9cb00308fbeb6cb60d8f814b759dff30abbbf21e2339ff7ba73e9f100bb
 stats:
   total_files: 139
   by_language:
@@ -15,17 +15,17 @@ stats:
     py: 67
     js: 1
     ts: 19
-  total_functions: 722
+  total_functions: 732
   total_classes: 1
   total_imports: 1140
-  avg_functions_per_file: 5.19
+  avg_functions_per_file: 5.27
 files:
 - path: .opencode/apolo-dynamic/CODE-INDEX.yaml
   language: yaml
-  size_bytes: 289249
-  content_hash: 4bcba21760dea4859d0f54baa7e3997b499e29fa029358feabe36d104bbd6519
+  size_bytes: 309057
+  content_hash: bd4acc4072e8313e5ad61a92bdc2f0593c21d2fd4b0c8d5307d4ca20bda18382
   git_tracked: true
-  git_last_modified: '2026-06-21T23:13:51-04:00'
+  git_last_modified: '2026-06-22T00:17:34-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -37,7 +37,7 @@ files:
 - path: .opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml
   language: yaml
   size_bytes: 808
-  content_hash: 3358705cb8d41c25aed1192f0b6e09924062e9737607a23bba25b95471e03c07
+  content_hash: 1c2a7d4a1caddd43561fb02063d5f0d5107807cdfd3967ea17ea175df6d637f2
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -64,10 +64,10 @@ files:
   error: null
 - path: .opencode/apolo-dynamic/TOOL-REGISTRY.yaml
   language: yaml
-  size_bytes: 39597
-  content_hash: 37e9a04c1e1cd6a738b1e1c9939e3f3c26431c8162ee3b5f6d54aa805c59ef0e
+  size_bytes: 40369
+  content_hash: dc7cf4bed0ba32bde11417871c9c79ff901f3b7487849504f927afd0a1f1d970
   git_tracked: true
-  git_last_modified: '2026-06-21T23:13:51-04:00'
+  git_last_modified: '2026-06-22T00:17:34-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -79,7 +79,7 @@ files:
 - path: .opencode/apolo-dynamic/apolo-config.yaml
   language: yaml
   size_bytes: 2108
-  content_hash: ed23d6de790008e4f75a259cce844bca577536467e9d8f8ccf5c11f0f9a6b060
+  content_hash: 5446f985489eea66493202835edd44a229b6b98630b6fdff600f5d80cf5a7847
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -120,10 +120,10 @@ files:
   error: null
 - path: CODE-QUALITY.yaml
   language: yaml
-  size_bytes: 184887
-  content_hash: 5d34caf379ae907e4ba5e23a588933b90904483b22743b5bde7287d42dacc4a2
+  size_bytes: 194751
+  content_hash: f445e446b4365e7f9947d8e20919a111dea90eb4f69ba5ce97c6fa88f95df228
   git_tracked: true
-  git_last_modified: '2026-06-21T23:13:51-04:00'
+  git_last_modified: '2026-06-22T00:17:34-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -149,7 +149,7 @@ files:
 - path: CROSS-LANGUAGE-MAP.yaml
   language: yaml
   size_bytes: 816
-  content_hash: 8213f0ede0c4857252e401410ddab217df7c45a056397ca0d73a89a67d7ba02a
+  content_hash: 5f229f46c2fe05ae37c22fc175bccceaf1e88370875ffbe2775858138f9b058c
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -163,7 +163,7 @@ files:
 - path: EVIDENCE-SCORE.yaml
   language: yaml
   size_bytes: 893
-  content_hash: e04f324adc83fffd7b0532b6c6371359fa9ca7abf09fd6aaa411322e4ca9909a
+  content_hash: 6e081443bf59bbdd53006f67b8c3de8f8a3344e55bc7dff1306801e81afd2922
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -177,7 +177,7 @@ files:
 - path: IMPACT-PREDICTION.yaml
   language: yaml
   size_bytes: 485
-  content_hash: 6d1d29c839bb90878b79ca672ead0d88d0f1cadc9d905dcc46bed99f9e0cefeb
+  content_hash: 8a9b709ec420abaf3f76160349472e9d4da852811a9b0e68017b8768785e8e39
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -191,7 +191,7 @@ files:
 - path: LEARNING-STATE.yaml
   language: yaml
   size_bytes: 188
-  content_hash: 9977328088f85302a285c15770d8b618c9587f8626dcfdc5d4c00d33a947043a
+  content_hash: d1250de69483da103f26535b3249bee5b1beb868e0a493266c19a8390b7093a6
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -204,8 +204,8 @@ files:
   error: null
 - path: LSP-ANALYSIS.yaml
   language: yaml
-  size_bytes: 85021
-  content_hash: 35ea4058ce1b0e1850a571c35b720ea14f891a481b3d53a231a9cb839e791080
+  size_bytes: 96550
+  content_hash: 49b1195c0d9e85a19012e7b6472ea3969f79561a926e2814bfaf74e81421de24
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -218,8 +218,8 @@ files:
   error: null
 - path: REFACTOR-SUGGESTIONS.yaml
   language: yaml
-  size_bytes: 41520
-  content_hash: 51539c52da9819e1f8778fbcfea02631ea7925a45a3caab7a12636cca45cf0eb
+  size_bytes: 44110
+  content_hash: bb5578f7d41c850c1f9dff1d7aa935c8ccaaf105189c0457adf67a3ca5457798
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -232,8 +232,8 @@ files:
   error: null
 - path: TEST-COVERAGE.yaml
   language: yaml
-  size_bytes: 101265
-  content_hash: 5f6357fce630cb9bc2be80a3fda0d8704c5591a3a50c05c626732205ab6c392d
+  size_bytes: 110210
+  content_hash: 1f439dde6e72066f9945ad2cf3e50262f169ed1f87f564f993cc08b611f0af6b
   git_tracked: true
   git_last_modified: '2026-06-21T23:13:51-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -246,10 +246,10 @@ files:
   error: null
 - path: VULNERABILITY-REPORT.yaml
   language: yaml
-  size_bytes: 11639
-  content_hash: 941d5ad98cbf2185751430f7064c6bb4eca76fe3b1c9efc031c7d9641dea2ae8
+  size_bytes: 13099
+  content_hash: 8fb7d07664dd422dfc45cd9ecaef03b100c28aa956ee43c3efb865fb0a26bc55
   git_tracked: true
-  git_last_modified: '2026-06-21T23:13:51-04:00'
+  git_last_modified: '2026-06-22T00:17:34-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -326,8 +326,8 @@ files:
   error: null
 - path: package.json
   language: json
-  size_bytes: 4212
-  content_hash: fb91cf4c883ffbe6d08178b8b96ca2b82b8d2f774f6b3619378f19ad0c295685
+  size_bytes: 4403
+  content_hash: a307e6bb85641ee3b6e03aa7eccd367209d6697febcacf6c1ae1359a8d0e385f
   git_tracked: true
   git_last_modified: '2026-06-22T00:12:20-04:00'
   summary: Archivo .json | Sin símbolos exportados
@@ -471,7 +471,7 @@ files:
 - path: plan/active/APOLO-20260622-ONBOARDING/FLOW-STATE.yaml
   language: yaml
   size_bytes: 1070
-  content_hash: fa345a959b3900f505e83d64d2fe4754703be96a2f0f4104b31591599f56a2b0
+  content_hash: 2637c6913e9b9bb4408afde02d636ccfe683b5cd008f5bcd43d18a7e34d62158
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -485,7 +485,7 @@ files:
 - path: plan/active/APOLO-FULLTEST/BLOCK-LOG.yaml
   language: yaml
   size_bytes: 94
-  content_hash: 367000ac10152856058696db8df66adefbeb9e9fb8f4a90b7079d535e7e6a333
+  content_hash: f2e5e78b917045aff99d16412184f8514e859c94981046d5b5abc0818a3e3415
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -499,7 +499,7 @@ files:
 - path: plan/active/APOLO-FULLTEST/FLOW-STATE.yaml
   language: yaml
   size_bytes: 1059
-  content_hash: 041712c216bd49e7661937e7ba79bacc25e0a8050e9ddf854f6ae98cc25116a9
+  content_hash: 3fd95fd5e71814d1b0e2534cdece87ab6363321166726ca2ccdabe9ef29300d8
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -3045,17 +3045,39 @@ files:
   error: null
 - path: scripts/python/apolo_orchestrator.py
   language: py
-  size_bytes: 25055
-  content_hash: d0299c40af46879bcee0ede6fdf777fb84425f745004de52b634232f54da5861
+  size_bytes: 38025
+  content_hash: 94488e6f5d68c733c39e430f5e32057ff0bd086bc62d6c47ba37971c1d07b779
   git_tracked: true
   git_last_modified: '2026-06-22T00:12:20-04:00'
-  summary: 'Python: 0 clases, 12 funciones (12 exportadas) | Exporta: orchestrator_state_path(),
-    load_state(), save_state(), run_script(), format_args(), execute_phase(), check_gate(),
-    run_cycle()...'
+  summary: 'Python: 0 clases, 22 funciones (20 exportadas) | Exporta: run_script(),
+    append_telemetry(), orch_state_path(), load_state(), save_state(), phase_init(),
+    phase_index(), phase_collect()...'
   symbols:
     functions:
-    - name: orchestrator_state_path
-      line: 205
+    - name: run_script
+      line: 111
+      args:
+      - script_name
+      - args
+      - repo_root
+      - timeout
+      - stdin_data
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: Ejecuta un script Python del plugin y captura resultado.
+    - name: append_telemetry
+      line: 148
+      args:
+      - repo_root
+      - flowid
+      - event
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: Append event to telemetry.jsonl.
+    - name: orch_state_path
+      line: 162
       args:
       - repo_root
       - flowid
@@ -3064,7 +3086,7 @@ files:
       decorators: []
       docstring: null
     - name: load_state
-      line: 209
+      line: 166
       args:
       - repo_root
       - flowid
@@ -3073,7 +3095,7 @@ files:
       decorators: []
       docstring: null
     - name: save_state
-      line: 225
+      line: 178
       args:
       - repo_root
       - flowid
@@ -3082,32 +3104,9 @@ files:
       is_exported: true
       decorators: []
       docstring: null
-    - name: run_script
-      line: 235
+    - name: phase_init
+      line: 188
       args:
-      - script_name
-      - args
-      - repo_root
-      - timeout
-      is_async: false
-      is_exported: true
-      decorators: []
-      docstring: Ejecuta un script Python o bash y captura resultado.
-    - name: format_args
-      line: 275
-      args:
-      - args
-      - flowid
-      - scope
-      - method
-      is_async: false
-      is_exported: true
-      decorators: []
-      docstring: Reemplaza placeholders en args.
-    - name: execute_phase
-      line: 287
-      args:
-      - phase
       - repo_root
       - flowid
       - goal
@@ -3116,20 +3115,134 @@ files:
       is_async: false
       is_exported: true
       decorators: []
-      docstring: Ejecuta una fase del ciclo.
-    - name: check_gate
-      line: 389
+      docstring: 'Fase 1: init + health check + cross_flow recommendations.'
+    - name: phase_index
+      line: 220
       args:
-      - gate
       - repo_root
       - flowid
       - state
       is_async: false
       is_exported: true
       decorators: []
-      docstring: Verifica un gate de fase.
+      docstring: 'Fase 2: index + cross-language + summarize.'
+    - name: phase_collect
+      line: 246
+      args:
+      - repo_root
+      - flowid
+      - state
+      - auto_yes
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 3: collect evidence — uses user_input_collector if needs scope.'
+    - name: phase_score
+      line: 304
+      args:
+      - repo_root
+      - flowid
+      - state
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 4: score + baseline capture (gate con apolo_config threshold).'
+    - name: phase_plan
+      line: 357
+      args:
+      - repo_root
+      - flowid
+      - state
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 5: plan — uses agent_decision_loop to choose method.'
+    - name: phase_impact
+      line: 422
+      args:
+      - repo_root
+      - flowid
+      - state
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 6: impact prediction (BFS with config max_depth).'
+    - name: phase_scaffold
+      line: 442
+      args:
+      - repo_root
+      - flowid
+      - state
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 7: scaffold — agent_decision_loop elige strategy + post_script_gates
+        valida.'
+    - name: phase_implement
+      line: 507
+      args:
+      - repo_root
+      - flowid
+      - state
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 8: implement — EXECUTES scaffold commands + captures visual
+        diff.'
+    - name: _capture_and_replay
+      line: 599
+      args:
+      - repo_root
+      - flowid
+      - state
+      - result
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: Captura broken state + ejecuta evidence_replay para analizar bug.
+    - name: _capture_post_fix
+      line: 623
+      args:
+      - repo_root
+      - flowid
+      - state
+      - result
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: Captura post-fix state y genera comparacion completa.
+    - name: phase_test
+      line: 641
+      args:
+      - repo_root
+      - flowid
+      - state
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 9: test — force_quality_gates bloquea si falla.'
+    - name: phase_validate
+      line: 669
+      args:
+      - repo_root
+      - flowid
+      - state
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 10: validate — all quality gates + cross_flow analyze.'
+    - name: phase_complete
+      line: 696
+      args:
+      - repo_root
+      - flowid
+      - state
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: 'Fase 11: complete — report + feedback.'
     - name: run_cycle
-      line: 433
+      line: 741
       args:
       - repo_root
       - flowid
@@ -3139,36 +3252,27 @@ files:
       is_async: false
       is_exported: true
       decorators: []
-      docstring: Ejecuta el ciclo completo automaticamente.
+      docstring: Ejecuta el ciclo completo integrando TODOS los super poderes.
     - name: continue_cycle
-      line: 558
+      line: 827
       args:
       - repo_root
       - flowid
       is_async: false
       is_exported: true
       decorators: []
-      docstring: Continua el ciclo desde donde se pauso.
+      docstring: Continua desde donde se pauso.
     - name: get_status
-      line: 576
+      line: 842
       args:
       - repo_root
       - flowid
       is_async: false
       is_exported: true
       decorators: []
-      docstring: Retorna estado del ciclo.
-    - name: abort_cycle
-      line: 592
-      args:
-      - repo_root
-      - flowid
-      is_async: false
-      is_exported: true
-      decorators: []
-      docstring: Aborta el ciclo.
+      docstring: null
     - name: main
-      line: 606
+      line: 857
       args: []
       is_async: false
       is_exported: true
@@ -3181,95 +3285,95 @@ files:
   - module: __future__
     name: annotations
     kind: from-import
-    line: 58
+    line: 92
   - module: json
     name: ''
     kind: import
-    line: 60
+    line: 94
   - module: os
     name: ''
     kind: import
-    line: 61
+    line: 95
   - module: subprocess
     name: ''
     kind: import
-    line: 62
+    line: 96
   - module: sys
     name: ''
     kind: import
-    line: 63
+    line: 97
   - module: time
     name: ''
     kind: import
-    line: 64
+    line: 98
   - module: datetime
     name: datetime
     kind: from-import
-    line: 65
+    line: 99
   - module: datetime
     name: timezone
     kind: from-import
-    line: 65
+    line: 99
   - module: pathlib
     name: Path
     kind: from-import
-    line: 66
+    line: 100
   - module: typing
     name: Any
     kind: from-import
-    line: 67
+    line: 101
   - module: typing
     name: Dict
     kind: from-import
-    line: 67
+    line: 101
   - module: typing
     name: List
     kind: from-import
-    line: 67
+    line: 101
   - module: typing
     name: Optional
     kind: from-import
-    line: 67
+    line: 101
   - module: typing
     name: Tuple
     kind: from-import
-    line: 67
+    line: 101
   - module: common
     name: log
     kind: from-import
-    line: 70
+    line: 104
   - module: common
     name: now_iso
     kind: from-import
-    line: 70
+    line: 104
   - module: common
     name: parse_args
     kind: from-import
-    line: 70
+    line: 104
   - module: common
     name: read_yaml
     kind: from-import
-    line: 70
+    line: 104
   - module: common
     name: write_yaml
     kind: from-import
-    line: 70
+    line: 104
   - module: common
     name: run_cmd
     kind: from-import
-    line: 70
+    line: 104
   - module: common
     name: flow_dir
     kind: from-import
-    line: 70
+    line: 104
   - module: common
     name: state_path
     kind: from-import
-    line: 70
+    line: 104
   - module: common
     name: telemetry_path
     kind: from-import
-    line: 70
+    line: 104
   error: null
 - path: scripts/python/auto_hooks.py
   language: py

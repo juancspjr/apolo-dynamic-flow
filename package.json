@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "3.2.0",
-  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. 3 capas: Infrastructure, Deterministic, Intelligence. 160+ tests, 97% capability coverage. v3.2.0: Orquestador automatico (un comando = todo el ciclo) + Agent decision loop + Script generator + Force quality gates + User input collector. El usuario solo ejecuta 'apolo run --flowid X --goal ...' y el sistema hace todo.",
+  "version": "3.3.0",
+  "description": "Plugin de orquestacion de agentes para OpenCode. v3.3.0: Orquestador REESCRITO que USA TODOS los super poderes del sistema (no solo menciona). La data fluye: cross_flow recommend → evidence collect → score → agent_decision_loop elige method → plan → impact → agent_decision_loop elige strategy → scaffold → post_script_gates valida → EXECUTE scaffold commands → force_quality_gates bloquea si falla → evidence_visual_diff captura baseline/broken/post-fix → evidence_replay analiza bugs → cross_flow learning actualiza knowledge. 160+ tests, 97% capability.",
   "main": "plugin/index.ts",
   "bin": {
     "apolo": "scripts/bash/apolo_cli_router.sh"

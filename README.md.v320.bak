@@ -3,11 +3,11 @@
 > **Plugin de orquestacion de agentes para OpenCode** con flujos dinamicos, recoleccion determinista de evidencia, planes generados por Python, tests automaticos tras cada cambio, absorcion de tools externas (MCPs, skills, plugins, scripts), self-healing, generacion automatica de tests, busqueda semantica, refactoring, escaneo de vulnerabilidades CVE, code smells, dead code, feedback loop, documentacion interactiva, modo debug paso a paso, validacion de integracion E2E, auto-hooks, post-script gates y CLI router unificado.
 
 [![Tests](https://img.shields.io/badge/tests-160%2B%20passing-brightgreen)](#11-tests)
-[![Coverage](https://img.shields.io/badge/capability%20coverage-97%25-green)](#23-capability-assessment)
-[![License](https://img.shields.io/badge/license-MIT-blue)](#26-licencia)
+[![Coverage](https://img.shields.io/badge/capability%20coverage-97%25-green)](#21-capability-assessment)
+[![License](https://img.shields.io/badge/license-MIT-blue)](#24-licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#2-prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#2-prerrequisitos)
-[![Version](https://img.shields.io/badge/version-3.3.0-blue)](#25-changelog)
+[![Version](https://img.shields.io/badge/version-3.2.0-blue)](#23-changelog)
 
 ---
 
@@ -2238,84 +2238,6 @@ Cobertura de capacidades:   95%
 
 ## 25. Changelog
 
-### v3.3.0 (2026-06-22) — Orquestador REESCRITO: USA TODOS los super poderes
-
-**PROBLEMA DETECTADO en v3.2.0:** El orquestador existia pero **NO usaba** los super poderes del sistema. Solo los mencionaba en docstrings. La data NO floria entre scripts.
-
-**AUDITORIA HONESTA de v3.2.0:**
-- Orchestrator NO capturaba baseline (evidence_visual_diff existia pero no se invocaba)
-- Orchestrator NO pedia recomendaciones de cross_flow_learning antes de planificar
-- Orchestrator NO ejecutaba agent_decision_loop para elegir method/estrategia
-- Orchestrator NO ejecutaba force_quality_gates antes/despues de cada fase
-- Orchestrator NO usaba user_input_collector real (hardcodeaba scope default)
-- Orchestrator NO capturaba broken/post-fix cuando tests fallan o se arreglan
-- Orchestrator NO ejecutaba replay cuando habia un bug
-- Orchestrator NO ejecutaba los commands del scaffold (solo los generaba)
-- agent_decision_loop elegia pero NO ejecutaba la opcion elegida
-
-**SOLUCION v3.3.0:** Orquestador reescrito desde cero. Ahora CADA FASE usa los super poderes:
-
-| Fase | Que hace v3.3.0 (USA los super poderes) |
-|------|----------------------------------------|
-| 1. init | health_check + **cross_flow_learning.recommend()** para recomendaciones contextuales |
-| 2. index | index_codebase + **cross_language_analyzer** + **summarize_functions** |
-| 3. collect | **user_input_collector.ask()** REAL (no hardcodeado) + collect_evidence + secret_scanner |
-| 4. score | score_evidence + lee threshold de **apolo_config** + **evidence_visual_diff.capture(baseline)** |
-| 5. plan | **agent_decision_loop.decide()** elige method (deterministic/hybrid/manual) + generate_plan |
-| 6. impact | predict_impact (BFS con max_depth de apolo_config) |
-| 7. scaffold | **agent_decision_loop.decide()** elige strategy + scaffold_v3 + **post_script_gates.check()** valida |
-| 8. implement | **force_quality_gates.check()** antes + **EXECUTE scaffold commands** + si tests fallan: **evidence_visual_diff.capture(broken)** + **evidence_replay.bug()** + si pasan: **evidence_visual_diff.capture(post-fix)** + **evidence_visual_diff.compare()** |
-| 9. test | run_tests + **force_quality_gates.check_one(tests_pass)** BLOQUEA si falla |
-| 10. validate | **force_quality_gates.check()** all gates + **cross_flow_learning.analyze()** actualiza knowledge |
-| 11. complete | **feedback_loop.add()** pide feedback al usuario |
-
-**Integracion verificada (grep en el codigo):**
-```
-evidence_visual_diff:     12 referencias (era 1 en v3.2.0)
-agent_decision_loop:      16 referencias (era 1 en v3.2.0)
-force_quality_gates:      11 referencias (era 1 en v3.2.0)
-cross_flow_learning:       7 referencias (era 1 en v3.2.0)
-user_input_collector:      7 referencias (era 2 en v3.2.0)
-post_script_gates:         5 referencias (era 0 en v3.2.0)
-apolo_config:              5 referencias (era 4 en v3.2.0)
-feedback_loop:             3 referencias (era 0 en v3.2.0)
-evidence_replay:           3 referencias (era 0 en v3.2.0)
-```
-
-**Flujo de data real (verificado en test):**
-1. cross_flow recommend → alimenta decisiones de plan
-2. score_evidence → lee threshold de apolo_config → pausa si score < threshold
-3. agent_decision_loop → elige method → generate_plan usa ese method
-4. agent_decision_loop → elige strategy → scaffold_v3 usa esa strategy
-5. post_script_gates → valida scaffold → bloquea si no es concreto
-6. scaffold commands → EXECUTE mkdir + create files + run tests
-7. tests fallan → evidence_visual_diff capture(broken) → evidence_replay bug() → analiza causa
-8. tests pasan → evidence_visual_diff capture(post-fix) → compare() 3 estados
-9. force_quality_gates → bloquea si quality gates fallan
-10. cross_flow_learning analyze → actualiza knowledge base para futuros flows
-11. feedback_loop → pide feedback al usuario
-
-**Test verificado:**
-```bash
-$ apolo run --flowid APOLO-V330-TEST --goal "test" --yes
-FASE 1/11: INIT → cross_flow: 0 recomendaciones contextuales ✓
-FASE 2/11: INDEX → AST + cross-language + summaries ✓
-FASE 3/11: COLLECT → auto-yes: scope default = plugin/ ✓
-FASE 4/11: SCORE → baseline capturado para visual diff ✓
-FASE 5/11: PLAN → agent_decision_loop eligio: deterministic-python (score: 0.51) ✓
-FASE 6/11: IMPACT → BFS multi-nivel ✓
-FASE 7/11: SCAFFOLD → agent_decision_loop eligio strategy: topological_first ✓
-FASE 8/11: IMPLEMENT → Ejecutando 9 commands del scaffold...
-  ✓ CMD-U-01-1: mkdir ejecutado
-  ✓ CMD-U-01-2: creado tests/test_u_01_v3.py
-  ✓ CMD-U-01-2: creado plugin/handlers/u-01-handler.ts
-  ⚠ Tests fallaron — capturando broken state + replay
-```
-
-**Tests:** 160+ tests pasando, 97% capability coverage
-
----
-
 ### v3.2.0 (2026-06-22) — Orquestador Automatico + Decision Loop + Script Gen + Quality Gates + User Input
 
 **EL CAMBIO DE PARADIGMA:**
@@ -2901,11 +2823,11 @@ Basado en los 5 puntos de perdida de control del INTEGRATION-VERDICT.md:
 | v2.8.1 | 2026-06-22 | 103 | 86% | Fix full_audit + feedback + docs + debug |
 | v2.9.0 | 2026-06-22 | 133 | 90% | Hooks validator + auto-hooks + gates + CLI router |
 | v3.1.0 | 2026-06-22 | 150+ | 95% | Config + scaffold v3 + visual diff + replay + cross-flow |
-| v3.2.0 | 2026-06-22 | 160+ | 97% | Orquestador automatico + decision loop + script gen + quality gates |
-| **v3.3.0** | **2026-06-22** | **160+** | **97%** | **Orquestador REESCRITO — USA todos los super poderes (data fluye)** |
+| **v3.2.0** | **2026-06-22** | **160+** | **97%** | **Orquestador automatico + decision loop + script gen + quality gates** |
 
 ---
 
-> **APOLO Dynamic Flow v3.3.0** — Plugin de orquestacion de agentes para OpenCode.
+> **APOLO Dynamic Flow v3.2.0** — Plugin de orquestacion de agentes para OpenCode.
 > 160+ tests pasando, 97% capability coverage, 51+ comandos en CLI router unificado.
-> Orquestador REESCRITO que USA TODOS los super poderes: cross_flow recommend → score con apolo_config → agent_decision_loop elige method/strategy → post_script_gates valida scaffold → EXECUTE scaffold commands → force_quality_gates bloquea → evidence_visual_diff captura baseline/broken/post-fix → evidence_replay analiza bugs → cross_flow learning actualiza knowledge → feedback_loop pide feedback.
+> UN solo comando (`apolo run --flowid X --goal "..."`) ejecuta TODO el ciclo automaticamente.
+> 19 auto-hooks + 15 post-script gates + 7 force quality gates que obligan al agente a actuar con calidad.

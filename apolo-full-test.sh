@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# apolo-full-test.sh — Test exhaustivo v3.2.0
-# REWRITE: v2.8.0 + v2.8.1 + v2.9.0 + v3.1.0 + v3.2.0 (orquestador automatico + decision loop + script gen + quality gates + user input)
+# apolo-full-test.sh — Test exhaustivo v3.3.0
+# REWRITE: v3.3.0 = orquestador reescrito que USA TODOS los super poderes (no solo menciona)
 set -uo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
@@ -11,7 +11,7 @@ skip() { echo -e "  ${YELLOW}⊘${NC} $*"; TOTAL_SKIP=$((TOTAL_SKIP + 1)); }
 phase() { echo -e "\n${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; echo -e "${CYAN}${BOLD}  FASE $1: $2${NC}"; echo -e "${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; }
 gap() { GAPS_FOUND+=("$1"); echo -e "  ${RED}⚠ GAP:${NC} $1"; }
 cd /home/juan/new_project 2>/dev/null || { echo "ERROR: /home/juan/new_project no existe"; exit 1; }
-echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.2.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  Orchestrator + Decision Loop + Quality Gates + Auto    ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.3.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  Orchestrator REESCRITO — usa TODOS los super poderes   ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 
 phase 1 "Prerrequisitos"
 command -v node >/dev/null 2>&1 && pass "Node.js $(node --version)" || fail "Node.js no instalado"
@@ -205,6 +205,10 @@ echo "$UIC_OUT" | grep -qi "success\|pending\|total" && pass "user_input_collect
 # Test CLI router new commands
 CLI_RUN=$(bash scripts/bash/apolo_cli_router.sh help 2>&1 || true)
 echo "$CLI_RUN" | grep -qi "run.*TODO\|orchestrat\|decide\|gen-script\|quality-check\|ask" && pass "apolo_cli_router.sh v3.2.0 (run/decide/gen-script/quality-check/ask)" || fail "apolo_cli_router v3.2.0"
+
+# v3.3.0: VERIFY orchestrator USES all super powers (not just mentions)
+ORCH_INTEGRATION=$(grep -c "evidence_visual_diff\|cross_flow_learning\|agent_decision_loop\|force_quality_gates\|user_input_collector\|post_script_gates\|feedback_loop\|apolo_config" scripts/python/apolo_orchestrator.py 2>/dev/null || echo 0)
+[[ $ORCH_INTEGRATION -gt 30 ]] && pass "apolo_orchestrator.py v3.3.0 integrado con TODOS los super poderes ($ORCH_INTEGRATION referencias)" || fail "apolo_orchestrator v3.3.0 integracion insuficiente ($ORCH_INTEGRATION referencias)"
 
 # Cleanup v3.2.0
 rm -rf plan/active/APOLO-V320-TEST 2>/dev/null

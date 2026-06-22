@@ -1,7 +1,7 @@
 apoloconfig: V1
 version: 1
 schema_version: 3.1.0
-generated_at: '2026-06-22T03:02:49Z'
+generated_at: '2026-06-22T04:20:29Z'
 description: Configuracion centralizada de thresholds para apolo-dynamic-flow
 gates:
   verdad:
