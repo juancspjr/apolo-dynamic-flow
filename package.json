@@ -1,8 +1,11 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "2.8.1",
-  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. 3 capas: Infrastructure, Deterministic, Intelligence. 100+ tests, 88%+ capability coverage. Self-healing, test gen, semantic search, refactoring, LLM bridge, cross-language, function summaries, code gen, doc gen, project templates, onboarding, GitHub Actions, vulnerability scanning, code smells, dead code, full audit, feedback loop, interactive docs, debug mode, integration validation.",
+  "version": "2.9.0",
+  "description": "Plugin de orquestacion de agentes para OpenCode. Agnostico al lenguaje. 3 capas: Infrastructure, Deterministic, Intelligence. 100+ tests, 90%+ capability coverage. Hooks validator + Auto-hooks + Post-script gates + CLI router unificado. Self-healing, test gen, semantic search, refactoring, LLM bridge, cross-language, function summaries, code gen, doc gen, project templates, onboarding, GitHub Actions, vulnerability scanning, code smells, dead code, full audit, feedback loop, interactive docs, debug mode, integration validation.",
   "main": "plugin/index.ts",
+  "bin": {
+    "apolo": "scripts/bash/apolo_cli_router.sh"
+  },
   "scripts": {
     "test": "npx tsc && node --test dist/tests/plugin.test.js",
     "test:python": "python3 tests/run_all_tests.py",
@@ -24,9 +27,15 @@
     "docs": "python3 scripts/python/interactive_docs.py",
     "debug": "python3 scripts/python/debug_mode.py",
     "validate-integration": "python3 scripts/python/integration_validation.py --repo-root . --output INTEGRATION-VALIDATION-REPORT.yaml",
+    "hooks-check": "python3 scripts/python/hooks_validator.py --repo-root .",
+    "hooks-init": "python3 scripts/python/auto_hooks.py init --repo-root .",
+    "hooks-trigger": "python3 scripts/python/auto_hooks.py trigger --repo-root .",
+    "gates-init": "python3 scripts/python/post_script_gates.py init --repo-root .",
+    "gates-check": "python3 scripts/python/post_script_gates.py check --repo-root .",
+    "apolo": "bash scripts/bash/apolo_cli_router.sh",
     "full-test": "bash apolo-full-test.sh"
   },
-  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions","vulnerability-scanning","code-smells","dead-code","full-audit","feedback-loop","interactive-docs","debug-mode","integration-validation"],
+  "keywords": ["opencode","plugin","apolo","dynamic-flow","loop-engine","routing","mcp","parallel-agents","evidence-pack","telemetry","atomic-writes","concurrency-safe","security","allowlist","secret-detection","hash-chain","sandboxing","multi-language","code-quality","test-coverage","lsp","bfs-impact-prediction","self-healing","test-generation","semantic-search","refactoring","llm-bridge","cross-language","function-summaries","code-generation","doc-generation","project-templates","onboarding","github-actions","vulnerability-scanning","code-smells","dead-code","full-audit","feedback-loop","interactive-docs","debug-mode","integration-validation","hooks-validator","auto-hooks","post-script-gates","cli-router"],
   "author": "",
   "license": "MIT",
   "devDependencies": { "@types/node": "^22.0.0", "typescript": "^5.5.0" },

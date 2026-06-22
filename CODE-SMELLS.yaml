@@ -1,15 +1,15 @@
 codesmells: V1
 version: 1
-generated_at: '2026-06-22T00:59:18Z'
+generated_at: '2026-06-22T01:55:06Z'
 repo_root: /home/juan/new_project
 summary:
-  total_smells: 4981
-  long_methods: 90
+  total_smells: 5098
+  long_methods: 98
   god_classes: 0
-  deep_nesting: 1088
-  duplication: 3803
+  deep_nesting: 1180
+  duplication: 3820
   dead_code: 0
-  high_complexity_functions: 46
+  high_complexity_functions: 50
 smells:
 - type: long_method
   file: plugin/evidence-collector.ts
@@ -107,6 +107,18 @@ smells:
   lines: 113
   severity: high
   suggestion: Extract sub-logic from main (113 lines)
+- type: long_method
+  file: scripts/python/auto_hooks.py
+  function: fire_trigger
+  lines: 72
+  severity: medium
+  suggestion: Extract sub-logic from fire_trigger (72 lines)
+- type: long_method
+  file: scripts/python/auto_hooks.py
+  function: main
+  lines: 104
+  severity: high
+  suggestion: Extract sub-logic from main (104 lines)
 - type: long_method
   file: scripts/python/code_quality.py
   function: estimate_complexity_regex
@@ -246,6 +258,30 @@ smells:
   severity: high
   suggestion: Extract sub-logic from main (137 lines)
 - type: long_method
+  file: scripts/python/hooks_validator.py
+  function: check_opencode_json
+  lines: 56
+  severity: medium
+  suggestion: Extract sub-logic from check_opencode_json (56 lines)
+- type: long_method
+  file: scripts/python/hooks_validator.py
+  function: check_plugin_loaded
+  lines: 57
+  severity: medium
+  suggestion: Extract sub-logic from check_plugin_loaded (57 lines)
+- type: long_method
+  file: scripts/python/hooks_validator.py
+  function: check_hooks_registered
+  lines: 57
+  severity: medium
+  suggestion: Extract sub-logic from check_hooks_registered (57 lines)
+- type: long_method
+  file: scripts/python/hooks_validator.py
+  function: main
+  lines: 104
+  severity: high
+  suggestion: Extract sub-logic from main (104 lines)
+- type: long_method
   file: scripts/python/index_codebase.py
   function: extract_python_symbols
   lines: 108
@@ -371,6 +407,18 @@ smells:
   lines: 74
   severity: medium
   suggestion: Extract sub-logic from run_onboarding (74 lines)
+- type: long_method
+  file: scripts/python/post_script_gates.py
+  function: check_gate
+  lines: 52
+  severity: medium
+  suggestion: Extract sub-logic from check_gate (52 lines)
+- type: long_method
+  file: scripts/python/post_script_gates.py
+  function: main
+  lines: 90
+  severity: medium
+  suggestion: Extract sub-logic from main (90 lines)
 - type: long_method
   file: scripts/python/predict_impact.py
   function: project_dependency_cascade
@@ -553,28 +601,34 @@ smells:
   suggestion: Extract sub-logic from _install_common_stub_if_needed (121 lines)
 - type: deep_nesting
   file: .opencode/apolo-dynamic/CODE-INDEX.yaml
-  line: 2954
+  line: 3233
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 2954 (depth 4)
+  suggestion: Extract nested logic at line 3233 (depth 4)
 - type: deep_nesting
   file: .opencode/apolo-dynamic/CODE-INDEX.yaml
-  line: 2955
+  line: 3234
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 2955 (depth 4)
+  suggestion: Extract nested logic at line 3234 (depth 4)
 - type: deep_nesting
   file: LSP-ANALYSIS.yaml
-  line: 1091
+  line: 1331
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 1091 (depth 4)
+  suggestion: Extract nested logic at line 1331 (depth 4)
 - type: deep_nesting
   file: LSP-ANALYSIS.yaml
-  line: 1135
+  line: 1375
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 1135 (depth 4)
+  suggestion: Extract nested logic at line 1375 (depth 4)
+- type: deep_nesting
+  file: escuchar_hook.py
+  line: 16
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 16 (depth 4)
 - type: deep_nesting
   file: plugin/absorbers/mcp-loader.ts
   line: 77
@@ -1103,6 +1157,192 @@ smells:
   nesting_level: 4
   severity: medium
   suggestion: Extract nested logic at line 301 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 221
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 221 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 224
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 224 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 232
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 232 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 235
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 235 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 272
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 272 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 277
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 277 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 280
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 280 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 281
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 281 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 310
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 310 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 339
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 339 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 341
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 341 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 380
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 380 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 382
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 382 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 384
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 384 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 393
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 393 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 396
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 396 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 405
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 405 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 439
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 439 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 443
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 443 (depth 8)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 452
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 452 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 457
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 457 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 462
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 462 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 464
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 464 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 465
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 465 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 468
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 468 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 479
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 479 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 483
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 483 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 484
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 484 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 494
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 494 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 498
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 498 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 499
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 499 (depth 6)
 - type: deep_nesting
   file: scripts/python/code_generator.py
   line: 134
@@ -3216,6 +3456,174 @@ smells:
   severity: medium
   suggestion: Extract nested logic at line 375 (depth 6)
 - type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 74
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 74 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 80
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 80 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 118
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 118 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 150
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 150 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 153
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 153 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 154
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 154 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 156
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 156 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 197
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 197 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 205
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 205 (depth 6)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 206
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 206 (depth 6)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 273
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 273 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 290
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 290 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 298
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 298 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 302
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 302 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 307
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 307 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 310
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 310 (depth 6)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 339
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 339 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 343
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 343 (depth 8)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 344
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 344 (depth 8)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 350
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 350 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 373
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 373 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 400
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 400 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 402
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 402 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 416
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 416 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 458
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 458 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 518
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 518 (depth 4)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 522
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 522 (depth 6)
+- type: deep_nesting
+  file: scripts/python/hooks_validator.py
+  line: 529
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 529 (depth 4)
+- type: deep_nesting
   file: scripts/python/index_codebase.py
   line: 97
   nesting_level: 4
@@ -4391,6 +4799,198 @@ smells:
   nesting_level: 4
   severity: medium
   suggestion: Extract nested logic at line 130 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 229
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 229 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 232
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 232 (depth 6)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 234
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 234 (depth 8)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 254
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 254 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 258
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 258 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 262
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 262 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 266
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 266 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 270
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 270 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 274
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 274 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 279
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 279 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 281
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 281 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 301
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 301 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 312
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 312 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 317
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 317 (depth 8)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 325
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 325 (depth 8)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 335
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 335 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 348
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 348 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 353
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 353 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 450
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 450 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 463
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 463 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 468
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 468 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 469
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 469 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 473
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 473 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 478
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 478 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 482
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 482 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 486
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 486 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 487
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 487 (depth 6)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 492
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 492 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 497
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 497 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 501
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 501 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 502
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 502 (depth 6)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 507
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 507 (depth 4)
 - type: deep_nesting
   file: scripts/python/predict_impact.py
   line: 103
@@ -7480,6 +8080,14 @@ smells:
   severity: low
   suggestion: Review infer_script_capabilities and infer_summary_from_name for duplication
 - type: possible_duplication
+  function_a: hooks_config_path
+  file_a: scripts/python/auto_hooks.py
+  function_b: hooks_log_path
+  file_b: scripts/python/auto_hooks.py
+  common_prefix: hooks_
+  severity: low
+  suggestion: Review hooks_config_path and hooks_log_path for duplication
+- type: possible_duplication
   function_a: generate_python_function
   file_a: scripts/python/code_generator.py
   function_b: generate_typescript_function
@@ -8890,6 +9498,134 @@ smells:
   common_prefix: check_
   severity: low
   suggestion: Review check_command_exit and check_tool_health for duplication
+- type: possible_duplication
+  function_a: check_opencode_binary
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_prerequisites
+  file_b: scripts/python/onboarding.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_opencode_binary and check_prerequisites for duplication
+- type: possible_duplication
+  function_a: check_opencode_json
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_plugin_loaded
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_opencode_json and check_plugin_loaded for duplication
+- type: possible_duplication
+  function_a: check_opencode_json
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_plugin_compiled
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_opencode_json and check_plugin_compiled for duplication
+- type: possible_duplication
+  function_a: check_opencode_json
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_hooks_registered
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_opencode_json and check_hooks_registered for duplication
+- type: possible_duplication
+  function_a: check_opencode_json
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_mcps
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_opencode_json and check_mcps for duplication
+- type: possible_duplication
+  function_a: check_opencode_json
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_hook_functional
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_opencode_json and check_hook_functional for duplication
+- type: possible_duplication
+  function_a: check_plugin_loaded
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_plugin_compiled
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_plugin_
+  severity: low
+  suggestion: Review check_plugin_loaded and check_plugin_compiled for duplication
+- type: possible_duplication
+  function_a: check_plugin_loaded
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_hooks_registered
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_plugin_loaded and check_hooks_registered for duplication
+- type: possible_duplication
+  function_a: check_plugin_loaded
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_mcps
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_plugin_loaded and check_mcps for duplication
+- type: possible_duplication
+  function_a: check_plugin_loaded
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_hook_functional
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_plugin_loaded and check_hook_functional for duplication
+- type: possible_duplication
+  function_a: check_plugin_compiled
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_hooks_registered
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_plugin_compiled and check_hooks_registered for duplication
+- type: possible_duplication
+  function_a: check_plugin_compiled
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_mcps
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_plugin_compiled and check_mcps for duplication
+- type: possible_duplication
+  function_a: check_plugin_compiled
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_hook_functional
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_plugin_compiled and check_hook_functional for duplication
+- type: possible_duplication
+  function_a: check_hooks_registered
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_mcps
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_hooks_registered and check_mcps for duplication
+- type: possible_duplication
+  function_a: check_hooks_registered
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_hook_functional
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_hook
+  severity: low
+  suggestion: Review check_hooks_registered and check_hook_functional for duplication
+- type: possible_duplication
+  function_a: check_mcps
+  file_a: scripts/python/hooks_validator.py
+  function_b: check_hook_functional
+  file_b: scripts/python/hooks_validator.py
+  common_prefix: check_
+  severity: low
+  suggestion: Review check_mcps and check_hook_functional for duplication
 - type: possible_duplication
   function_a: git_last_modified
   file_a: scripts/python/index_codebase.py
@@ -39287,6 +40023,18 @@ smells:
     duplication
 complexity:
 - tool: radon
+  file: escuchar_hook.py
+  function: HookHandler
+  complexity: 3
+  rank: A
+  severity: low
+- tool: radon
+  file: escuchar_hook.py
+  function: do_POST
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
   file: scripts/python/absorb_external_skills.py
   function: infer_skill_capabilities
   complexity: 31
@@ -39415,6 +40163,72 @@ complexity:
 - tool: radon
   file: scripts/python/absorb_mcp.py
   function: build_script_tool
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: main
+  complexity: 28
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: evaluate_condition
+  complexity: 14
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: fire_trigger
+  complexity: 13
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: get_status
+  complexity: 10
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: execute_script
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: load_config
+  complexity: 3
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: hooks_config_path
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: hooks_log_path
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: init_config
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: save_config
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: log_hook_execution
   complexity: 1
   rank: A
   severity: low
@@ -40415,6 +41229,60 @@ complexity:
   rank: A
   severity: low
 - tool: radon
+  file: scripts/python/hooks_validator.py
+  function: main
+  complexity: 18
+  rank: C
+  severity: high
+- tool: radon
+  file: scripts/python/hooks_validator.py
+  function: check_hooks_registered
+  complexity: 15
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/hooks_validator.py
+  function: check_opencode_json
+  complexity: 11
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/hooks_validator.py
+  function: check_hook_functional
+  complexity: 11
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/hooks_validator.py
+  function: check_plugin_loaded
+  complexity: 9
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/hooks_validator.py
+  function: check_mcps
+  complexity: 9
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/hooks_validator.py
+  function: check_opencode_binary
+  complexity: 6
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/hooks_validator.py
+  function: try_fix
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/hooks_validator.py
+  function: check_plugin_compiled
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
   file: scripts/python/index_codebase.py
   function: extract_python_symbols
   complexity: 25
@@ -40915,6 +41783,66 @@ complexity:
 - tool: radon
   file: scripts/python/onboarding.py
   function: suggest_skills
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: main
+  complexity: 24
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: validate_value
+  complexity: 18
+  rank: C
+  severity: high
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: check_script_output
+  complexity: 10
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: check_all_flow_artifacts
+  complexity: 10
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: get_path
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: check_gate
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: load_config
+  complexity: 3
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: gates_config_path
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: init_config
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/post_script_gates.py
+  function: save_config
   complexity: 1
   rank: A
   severity: low
@@ -42166,5 +43094,5 @@ complexity:
   complexity: 1
   rank: A
   severity: low
-recommendation: 4981 smells and 46 high-complexity functions found
+recommendation: 5098 smells and 50 high-complexity functions found
 

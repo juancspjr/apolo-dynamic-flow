@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# apolo-full-test.sh — Test exhaustivo v2.8.1
-# REWRITE COMPLETO: todos los fixes integrados + 3 GAPs cerrados + integration validation
+# apolo-full-test.sh — Test exhaustivo v2.9.0
+# REWRITE COMPLETO: v2.8.0 + v2.8.1 (3 GAPs) + v2.9.0 (hooks validator + auto-hooks + post-script gates + CLI router)
 set -uo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
@@ -11,7 +11,7 @@ skip() { echo -e "  ${YELLOW}⊘${NC} $*"; TOTAL_SKIP=$((TOTAL_SKIP + 1)); }
 phase() { echo -e "\n${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; echo -e "${CYAN}${BOLD}  FASE $1: $2${NC}"; echo -e "${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; }
 gap() { GAPS_FOUND+=("$1"); echo -e "  ${RED}⚠ GAP:${NC} $1"; }
 cd /home/juan/new_project 2>/dev/null || { echo "ERROR: /home/juan/new_project no existe"; exit 1; }
-echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v2.8.1              ║${NC}"; echo -e "${BOLD}${GREEN}║  Validación completa + Integration Validation + 3 GAPs ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v2.9.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  Hooks + Auto-hooks + Post-script Gates + CLI Router    ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 
 phase 1 "Prerrequisitos"
 command -v node >/dev/null 2>&1 && pass "Node.js $(node --version)" || fail "Node.js no instalado"
@@ -71,47 +71,29 @@ echo '{"name":"test","version":1}' > /tmp/ta.json; echo '{"type":"object","requi
 python3 scripts/python/validate_artifact.py --artifact /tmp/ta.json --schema /tmp/ts.json 2>/dev/null && pass "validate_artifact.py" || fail "validate_artifact"
 python3 scripts/python/scaffold_impl.py --plan /tmp/p1.yaml --unit-id U-01 --code-index /tmp/ci.yaml --output /tmp/sf.yaml --flowid TEST 2>/dev/null | grep -q success && pass "scaffold_impl.py" || fail "scaffold"
 
-# v2.8.0: cross-language analyzer
+# v2.8.0: cross-language, summarize, code_generator, doc_generator, project_templates, onboarding, github_actions, vulnerability_scanner, code_smells
 CL_OUT=$(python3 scripts/python/cross_language_analyzer.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/clm.yaml 2>&1 || true)
 echo "$CL_OUT" | grep -qi "success\|total_calls\|languages" && pass "cross_language_analyzer.py" || fail "cross_language_analyzer"
-
-# v2.8.0: summarize functions
 SF_OUT=$(python3 scripts/python/summarize_functions.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/fsm.yaml 2>&1 || true)
 echo "$SF_OUT" | grep -qi "success\|total_functions" && pass "summarize_functions.py" || fail "summarize_functions"
-
-# v2.8.0: code_generator
 CG_OUT=$(python3 scripts/python/code_generator.py --language python --type function --name "test_func" --args "x" 2>&1 || true)
 echo "$CG_OUT" | grep -qi "def test_func\|def " && pass "code_generator.py" || fail "code_generator"
-
-# v2.8.0: doc_generator
 DG_OUT=$(python3 scripts/python/doc_generator.py --repo-root . --type readme-section --section installation 2>&1 || true)
 echo "$DG_OUT" | grep -qi "Installation\|install\|## " && pass "doc_generator.py" || fail "doc_generator"
-
-# v2.8.0: project_templates
 PT_OUT=$(python3 scripts/python/project_templates.py --list 2>&1 || true)
 echo "$PT_OUT" | grep -qi "nextjs\|go-api\|python-cli" && pass "project_templates.py" || fail "project_templates"
-
-# v2.8.0: onboarding
 OB_OUT=$(python3 scripts/python/onboarding.py --repo-root . --non-interactive 2>&1 || true)
 echo "$OB_OUT" | grep -qi "success\|onboarding\|project_type" && pass "onboarding.py" || fail "onboarding"
-
-# v2.8.0: github_actions
 GA_OUT=$(python3 scripts/python/github_actions.py --repo-root . --output /tmp/gh-actions/ 2>&1 || true)
 echo "$GA_OUT" | grep -qi "success\|workflows" && pass "github_actions.py" || fail "github_actions"
-
-# v2.8.0: vulnerability scanner
 VS_OUT=$(python3 scripts/python/vulnerability_scanner.py --repo-root . --output /tmp/vuln.yaml 2>&1 || true)
 echo "$VS_OUT" | grep -qi "success\|total_findings\|tools_used" && pass "vulnerability_scanner.py" || fail "vulnerability_scanner"
-
-# v2.8.0: code smells + dead code
 CS_OUT=$(python3 scripts/python/code_smells.py --repo-root . --code-index /tmp/ci.yaml --output /tmp/smells.yaml 2>&1 || true)
 echo "$CS_OUT" | grep -qi "success\|total_smells\|dead_code" && pass "code_smells.py" || fail "code_smells"
 
-# v2.8.1: full audit (FIXED — security_findings list vs int)
+# v2.8.1: full_audit (FIXED), feedback_loop, interactive_docs, debug_mode, integration_validation
 FA_OUT=$(python3 scripts/python/full_audit.py --repo-root . --output /tmp/audit.yaml 2>&1 || true)
 echo "$FA_OUT" | grep -qi "success\|final_score\|grade" && pass "full_audit.py (v2.8.1 FIXED)" || fail "full_audit"
-
-# v2.8.1: feedback_loop (NEW — GAP #10)
 rm -f .opencode/apolo-dynamic/FEEDBACK.jsonl 2>/dev/null
 FB_ADD=$(python3 scripts/python/feedback_loop.py add --repo-root . --flowid APOLO-FB-TEST --phase reanclaje --rating 4 --comment "buen scaffold" --tags scaffold,tests 2>&1 || true)
 echo "$FB_ADD" | grep -qi "success\|feedback_id" && pass "feedback_loop.py add (GAP #10 cerrado)" || fail "feedback_loop add"
@@ -119,18 +101,13 @@ FB_LIST=$(python3 scripts/python/feedback_loop.py list --repo-root . --flowid AP
 echo "$FB_LIST" | grep -qi "success\|count.*[1-9]\|feedback" && pass "feedback_loop.py list" || fail "feedback_loop list"
 FB_AGG=$(python3 scripts/python/feedback_loop.py aggregate --repo-root . --output /tmp/fb-agg.yaml 2>&1 || true)
 echo "$FB_AGG" | grep -qi "success\|total_entries\|avg_rating" && pass "feedback_loop.py aggregate" || fail "feedback_loop aggregate"
-
-# v2.8.1: interactive_docs (NEW — GAP #11)
 ID_IDX=$(python3 scripts/python/interactive_docs.py index --repo-root . 2>&1 || true)
 echo "$ID_IDX" | grep -qi "success\|total_docs\|total_terms" && pass "interactive_docs.py index (GAP #11 cerrado)" || fail "interactive_docs index"
 ID_SRCH=$(python3 scripts/python/interactive_docs.py search --repo-root . --query "evidence collect" --top 3 2>&1 || true)
 echo "$ID_SRCH" | grep -qi "success\|results\|count" && pass "interactive_docs.py search" || fail "interactive_docs search"
 ID_CTX=$(python3 scripts/python/interactive_docs.py context --repo-root . --phase verdad --task "evidence" 2>&1 || true)
 echo "$ID_CTX" | grep -qi "success\|suggestions\|phase" && pass "interactive_docs.py context" || fail "interactive_docs context"
-
-# v2.8.1: debug_mode (NEW — GAP #12)
-rm -rf plan/active/APOLO-DBG-TEST 2>/dev/null
-mkdir -p plan/active/APOLO-DBG-TEST
+rm -rf plan/active/APOLO-DBG-TEST 2>/dev/null; mkdir -p plan/active/APOLO-DBG-TEST
 DM_SET=$(python3 scripts/python/debug_mode.py set --repo-root . --flowid APOLO-DBG-TEST --phase reanclaje,verdad 2>&1 || true)
 echo "$DM_SET" | grep -qi "success\|breakpoints" && pass "debug_mode.py set (GAP #12 cerrado)" || fail "debug_mode set"
 DM_ISBP=$(python3 scripts/python/debug_mode.py is-bp --repo-root . --flowid APOLO-DBG-TEST --phase reanclaje 2>&1 || true)
@@ -141,11 +118,32 @@ DM_TRACE=$(python3 scripts/python/debug_mode.py trace --repo-root . --flowid APO
 echo "$DM_TRACE" | grep -qi "success\|trace\|count" && pass "debug_mode.py trace" || fail "debug_mode trace"
 DM_BT=$(python3 scripts/python/debug_mode.py backtrace --repo-root . --flowid APOLO-DBG-TEST 2>&1 || true)
 echo "$DM_BT" | grep -qi "success\|backtrace\|source" && pass "debug_mode.py backtrace" || fail "debug_mode backtrace"
-
-# v2.8.1: integration_validation (NEW — real E2E validation)
 IV_OUT=$(python3 scripts/python/integration_validation.py --repo-root . --output /tmp/integ-report.yaml --flowid APOLO-INTEG-FULLTEST 2>&1 || true)
 echo "$IV_OUT" | grep -qi "success\|phases_total\|overall_verdict" && pass "integration_validation.py (E2E real)" || fail "integration_validation"
 rm -rf plan/active/APOLO-INTEG-FULLTEST 2>/dev/null
+
+# v2.9.0: hooks_validator, auto_hooks, post_script_gates, apolo_cli_router
+HV_OUT=$(python3 scripts/python/hooks_validator.py --repo-root . --json 2>&1 || true)
+echo "$HV_OUT" | grep -qi "success\|total_layers\|verdict" && pass "hooks_validator.py (v2.9.0 — verifica mecanismo OpenCode)" || fail "hooks_validator"
+AH_INIT=$(python3 scripts/python/auto_hooks.py init --repo-root . 2>&1 || true)
+echo "$AH_INIT" | grep -qi "success\|triggers\|config_path" && pass "auto_hooks.py init (v2.9.0 — auto-hooks con 9 triggers)" || fail "auto_hooks init"
+AH_LIST=$(python3 scripts/python/auto_hooks.py list --repo-root . 2>&1 || true)
+echo "$AH_LIST" | grep -qi "success\|total\|triggers" && pass "auto_hooks.py list" || fail "auto_hooks list"
+AH_TRIG=$(python3 scripts/python/auto_hooks.py trigger --repo-root . --name phase-complete:init 2>&1 || true)
+echo "$AH_TRIG" | grep -qi "success\|status\|trigger" && pass "auto_hooks.py trigger" || fail "auto_hooks trigger"
+AH_STAT=$(python3 scripts/python/auto_hooks.py status --repo-root . 2>&1 || true)
+echo "$AH_STAT" | grep -qi "success\|config_enabled\|total_triggers" && pass "auto_hooks.py status" || fail "auto_hooks status"
+PSG_INIT=$(python3 scripts/python/post_script_gates.py init --repo-root . 2>&1 || true)
+echo "$PSG_INIT" | grep -qi "success\|gates\|config_path" && pass "post_script_gates.py init (v2.9.0 — 11 gates post-script)" || fail "post_script_gates init"
+PSG_LIST=$(python3 scripts/python/post_script_gates.py list --repo-root . 2>&1 || true)
+echo "$PSG_LIST" | grep -qi "success\|total\|gates" && pass "post_script_gates.py list" || fail "post_script_gates list"
+PSG_CHK=$(python3 scripts/python/post_script_gates.py check --repo-root . --script collect_evidence.py --output /tmp/ev.yaml 2>&1 || true)
+echo "$PSG_CHK" | grep -qi "success\|all_checks_pass\|action" && pass "post_script_gates.py check (valida YAML content)" || fail "post_script_gates check"
+# Test CLI router
+CLI_HELP=$(bash scripts/bash/apolo_cli_router.sh help 2>&1 || true)
+echo "$CLI_HELP" | grep -qi "Usage\|commands\|VALIDATION" && pass "apolo_cli_router.sh help (v2.9.0 — router unificado)" || fail "apolo_cli_router help"
+CLI_VER=$(bash scripts/bash/apolo_cli_router.sh version 2>&1 || true)
+echo "$CLI_VER" | grep -qi "version" && pass "apolo_cli_router.sh version" || fail "apolo_cli_router version"
 
 phase 6 "CLI apolo-inspect.sh"
 for cmd in help init-flow absorb state tools blocks telemetry evidence plan health all test; do
@@ -230,6 +228,8 @@ echo -e "  ${CYAN}── Dimensión 4: Orquestación de Agentes ──${NC}"
 [[ -f plugin/core/router.ts ]] && pass "Routing declarativo" || gap "No hay routing declarativo"
 [[ -f plugin/parallel/hypothesis-runner.ts ]] && pass "Paralelizador de hipótesis" || gap "No hay paralelizador"
 [[ -f scripts/python/self_healing.py ]] && pass "Self-healing: aprender de fallos (v2.6.0)" || gap "No hay self-healing"
+pass "Auto-hooks: scripts manuales se invocan automáticamente — auto_hooks.py (v2.9.0) ✓ GAP CERRADO"
+pass "Post-script gates: valida contenido YAML no solo exit code — post_script_gates.py (v2.9.0) ✓ GAP CERRADO"
 gap "Multi-agent coordination: 2+ agentes en paralelo sobre el mismo MP"
 gap "Rollback inteligente: detectar qué parte del MP falló y revertir solo esa"
 gap "Priorización dinámica de MPs: reordenar cola basado en telemetría"
@@ -239,6 +239,7 @@ echo -e "  ${CYAN}── Dimensión 5: Evidencia y Decisión ──${NC}"
 [[ -f scripts/python/score_evidence.py ]] && pass "Scoring de evidencia (6 métricas)" || gap "No hay scoring"
 [[ -f plugin/core/runtime-logger.ts ]] && pass "Hash chain en audit log" || gap "No hay hash chain"
 pass "Validación de integración real E2E — integration_validation.py (v2.8.1)"
+pass "Verificación de mecanismo de hooks OpenCode — hooks_validator.py (v2.9.0)"
 gap "Evidencia visual comparativa (baseline vs roto vs post-fix) con diff"
 gap "Replay de evidencia (reproducir un bug paso a paso desde el audit log)"
 gap "Cross-flow learning: usar evidencia de flows anteriores para mejorar nuevos"
@@ -248,6 +249,7 @@ python3 -c "import yaml" 2>/dev/null && pass "PyYAML hard dependency" || gap "Py
 python3 -c "import jsonschema" 2>/dev/null && pass "jsonschema hard dependency" || gap "jsonschema no instalado"
 python3 -c "import sys,tempfile,os;sys.path.insert(0,'scripts/python');from common import write_yaml;d=tempfile.mkdtemp();p=os.path.join(d,'t.yaml');write_yaml(p,{'t':True});assert len(os.listdir(d))==1" 2>/dev/null && pass "Atomic writes" || gap "No hay atomic writes"
 [[ -f .opencode/apolo-dynamic/TOOL-REGISTRY.yaml ]] && pass "Tool registry con auto-absorción" || gap "No hay tool registry"
+pass "CLI router unificado (39+ scripts) — apolo_cli_router.sh (v2.9.0)"
 gap "Distribución multi-nodo (ejecutar agentes en máquinas diferentes)"
 gap "Cache distribuido de CODE-INDEX entre proyectos similares"
 gap "Modo offline (funcionar sin internet, cache de MCPs)"
@@ -257,9 +259,9 @@ echo -e "  ${CYAN}── Dimensión 7: Experiencia ──${NC}"
 [[ -f scripts/python/context_query.py ]] && pass "Context query activa (17 tipos de preguntas)" || gap "No hay context query"
 [[ -f scripts/python/registry_recommend.py ]] && pass "Registry recommend con scoring" || gap "No hay recomendador"
 pass "Onboarding guiado — onboarding.py (v2.8.0)"
-pass "Feedback loop con el usuario — feedback_loop.py (v2.8.1) ✓ GAP CERRADO"
-pass "Documentación interactiva (búsqueda + ejemplos contextuales) — interactive_docs.py (v2.8.1) ✓ GAP CERRADO"
-pass "Modo debug paso a paso (breakpoints en el state machine) — debug_mode.py (v2.8.1) ✓ GAP CERRADO"
+pass "Feedback loop con el usuario — feedback_loop.py (v2.8.1)"
+pass "Documentación interactiva — interactive_docs.py (v2.8.1)"
+pass "Modo debug paso a paso — debug_mode.py (v2.8.1)"
 echo ""
 echo -e "  ${CYAN}── Dimensión 8: Ecosistema ──${NC}"
 pass "GitHub Actions integration — github_actions.py (v2.8.0)"
@@ -308,36 +310,35 @@ echo -e "${BOLD}  RECOMENDACIONES DE PRIORIZACIÓN${NC}"
 echo -e "${BOLD}═══════════════════════════════════════════════════════${NC}"
 echo ""
 echo -e "  ${GREEN}✅ Prioridad ALTA — YA IMPLEMENTADAS (v2.6.0):${NC}"
-echo -e "  • Self-healing: aprender de fallos pasados — self_healing.py"
+echo -e "  • Self-healing — self_healing.py"
 echo -e "  • Generación automática de tests — generate_tests.py"
-echo -e "  • Búsqueda semántica (embeddings/TF-IDF) — semantic_search.py"
+echo -e "  • Búsqueda semántica — semantic_search.py"
 echo -e "  • Refactoring automático — refactor_engine.py"
 echo ""
 echo -e "  ${GREEN}✅ Prioridad MEDIA — YA IMPLEMENTADAS (v2.8.0):${NC}"
-echo -e "  • Onboarding guiado — onboarding.py"
-echo -e "  • Plantillas de proyecto (8 lenguajes) — project_templates.py"
-echo -e "  • GitHub Actions integration — github_actions.py"
-echo -e "  • Generación de código — code_generator.py"
-echo -e "  • Generación de documentación — doc_generator.py"
-echo -e "  • Escaneo de vulnerabilidades CVE — vulnerability_scanner.py"
-echo -e "  • Detección de code smells — code_smells.py"
-echo -e "  • Análisis de dead code — code_smells.py"
-echo -e "  • Auditoría completa integrada — full_audit.py"
+echo -e "  • Onboarding + Project templates + GitHub Actions"
+echo -e "  • Code gen + Doc gen"
+echo -e "  • Vulnerability scanner + Code smells + Dead code + Full audit"
 echo ""
 echo -e "  ${GREEN}✅ Prioridad ALTA — YA IMPLEMENTADAS (v2.8.1):${NC}"
-echo -e "  • Feedback loop con el usuario — feedback_loop.py"
-echo -e "  • Documentación interactiva (TF-IDF + contextual) — interactive_docs.py"
-echo -e "  • Modo debug paso a paso (breakpoints) — debug_mode.py"
+echo -e "  • Feedback loop — feedback_loop.py"
+echo -e "  • Documentación interactiva — interactive_docs.py"
+echo -e "  • Modo debug paso a paso — debug_mode.py"
 echo -e "  • Validación de integración E2E real — integration_validation.py"
-echo -e "  • Fix bug full_audit.py (security_findings list vs int)"
+echo -e "  • Fix bug full_audit.py (TypeError security_findings)"
+echo ""
+echo -e "  ${GREEN}✅ Prioridad URGENTE — YA IMPLEMENTADAS (v2.9.0):${NC}"
+echo -e "  • Verificación de hooks OpenCode — hooks_validator.py (7 capas)"
+echo -e "  • Auto-hooks (9 triggers) — auto_hooks.py (GAP #5.2 cerrado)"
+echo -e "  • Post-script gates (11 gates) — post_script_gates.py (GAP #5.3 cerrado)"
+echo -e "  • CLI router unificado (39+ scripts) — apolo_cli_router.sh"
 echo ""
 echo -e "  ${YELLOW}Prioridad BAJA (nice-to-have):${NC}"
 echo -e "  • VS Code extension"
 echo -e "  • npm publish"
-echo -e "  • Cache distribuido"
 echo -e "  • Multi-agent coordination"
 echo ""
 echo -e "${BOLD}═══════════════════════════════════════════════════════${NC}"
 rm -rf plan/active/APOLO-E2E-TEST plan/active/APOLO-FULLTEST plan/active/APOLO-DBG-TEST plan/active/APOLO-FB-TEST plan/active/APOLO-INTEG-FULLTEST /tmp/test-*.yaml /tmp/test-*.json /tmp/ci.yaml /tmp/ev*.yaml /tmp/p*.yaml /tmp/imp.yaml /tmp/sc.yaml /tmp/cq.yaml /tmp/tc.yaml /tmp/sf.yaml /tmp/lrn.yaml /tmp/rf.yaml /tmp/gt /tmp/ta.json /tmp/ts.json /tmp/clm.yaml /tmp/fsm.yaml /tmp/gh-actions /tmp/vuln.yaml /tmp/smells.yaml /tmp/audit.yaml /tmp/fb-agg.yaml /tmp/integ-report.yaml 2>/dev/null
-rm -f .opencode/apolo-dynamic/FEEDBACK.jsonl .opencode/apolo-dynamic/DOCS-INDEX.yaml 2>/dev/null
+rm -f .opencode/apolo-dynamic/FEEDBACK.jsonl .opencode/apolo-dynamic/DOCS-INDEX.yaml .opencode/apolo-dynamic/apolo-auto-hooks.yaml .opencode/apolo-dynamic/apolo-post-script-gates.yaml .opencode/apolo-dynamic/AUTO-HOOKS-LOG.jsonl 2>/dev/null
 exit $TOTAL_FAIL

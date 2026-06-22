@@ -1,41 +1,323 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T00:59:42Z'
+generated_at: '2026-06-22T02:01:09Z'
 repo_root: /home/juan/new_project
-code_index_used: true
+code_index_used: false
 coverage_tool_used: coverage.py
 dominant_language: python
-total_symbols: 518
+total_symbols: 612
 covered_symbols: 4
-uncovered_symbols: 514
-coverage_percentage: 0.77
+uncovered_symbols: 608
+coverage_percentage: 0.65
 critical_uncovered:
-- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
-  name: _resetMcpCache
+- file: /home/juan/new_project/escuchar_hook.py
+  name: HookHandler
+  kind: class
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: TRANSITIONS
+  kind: const
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: GateContext
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: GATES
+  kind: const
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: canTransit
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
-  name: detectAvailableMcps
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: getTransitionRule
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
-  name: isMcpAvailable
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: evaluateGate
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
-  name: suggestMcpForTask
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: nextPhase
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
-  name: invokeMcp
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: gateForTransition
   kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: requiredArtifactsForTransition
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/state-machine.ts
+  name: ALL_PHASES
+  kind: const
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: v4
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: sha256
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: hashFile
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: hashChain
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: toYaml
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: parseYaml
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: ensureDir
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: readJson
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: writeJson
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: readYaml
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: writeYaml
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: appendLine
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: now
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: elapsedMs
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: flowPath
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: statePath
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: evidencePath
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: blocksPath
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: telemetryPath
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/utils.ts
+  name: toolRegistryPath
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  name: GenerateOptions
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  name: GenerateResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  name: RunImpactPredictionOptions
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  name: RunImpactPredictionResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  name: runImpactPrediction
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/plan-generator.ts
+  name: generatePlan
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  name: AbsorbResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  name: absorbTools
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  name: findToolByCapability
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  name: getFallbackChain
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  name: HotReloadResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  name: hotReloadRegistry
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  name: RecommendToolResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/tool-absorber.ts
+  name: recommendTool
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/test-runner.ts
+  name: TestOptions
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/test-runner.ts
+  name: RunScaffoldOptions
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/test-runner.ts
+  name: RunScaffoldResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/test-runner.ts
+  name: TestRunResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/test-runner.ts
+  name: runScaffold
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/test-runner.ts
+  name: runTests
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/block-detector.ts
+  name: DetectionResult
+  kind: interface
   is_exported: true
   covered: false
   test_files: []
@@ -51,135 +333,9 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
-  name: _resetTreeCache
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
-  name: createRootNode
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
-  name: getNode
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
-  name: advance
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
-  name: detectCircuitBreaker
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
-  name: exportTree
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
-  name: extractTestCommand
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
-  name: runTest
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/router.ts
-  name: _resetRulesCache
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/router.ts
-  name: loadRoutingRules
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/router.ts
-  name: buildRoutingContext
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/router.ts
-  name: route
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/runtime-logger.ts
-  name: _resetSeqCache
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/runtime-logger.ts
-  name: resolveLogPath
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/runtime-logger.ts
-  name: log
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/runtime-logger.ts
-  name: readRecentEntries
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/runtime-logger.ts
-  name: readAllEntries
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/core/runtime-logger.ts
-  name: createFlowLogger
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/evidence-collector.ts
-  name: runCodeIndex
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/evidence-collector.ts
-  name: runEvidenceScore
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/evidence-collector.ts
-  name: collectEvidence
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/evidence-collector.ts
-  name: isEvidenceStale
-  kind: function
+- file: /home/juan/new_project/plugin/inspector.ts
+  name: InspectOptions
+  kind: interface
   is_exported: true
   covered: false
   test_files: []
@@ -226,134 +382,50 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/plugin/loop-engine.ts
+  name: LoopResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/loop-engine.ts
   name: runLoopIteration
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
-  name: planHypotheses
-  kind: function
+- file: /home/juan/new_project/plugin/index.ts
+  name: OpenCodePlugin
+  kind: interface
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
-  name: scoreHypothesis
-  kind: function
+- file: /home/juan/new_project/plugin/index.ts
+  name: PluginInitContext
+  kind: interface
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
-  name: selectWinner
-  kind: function
+- file: /home/juan/new_project/plugin/index.ts
+  name: HookContext
+  kind: interface
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/plan-generator.ts
-  name: runImpactPrediction
-  kind: function
+- file: /home/juan/new_project/plugin/index.ts
+  name: HookResult
+  kind: type
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/plan-generator.ts
-  name: generatePlan
-  kind: function
+- file: /home/juan/new_project/plugin/index.ts
+  name: ToolHandler
+  kind: interface
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/state-machine.ts
-  name: canTransit
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/state-machine.ts
-  name: getTransitionRule
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/state-machine.ts
-  name: evaluateGate
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/state-machine.ts
-  name: nextPhase
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/state-machine.ts
-  name: gateForTransition
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/state-machine.ts
-  name: requiredArtifactsForTransition
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/telemetry.ts
-  name: appendEvent
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/telemetry.ts
-  name: readEvents
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/telemetry.ts
-  name: computeStats
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/test-runner.ts
-  name: extractTestCommand
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/test-runner.ts
-  name: runTest
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/tool-absorber.ts
-  name: absorbTools
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/tool-absorber.ts
-  name: findToolByCapability
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/tool-absorber.ts
-  name: getFallbackChain
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/tool-absorber.ts
-  name: hotReloadRegistry
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/plugin/tool-absorber.ts
-  name: recommendTool
-  kind: function
+- file: /home/juan/new_project/plugin/index.ts
+  name: CommandHandler
+  kind: interface
   is_exported: true
   covered: false
   test_files: []
@@ -513,466 +585,529 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: v4
+- file: /home/juan/new_project/plugin/telemetry.ts
+  name: TelemetryStats
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/telemetry.ts
+  name: appendEvent
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: sha256
+- file: /home/juan/new_project/plugin/telemetry.ts
+  name: readEvents
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: hashFile
+- file: /home/juan/new_project/plugin/telemetry.ts
+  name: computeStats
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: hashChain
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: CollectOptions
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: CollectResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: RunCodeIndexOptions
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: RunCodeIndexResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: runCodeIndex
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: toYaml
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: RunEvidenceScoreOptions
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: RunEvidenceScoreResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: runEvidenceScore
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: parseYaml
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: collectEvidence
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: ensureDir
+- file: /home/juan/new_project/plugin/evidence-collector.ts
+  name: isEvidenceStale
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: writeJson
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: McpDescriptor
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: McpRegistry
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: InvokeResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: _resetMcpCache
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: writeYaml
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: detectAvailableMcps
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: appendLine
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: isMcpAvailable
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: now
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: suggestMcpForTask
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: elapsedMs
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: FallbackFn
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/absorbers/mcp-loader.ts
+  name: invokeMcp
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: flowPath
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: AuditActor
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: AuditAction
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: AuditOutcome
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: AuditEntry
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: PartialAuditEntry
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: _resetSeqCache
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: statePath
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: resolveLogPath
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: evidencePath
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: log
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: blocksPath
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: readRecentEntries
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: telemetryPath
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: readAllEntries
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/plugin/utils.ts
-  name: toolRegistryPath
+- file: /home/juan/new_project/plugin/core/runtime-logger.ts
+  name: createFlowLogger
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: parse_source_url
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: DecisionCondition
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: DecisionAction
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: Phase
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: DecisionBranch
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: DecisionNode
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: DecisionTree
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: AdvanceResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: _resetTreeCache
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: fetch_url
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: createRootNode
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: fetch_github_tree
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: getNode
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: fetch_local
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: advance
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: validate_skill_content
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: FailureEntry
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: detectCircuitBreaker
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: infer_skill_capabilities
+- file: /home/juan/new_project/plugin/core/loop-engine-tree.ts
+  name: exportTree
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: install_skill
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: Phase
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: NextAgent
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: RoutingCondition
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: RoutingAction
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: RoutingRule
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: RoutingRulesFile
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: RoutingContext
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: RouteResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: _resetRulesCache
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: process_source
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: loadRoutingRules
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
-  name: process_hub
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: buildRoutingContext
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+- file: /home/juan/new_project/plugin/core/router.ts
+  name: route
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  name: TestRunResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  name: extractTestCommand
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/core/micro-test-runner.ts
+  name: runTest
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  name: HypothesisStatus
+  kind: type
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  name: HypothesisDecision
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  name: Hypothesis
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  name: WinnerResult
+  kind: interface
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  name: planHypotheses
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  name: scoreHypothesis
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/plugin/parallel/hypothesis-runner.ts
+  name: selectWinner
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  name: load_schema
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  name: validate
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
+  name: validate_artifact
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/validate_artifact.py
   name: main
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: infer_mcp_capabilities
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: find_script
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: infer_skill_capabilities
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: run_named_script
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: infer_script_capabilities
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: parse_json_from_stdout
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: verify_health
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: phase_init
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: build_mcp_tool
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: phase_index_codebase
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: build_skill_tool
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: phase_collect_evidence
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: build_plugin_tool
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: phase_score_evidence
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: build_script_tool
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: phase_generate_plan
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: detect_conflicts
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: phase_predict_impact
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/absorb_mcp.py
-  name: main
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: phase_scaffold
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_python_function
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: verify_telemetry
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_python_class
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: analyze_test_contracts
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_typescript_function
+- file: /home/juan/new_project/scripts/python/integration_validation.py
+  name: build_verdict
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_typescript_class
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_go_function
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_go_struct
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_rust_function
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_java_class
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_cpp_class
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_php_class
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate_with_llm
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: generate
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_generator.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: detect_language
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: list_source_files
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: run_bandit
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: run_gosec
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: run_cppcheck
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: run_eslint_security
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: run_radon_cc
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: run_gocyclo
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_quality.py
-  name: estimate_complexity_regex
-  kind: function
-  is_exported: true
-  covered: false
-  test_files:
-  - /home/juan/new_project/tests/test_quality.py
-- file: /home/juan/new_project/scripts/python/code_smells.py
-  name: detect_long_methods
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_smells.py
-  name: detect_god_classes
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_smells.py
-  name: detect_deep_nesting
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_smells.py
-  name: detect_duplication
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_smells.py
-  name: detect_dead_code
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_smells.py
-  name: compute_complexity_native
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/code_smells.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  name: collect_file_snapshot
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  name: collect_git_diff
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  name: collect_git_log
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  name: collect_endpoint_probe
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  name: collect_db_query
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  name: collect_screenshot
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  name: collect_symbol_list
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
-  name: collect_schema_validation
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/collect_evidence.py
+- file: /home/juan/new_project/scripts/python/integration_validation.py
   name: main
   kind: function
   is_exported: true
@@ -1212,6 +1347,588 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: collect_file_snapshot
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: collect_git_diff
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: collect_git_log
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: collect_endpoint_probe
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: collect_db_query
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: collect_screenshot
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: collect_symbol_list
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: collect_schema_validation
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/collect_evidence.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: parse_source_url
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: fetch_url
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: fetch_github_tree
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: fetch_local
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: validate_skill_content
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: infer_skill_capabilities
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: install_skill
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: process_source
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: process_hub
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_external_skills.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: get_api_base
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: get_api_key
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: get_model
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: is_available
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: chat
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: embed
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: analyze_code
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: suggest_fix
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: generate_test
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: suggest_refactor
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/llm_bridge.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/rollback.py
+  name: get_modified_files
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/rollback.py
+  name: rollback_git_restore
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/rollback.py
+  name: rollback_git_stash_pop
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/rollback.py
+  name: rollback_custom_script
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/rollback.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: extract_docstring_summary
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: infer_summary_from_name
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: infer_summary_from_body
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: generate_summary
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: summarize_all_functions
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/summarize_functions.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: tokenize
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: extract_docstring_py
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: extract_header_ts
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: extract_header_bash
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: index_markdown
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: index_python
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: index_typescript
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: index_bash
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: build_index
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: search_docs
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: contextual_suggestions
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: get_examples
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: docs_index_path
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/interactive_docs.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: count_lines
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: estimate_complexity
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: detect_smells
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: generate_refactored
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/refactor_engine.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: detect_language
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: list_source_files
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: detect_available_lsps
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: get_lsp_for_file
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: lsp_find_references_via_cli
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: lsp_diagnostics_via_cli
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: regex_find_references
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: regex_get_diagnostics
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: regex_go_to_definition
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: regex_get_hover
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: find_references
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: get_diagnostics
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: go_to_definition
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: get_hover
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: analyze_repo
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: test_main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: list_templates
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: create_project
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/project_templates.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/serve_panel.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  name: build_files_to_touch
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  name: build_function_contracts
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  name: build_existing_tests
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  name: build_edit_order
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  name: build_checkpoints
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  name: build_circular_deps_warning
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  name: build_change_template
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_impl.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  name: project_dependency_cascade
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  name: project_historical_pattern
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  name: project_test_coverage_gap
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  name: project_symbol_contract
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  name: project_git_blame_risk
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  name: predict_for_mp
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/predict_impact.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/context_query.py
   name: match_question
   kind: function
@@ -1344,6 +2061,861 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: hooks_config_path
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: hooks_log_path
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: load_config
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: init_config
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: save_config
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: log_hook_execution
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: evaluate_condition
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: execute_script
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: fire_trigger
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: get_status
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: compute_coverage_score
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: compute_freshness_score
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: compute_depth_score
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: compute_conflict_risk
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: compute_redundancy_score
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: compute_schema_validity_score
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: compute_overall_score
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: generate_recommendation
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/score_evidence.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: discover_pytest_tests
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: discover_go_tests
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: discover_jest_tests
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: run_pytest
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: run_go_test
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: run_jest
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: run_schema_validation
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: parse_pytest_output
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: parse_go_test_output
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/run_tests.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  name: score_tool
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  name: recommend
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/registry_recommend.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: load_telemetry
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: compute_success_rates
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: suggest_adjustments
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: analyze_failure_patterns
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: apply_adjustments
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_python_safety
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_python_bandit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_npm_audit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_pip_audit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_go_vulncheck
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_rust_audit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: scan_all
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: git_last_modified
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: git_is_tracked
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: extract_python_symbols
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: extract_ts_symbols
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: extract_go_symbols
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: generate_summary
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: discover_files
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: index_file
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: build_dependency_graph
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: build_reverse_dependency_graph
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/index_codebase.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: load_patterns
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: scan_text
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: redact_text
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: scan_file
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: scan_evidence_pack
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: load_security_config
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: is_origin_allowed
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: compute_hash_chain_entry
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: verify_hash_chain
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/secret_scanner.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/full_audit.py
+  name: run_script
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/full_audit.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_python_docstring
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_jsdoc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_go_doc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_rust_doc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_java_doc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_readme_section
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_api_docs
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_changelog_entry
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: generate_docstrings_for_file
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/doc_generator.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: detect_dominant_axis
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: estimate_mps
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: should_split
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: cluster_to_unit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: topological_sort
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: default_adaptative_gates
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: check_prerequisites
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: suggest_mcps
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: suggest_skills
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: generate_opencode_json
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: run_onboarding
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/onboarding.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: infer_mcp_capabilities
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: infer_skill_capabilities
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: infer_script_capabilities
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: verify_health
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: build_mcp_tool
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: build_skill_tool
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: build_plugin_tool
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: build_script_tool
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: detect_conflicts
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/absorb_mcp.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/inspect_tools.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  name: check_dep
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  name: install_package
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/install_deps.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+  name: aggregate
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: detect_language
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: list_source_files
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: run_bandit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: run_gosec
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: run_cppcheck
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: run_eslint_security
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: run_radon_cc
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: run_gocyclo
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/code_quality.py
+  name: estimate_complexity_regex
+  kind: function
+  is_exported: true
+  covered: false
+  test_files:
+  - /home/juan/new_project/tests/test_quality.py
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: find_untested_symbols
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: generate_stub
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: test_
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: test_
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: generate_with_llm
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/generate_tests.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/github_actions.py
+  name: generate_workflows
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/github_actions.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  name: feedback_path
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  name: add_feedback
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  name: list_feedback
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  name: search_feedback
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  name: aggregate_feedback
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/feedback_loop.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: check_opencode_binary
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: check_opencode_json
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: check_plugin_loaded
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: check_plugin_compiled
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: check_hooks_registered
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: check_mcps
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: check_hook_functional
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: try_fix
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/hooks_validator.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
   name: detect_language_calls
   kind: function
@@ -1357,6 +2929,204 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/cross_language_analyzer.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_python_function
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_python_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_typescript_function
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_typescript_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_go_function
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_go_struct
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_rust_function
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_java_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_cpp_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_php_class
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate_with_llm
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: generate
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_generator.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: tokenize
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: tf_idf
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: cosine_sim
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: build_embeddings
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: search
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/semantic_search.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/health_check.py
+  name: check_file_exists
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/health_check.py
+  name: check_mcp_ping
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/health_check.py
+  name: check_command_exit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/health_check.py
+  name: check_tool_health
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/health_check.py
+  name: discover_new_scripts
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/health_check.py
+  name: detect_missing_tools
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/health_check.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_long_methods
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_god_classes
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_deep_nesting
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_duplication
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: detect_dead_code
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
+  name: compute_complexity_native
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/code_smells.py
   name: main
   kind: function
   is_exported: true
@@ -1434,1338 +3204,69 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_python_docstring
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: gates_config_path
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_jsdoc
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: load_config
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_go_doc
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: init_config
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_rust_doc
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: save_config
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_java_doc
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: get_path
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_readme_section
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: validate_value
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_api_docs
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: check_gate
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_changelog_entry
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: check_script_output
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: generate_docstrings_for_file
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
+  name: check_all_flow_artifacts
   kind: function
   is_exported: true
   covered: false
   test_files: []
-- file: /home/juan/new_project/scripts/python/doc_generator.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/feedback_loop.py
-  name: feedback_path
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/feedback_loop.py
-  name: add_feedback
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/feedback_loop.py
-  name: list_feedback
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/feedback_loop.py
-  name: search_feedback
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/feedback_loop.py
-  name: aggregate_feedback
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/feedback_loop.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/full_audit.py
-  name: run_script
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/full_audit.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  name: detect_dominant_axis
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  name: estimate_mps
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  name: should_split
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  name: cluster_to_unit
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  name: topological_sort
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  name: default_adaptative_gates
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_plan.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_tests.py
-  name: find_untested_symbols
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_tests.py
-  name: generate_stub
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_tests.py
-  name: generate_with_llm
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/generate_tests.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/github_actions.py
-  name: generate_workflows
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/github_actions.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/health_check.py
-  name: check_file_exists
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/health_check.py
-  name: check_mcp_ping
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/health_check.py
-  name: check_command_exit
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/health_check.py
-  name: check_tool_health
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/health_check.py
-  name: discover_new_scripts
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/health_check.py
-  name: detect_missing_tools
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/health_check.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: git_last_modified
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: git_is_tracked
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: extract_python_symbols
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: extract_ts_symbols
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: extract_go_symbols
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: generate_summary
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: discover_files
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: index_file
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: build_dependency_graph
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: build_reverse_dependency_graph
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/index_codebase.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/inspect_tools.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/install_deps.py
-  name: check_dep
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/install_deps.py
-  name: install_package
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/install_deps.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: find_script
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: run_named_script
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: parse_json_from_stdout
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: phase_init
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: phase_index_codebase
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: phase_collect_evidence
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: phase_score_evidence
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: phase_generate_plan
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: phase_predict_impact
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: phase_scaffold
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: verify_telemetry
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: analyze_test_contracts
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: build_verdict
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/integration_validation.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: tokenize
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: extract_docstring_py
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: extract_header_ts
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: extract_header_bash
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: index_markdown
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: index_python
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: index_typescript
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: index_bash
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: build_index
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: search_docs
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: contextual_suggestions
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: get_examples
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: docs_index_path
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/interactive_docs.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: get_api_base
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: get_api_key
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: get_model
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: is_available
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: chat
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: embed
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: analyze_code
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: suggest_fix
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: generate_test
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: suggest_refactor
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/llm_bridge.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: detect_language
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: list_source_files
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: detect_available_lsps
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: get_lsp_for_file
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: lsp_find_references_via_cli
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: lsp_diagnostics_via_cli
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: regex_find_references
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: regex_get_diagnostics
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: regex_go_to_definition
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: regex_get_hover
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: find_references
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: get_diagnostics
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: go_to_definition
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: get_hover
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: analyze_repo
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/lsp_integration.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/onboarding.py
-  name: check_prerequisites
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/onboarding.py
-  name: suggest_mcps
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/onboarding.py
-  name: suggest_skills
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/onboarding.py
-  name: generate_opencode_json
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/onboarding.py
-  name: run_onboarding
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/onboarding.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  name: project_dependency_cascade
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  name: project_historical_pattern
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  name: project_test_coverage_gap
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  name: project_symbol_contract
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  name: project_git_blame_risk
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  name: predict_for_mp
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/predict_impact.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/project_templates.py
-  name: list_templates
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/project_templates.py
-  name: create_project
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/project_templates.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  name: count_lines
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  name: estimate_complexity
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  name: detect_smells
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  name: generate_refactored
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/refactor_engine.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/registry_recommend.py
-  name: score_tool
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/registry_recommend.py
-  name: recommend
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/registry_recommend.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/rollback.py
-  name: get_modified_files
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/rollback.py
-  name: rollback_git_restore
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/rollback.py
-  name: rollback_git_stash_pop
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/rollback.py
-  name: rollback_custom_script
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/rollback.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: discover_pytest_tests
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: discover_go_tests
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: discover_jest_tests
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: run_pytest
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: run_go_test
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: run_jest
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: run_schema_validation
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: parse_pytest_output
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: parse_go_test_output
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/run_tests.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  name: build_files_to_touch
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  name: build_function_contracts
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  name: build_existing_tests
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  name: build_edit_order
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  name: build_checkpoints
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  name: build_circular_deps_warning
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  name: build_change_template
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/scaffold_impl.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: compute_coverage_score
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: compute_freshness_score
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: compute_depth_score
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: compute_conflict_risk
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: compute_redundancy_score
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: compute_schema_validity_score
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: compute_overall_score
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: generate_recommendation
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/score_evidence.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: load_patterns
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: scan_text
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: redact_text
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: scan_file
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: scan_evidence_pack
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: load_security_config
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: is_origin_allowed
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: compute_hash_chain_entry
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: verify_hash_chain
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/secret_scanner.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  name: load_telemetry
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  name: compute_success_rates
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  name: suggest_adjustments
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  name: analyze_failure_patterns
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  name: apply_adjustments
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/self_healing.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  name: tokenize
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  name: tf_idf
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  name: cosine_sim
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  name: build_embeddings
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  name: search
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/semantic_search.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/serve_panel.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/summarize_functions.py
-  name: extract_docstring_summary
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/summarize_functions.py
-  name: infer_summary_from_name
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/summarize_functions.py
-  name: infer_summary_from_body
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/summarize_functions.py
-  name: generate_summary
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/summarize_functions.py
-  name: summarize_all_functions
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/summarize_functions.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
-  name: aggregate
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/telemetry_aggregator.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/validate_artifact.py
-  name: load_schema
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/validate_artifact.py
-  name: validate
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/validate_artifact.py
-  name: validate_artifact
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/validate_artifact.py
-  name: main
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
-  name: scan_python_safety
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
-  name: scan_python_bandit
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
-  name: scan_npm_audit
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
-  name: scan_pip_audit
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
-  name: scan_go_vulncheck
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
-  name: scan_rust_audit
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
-  name: scan_all
-  kind: function
-  is_exported: true
-  covered: false
-  test_files: []
-- file: /home/juan/new_project/scripts/python/vulnerability_scanner.py
+- file: /home/juan/new_project/scripts/python/post_script_gates.py
   name: main
   kind: function
   is_exported: true
   covered: false
   test_files: []
 by_file:
-  /home/juan/new_project/.opencode/apolo-dynamic/CODE-INDEX.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/.opencode/apolo-dynamic/EMBEDDINGS-CACHE.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/.opencode/apolo-dynamic/TOOL-REGISTRY.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/.opencode/package-lock.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/.opencode/package.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/CODE-QUALITY.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests:
-    - /home/juan/new_project/tests/test_quality.py
-  /home/juan/new_project/CODE-SMELLS.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/CROSS-LANGUAGE-MAP.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/EVIDENCE-SCORE.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/IMPACT-PREDICTION.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/LEARNING-STATE.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/LSP-ANALYSIS.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/REFACTOR-SUGGESTIONS.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/TEST-COVERAGE.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests:
-    - /home/juan/new_project/scripts/python/test_coverage.py
-  /home/juan/new_project/VULNERABILITY-REPORT.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/opencode.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/package-lock.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/package.json:
-    total_symbols: 0
+  /home/juan/new_project/escuchar_hook.py:
+    total_symbols: 1
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -2774,68 +3275,38 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/plan/active/APOLO-20260620-TEST/BLOCK-LOG.yaml:
-    total_symbols: 0
+  /home/juan/new_project/plugin/state-machine.ts:
+    total_symbols: 11
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/plan/active/APOLO-20260620-TEST/FLOW-STATE.yaml:
-    total_symbols: 0
+  /home/juan/new_project/plugin/utils.ts:
+    total_symbols: 21
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/plan/active/APOLO-20260620-TEST/telemetry-stats.json:
-    total_symbols: 0
+  /home/juan/new_project/plugin/plan-generator.ts:
+    total_symbols: 6
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/plan/active/APOLO-20260621-ONBOARDING/FLOW-STATE.yaml:
-    total_symbols: 0
+  /home/juan/new_project/plugin/tool-absorber.ts:
+    total_symbols: 17
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/plugin/absorbers/mcp-loader.ts:
-    total_symbols: 5
+  /home/juan/new_project/plugin/test-runner.ts:
+    total_symbols: 6
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
   /home/juan/new_project/plugin/block-detector.ts:
-    total_symbols: 4
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/core/loop-engine-tree.ts:
-    total_symbols: 12
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/core/micro-test-runner.ts:
-    total_symbols: 5
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/core/router.ts:
-    total_symbols: 5
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/core/runtime-logger.ts:
-    total_symbols: 10
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/evidence-collector.ts:
-    total_symbols: 4
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/index.ts:
     total_symbols: 5
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
   /home/juan/new_project/plugin/inspector.ts:
-    total_symbols: 8
+    total_symbols: 9
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -2844,33 +3315,8 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/plugin/parallel/hypothesis-runner.ts:
-    total_symbols: 3
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/plan-generator.ts:
-    total_symbols: 2
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/state-machine.ts:
-    total_symbols: 7
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/telemetry.ts:
-    total_symbols: 3
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/test-runner.ts:
-    total_symbols: 5
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/plugin/tool-absorber.ts:
-    total_symbols: 14
+  /home/juan/new_project/plugin/index.ts:
+    total_symbols: 11
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -2879,129 +3325,53 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/plugin/utils.ts:
-    total_symbols: 19
+  /home/juan/new_project/plugin/telemetry.ts:
+    total_symbols: 4
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/routing-rules.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/block-log.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/code-index.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/dynamic-plan.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/evidence-pack.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/evidence-score.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/flow-state.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/impact-prediction.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/impl-scaffold.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/json/agent-io.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/json/loop-engine-decision.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/json/routing-rules.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/json/routing-rules.schema.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/json/runtime-audit-log.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/learning-state.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/telemetry-event.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/test-result.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/schemas/tool-registry.schema.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/absorb_external_skills.py:
+  /home/juan/new_project/plugin/evidence-collector.ts:
     total_symbols: 10
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/absorb_mcp.py:
-    total_symbols: 10
+  /home/juan/new_project/plugin/absorbers/mcp-loader.ts:
+    total_symbols: 9
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/code_generator.py:
+  /home/juan/new_project/plugin/core/runtime-logger.ts:
+    total_symbols: 15
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/plugin/core/loop-engine-tree.ts:
+    total_symbols: 20
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/plugin/core/router.ts:
     total_symbols: 13
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/code_quality.py:
-    total_symbols: 14
-    covered_symbols: 4
-    coverage_pct: 28.57
-    associated_tests:
-    - /home/juan/new_project/tests/test_quality.py
-  /home/juan/new_project/scripts/python/code_smells.py:
+  /home/juan/new_project/plugin/core/micro-test-runner.ts:
+    total_symbols: 6
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/plugin/parallel/hypothesis-runner.ts:
     total_symbols: 7
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/collect_evidence.py:
-    total_symbols: 9
+  /home/juan/new_project/scripts/python/validate_artifact.py:
+    total_symbols: 4
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/integration_validation.py:
+    total_symbols: 15
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -3010,28 +3380,108 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/collect_evidence.py:
+    total_symbols: 9
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/absorb_external_skills.py:
+    total_symbols: 10
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/llm_bridge.py:
+    total_symbols: 16
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/rollback.py:
+    total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/summarize_functions.py:
+    total_symbols: 6
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/interactive_docs.py:
+    total_symbols: 15
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/refactor_engine.py:
+    total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/lsp_integration.py:
+    total_symbols: 16
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/project_templates.py:
+    total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/serve_panel.py:
+    total_symbols: 1
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/scaffold_impl.py:
+    total_symbols: 8
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/predict_impact.py:
+    total_symbols: 8
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/context_query.py:
     total_symbols: 23
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/cross_language_analyzer.py:
-    total_symbols: 4
+  /home/juan/new_project/scripts/python/auto_hooks.py:
+    total_symbols: 11
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/debug_mode.py:
-    total_symbols: 15
+  /home/juan/new_project/scripts/python/score_evidence.py:
+    total_symbols: 9
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/doc_generator.py:
+  /home/juan/new_project/scripts/python/run_tests.py:
     total_symbols: 10
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/feedback_loop.py:
-    total_symbols: 7
+  /home/juan/new_project/scripts/python/registry_recommend.py:
+    total_symbols: 3
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/self_healing.py:
+    total_symbols: 6
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/vulnerability_scanner.py:
+    total_symbols: 8
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/index_codebase.py:
+    total_symbols: 11
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/secret_scanner.py:
+    total_symbols: 11
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -3040,28 +3490,23 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/doc_generator.py:
+    total_symbols: 10
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/generate_plan.py:
     total_symbols: 7
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/generate_tests.py:
-    total_symbols: 4
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/github_actions.py:
-    total_symbols: 2
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/health_check.py:
+  /home/juan/new_project/scripts/python/onboarding.py:
     total_symbols: 7
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/index_codebase.py:
-    total_symbols: 11
+  /home/juan/new_project/scripts/python/absorb_mcp.py:
+    total_symbols: 10
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -3075,78 +3520,44 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/integration_validation.py:
-    total_symbols: 15
+  /home/juan/new_project/scripts/python/telemetry_aggregator.py:
+    total_symbols: 2
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/interactive_docs.py:
-    total_symbols: 15
+  /home/juan/new_project/scripts/python/code_quality.py:
+    total_symbols: 14
+    covered_symbols: 4
+    coverage_pct: 28.57
+    associated_tests:
+    - /home/juan/new_project/tests/test_quality.py
+  /home/juan/new_project/scripts/python/generate_tests.py:
+    total_symbols: 6
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/llm_bridge.py:
-    total_symbols: 16
+  /home/juan/new_project/scripts/python/github_actions.py:
+    total_symbols: 2
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/lsp_integration.py:
-    total_symbols: 16
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/onboarding.py:
+  /home/juan/new_project/scripts/python/feedback_loop.py:
     total_symbols: 7
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/predict_impact.py:
-    total_symbols: 8
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/project_templates.py:
-    total_symbols: 3
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/refactor_engine.py:
-    total_symbols: 5
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/registry_recommend.py:
-    total_symbols: 3
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/rollback.py:
-    total_symbols: 5
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/run_tests.py:
-    total_symbols: 10
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/scaffold_impl.py:
-    total_symbols: 8
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/scripts/python/score_evidence.py:
+  /home/juan/new_project/scripts/python/hooks_validator.py:
     total_symbols: 9
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/secret_scanner.py:
-    total_symbols: 11
+  /home/juan/new_project/scripts/python/cross_language_analyzer.py:
+    total_symbols: 4
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/self_healing.py:
-    total_symbols: 6
+  /home/juan/new_project/scripts/python/code_generator.py:
+    total_symbols: 13
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -3155,78 +3566,37 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/serve_panel.py:
-    total_symbols: 1
+  /home/juan/new_project/scripts/python/health_check.py:
+    total_symbols: 7
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/summarize_functions.py:
-    total_symbols: 6
+  /home/juan/new_project/scripts/python/code_smells.py:
+    total_symbols: 7
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/telemetry_aggregator.py:
-    total_symbols: 2
+  /home/juan/new_project/scripts/python/debug_mode.py:
+    total_symbols: 15
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/validate_artifact.py:
-    total_symbols: 4
+  /home/juan/new_project/scripts/python/post_script_gates.py:
+    total_symbols: 10
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-  /home/juan/new_project/scripts/python/vulnerability_scanner.py:
-    total_symbols: 8
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/security_config.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests:
-    - /home/juan/new_project/tests/test_security.py
-  /home/juan/new_project/templates/BLOCK-LOG.template.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/templates/DYNAMIC-PLAN.template.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/templates/EVIDENCE-PACK.template.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/templates/FLOW-STATE.template.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/templates/TEST-RUN.template.yaml:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-  /home/juan/new_project/tsconfig.json:
-    total_symbols: 0
-    covered_symbols: 0
-    coverage_pct: 0.0
-    associated_tests: []
-source_files_count: 107
+source_files_count: 64
 test_files_count: 13
 degradations: []
 recommendations:
-- Escribir tests para 443 símbolo(s) exportado(s) sin cobertura
-- Cobertura actual 0.77% — objetivo mínimo 50%
+- Escribir tests para 541 símbolo(s) exportado(s) sin cobertura
+- Cobertura actual 0.65% — objetivo mínimo 50%
 summary:
-  total_symbols: 518
+  total_symbols: 612
   covered: 4
-  uncovered: 514
-  critical_uncovered: 443
-  coverage_percentage: 0.77
-duration_ms: 21222
+  uncovered: 608
+  critical_uncovered: 541
+  coverage_percentage: 0.65
+duration_ms: 46649
 
