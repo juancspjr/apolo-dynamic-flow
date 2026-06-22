@@ -1,20 +1,20 @@
 staticanalyzer: V1
 schema_version: 3.5.0
-generated_at: '2026-06-22T06:37:05Z'
+generated_at: '2026-06-22T16:10:34Z'
 repo_root: /home/juan/new_project
 success: true
-total_scripts: 67
+total_scripts: 70
 scripts:
   validate_artifact.py:
     script: validate_artifact.py
     imports:
-    - typing
     - common
-    - pathlib
-    - jsonschema
-    - json
-    - sys
     - __future__
+    - typing
+    - jsonschema
+    - sys
+    - pathlib
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -23,63 +23,63 @@ scripts:
   integration_validation.py:
     script: integration_validation.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
+    - __future__
+    - shutil
+    - typing
+    - time
+    - sys
+    - datetime
     - os
     - json
-    - sys
-    - shutil
-    - datetime
-    - __future__
     invokes:
-    - summarize_functions.py
-    - telemetry_aggregator.py
-    - llm_bridge.py
-    - scaffold_impl.py
-    - code_smells.py
-    - lsp_integration.py
-    - integration_validation.py
-    - refactor_engine.py
-    - test_coverage.py
-    - absorb_mcp.py
-    - debug_mode.py
-    - code_generator.py
-    - generate_plan.py
-    - code_quality.py
+    - full_audit.py
     - score_evidence.py
     - doc_generator.py
-    - generate_tests.py
-    - collect_evidence.py
-    - inspect_tools.py
-    - health_check.py
-    - predict_impact.py
-    - vulnerability_scanner.py
-    - run_tests.py
-    - rollback.py
-    - absorb_external_skills.py
-    - validate_artifact.py
-    - full_audit.py
-    - project_templates.py
-    - index_codebase.py
-    - onboarding.py
-    - feedback_loop.py
     - context_query.py
-    - self_healing.py
-    - semantic_search.py
-    - secret_scanner.py
-    - interactive_docs.py
-    - cross_language_analyzer.py
-    - github_actions.py
+    - refactor_engine.py
+    - index_codebase.py
+    - health_check.py
     - common.py
+    - llm_bridge.py
+    - debug_mode.py
+    - summarize_functions.py
+    - code_smells.py
+    - inspect_tools.py
+    - cross_language_analyzer.py
+    - code_generator.py
+    - interactive_docs.py
+    - github_actions.py
+    - collect_evidence.py
+    - vulnerability_scanner.py
+    - absorb_external_skills.py
+    - absorb_mcp.py
+    - integration_validation.py
+    - generate_plan.py
+    - semantic_search.py
+    - generate_tests.py
+    - self_healing.py
+    - feedback_loop.py
+    - code_quality.py
+    - scaffold_impl.py
+    - validate_artifact.py
+    - predict_impact.py
+    - telemetry_aggregator.py
+    - lsp_integration.py
+    - onboarding.py
+    - project_templates.py
+    - rollback.py
+    - secret_scanner.py
+    - run_tests.py
+    - test_coverage.py
     produces:
     - SCAFFOLD.yaml
-    - EVIDENCE-SCORE.yaml
-    - CODE-INDEX.yaml
-    - PLAN.yaml
-    - INTEGRATION-VALIDATION-REPORT.yaml
     - EVIDENCE-PACK.yaml
+    - EVIDENCE-SCORE.yaml
+    - PLAN.yaml
+    - CODE-INDEX.yaml
+    - INTEGRATION-VALIDATION-REPORT.yaml
     - IMPACT-PREDICTION.yaml
     consumes:
     - INTEGRATION-VALIDATION-REPORT.yaml
@@ -88,15 +88,15 @@ scripts:
   guided_recovery.py:
     script: guided_recovery.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - sys
-    - traceback
+    - pathlib
     - __future__
+    - typing
+    - sys
+    - os
+    - json
+    - traceback
     invokes: []
     produces: []
     consumes: []
@@ -105,53 +105,141 @@ scripts:
   integration_validator.py:
     script: integration_validator.py
     imports:
-    - typing
     - common
     - pathlib
-    - os
-    - json
-    - ast
-    - sys
     - __future__
+    - typing
+    - sys
+    - os
+    - ast
+    - json
     invokes:
-    - generate_plan.py
-    - feedback_loop.py
-    - cross_flow_learning.py
-    - apolo_orchestrator.py
-    - evidence_replay.py
-    - common.py
-    - mp_prioritizer.py
-    - smart_rollback.py
     - score_evidence.py
-    - post_script_gates.py
-    - collect_evidence.py
+    - generate_plan.py
+    - mp_prioritizer.py
     - predict_impact.py
     - index_codebase.py
+    - evidence_replay.py
+    - cross_flow_learning.py
+    - common.py
+    - collect_evidence.py
+    - apolo_orchestrator.py
+    - feedback_loop.py
+    - smart_rollback.py
+    - post_script_gates.py
     produces:
-    - EVIDENCE-SCORE.yaml
-    - CODE-INDEX.yaml
-    - PLAN.yaml
-    - ORCHESTRATOR-REPORT.yaml
-    - INTEGRATION-VALIDATION-REPORT.yaml
-    - EVIDENCE-PACK.yaml
-    - IMPACT-PREDICTION.yaml
     - SCAFFOLD-V3.yaml
+    - EVIDENCE-PACK.yaml
+    - EVIDENCE-SCORE.yaml
+    - PLAN.yaml
+    - CODE-INDEX.yaml
+    - INTEGRATION-VALIDATION-REPORT.yaml
+    - IMPACT-PREDICTION.yaml
+    - ORCHESTRATOR-REPORT.yaml
     consumes: []
     lines: 351
+    has_main: true
+  script_classifier.py:
+    script: script_classifier.py
+    imports:
+    - common
+    - re
+    - pathlib
+    - __future__
+    - typing
+    - sys
+    - ast
+    - os
+    - json
+    invokes:
+    - full_audit.py
+    - score_evidence.py
+    - doc_generator.py
+    - context_query.py
+    - refactor_engine.py
+    - index_codebase.py
+    - integration_validator.py
+    - cross_flow_learning.py
+    - health_check.py
+    - evidence_visual_diff.py
+    - common.py
+    - install_deps.py
+    - llm_bridge.py
+    - debug_mode.py
+    - static_analyzer.py
+    - script_classifier.py
+    - pre_commit_hooks.py
+    - __init__.py
+    - summarize_functions.py
+    - code_smells.py
+    - auto_hooks.py
+    - agent_honesty_enforcer.py
+    - inspect_tools.py
+    - cross_language_analyzer.py
+    - code_generator.py
+    - registry_recommend.py
+    - interactive_docs.py
+    - github_actions.py
+    - guided_recovery.py
+    - collect_evidence.py
+    - vulnerability_scanner.py
+    - absorb_external_skills.py
+    - script_generator.py
+    - absorb_mcp.py
+    - integration_validation.py
+    - generate_plan.py
+    - user_input_collector.py
+    - semantic_search.py
+    - smart_rollback.py
+    - evidence_replay.py
+    - data_flow_validator.py
+    - self_healing_loop.py
+    - generate_tests.py
+    - hooks_validator.py
+    - run_tests.py
+    - self_healing.py
+    - feedback_loop.py
+    - post_script_gates.py
+    - code_quality.py
+    - serve_panel.py
+    - force_quality_gates.py
+    - flow_verifier.py
+    - scaffold_impl.py
+    - validate_artifact.py
+    - script_dynamic_invoker.py
+    - agent_escape_hatch.py
+    - mp_prioritizer.py
+    - predict_impact.py
+    - lsp_integration.py
+    - onboarding.py
+    - telemetry_aggregator.py
+    - agent_decision_loop.py
+    - project_templates.py
+    - apolo_orchestrator.py
+    - secret_scanner.py
+    - rollback.py
+    - multi_agent_coordinator.py
+    - test_coverage.py
+    - migrar.py
+    - apolo_config.py
+    produces:
+    - SCRIPT-CLASSIFICATION.yaml
+    consumes: []
+    lines: 302
     has_main: true
   static_analyzer.py:
     script: static_analyzer.py
     imports:
-    - typing
     - common
-    - collections
-    - pathlib
-    - os
     - re
-    - json
-    - ast
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - sys
+    - ast
+    - collections
+    - os
+    - json
     invokes:
     - __init__.py
     produces:
@@ -159,17 +247,67 @@ scripts:
     consumes: []
     lines: 232
     has_main: true
+  apolo_natural.py:
+    script: apolo_natural.py
+    imports:
+    - common
+    - re
+    - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - subprocess
+    - os
+    - json
+    invokes:
+    - full_audit.py
+    - doc_generator.py
+    - context_query.py
+    - refactor_engine.py
+    - index_codebase.py
+    - integration_validator.py
+    - cross_flow_learning.py
+    - script_classifier.py
+    - evidence_visual_diff.py
+    - static_analyzer.py
+    - code_smells.py
+    - agent_honesty_enforcer.py
+    - code_generator.py
+    - guided_recovery.py
+    - vulnerability_scanner.py
+    - script_generator.py
+    - semantic_search.py
+    - evidence_replay.py
+    - data_flow_validator.py
+    - generate_tests.py
+    - hooks_validator.py
+    - run_tests.py
+    - script_dynamic_invoker.py
+    - code_quality.py
+    - flow_verifier.py
+    - agent_escape_hatch.py
+    - apolo_orchestrator.py
+    - self_healing_loop.py
+    - smart_rollback.py
+    - test_coverage.py
+    - apolo_config.py
+    produces:
+    - CODE-INDEX.yaml
+    consumes: []
+    lines: 538
+    has_main: true
   scaffold_v3.py:
     script: scaffold_v3.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
     - os
     - json
-    - sys
-    - __future__
     invokes: []
     produces:
     - SCAFFOLD-V3.yaml
@@ -179,117 +317,184 @@ scripts:
   smart_rollback.py:
     script: smart_rollback.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - subprocess
+    - os
+    - json
     invokes: []
     produces:
-    - ROLLBACK-REPORT.yaml
     - SCAFFOLD-V3.yaml
+    - ROLLBACK-REPORT.yaml
     consumes: []
     lines: 165
     has_main: true
   common.py:
     script: common.py
     imports:
-    - time
-    - typing
-    - subprocess
-    - yaml
-    - tempfile
-    - pathlib
-    - os
-    - re
-    - json
-    - hashlib
-    - sys
     - fcntl
-    - datetime
+    - re
+    - pathlib
+    - yaml
     - __future__
+    - tempfile
+    - typing
+    - time
+    - sys
+    - hashlib
+    - datetime
     - uuid
+    - subprocess
+    - os
+    - json
     invokes: []
     produces:
-    - FLOW-STATE.yaml
-    - TOOL-REGISTRY.yaml
-    - EVIDENCE-PACK.yaml
     - BLOCK-LOG.yaml
+    - FLOW-STATE.yaml
+    - EVIDENCE-PACK.yaml
+    - TOOL-REGISTRY.yaml
     consumes: []
     lines: 499
     has_main: false
+  script_dynamic_invoker.py:
+    script: script_dynamic_invoker.py
+    imports:
+    - common
+    - re
+    - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - script_classifier
+    - subprocess
+    - os
+    - json
+    invokes:
+    - full_audit.py
+    - doc_generator.py
+    - score_evidence.py
+    - context_query.py
+    - refactor_engine.py
+    - index_codebase.py
+    - integration_validator.py
+    - health_check.py
+    - llm_bridge.py
+    - debug_mode.py
+    - static_analyzer.py
+    - pre_commit_hooks.py
+    - summarize_functions.py
+    - code_smells.py
+    - agent_honesty_enforcer.py
+    - cross_language_analyzer.py
+    - code_generator.py
+    - registry_recommend.py
+    - interactive_docs.py
+    - github_actions.py
+    - guided_recovery.py
+    - collect_evidence.py
+    - vulnerability_scanner.py
+    - absorb_external_skills.py
+    - script_generator.py
+    - absorb_mcp.py
+    - semantic_search.py
+    - smart_rollback.py
+    - data_flow_validator.py
+    - generate_tests.py
+    - self_healing.py
+    - feedback_loop.py
+    - code_quality.py
+    - flow_verifier.py
+    - validate_artifact.py
+    - agent_escape_hatch.py
+    - mp_prioritizer.py
+    - lsp_integration.py
+    - onboarding.py
+    - predict_impact.py
+    - project_templates.py
+    - secret_scanner.py
+    - self_healing_loop.py
+    - multi_agent_coordinator.py
+    - test_coverage.py
+    produces: []
+    consumes: []
+    lines: 327
+    has_main: true
   apolo_orchestrator.py:
     script: apolo_orchestrator.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
-    - apolo_config
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - scaffold_v3
+    - apolo_config
+    - subprocess
+    - os
+    - json
     invokes:
-    - agent_escape_hatch.py
-    - summarize_functions.py
-    - agent_decision_loop.py
-    - guided_recovery.py
-    - user_input_collector.py
-    - generate_plan.py
-    - mp_prioritizer.py
     - score_evidence.py
-    - pre_commit_hooks.py
-    - collect_evidence.py
-    - run_tests.py
-    - health_check.py
-    - predict_impact.py
-    - force_quality_gates.py
-    - cross_flow_learning.py
-    - smart_rollback.py
-    - multi_agent_coordinator.py
-    - post_script_gates.py
-    - evidence_visual_diff.py
     - index_codebase.py
-    - feedback_loop.py
-    - evidence_replay.py
-    - secret_scanner.py
+    - cross_flow_learning.py
+    - health_check.py
+    - evidence_visual_diff.py
+    - pre_commit_hooks.py
+    - summarize_functions.py
     - auto_hooks.py
+    - agent_honesty_enforcer.py
     - cross_language_analyzer.py
+    - guided_recovery.py
+    - collect_evidence.py
+    - generate_plan.py
+    - user_input_collector.py
+    - evidence_replay.py
+    - data_flow_validator.py
+    - feedback_loop.py
+    - post_script_gates.py
+    - multi_agent_coordinator.py
+    - force_quality_gates.py
+    - agent_escape_hatch.py
+    - mp_prioritizer.py
+    - predict_impact.py
+    - agent_decision_loop.py
+    - secret_scanner.py
+    - run_tests.py
+    - smart_rollback.py
     produces:
-    - EVIDENCE-SCORE.yaml
-    - CODE-INDEX.yaml
-    - PLAN.yaml
-    - ORCHESTRATOR-REPORT.yaml
-    - CROSS-LANGUAGE-MAP.yaml
-    - IMPACT-PREDICTION.yaml
-    - EVIDENCE-PACK.yaml
-    - ORCHESTRATOR-STATE.yaml
-    - SCAFFOLD-V3.yaml
     - FUNCTION-SUMMARIES.yaml
+    - SCAFFOLD-V3.yaml
+    - EVIDENCE-PACK.yaml
+    - EVIDENCE-SCORE.yaml
+    - CROSS-LANGUAGE-MAP.yaml
+    - PLAN.yaml
+    - CODE-INDEX.yaml
+    - IMPACT-PREDICTION.yaml
+    - ORCHESTRATOR-STATE.yaml
+    - ORCHESTRATOR-REPORT.yaml
     consumes: []
-    lines: 963
+    lines: 1034
     has_main: true
   collect_evidence.py:
     script: collect_evidence.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - secret_scanner
-    - __future__
+    - subprocess
+    - os
+    - json
     invokes: []
     produces:
     - EVIDENCE-PACK.yaml
@@ -299,19 +504,19 @@ scripts:
   absorb_external_skills.py:
     script: absorb_external_skills.py
     imports:
-    - time
-    - urllib.parse
-    - typing
     - common
-    - subprocess
-    - pathlib
-    - os
     - re
-    - json
+    - pathlib
+    - urllib.parse
+    - __future__
+    - shutil
+    - typing
+    - time
     - sys
     - secret_scanner
-    - shutil
-    - __future__
+    - subprocess
+    - os
+    - json
     invokes: []
     produces:
     - TOOL-REGISTRY.yaml
@@ -321,15 +526,15 @@ scripts:
   llm_bridge.py:
     script: llm_bridge.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - hashlib
     - os
     - json
-    - hashlib
-    - sys
-    - __future__
     invokes: []
     produces: []
     consumes: []
@@ -338,36 +543,36 @@ scripts:
   mp_prioritizer.py:
     script: mp_prioritizer.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - os
+    - json
     invokes: []
     produces:
     - PLAN-PRIORITIZED.yaml
-    - IMPACT-PREDICTION.yaml
-    - CROSS-FLOW-LEARNING.yaml
     - PLAN.yaml
+    - CROSS-FLOW-LEARNING.yaml
+    - IMPACT-PREDICTION.yaml
     consumes: []
     lines: 165
     has_main: true
   rollback.py:
     script: rollback.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - subprocess
     - os
     - json
-    - sys
-    - __future__
     invokes: []
     produces: []
     consumes: []
@@ -376,19 +581,19 @@ scripts:
   script_generator.py:
     script: script_generator.py
     imports:
-    - time
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
+    - pathlib
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - os
+    - json
     invokes:
-    - script_generator.py
     - common.py
+    - script_generator.py
     produces:
     - TOOL-REGISTRY.yaml
     consumes: []
@@ -397,15 +602,15 @@ scripts:
   summarize_functions.py:
     script: summarize_functions.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - llm_bridge
-    - sys
+    - pathlib
     - __future__
+    - llm_bridge
+    - typing
+    - sys
+    - os
+    - json
     invokes: []
     produces:
     - FUNCTION-SUMMARIES.yaml
@@ -415,17 +620,17 @@ scripts:
   interactive_docs.py:
     script: interactive_docs.py
     imports:
-    - typing
     - common
-    - collections
-    - pathlib
-    - math
-    - os
     - re
-    - json
-    - ast
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - math
+    - sys
+    - ast
+    - collections
+    - os
+    - json
     invokes: []
     produces:
     - DOCS-INDEX.yaml
@@ -435,35 +640,35 @@ scripts:
   refactor_engine.py:
     script: refactor_engine.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - llm_bridge
-    - sys
+    - pathlib
     - __future__
+    - llm_bridge
+    - typing
+    - sys
+    - os
+    - json
     invokes: []
     produces:
     - REFACTOR-SUGGESTIONS.yaml
     consumes:
-    - REFACTOR-SUGGESTIONS.yaml
     - CODE-INDEX.yaml
+    - REFACTOR-SUGGESTIONS.yaml
     lines: 185
     has_main: true
   lsp_integration.py:
     script: lsp_integration.py
     imports:
-    - time
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - time
+    - sys
+    - os
+    - json
     invokes: []
     produces:
     - LSP-ANALYSIS.yaml
@@ -474,52 +679,52 @@ scripts:
   agent_honesty_enforcer.py:
     script: agent_honesty_enforcer.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
     - os
     - json
-    - sys
-    - __future__
     invokes: []
     produces:
     - VISUAL-DIFF-REPORT.yaml
-    - ORCHESTRATOR-REPORT.yaml
     - SCAFFOLD-V3.yaml
     - AGENT-HONESTY-REPORT.yaml
+    - ORCHESTRATOR-REPORT.yaml
     consumes: []
     lines: 373
     has_main: true
   multi_agent_coordinator.py:
     script: multi_agent_coordinator.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - os
+    - json
     invokes: []
     produces:
-    - MULTI-AGENT-COORDINATION.yaml
     - MERGED-RESULTS.yaml
+    - MULTI-AGENT-COORDINATION.yaml
     consumes: []
     lines: 193
     has_main: true
   apolo_config.py:
     script: apolo_config.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
-    - json
-    - sys
     - __future__
+    - typing
+    - sys
+    - os
+    - pathlib
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -528,17 +733,17 @@ scripts:
   evidence_visual_diff.py:
     script: evidence_visual_diff.py
     imports:
-    - time
-    - typing
     - common
-    - difflib
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - hashlib
+    - datetime
     - os
     - json
-    - hashlib
-    - sys
-    - datetime
-    - __future__
+    - difflib
     invokes: []
     produces: []
     consumes:
@@ -548,13 +753,13 @@ scripts:
   project_templates.py:
     script: project_templates.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
-    - json
-    - sys
     - __future__
+    - typing
+    - sys
+    - os
+    - pathlib
+    - json
     invokes:
     - main.py
     - test_main.py
@@ -565,15 +770,15 @@ scripts:
   evidence_replay.py:
     script: evidence_replay.py
     imports:
-    - typing
     - common
-    - collections
     - pathlib
+    - __future__
+    - typing
+    - datetime
+    - sys
+    - collections
     - os
     - json
-    - sys
-    - datetime
-    - __future__
     invokes: []
     produces: []
     consumes:
@@ -583,13 +788,13 @@ scripts:
   serve_panel.py:
     script: serve_panel.py
     imports:
-    - urllib.parse
     - pathlib
+    - urllib.parse
     - http.server
-    - socketserver
-    - os
     - sys
     - argparse
+    - socketserver
+    - os
     invokes: []
     produces: []
     consumes: []
@@ -598,13 +803,13 @@ scripts:
   scaffold_impl.py:
     script: scaffold_impl.py
     imports:
-    - time
-    - typing
     - common
+    - __future__
+    - typing
+    - time
+    - sys
     - pathlib
     - json
-    - sys
-    - __future__
     invokes: []
     produces:
     - IMPL-SCAFFOLD.yaml
@@ -614,16 +819,16 @@ scripts:
   predict_impact.py:
     script: predict_impact.py
     imports:
-    - time
-    - typing
     - common
-    - collections
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - time
+    - sys
+    - collections
+    - os
+    - json
     invokes: []
     produces:
     - IMPACT-PREDICTION.yaml
@@ -633,39 +838,39 @@ scripts:
   context_query.py:
     script: context_query.py
     imports:
-    - time
-    - typing
     - common
-    - pathlib
     - re
-    - json
     - inspect_tools
-    - sys
     - __future__
+    - typing
+    - time
+    - sys
+    - pathlib
+    - json
     invokes: []
     produces:
     - TOOL-REGISTRY.yaml
-    - EVIDENCE-SCORE.yaml
-    - BLOCK-LOG.yaml
-    - CODE-INDEX.yaml
-    - FLOW-STATE.yaml
     - EVIDENCE-PACK.yaml
+    - FLOW-STATE.yaml
+    - EVIDENCE-SCORE.yaml
+    - CODE-INDEX.yaml
     - IMPACT-PREDICTION.yaml
+    - BLOCK-LOG.yaml
     consumes: []
     lines: 579
     has_main: true
   agent_decision_loop.py:
     script: agent_decision_loop.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - os
+    - json
     invokes: []
     produces:
     - EVIDENCE-PACK.yaml
@@ -675,37 +880,37 @@ scripts:
   auto_hooks.py:
     script: auto_hooks.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - subprocess
+    - os
+    - json
     invokes:
-    - script_generator.py
     - force_quality_gates.py
-    - summarize_functions.py
-    - user_input_collector.py
-    - code_smells.py
-    - self_healing.py
-    - cross_flow_learning.py
-    - evidence_replay.py
-    - agent_decision_loop.py
-    - code_quality.py
-    - health_check.py
-    - secret_scanner.py
-    - test_coverage.py
-    - post_script_gates.py
-    - evidence_visual_diff.py
     - cross_language_analyzer.py
+    - user_input_collector.py
+    - agent_decision_loop.py
+    - evidence_replay.py
+    - cross_flow_learning.py
+    - summarize_functions.py
+    - health_check.py
+    - evidence_visual_diff.py
+    - self_healing.py
+    - secret_scanner.py
+    - post_script_gates.py
     - vulnerability_scanner.py
+    - code_quality.py
+    - test_coverage.py
+    - code_smells.py
+    - script_generator.py
     produces:
-    - CODE-INDEX.yaml
     - SCAFFOLD.yaml
+    - CODE-INDEX.yaml
     - SCAFFOLD-V3.yaml
     - EVIDENCE-PACK.yaml
     consumes: []
@@ -714,14 +919,14 @@ scripts:
   score_evidence.py:
     script: score_evidence.py
     imports:
-    - time
-    - typing
     - common
-    - pathlib
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - pathlib
+    - json
     invokes: []
     produces:
     - EVIDENCE-SCORE.yaml
@@ -731,16 +936,16 @@ scripts:
   run_tests.py:
     script: run_tests.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - time
+    - sys
+    - subprocess
+    - os
+    - json
     invokes: []
     produces:
     - TEST-RUN.yaml
@@ -750,43 +955,42 @@ scripts:
   data_flow_validator.py:
     script: data_flow_validator.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
     - os
     - json
-    - sys
-    - __future__
     invokes:
-    - generate_plan.py
-    - apolo_orchestrator.py
     - score_evidence.py
-    - collect_evidence.py
+    - generate_plan.py
     - predict_impact.py
     - index_codebase.py
+    - collect_evidence.py
     produces:
-    - EVIDENCE-SCORE.yaml
-    - CODE-INDEX.yaml
-    - PLAN.yaml
-    - ORCHESTRATOR-REPORT.yaml
-    - DATA-FLOW-VALIDATION-REPORT.yaml
-    - EVIDENCE-PACK.yaml
-    - IMPACT-PREDICTION.yaml
     - SCAFFOLD-V3.yaml
+    - EVIDENCE-PACK.yaml
+    - EVIDENCE-SCORE.yaml
+    - PLAN.yaml
+    - CODE-INDEX.yaml
+    - DATA-FLOW-VALIDATION-REPORT.yaml
+    - IMPACT-PREDICTION.yaml
+    - ORCHESTRATOR-REPORT.yaml
     consumes: []
     lines: 268
     has_main: true
   registry_recommend.py:
     script: registry_recommend.py
     imports:
-    - time
-    - typing
     - common
+    - __future__
+    - typing
+    - time
+    - sys
     - pathlib
     - json
-    - sys
-    - __future__
     invokes: []
     produces:
     - TOOL-REGISTRY.yaml
@@ -796,15 +1000,15 @@ scripts:
   self_healing.py:
     script: self_healing.py
     imports:
-    - typing
     - common
-    - collections
     - pathlib
+    - __future__
+    - llm_bridge
+    - typing
+    - sys
+    - collections
     - os
     - json
-    - llm_bridge
-    - sys
-    - __future__
     invokes: []
     produces:
     - LEARNING-STATE.yaml
@@ -815,14 +1019,14 @@ scripts:
   vulnerability_scanner.py:
     script: vulnerability_scanner.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - sys
+    - os
+    - json
     invokes: []
     produces:
     - VULNERABILITY-REPORT.yaml
@@ -833,16 +1037,16 @@ scripts:
   user_input_collector.py:
     script: user_input_collector.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
     - uuid
+    - os
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -851,19 +1055,19 @@ scripts:
   index_codebase.py:
     script: index_codebase.py
     imports:
-    - time
-    - typing
     - common
+    - re
+    - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - hashlib
     - fnmatch
     - subprocess
-    - pathlib
     - os
-    - re
-    - json
-    - hashlib
     - ast
-    - sys
-    - __future__
+    - json
     invokes: []
     produces: []
     consumes:
@@ -873,68 +1077,68 @@ scripts:
   flow_verifier.py:
     script: flow_verifier.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - subprocess
+    - os
+    - json
     invokes:
-    - script_generator.py
-    - summarize_functions.py
-    - integration_validation.py
-    - llm_bridge.py
-    - scaffold_impl.py
-    - code_smells.py
-    - lsp_integration.py
-    - refactor_engine.py
-    - hooks_validator.py
-    - agent_decision_loop.py
-    - test_coverage.py
-    - debug_mode.py
-    - code_generator.py
-    - user_input_collector.py
-    - generate_plan.py
-    - code_quality.py
-    - mp_prioritizer.py
-    - generate_tests.py
+    - full_audit.py
     - score_evidence.py
     - doc_generator.py
-    - pre_commit_hooks.py
-    - collect_evidence.py
-    - predict_impact.py
-    - vulnerability_scanner.py
-    - health_check.py
-    - force_quality_gates.py
-    - registry_recommend.py
-    - cross_flow_learning.py
-    - absorb_external_skills.py
-    - validate_artifact.py
-    - full_audit.py
-    - apolo_orchestrator.py
-    - project_templates.py
-    - smart_rollback.py
-    - multi_agent_coordinator.py
-    - post_script_gates.py
-    - evidence_visual_diff.py
-    - index_codebase.py
-    - onboarding.py
-    - feedback_loop.py
-    - self_healing.py
     - context_query.py
-    - evidence_replay.py
-    - semantic_search.py
-    - apolo_config.py
-    - secret_scanner.py
-    - auto_hooks.py
-    - interactive_docs.py
-    - cross_language_analyzer.py
-    - github_actions.py
+    - refactor_engine.py
+    - index_codebase.py
+    - cross_flow_learning.py
+    - health_check.py
+    - evidence_visual_diff.py
     - common.py
+    - llm_bridge.py
+    - debug_mode.py
+    - pre_commit_hooks.py
+    - summarize_functions.py
+    - code_smells.py
+    - auto_hooks.py
+    - cross_language_analyzer.py
+    - code_generator.py
+    - registry_recommend.py
+    - interactive_docs.py
+    - github_actions.py
+    - collect_evidence.py
+    - vulnerability_scanner.py
+    - absorb_external_skills.py
+    - script_generator.py
+    - integration_validation.py
+    - generate_plan.py
+    - user_input_collector.py
+    - semantic_search.py
+    - smart_rollback.py
+    - evidence_replay.py
+    - generate_tests.py
+    - hooks_validator.py
+    - self_healing.py
+    - feedback_loop.py
+    - post_script_gates.py
+    - code_quality.py
+    - force_quality_gates.py
+    - scaffold_impl.py
+    - validate_artifact.py
+    - mp_prioritizer.py
+    - predict_impact.py
+    - lsp_integration.py
+    - onboarding.py
+    - agent_decision_loop.py
+    - project_templates.py
+    - apolo_orchestrator.py
+    - secret_scanner.py
+    - multi_agent_coordinator.py
+    - test_coverage.py
+    - apolo_config.py
     produces:
     - FLOW-VERIFICATION-REPORT.yaml
     consumes: []
@@ -943,16 +1147,16 @@ scripts:
   agent_escape_hatch.py:
     script: agent_escape_hatch.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
     - uuid
+    - os
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -961,16 +1165,16 @@ scripts:
   secret_scanner.py:
     script: secret_scanner.py
     imports:
-    - typing
     - common
-    - fnmatch
-    - pathlib
-    - os
     - re
-    - json
-    - hashlib
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - fnmatch
+    - sys
+    - hashlib
+    - os
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -979,49 +1183,49 @@ scripts:
   full_audit.py:
     script: full_audit.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
     - os
     - json
-    - sys
-    - __future__
     invokes:
-    - summarize_functions.py
-    - code_smells.py
+    - cross_language_analyzer.py
     - lsp_integration.py
     - refactor_engine.py
+    - index_codebase.py
+    - summarize_functions.py
+    - vulnerability_scanner.py
     - code_quality.py
     - test_coverage.py
-    - cross_language_analyzer.py
-    - vulnerability_scanner.py
-    - index_codebase.py
+    - code_smells.py
     produces:
-    - TEST-COVERAGE.yaml
-    - CODE-QUALITY.yaml
-    - FULL-AUDIT-REPORT.yaml
     - CODE-SMELLS.yaml
-    - CODE-INDEX.yaml
     - VULNERABILITY-REPORT.yaml
-    - CROSS-LANGUAGE-MAP.yaml
-    - REFACTOR-SUGGESTIONS.yaml
-    - LSP-ANALYSIS.yaml
+    - TEST-COVERAGE.yaml
     - FUNCTION-SUMMARIES.yaml
+    - LSP-ANALYSIS.yaml
+    - REFACTOR-SUGGESTIONS.yaml
+    - CODE-QUALITY.yaml
+    - CROSS-LANGUAGE-MAP.yaml
+    - CODE-INDEX.yaml
+    - FULL-AUDIT-REPORT.yaml
     consumes: []
     lines: 269
     has_main: true
   doc_generator.py:
     script: doc_generator.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - sys
+    - os
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -1030,15 +1234,15 @@ scripts:
   generate_plan.py:
     script: generate_plan.py
     imports:
-    - time
-    - typing
     - common
-    - collections
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - collections
     - os
     - json
-    - sys
-    - __future__
     invokes: []
     produces: []
     consumes: []
@@ -1047,22 +1251,22 @@ scripts:
   self_healing_loop.py:
     script: self_healing_loop.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
-    - pathlib
-    - os
     - re
-    - json
+    - pathlib
+    - __future__
+    - typing
     - guided_recovery
+    - time
     - sys
     - os.path
-    - __future__
+    - subprocess
+    - os
+    - json
     invokes:
+    - auto_hooks.py
     - post_script_gates.py
     - apolo_config.py
-    - auto_hooks.py
     produces: []
     consumes: []
     lines: 362
@@ -1070,13 +1274,13 @@ scripts:
   onboarding.py:
     script: onboarding.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
-    - json
-    - sys
     - __future__
+    - typing
+    - sys
+    - os
+    - pathlib
+    - json
     invokes: []
     produces:
     - FLOW-STATE.yaml
@@ -1086,15 +1290,15 @@ scripts:
   absorb_mcp.py:
     script: absorb_mcp.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - subprocess
     - os
     - json
-    - sys
-    - __future__
     invokes:
     - common.py
     produces: []
@@ -1104,13 +1308,13 @@ scripts:
   inspect_tools.py:
     script: inspect_tools.py
     imports:
-    - typing
     - common
+    - __future__
+    - typing
+    - sys
     - subprocess
     - pathlib
     - json
-    - sys
-    - __future__
     invokes: []
     produces: []
     consumes: []
@@ -1120,8 +1324,8 @@ scripts:
     script: install_deps.py
     imports:
     - subprocess
-    - sys
     - pathlib
+    - sys
     invokes: []
     produces: []
     consumes: []
@@ -1130,13 +1334,13 @@ scripts:
   telemetry_aggregator.py:
     script: telemetry_aggregator.py
     imports:
-    - typing
     - common
+    - __future__
+    - typing
+    - sys
     - collections
     - pathlib
     - json
-    - sys
-    - __future__
     invokes: []
     produces: []
     consumes: []
@@ -1145,15 +1349,15 @@ scripts:
   code_quality.py:
     script: code_quality.py
     imports:
-    - time
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - time
+    - sys
+    - os
+    - json
     invokes: []
     produces:
     - CODE-QUALITY.yaml
@@ -1164,15 +1368,15 @@ scripts:
   generate_tests.py:
     script: generate_tests.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - llm_bridge
-    - sys
+    - pathlib
     - __future__
+    - llm_bridge
+    - typing
+    - sys
+    - os
+    - json
     invokes: []
     produces: []
     consumes:
@@ -1182,12 +1386,12 @@ scripts:
   github_actions.py:
     script: github_actions.py
     imports:
-    - typing
     - common
+    - __future__
+    - typing
+    - sys
     - pathlib
     - json
-    - sys
-    - __future__
     invokes: []
     produces: []
     consumes: []
@@ -1196,37 +1400,37 @@ scripts:
   force_quality_gates.py:
     script: force_quality_gates.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - subprocess
+    - os
+    - json
     invokes: []
     produces:
-    - EVIDENCE-PACK.yaml
-    - ORCHESTRATOR-STATE.yaml
-    - SCAFFOLD-V3.yaml
     - QUALITY-GATES-STATE.yaml
+    - SCAFFOLD-V3.yaml
+    - ORCHESTRATOR-STATE.yaml
+    - EVIDENCE-PACK.yaml
     consumes: []
     lines: 402
     has_main: true
   feedback_loop.py:
     script: feedback_loop.py
     imports:
-    - typing
     - common
     - pathlib
+    - __future__
+    - typing
+    - datetime
+    - sys
+    - uuid
     - os
     - json
-    - sys
-    - datetime
-    - __future__
-    - uuid
     invokes: []
     produces: []
     consumes: []
@@ -1235,17 +1439,17 @@ scripts:
   pre_commit_hooks.py:
     script: pre_commit_hooks.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
+    - subprocess
+    - __future__
+    - typing
+    - time
+    - sys
+    - datetime
     - stat
     - os
     - json
-    - sys
-    - datetime
-    - __future__
     invokes: []
     produces: []
     consumes: []
@@ -1254,15 +1458,15 @@ scripts:
   hooks_validator.py:
     script: hooks_validator.py
     imports:
-    - typing
     - common
-    - subprocess
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - sys
+    - subprocess
+    - os
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -1271,14 +1475,14 @@ scripts:
   cross_language_analyzer.py:
     script: cross_language_analyzer.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - sys
+    - os
+    - json
     invokes: []
     produces:
     - CROSS-LANGUAGE-MAP.yaml
@@ -1288,14 +1492,14 @@ scripts:
   code_generator.py:
     script: code_generator.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
-    - json
-    - llm_bridge
-    - sys
     - __future__
+    - llm_bridge
+    - typing
+    - sys
+    - os
+    - pathlib
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -1304,18 +1508,18 @@ scripts:
   semantic_search.py:
     script: semantic_search.py
     imports:
-    - typing
     - common
-    - collections
-    - pathlib
-    - math
-    - os
     - re
-    - json
+    - pathlib
+    - __future__
+    - llm_bridge
+    - typing
+    - math
     - hashlib
     - sys
-    - llm_bridge
-    - __future__
+    - collections
+    - os
+    - json
     invokes: []
     produces: []
     consumes: []
@@ -1324,18 +1528,18 @@ scripts:
   test_coverage.py:
     script: test_coverage.py
     imports:
-    - time
-    - typing
     - common
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - time
+    - sys
+    - os
+    - json
     invokes:
-    - coverage.py
     - _test.py
+    - coverage.py
     produces:
     - TEST-COVERAGE.yaml
     consumes:
@@ -1345,15 +1549,15 @@ scripts:
   health_check.py:
     script: health_check.py
     imports:
-    - time
-    - typing
     - common
-    - subprocess
     - pathlib
+    - __future__
+    - typing
+    - time
+    - sys
+    - subprocess
     - os
     - json
-    - sys
-    - __future__
     invokes:
     - common.py
     produces:
@@ -1364,15 +1568,15 @@ scripts:
   code_smells.py:
     script: code_smells.py
     imports:
-    - typing
     - common
-    - collections
-    - pathlib
-    - os
     - re
-    - json
-    - sys
+    - pathlib
     - __future__
+    - typing
+    - sys
+    - collections
+    - os
+    - json
     invokes: []
     produces:
     - CODE-SMELLS.yaml
@@ -1382,34 +1586,34 @@ scripts:
   cross_flow_learning.py:
     script: cross_flow_learning.py
     imports:
-    - typing
     - common
-    - collections
     - pathlib
+    - __future__
+    - typing
+    - datetime
+    - sys
+    - collections
     - os
     - json
-    - sys
-    - datetime
-    - __future__
     invokes: []
     produces:
-    - EVIDENCE-PACK.yaml
     - CROSS-FLOW-LEARNING.yaml
+    - EVIDENCE-PACK.yaml
     consumes: []
     lines: 513
     has_main: true
   debug_mode.py:
     script: debug_mode.py
     imports:
-    - time
-    - typing
     - common
     - pathlib
-    - os
-    - json
+    - __future__
+    - typing
+    - time
     - sys
     - datetime
-    - __future__
+    - os
+    - json
     invokes: []
     produces:
     - DEBUG-BREAKPOINTS.yaml
@@ -1419,241 +1623,384 @@ scripts:
   post_script_gates.py:
     script: post_script_gates.py
     imports:
-    - typing
     - common
-    - pathlib
-    - os
-    - json
-    - sys
     - __future__
+    - typing
+    - sys
+    - os
+    - pathlib
+    - json
     invokes:
-    - generate_plan.py
     - scaffold_impl.py
-    - code_smells.py
-    - cross_flow_learning.py
-    - evidence_replay.py
     - full_audit.py
-    - code_quality.py
-    - test_coverage.py
     - score_evidence.py
+    - generate_plan.py
+    - predict_impact.py
+    - index_codebase.py
+    - evidence_replay.py
+    - cross_flow_learning.py
     - evidence_visual_diff.py
     - collect_evidence.py
-    - predict_impact.py
     - vulnerability_scanner.py
-    - index_codebase.py
+    - code_quality.py
+    - test_coverage.py
+    - code_smells.py
     produces:
     - SCAFFOLD.yaml
-    - EVIDENCE-SCORE.yaml
-    - CODE-INDEX.yaml
-    - PLAN.yaml
     - EVIDENCE-PACK.yaml
+    - EVIDENCE-SCORE.yaml
+    - PLAN.yaml
+    - CODE-INDEX.yaml
     - IMPACT-PREDICTION.yaml
     consumes: []
     lines: 563
     has_main: true
 dependency_graph:
   integration_validation.py:
-  - summarize_functions.py
-  - telemetry_aggregator.py
-  - llm_bridge.py
-  - scaffold_impl.py
-  - code_smells.py
-  - lsp_integration.py
-  - refactor_engine.py
-  - test_coverage.py
-  - absorb_mcp.py
-  - debug_mode.py
-  - code_generator.py
-  - generate_plan.py
-  - code_quality.py
+  - full_audit.py
   - score_evidence.py
   - doc_generator.py
-  - generate_tests.py
-  - collect_evidence.py
-  - inspect_tools.py
-  - health_check.py
-  - predict_impact.py
-  - vulnerability_scanner.py
-  - run_tests.py
-  - rollback.py
-  - absorb_external_skills.py
-  - validate_artifact.py
-  - full_audit.py
-  - project_templates.py
-  - index_codebase.py
-  - onboarding.py
-  - feedback_loop.py
   - context_query.py
-  - self_healing.py
-  - semantic_search.py
-  - secret_scanner.py
-  - interactive_docs.py
-  - cross_language_analyzer.py
-  - github_actions.py
-  - common.py
-  integration_validator.py:
-  - generate_plan.py
-  - feedback_loop.py
-  - cross_flow_learning.py
-  - apolo_orchestrator.py
-  - evidence_replay.py
-  - common.py
-  - mp_prioritizer.py
-  - smart_rollback.py
-  - score_evidence.py
-  - post_script_gates.py
-  - collect_evidence.py
-  - predict_impact.py
+  - refactor_engine.py
   - index_codebase.py
-  apolo_orchestrator.py:
-  - agent_escape_hatch.py
-  - summarize_functions.py
-  - agent_decision_loop.py
-  - guided_recovery.py
-  - user_input_collector.py
-  - generate_plan.py
-  - mp_prioritizer.py
-  - score_evidence.py
-  - pre_commit_hooks.py
-  - collect_evidence.py
-  - run_tests.py
   - health_check.py
-  - predict_impact.py
-  - force_quality_gates.py
-  - cross_flow_learning.py
-  - smart_rollback.py
-  - multi_agent_coordinator.py
-  - post_script_gates.py
-  - evidence_visual_diff.py
-  - index_codebase.py
-  - feedback_loop.py
-  - evidence_replay.py
-  - secret_scanner.py
-  - auto_hooks.py
+  - common.py
+  - llm_bridge.py
+  - debug_mode.py
+  - summarize_functions.py
+  - code_smells.py
+  - inspect_tools.py
   - cross_language_analyzer.py
+  - code_generator.py
+  - interactive_docs.py
+  - github_actions.py
+  - collect_evidence.py
+  - vulnerability_scanner.py
+  - absorb_external_skills.py
+  - absorb_mcp.py
+  - generate_plan.py
+  - semantic_search.py
+  - generate_tests.py
+  - self_healing.py
+  - feedback_loop.py
+  - code_quality.py
+  - scaffold_impl.py
+  - validate_artifact.py
+  - predict_impact.py
+  - telemetry_aggregator.py
+  - lsp_integration.py
+  - onboarding.py
+  - project_templates.py
+  - rollback.py
+  - secret_scanner.py
+  - run_tests.py
+  - test_coverage.py
+  integration_validator.py:
+  - score_evidence.py
+  - generate_plan.py
+  - mp_prioritizer.py
+  - predict_impact.py
+  - index_codebase.py
+  - evidence_replay.py
+  - cross_flow_learning.py
+  - common.py
+  - collect_evidence.py
+  - apolo_orchestrator.py
+  - feedback_loop.py
+  - smart_rollback.py
+  - post_script_gates.py
+  script_classifier.py:
+  - full_audit.py
+  - score_evidence.py
+  - doc_generator.py
+  - context_query.py
+  - refactor_engine.py
+  - index_codebase.py
+  - integration_validator.py
+  - cross_flow_learning.py
+  - health_check.py
+  - evidence_visual_diff.py
+  - common.py
+  - install_deps.py
+  - llm_bridge.py
+  - debug_mode.py
+  - static_analyzer.py
+  - pre_commit_hooks.py
+  - summarize_functions.py
+  - code_smells.py
+  - auto_hooks.py
+  - agent_honesty_enforcer.py
+  - inspect_tools.py
+  - cross_language_analyzer.py
+  - code_generator.py
+  - registry_recommend.py
+  - interactive_docs.py
+  - github_actions.py
+  - guided_recovery.py
+  - collect_evidence.py
+  - vulnerability_scanner.py
+  - absorb_external_skills.py
+  - script_generator.py
+  - absorb_mcp.py
+  - integration_validation.py
+  - generate_plan.py
+  - user_input_collector.py
+  - semantic_search.py
+  - smart_rollback.py
+  - evidence_replay.py
+  - data_flow_validator.py
+  - self_healing_loop.py
+  - generate_tests.py
+  - hooks_validator.py
+  - run_tests.py
+  - self_healing.py
+  - feedback_loop.py
+  - post_script_gates.py
+  - code_quality.py
+  - serve_panel.py
+  - force_quality_gates.py
+  - flow_verifier.py
+  - scaffold_impl.py
+  - validate_artifact.py
+  - script_dynamic_invoker.py
+  - agent_escape_hatch.py
+  - mp_prioritizer.py
+  - predict_impact.py
+  - lsp_integration.py
+  - onboarding.py
+  - telemetry_aggregator.py
+  - agent_decision_loop.py
+  - project_templates.py
+  - apolo_orchestrator.py
+  - secret_scanner.py
+  - rollback.py
+  - multi_agent_coordinator.py
+  - test_coverage.py
+  - apolo_config.py
+  apolo_natural.py:
+  - full_audit.py
+  - doc_generator.py
+  - context_query.py
+  - refactor_engine.py
+  - index_codebase.py
+  - integration_validator.py
+  - cross_flow_learning.py
+  - script_classifier.py
+  - evidence_visual_diff.py
+  - static_analyzer.py
+  - code_smells.py
+  - agent_honesty_enforcer.py
+  - code_generator.py
+  - guided_recovery.py
+  - vulnerability_scanner.py
+  - script_generator.py
+  - semantic_search.py
+  - evidence_replay.py
+  - data_flow_validator.py
+  - generate_tests.py
+  - hooks_validator.py
+  - run_tests.py
+  - script_dynamic_invoker.py
+  - code_quality.py
+  - flow_verifier.py
+  - agent_escape_hatch.py
+  - apolo_orchestrator.py
+  - self_healing_loop.py
+  - smart_rollback.py
+  - test_coverage.py
+  - apolo_config.py
+  script_dynamic_invoker.py:
+  - full_audit.py
+  - doc_generator.py
+  - score_evidence.py
+  - context_query.py
+  - refactor_engine.py
+  - index_codebase.py
+  - integration_validator.py
+  - health_check.py
+  - llm_bridge.py
+  - debug_mode.py
+  - static_analyzer.py
+  - pre_commit_hooks.py
+  - summarize_functions.py
+  - code_smells.py
+  - agent_honesty_enforcer.py
+  - cross_language_analyzer.py
+  - code_generator.py
+  - registry_recommend.py
+  - interactive_docs.py
+  - github_actions.py
+  - guided_recovery.py
+  - collect_evidence.py
+  - vulnerability_scanner.py
+  - absorb_external_skills.py
+  - script_generator.py
+  - absorb_mcp.py
+  - semantic_search.py
+  - smart_rollback.py
+  - data_flow_validator.py
+  - generate_tests.py
+  - self_healing.py
+  - feedback_loop.py
+  - code_quality.py
+  - flow_verifier.py
+  - validate_artifact.py
+  - agent_escape_hatch.py
+  - mp_prioritizer.py
+  - lsp_integration.py
+  - onboarding.py
+  - predict_impact.py
+  - project_templates.py
+  - secret_scanner.py
+  - self_healing_loop.py
+  - multi_agent_coordinator.py
+  - test_coverage.py
+  apolo_orchestrator.py:
+  - score_evidence.py
+  - index_codebase.py
+  - cross_flow_learning.py
+  - health_check.py
+  - evidence_visual_diff.py
+  - pre_commit_hooks.py
+  - summarize_functions.py
+  - auto_hooks.py
+  - agent_honesty_enforcer.py
+  - cross_language_analyzer.py
+  - guided_recovery.py
+  - collect_evidence.py
+  - generate_plan.py
+  - user_input_collector.py
+  - evidence_replay.py
+  - data_flow_validator.py
+  - feedback_loop.py
+  - post_script_gates.py
+  - multi_agent_coordinator.py
+  - force_quality_gates.py
+  - agent_escape_hatch.py
+  - mp_prioritizer.py
+  - predict_impact.py
+  - agent_decision_loop.py
+  - secret_scanner.py
+  - run_tests.py
+  - smart_rollback.py
   script_generator.py:
   - common.py
   auto_hooks.py:
-  - script_generator.py
   - force_quality_gates.py
-  - summarize_functions.py
-  - user_input_collector.py
-  - code_smells.py
-  - self_healing.py
-  - cross_flow_learning.py
-  - evidence_replay.py
-  - agent_decision_loop.py
-  - code_quality.py
-  - health_check.py
-  - secret_scanner.py
-  - test_coverage.py
-  - post_script_gates.py
-  - evidence_visual_diff.py
   - cross_language_analyzer.py
+  - user_input_collector.py
+  - agent_decision_loop.py
+  - evidence_replay.py
+  - cross_flow_learning.py
+  - summarize_functions.py
+  - health_check.py
+  - evidence_visual_diff.py
+  - self_healing.py
+  - secret_scanner.py
+  - post_script_gates.py
   - vulnerability_scanner.py
+  - code_quality.py
+  - test_coverage.py
+  - code_smells.py
+  - script_generator.py
   data_flow_validator.py:
-  - generate_plan.py
-  - apolo_orchestrator.py
   - score_evidence.py
-  - collect_evidence.py
+  - generate_plan.py
   - predict_impact.py
   - index_codebase.py
+  - collect_evidence.py
   flow_verifier.py:
-  - script_generator.py
-  - summarize_functions.py
-  - integration_validation.py
-  - llm_bridge.py
-  - scaffold_impl.py
-  - code_smells.py
-  - lsp_integration.py
-  - refactor_engine.py
-  - hooks_validator.py
-  - agent_decision_loop.py
-  - test_coverage.py
-  - debug_mode.py
-  - code_generator.py
-  - user_input_collector.py
-  - generate_plan.py
-  - code_quality.py
-  - mp_prioritizer.py
-  - generate_tests.py
+  - full_audit.py
   - score_evidence.py
   - doc_generator.py
-  - pre_commit_hooks.py
-  - collect_evidence.py
-  - predict_impact.py
-  - vulnerability_scanner.py
-  - health_check.py
-  - force_quality_gates.py
-  - registry_recommend.py
-  - cross_flow_learning.py
-  - absorb_external_skills.py
-  - validate_artifact.py
-  - full_audit.py
-  - apolo_orchestrator.py
-  - project_templates.py
-  - smart_rollback.py
-  - multi_agent_coordinator.py
-  - post_script_gates.py
-  - evidence_visual_diff.py
-  - index_codebase.py
-  - onboarding.py
-  - feedback_loop.py
-  - self_healing.py
   - context_query.py
-  - evidence_replay.py
-  - semantic_search.py
-  - apolo_config.py
-  - secret_scanner.py
-  - auto_hooks.py
-  - interactive_docs.py
-  - cross_language_analyzer.py
-  - github_actions.py
+  - refactor_engine.py
+  - index_codebase.py
+  - cross_flow_learning.py
+  - health_check.py
+  - evidence_visual_diff.py
   - common.py
-  full_audit.py:
+  - llm_bridge.py
+  - debug_mode.py
+  - pre_commit_hooks.py
   - summarize_functions.py
   - code_smells.py
+  - auto_hooks.py
+  - cross_language_analyzer.py
+  - code_generator.py
+  - registry_recommend.py
+  - interactive_docs.py
+  - github_actions.py
+  - collect_evidence.py
+  - vulnerability_scanner.py
+  - absorb_external_skills.py
+  - script_generator.py
+  - integration_validation.py
+  - generate_plan.py
+  - user_input_collector.py
+  - semantic_search.py
+  - smart_rollback.py
+  - evidence_replay.py
+  - generate_tests.py
+  - hooks_validator.py
+  - self_healing.py
+  - feedback_loop.py
+  - post_script_gates.py
+  - code_quality.py
+  - force_quality_gates.py
+  - scaffold_impl.py
+  - validate_artifact.py
+  - mp_prioritizer.py
+  - predict_impact.py
+  - lsp_integration.py
+  - onboarding.py
+  - agent_decision_loop.py
+  - project_templates.py
+  - apolo_orchestrator.py
+  - secret_scanner.py
+  - multi_agent_coordinator.py
+  - test_coverage.py
+  - apolo_config.py
+  full_audit.py:
+  - cross_language_analyzer.py
   - lsp_integration.py
   - refactor_engine.py
+  - index_codebase.py
+  - summarize_functions.py
+  - vulnerability_scanner.py
   - code_quality.py
   - test_coverage.py
-  - cross_language_analyzer.py
-  - vulnerability_scanner.py
-  - index_codebase.py
+  - code_smells.py
   self_healing_loop.py:
+  - auto_hooks.py
   - post_script_gates.py
   - apolo_config.py
-  - auto_hooks.py
   absorb_mcp.py:
   - common.py
   health_check.py:
   - common.py
   post_script_gates.py:
-  - generate_plan.py
   - scaffold_impl.py
-  - code_smells.py
-  - cross_flow_learning.py
-  - evidence_replay.py
   - full_audit.py
-  - code_quality.py
-  - test_coverage.py
   - score_evidence.py
+  - generate_plan.py
+  - predict_impact.py
+  - index_codebase.py
+  - evidence_replay.py
+  - cross_flow_learning.py
   - evidence_visual_diff.py
   - collect_evidence.py
-  - predict_impact.py
   - vulnerability_scanner.py
-  - index_codebase.py
+  - code_quality.py
+  - test_coverage.py
+  - code_smells.py
 circular_dependencies: []
 isolated_scripts:
-- static_analyzer.py
 - scaffold_v3.py
-- agent_honesty_enforcer.py
-- serve_panel.py
-- install_deps.py
 graph_stats:
-  total_edges: 179
-  total_nodes: 67
-  avg_dependencies: 2.67
+  total_edges: 323
+  total_nodes: 70
+  avg_dependencies: 4.61
 overall_healthy: true
 verdict: HEALTHY — no hay dependencias circulares
 

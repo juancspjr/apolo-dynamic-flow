@@ -1,13 +1,13 @@
 flowverifier: V1
 schema_version: 3.4.0
-generated_at: '2026-06-22T06:40:35Z'
+generated_at: '2026-06-22T16:13:39Z'
 repo_root: /home/juan/new_project
 total_checks: 55
-passed: 47
-failed: 8
-success_rate: 85.5
+passed: 48
+failed: 7
+success_rate: 87.3
 overall_pass: false
-verdict: 8 super poderes fallaron
+verdict: 7 super poderes fallaron
 super_powers:
 - name: common
   script: common.py
@@ -119,8 +119,8 @@ super_powers:
   description: Generacion automatica de tests
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: semantic_search
   script: semantic_search.py
   description: Busqueda semantica TF-IDF
@@ -154,8 +154,8 @@ super_powers:
   description: Resumenes de funciones
   exists: true
   compiles: true
-  runs: false
-  passed: false
+  runs: true
+  passed: true
 - name: code_generator
   script: code_generator.py
   description: Generacion de codigo (8 lenguajes)
@@ -245,8 +245,8 @@ super_powers:
   description: Documentacion interactiva TF-IDF
   exists: true
   compiles: true
-  runs: true
-  passed: true
+  runs: false
+  passed: false
 - name: debug_mode
   script: debug_mode.py
   description: Modo debug paso a paso
@@ -383,13 +383,13 @@ orchestrator_integration:
   - name: cross_flow_learning
     references: 7
   - name: agent_decision_loop
-    references: 16
+    references: 15
   - name: force_quality_gates
     references: 11
   - name: user_input_collector
     references: 7
   - name: post_script_gates
-    references: 5
+    references: 4
   - name: feedback_loop
     references: 3
   - name: apolo_config

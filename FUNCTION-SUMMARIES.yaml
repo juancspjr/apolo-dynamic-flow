@@ -1,0 +1,3910 @@
+functionsummaries: V1
+version: 1
+generated_at: '2026-06-22T16:17:40Z'
+total_functions: 773
+summaries:
+- file: panel/panel.js
+  function: refresh
+  line: 53
+  summary: Returns null or None
+  method: heuristic
+- file: panel/panel.js
+  function: fetchYaml
+  line: 75
+  summary: Returns null or None
+  method: heuristic
+- file: panel/panel.js
+  function: fetchJsonl
+  line: 84
+  summary: Returns a collection
+  method: heuristic
+- file: panel/panel.js
+  function: parseYaml
+  line: 97
+  summary: Parses yaml from input
+  method: heuristic
+- file: panel/panel.js
+  function: parseScalar
+  line: 146
+  summary: Returns null or None
+  method: heuristic
+- file: panel/panel.js
+  function: renderState
+  line: 162
+  summary: Renders state view
+  method: heuristic
+- file: panel/panel.js
+  function: renderTelemetry
+  line: 193
+  summary: Renders telemetry view
+  method: heuristic
+- file: panel/panel.js
+  function: renderBlocks
+  line: 294
+  summary: Renders blocks view
+  method: heuristic
+- file: panel/panel.js
+  function: renderTools
+  line: 310
+  summary: Renders tools view
+  method: heuristic
+- file: panel/panel.js
+  function: escapeHtml
+  line: 323
+  summary: Function that processes escapeHtml
+  method: heuristic
+- file: plugin/absorbers/mcp-loader.ts
+  function: detectAvailableMcps
+  line: 62
+  summary: Detects available mcps in data
+  method: heuristic
+- file: plugin/absorbers/mcp-loader.ts
+  function: isMcpAvailable
+  line: 119
+  summary: Returns a boolean indicating isMcpAvailable
+  method: heuristic
+- file: plugin/absorbers/mcp-loader.ts
+  function: suggestMcpForTask
+  line: 129
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/absorbers/mcp-loader.ts
+  function: invokeMcp
+  line: 174
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/block-detector.ts
+  function: detectBlocks
+  line: 28
+  summary: Detects blocks in data
+  method: heuristic
+- file: plugin/block-detector.ts
+  function: countPhaseInHistory
+  line: 136
+  summary: Counts phase in history items
+  method: heuristic
+- file: plugin/block-detector.ts
+  function: countArtifactReferences
+  line: 144
+  summary: Counts artifact references items
+  method: heuristic
+- file: plugin/block-detector.ts
+  function: resolveBlock
+  line: 164
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: treePath
+  line: 113
+  summary: Function that processes treePath
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: ensureTreeDir
+  line: 117
+  summary: Function that processes ensureTreeDir
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: persistTree
+  line: 124
+  summary: Function that processes persistTree
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: loadTree
+  line: 131
+  summary: Loads tree from source
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: defaultBranches
+  line: 149
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: nextNodeId
+  line: 189
+  summary: Function that processes nextNodeId
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: createRootNode
+  line: 194
+  summary: Creates a new root node
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: getNode
+  line: 251
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: advance
+  line: 265
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: detectCircuitBreaker
+  line: 403
+  summary: Returns a boolean indicating detectCircuitBreaker
+  method: heuristic
+- file: plugin/core/loop-engine-tree.ts
+  function: exportTree
+  line: 419
+  summary: Function that processes exportTree
+  method: heuristic
+- file: plugin/core/micro-test-runner.ts
+  function: parseYaml
+  line: 39
+  summary: Parses yaml from input
+  method: heuristic
+- file: plugin/core/micro-test-runner.ts
+  function: parseScalar
+  line: 98
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/core/micro-test-runner.ts
+  function: findKeyRecursive
+  line: 117
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/core/micro-test-runner.ts
+  function: extractTestCommand
+  line: 153
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/core/micro-test-runner.ts
+  function: runTest
+  line: 195
+  summary: Runs test operation
+  method: heuristic
+- file: plugin/core/router.ts
+  function: loadRoutingRules
+  line: 104
+  summary: Loads routing rules from source
+  method: heuristic
+- file: plugin/core/router.ts
+  function: matchesCondition
+  line: 142
+  summary: Returns a boolean indicating matchesCondition
+  method: heuristic
+- file: plugin/core/router.ts
+  function: buildRoutingContext
+  line: 177
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/core/router.ts
+  function: route
+  line: 197
+  summary: Function that processes route
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: computeEntryHash
+  line: 106
+  summary: Computes entry hash value
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: getPrevHash
+  line: 116
+  summary: Gets prev hash from source
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: nextSeq
+  line: 123
+  summary: Function that processes nextSeq
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: resolveLogPath
+  line: 134
+  summary: Resolves log path reference
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: ensureLogDir
+  line: 138
+  summary: Function that processes ensureLogDir
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: log
+  line: 149
+  summary: Logs data message
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: readRecentEntries
+  line: 175
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: readAllEntries
+  line: 199
+  summary: Reads all entries from source
+  method: heuristic
+- file: plugin/core/runtime-logger.ts
+  function: createFlowLogger
+  line: 203
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/evidence-collector.ts
+  function: runCodeIndex
+  line: 91
+  summary: Runs code index operation
+  method: heuristic
+- file: plugin/evidence-collector.ts
+  function: runEvidenceScore
+  line: 192
+  summary: Runs evidence score operation
+  method: heuristic
+- file: plugin/evidence-collector.ts
+  function: collectEvidence
+  line: 285
+  summary: Collects evidence evidence
+  method: heuristic
+- file: plugin/evidence-collector.ts
+  function: isEvidenceStale
+  line: 411
+  summary: Returns a boolean indicating isEvidenceStale
+  method: heuristic
+- file: plugin/index.ts
+  function: buildContext
+  line: 591
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/index.ts
+  function: initFlowState
+  line: 619
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/index.ts
+  function: loadState
+  line: 662
+  summary: Loads state from source
+  method: heuristic
+- file: plugin/index.ts
+  function: saveState
+  line: 666
+  summary: Saves state to destination
+  method: heuristic
+- file: plugin/index.ts
+  function: appendBlock
+  line: 672
+  summary: Function that processes appendBlock
+  method: heuristic
+- file: plugin/inspector.ts
+  function: inspectState
+  line: 34
+  summary: Function that processes inspectState
+  method: heuristic
+- file: plugin/inspector.ts
+  function: inspectTools
+  line: 79
+  summary: Function that processes inspectTools
+  method: heuristic
+- file: plugin/inspector.ts
+  function: inspectBlocks
+  line: 114
+  summary: Function that processes inspectBlocks
+  method: heuristic
+- file: plugin/inspector.ts
+  function: inspectTelemetry
+  line: 156
+  summary: Function that processes inspectTelemetry
+  method: heuristic
+- file: plugin/inspector.ts
+  function: inspectEvidence
+  line: 191
+  summary: Function that processes inspectEvidence
+  method: heuristic
+- file: plugin/inspector.ts
+  function: inspectHealth
+  line: 232
+  summary: Function that processes inspectHealth
+  method: heuristic
+- file: plugin/inspector.ts
+  function: inspectAll
+  line: 268
+  summary: Function that processes inspectAll
+  method: heuristic
+- file: plugin/inspector.ts
+  function: error
+  line: 290
+  summary: Function that processes error
+  method: heuristic
+- file: plugin/loop-engine.ts
+  function: runLoopIteration
+  line: 45
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/loop-engine.ts
+  function: transit
+  line: 204
+  summary: Function that processes transit
+  method: heuristic
+- file: plugin/loop-engine.ts
+  function: blockAndStay
+  line: 255
+  summary: Function that processes blockAndStay
+  method: heuristic
+- file: plugin/loop-engine.ts
+  function: resetCounter
+  line: 328
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/loop-engine.ts
+  function: suggestResolution
+  line: 338
+  summary: Function that processes suggestResolution
+  method: heuristic
+- file: plugin/loop-engine.ts
+  function: emit
+  line: 52
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/parallel/hypothesis-runner.ts
+  function: planHypotheses
+  line: 60
+  summary: Function that processes planHypotheses
+  method: heuristic
+- file: plugin/parallel/hypothesis-runner.ts
+  function: scoreHypothesis
+  line: 94
+  summary: Scores hypothesis quality
+  method: heuristic
+- file: plugin/parallel/hypothesis-runner.ts
+  function: selectWinner
+  line: 112
+  summary: Function that processes selectWinner
+  method: heuristic
+- file: plugin/plan-generator.ts
+  function: runImpactPrediction
+  line: 93
+  summary: Runs impact prediction operation
+  method: heuristic
+- file: plugin/plan-generator.ts
+  function: generatePlan
+  line: 185
+  summary: Generates plan output
+  method: heuristic
+- file: plugin/state-machine.ts
+  function: aggregate
+  line: 273
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/state-machine.ts
+  function: canTransit
+  line: 311
+  summary: Returns a boolean indicating canTransit
+  method: heuristic
+- file: plugin/state-machine.ts
+  function: getTransitionRule
+  line: 322
+  summary: Gets transition rule from source
+  method: heuristic
+- file: plugin/state-machine.ts
+  function: evaluateGate
+  line: 329
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/state-machine.ts
+  function: nextPhase
+  line: 344
+  summary: 'Returns rule ? rule.to : null or None'
+  method: heuristic
+- file: plugin/state-machine.ts
+  function: gateForTransition
+  line: 349
+  summary: 'Returns rule ? rule.gate : null or None'
+  method: heuristic
+- file: plugin/state-machine.ts
+  function: requiredArtifactsForTransition
+  line: 354
+  summary: Function that processes requiredArtifactsForTransition
+  method: heuristic
+- file: plugin/telemetry.ts
+  function: appendEvent
+  line: 28
+  summary: Function that processes appendEvent
+  method: heuristic
+- file: plugin/telemetry.ts
+  function: readEvents
+  line: 43
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/telemetry.ts
+  function: computeStats
+  line: 70
+  summary: Computes stats value
+  method: heuristic
+- file: plugin/test-runner.ts
+  function: runScaffold
+  line: 101
+  summary: Runs scaffold operation
+  method: heuristic
+- file: plugin/test-runner.ts
+  function: runTests
+  line: 206
+  summary: Runs tests operation
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: absorbTools
+  line: 59
+  summary: Absorbs tools from external source
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: buildMcpTool
+  line: 199
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: buildSkillTool
+  line: 222
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: buildPluginTool
+  line: 243
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: buildScriptTool
+  line: 259
+  summary: Returns a collection
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: inferMcpCapabilities
+  line: 284
+  summary: Function that processes inferMcpCapabilities
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: inferSkillCapabilities
+  line: 297
+  summary: Function that processes inferSkillCapabilities
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: inferScriptCapabilities
+  line: 311
+  summary: Function that processes inferScriptCapabilities
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: verifyHealth
+  line: 329
+  summary: Returns a boolean indicating verifyHealth
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: detectConflicts
+  line: 347
+  summary: Detects conflicts in data
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: findToolByCapability
+  line: 372
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: getFallbackChain
+  line: 386
+  summary: Gets fallback chain from source
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: hotReloadRegistry
+  line: 434
+  summary: Function that processes hotReloadRegistry
+  method: heuristic
+- file: plugin/tool-absorber.ts
+  function: recommendTool
+  line: 574
+  summary: Recommends tool option
+  method: heuristic
+- file: plugin/utils.ts
+  function: v4
+  line: 14
+  summary: Function that processes v4
+  method: heuristic
+- file: plugin/utils.ts
+  function: sha256
+  line: 30
+  summary: Function that processes sha256
+  method: heuristic
+- file: plugin/utils.ts
+  function: hashFile
+  line: 34
+  summary: Function that processes hashFile
+  method: heuristic
+- file: plugin/utils.ts
+  function: hashChain
+  line: 39
+  summary: Function that processes hashChain
+  method: heuristic
+- file: plugin/utils.ts
+  function: toYaml
+  line: 53
+  summary: Returns a string value
+  method: heuristic
+- file: plugin/utils.ts
+  function: parseYaml
+  line: 106
+  summary: Implementación simple basada en indentación.
+  method: docstring
+- file: plugin/utils.ts
+  function: parseScalar
+  line: 171
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/utils.ts
+  function: ensureDir
+  line: 191
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/utils.ts
+  function: writeJson
+  line: 206
+  summary: Returns null or None
+  method: heuristic
+- file: plugin/utils.ts
+  function: writeYaml
+  line: 220
+  summary: Writes yaml to destination
+  method: heuristic
+- file: plugin/utils.ts
+  function: appendLine
+  line: 225
+  summary: Function that processes appendLine
+  method: heuristic
+- file: plugin/utils.ts
+  function: now
+  line: 234
+  summary: '<think>
+
+    The user wants a one-sentence description of what the `now` function does.
+
+    </think>
+
+
+    The `now` function returns the current date and time as an ISO 8601 formatted
+    string.'
+  method: heuristic
+- file: plugin/utils.ts
+  function: elapsedMs
+  line: 238
+  summary: Function that processes elapsedMs
+  method: heuristic
+- file: plugin/utils.ts
+  function: flowPath
+  line: 246
+  summary: Function that processes flowPath
+  method: heuristic
+- file: plugin/utils.ts
+  function: statePath
+  line: 250
+  summary: Function that processes statePath
+  method: heuristic
+- file: plugin/utils.ts
+  function: evidencePath
+  line: 254
+  summary: Function that processes evidencePath
+  method: heuristic
+- file: plugin/utils.ts
+  function: blocksPath
+  line: 258
+  summary: Function that processes blocksPath
+  method: heuristic
+- file: plugin/utils.ts
+  function: telemetryPath
+  line: 262
+  summary: Function that processes telemetryPath
+  method: heuristic
+- file: plugin/utils.ts
+  function: toolRegistryPath
+  line: 266
+  summary: Function that processes toolRegistryPath
+  method: heuristic
+- file: scripts/python/absorb_external_skills.py
+  function: parse_source_url
+  line: 114
+  summary: Parsea una URL de source y devuelve metadata estandarizada.
+  method: docstring
+- file: scripts/python/absorb_external_skills.py
+  function: fetch_url
+  line: 202
+  summary: Descarga una URL con curl. Retorna (success, content, error).
+  method: docstring
+- file: scripts/python/absorb_external_skills.py
+  function: fetch_github_tree
+  line: 215
+  summary: Iterates over collection in fetch_github_tree
+  method: heuristic
+- file: scripts/python/absorb_external_skills.py
+  function: fetch_local
+  line: 244
+  summary: Lee un archivo local.
+  method: docstring
+- file: scripts/python/absorb_external_skills.py
+  function: validate_skill_content
+  line: 259
+  summary: Valida que el contenido tenga la estructura mínima de una skill.
+  method: docstring
+- file: scripts/python/absorb_external_skills.py
+  function: infer_skill_capabilities
+  line: 304
+  summary: Infiere capabilities de una skill por nombre + contenido.
+  method: docstring
+- file: scripts/python/absorb_external_skills.py
+  function: install_skill
+  line: 365
+  summary: Conditionally processes install_skill based on logic
+  method: heuristic
+- file: scripts/python/absorb_external_skills.py
+  function: process_source
+  line: 479
+  summary: Procesa una source URL y la instala como skill.
+  method: docstring
+- file: scripts/python/absorb_external_skills.py
+  function: process_hub
+  line: 512
+  summary: Procesa un hub conocido y absorbe todas sus skills.
+  method: docstring
+- file: scripts/python/absorb_external_skills.py
+  function: main
+  line: 585
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: infer_mcp_capabilities
+  line: 42
+  summary: Function that processes infer_mcp_capabilities
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: infer_skill_capabilities
+  line: 62
+  summary: Function that processes infer_skill_capabilities
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: infer_script_capabilities
+  line: 84
+  summary: Function that processes infer_script_capabilities
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: verify_health
+  line: 106
+  summary: Verifies health integrity
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: build_mcp_tool
+  line: 113
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: build_skill_tool
+  line: 133
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: build_plugin_tool
+  line: 151
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: build_script_tool
+  line: 164
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: detect_conflicts
+  line: 182
+  summary: Iterates over collection in detect_conflicts
+  method: heuristic
+- file: scripts/python/absorb_mcp.py
+  function: main
+  line: 198
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/agent_decision_loop.py
+  function: evaluate_option
+  line: 72
+  summary: Evalua una opcion con 5 criterios.
+  method: docstring
+- file: scripts/python/agent_decision_loop.py
+  function: choose_best_option
+  line: 144
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/agent_decision_loop.py
+  function: decisions_path
+  line: 191
+  summary: Iterates over collection in decisions_path
+  method: heuristic
+- file: scripts/python/agent_decision_loop.py
+  function: log_decision
+  line: 195
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/agent_decision_loop.py
+  function: get_history
+  line: 203
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/agent_decision_loop.py
+  function: main
+  line: 230
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/agent_escape_hatch.py
+  function: escape_hatch_path
+  line: 73
+  summary: Iterates over collection in escape_hatch_path
+  method: heuristic
+- file: scripts/python/agent_escape_hatch.py
+  function: offer_escape_hatches
+  line: 77
+  summary: Ofrece escape hatches disponibles para una situacion de atasco.
+  method: docstring
+- file: scripts/python/agent_escape_hatch.py
+  function: use_escape_hatch
+  line: 112
+  summary: El agente usa un escape hatch.
+  method: docstring
+- file: scripts/python/agent_escape_hatch.py
+  function: get_history
+  line: 205
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/agent_escape_hatch.py
+  function: main
+  line: 225
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/agent_honesty_enforcer.py
+  function: load_jsonl
+  line: 91
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/agent_honesty_enforcer.py
+  function: check_done_claim
+  line: 106
+  summary: Verifica claim 'done'.
+  method: docstring
+- file: scripts/python/agent_honesty_enforcer.py
+  function: check_tests_pass_claim
+  line: 142
+  summary: Verifica claim 'tests_pass'.
+  method: docstring
+- file: scripts/python/agent_honesty_enforcer.py
+  function: check_implemented_claim
+  line: 172
+  summary: Verifica claim 'implemented'.
+  method: docstring
+- file: scripts/python/agent_honesty_enforcer.py
+  function: check_fixed_claim
+  line: 226
+  summary: Verifica claim 'fixed'.
+  method: docstring
+- file: scripts/python/agent_honesty_enforcer.py
+  function: check_no_errors_claim
+  line: 273
+  summary: Verifica claim 'no_errors'.
+  method: docstring
+- file: scripts/python/agent_honesty_enforcer.py
+  function: verify_all_claims
+  line: 306
+  summary: Verifica todos los claims que el agente podria hacer.
+  method: docstring
+- file: scripts/python/agent_honesty_enforcer.py
+  function: main
+  line: 342
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/apolo_config.py
+  function: config_path
+  line: 194
+  summary: Function that processes config_path
+  method: heuristic
+- file: scripts/python/apolo_config.py
+  function: get_config
+  line: 198
+  summary: Carga la configuracion. Si no existe, crea con defaults.
+  method: docstring
+- file: scripts/python/apolo_config.py
+  function: init_config
+  line: 209
+  summary: Crea apolo-config.yaml con defaults.
+  method: docstring
+- file: scripts/python/apolo_config.py
+  function: save_config
+  line: 220
+  summary: Iterates over collection in save_config
+  method: heuristic
+- file: scripts/python/apolo_config.py
+  function: get_threshold
+  line: 239
+  summary: Obtiene un valor por path con dots (e.g., 'gates.verdad.min_score').
+  method: docstring
+- file: scripts/python/apolo_config.py
+  function: set_threshold
+  line: 251
+  summary: Establece un valor por path con dots y persiste.
+  method: docstring
+- file: scripts/python/apolo_config.py
+  function: validate_config
+  line: 281
+  summary: Valida la configuracion contra reglas internas.
+  method: docstring
+- file: scripts/python/apolo_config.py
+  function: main
+  line: 331
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/apolo_natural.py
+  function: detect_intent
+  line: 248
+  summary: Detecta la intencion del request en lenguaje natural.
+  method: docstring
+- file: scripts/python/apolo_natural.py
+  function: execute_intent
+  line: 269
+  summary: Executes intent command
+  method: heuristic
+- file: scripts/python/apolo_natural.py
+  function: process_natural_request
+  line: 451
+  summary: Processes natural request data
+  method: heuristic
+- file: scripts/python/apolo_natural.py
+  function: main
+  line: 494
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/apolo_orchestrator.py
+  function: run_script
+  line: 111
+  summary: Ejecuta un script Python del plugin y captura resultado.
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: append_telemetry
+  line: 148
+  summary: Append event to telemetry.jsonl.
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: orch_state_path
+  line: 162
+  summary: Function that processes orch_state_path
+  method: heuristic
+- file: scripts/python/apolo_orchestrator.py
+  function: load_state
+  line: 166
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/apolo_orchestrator.py
+  function: save_state
+  line: 178
+  summary: Saves state to destination
+  method: heuristic
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_init
+  line: 188
+  summary: 'Fase 1: init + health check + cross_flow recommendations.'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_index
+  line: 220
+  summary: 'Fase 2: index + cross-language + summarize.'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_collect
+  line: 246
+  summary: 'Fase 3: collect evidence — uses user_input_collector if needs scope.'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_score
+  line: 304
+  summary: 'Fase 4: score + baseline capture (gate con apolo_config threshold).'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_plan
+  line: 357
+  summary: 'Fase 5: plan — uses agent_decision_loop to choose method.'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_impact
+  line: 433
+  summary: 'Fase 6: impact prediction (BFS with config max_depth).'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_scaffold
+  line: 453
+  summary: 'Fase 7: scaffold — DIRECTIVA 5: vinculado al orquestador (no subprocess
+    aislado).'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_implement
+  line: 548
+  summary: 'Fase 8: implement — EXECUTES scaffold commands + captures visual diff
+    + smart rollback on fail.'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_test
+  line: 689
+  summary: 'Fase 9: test — force_quality_gates bloquea si falla.'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_validate
+  line: 717
+  summary: 'Fase 10: validate — all quality gates + cross_flow analyze.'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: phase_complete
+  line: 744
+  summary: 'Fase 11: complete — honesty check + feedback + pre-commit hooks + merge.'
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: run_cycle
+  line: 819
+  summary: Ejecuta el ciclo completo integrando TODOS los super poderes.
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: continue_cycle
+  line: 952
+  summary: Continua desde donde se pauso.
+  method: docstring
+- file: scripts/python/apolo_orchestrator.py
+  function: get_status
+  line: 967
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/apolo_orchestrator.py
+  function: main
+  line: 982
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: hooks_config_path
+  line: 237
+  summary: Function that processes hooks_config_path
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: hooks_log_path
+  line: 241
+  summary: Function that processes hooks_log_path
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: load_config
+  line: 245
+  summary: Loads config from source
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: init_config
+  line: 253
+  summary: Reads or writes file in init_config
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: save_config
+  line: 263
+  summary: Reads or writes file in save_config
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: log_hook_execution
+  line: 271
+  summary: Reads or writes file in log_hook_execution
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: evaluate_condition
+  line: 283
+  summary: Function that processes evaluate_condition
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: execute_script
+  line: 332
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: fire_trigger
+  line: 379
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: get_status
+  line: 445
+  summary: Iterates over collection in get_status
+  method: heuristic
+- file: scripts/python/auto_hooks.py
+  function: main
+  line: 493
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/code_generator.py
+  function: generate_python_function
+  line: 28
+  summary: Genera una función Python desde plantilla.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_python_class
+  line: 42
+  summary: Genera una clase Python desde plantilla.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_typescript_function
+  line: 64
+  summary: Genera una función TypeScript.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_typescript_class
+  line: 81
+  summary: Genera una clase TypeScript.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_go_function
+  line: 106
+  summary: Genera una función Go.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_go_struct
+  line: 121
+  summary: Genera un struct Go con métodos.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_rust_function
+  line: 144
+  summary: Genera una función Rust.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_java_class
+  line: 158
+  summary: Genera una clase Java.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_cpp_class
+  line: 184
+  summary: Genera una clase C++.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_php_class
+  line: 208
+  summary: Genera una clase PHP.
+  method: docstring
+- file: scripts/python/code_generator.py
+  function: generate_with_llm
+  line: 247
+  summary: "Returns None\n\n        prompt_parts = [f\"Generate a {code_type} in {l\
+    \ or None"
+  method: heuristic
+- file: scripts/python/code_generator.py
+  function: generate
+  line: 275
+  summary: Conditionally processes generate based on logic
+  method: heuristic
+- file: scripts/python/code_generator.py
+  function: main
+  line: 298
+  summary: Conditionally processes main based on logic
+  method: heuristic
+- file: scripts/python/code_quality.py
+  function: detect_language
+  line: 115
+  summary: Detecta el lenguaje de un archivo por su extensión.
+  method: docstring
+- file: scripts/python/code_quality.py
+  function: list_source_files
+  line: 120
+  summary: Iterates over collection in list_source_files
+  method: heuristic
+- file: scripts/python/code_quality.py
+  function: run_bandit
+  line: 159
+  summary: Corre bandit sobre un archivo Python. Devuelve (findings, available).
+  method: docstring
+- file: scripts/python/code_quality.py
+  function: run_gosec
+  line: 188
+  summary: Corre gosec sobre un archivo Go. Devuelve (findings, available).
+  method: docstring
+- file: scripts/python/code_quality.py
+  function: run_cppcheck
+  line: 216
+  summary: Corre cppcheck sobre un archivo C/C++. Devuelve (findings, available).
+  method: docstring
+- file: scripts/python/code_quality.py
+  function: run_eslint_security
+  line: 242
+  summary: Corre eslint con eslint-plugin-security sobre JS/TS.
+  method: docstring
+- file: scripts/python/code_quality.py
+  function: run_security_for_language
+  line: 274
+  summary: "Returns findings, ok, \"bandit\" if ok else None\n    if language in (\"\
+    \ or None"
+  method: heuristic
+- file: scripts/python/code_quality.py
+  function: run_radon_cc
+  line: 303
+  summary: Corre radon cc sobre un archivo Python. Devuelve (functions, available).
+  method: docstring
+- file: scripts/python/code_quality.py
+  function: run_gocyclo
+  line: 327
+  summary: Corre gocyclo sobre un archivo Go.
+  method: docstring
+- file: scripts/python/code_quality.py
+  function: estimate_complexity_regex
+  line: 348
+  summary: Estima complejidad ciclomática por conteo de keywords de branching.
+  method: docstring
+- file: scripts/python/code_quality.py
+  function: compute_complexity
+  line: 444
+  summary: Computes complexity value
+  method: heuristic
+- file: scripts/python/code_quality.py
+  function: analyze_repo
+  line: 469
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/code_quality.py
+  function: main
+  line: 593
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/code_smells.py
+  function: detect_long_methods
+  line: 40
+  summary: Detecta métodos largos (>50 líneas).
+  method: docstring
+- file: scripts/python/code_smells.py
+  function: detect_god_classes
+  line: 86
+  summary: Detecta god classes (>10 métodos).
+  method: docstring
+- file: scripts/python/code_smells.py
+  function: detect_deep_nesting
+  line: 104
+  summary: Detecta nesting profundo (>4 niveles).
+  method: docstring
+- file: scripts/python/code_smells.py
+  function: detect_duplication
+  line: 139
+  summary: Detecta código duplicado (funciones con >80% similitud en nombres de variables).
+  method: docstring
+- file: scripts/python/code_smells.py
+  function: detect_dead_code
+  line: 191
+  summary: Detecta funciones/clases exportadas que nunca son referenciadas.
+  method: docstring
+- file: scripts/python/code_smells.py
+  function: compute_complexity_native
+  line: 256
+  summary: Computa complejidad ciclomática con herramientas nativas.
+  method: docstring
+- file: scripts/python/code_smells.py
+  function: main
+  line: 343
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: collect_file_snapshot
+  line: 64
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: collect_git_diff
+  line: 96
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: collect_git_log
+  line: 112
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: collect_endpoint_probe
+  line: 128
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: collect_db_query
+  line: 166
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: collect_screenshot
+  line: 199
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: collect_symbol_list
+  line: 257
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: collect_schema_validation
+  line: 279
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/collect_evidence.py
+  function: main
+  line: 334
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/common.py
+  function: now_iso
+  line: 44
+  summary: Function that processes now_iso
+  method: heuristic
+- file: scripts/python/common.py
+  function: elapsed_ms
+  line: 48
+  summary: Iterates over collection in elapsed_ms
+  method: heuristic
+- file: scripts/python/common.py
+  function: sha256
+  line: 60
+  summary: Iterates over collection in sha256
+  method: heuristic
+- file: scripts/python/common.py
+  function: hash_file
+  line: 66
+  summary: Iterates over collection in hash_file
+  method: heuristic
+- file: scripts/python/common.py
+  function: hash_chain
+  line: 74
+  summary: Iterates over collection in hash_chain
+  method: heuristic
+- file: scripts/python/common.py
+  function: yaml_dump
+  line: 83
+  summary: Serializa a YAML usando PyYAML (v2.3.0 — hard dependency).
+  method: docstring
+- file: scripts/python/common.py
+  function: yaml_load
+  line: 88
+  summary: Parsea YAML usando PyYAML (v2.3.0 — hard dependency).
+  method: docstring
+- file: scripts/python/common.py
+  function: read_yaml
+  line: 111
+  summary: Lee YAML con lock de lectura (v2.3.0 — concurrency safe).
+  method: docstring
+- file: scripts/python/common.py
+  function: write_yaml
+  line: 131
+  summary: Escribe YAML atómicamente (v2.3.0 — tempfile + rename + lock).
+  method: docstring
+- file: scripts/python/common.py
+  function: read_json
+  line: 176
+  summary: "Returns None\n    try:\n        return json.loads(p.read_text(encoding\
+    \ or None"
+  method: heuristic
+- file: scripts/python/common.py
+  function: write_json
+  line: 186
+  summary: Escribe JSON atómicamente (v2.3.0).
+  method: docstring
+- file: scripts/python/common.py
+  function: run_cmd
+  line: 218
+  summary: Runs cmd operation
+  method: heuristic
+- file: scripts/python/common.py
+  function: cmd_available
+  line: 245
+  summary: Function that processes cmd_available
+  method: heuristic
+- file: scripts/python/common.py
+  function: detect_capabilities
+  line: 254
+  summary: Detects capabilities in data
+  method: heuristic
+- file: scripts/python/common.py
+  function: gen_uuid
+  line: 294
+  summary: Function that processes gen_uuid
+  method: heuristic
+- file: scripts/python/common.py
+  function: gen_run_id
+  line: 298
+  summary: Function that processes gen_run_id
+  method: heuristic
+- file: scripts/python/common.py
+  function: gen_evidence_id
+  line: 302
+  summary: Function that processes gen_evidence_id
+  method: heuristic
+- file: scripts/python/common.py
+  function: gen_block_id
+  line: 306
+  summary: Function that processes gen_block_id
+  method: heuristic
+- file: scripts/python/common.py
+  function: flow_dir
+  line: 315
+  summary: Function that processes flow_dir
+  method: heuristic
+- file: scripts/python/common.py
+  function: evidence_path
+  line: 319
+  summary: Iterates over collection in evidence_path
+  method: heuristic
+- file: scripts/python/common.py
+  function: state_path
+  line: 323
+  summary: Iterates over collection in state_path
+  method: heuristic
+- file: scripts/python/common.py
+  function: blocks_path
+  line: 327
+  summary: Iterates over collection in blocks_path
+  method: heuristic
+- file: scripts/python/common.py
+  function: telemetry_path
+  line: 331
+  summary: Iterates over collection in telemetry_path
+  method: heuristic
+- file: scripts/python/common.py
+  function: tool_registry_path
+  line: 335
+  summary: Iterates over collection in tool_registry_path
+  method: heuristic
+- file: scripts/python/common.py
+  function: validate_required
+  line: 343
+  summary: Iterates over collection in validate_required
+  method: heuristic
+- file: scripts/python/common.py
+  function: validate_enum
+  line: 353
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/common.py
+  function: validate_pattern
+  line: 361
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/common.py
+  function: parse_args
+  line: 373
+  summary: 'Parser simple: --key value o --flag.'
+  method: docstring
+- file: scripts/python/common.py
+  function: log
+  line: 392
+  summary: 'Returns out if code == 0 else None
+
+
+
+    def git_log(repo_root: Path, n: or None'
+  method: heuristic
+- file: scripts/python/common.py
+  function: git_diff
+  line: 400
+  summary: 'Returns out if code == 0 else None
+
+
+
+    def git_log(repo_root: Path, n: or None'
+  method: heuristic
+- file: scripts/python/common.py
+  function: git_log
+  line: 405
+  summary: 'Returns out if code == 0 else None
+
+
+
+    def git_status(repo_root: Path) or None'
+  method: heuristic
+- file: scripts/python/common.py
+  function: git_status
+  line: 414
+  summary: 'Returns out if code == 0 else None
+
+
+
+    def git_head_sha(repo_root: Pat or None'
+  method: heuristic
+- file: scripts/python/common.py
+  function: git_head_sha
+  line: 419
+  summary: 'Returns out.strip() if code == 0 else None
+
+
+
+    # ===================== or None'
+  method: heuristic
+- file: scripts/python/common.py
+  function: list_files
+  line: 428
+  summary: Lista archivos que matchean alguno de los patrones (glob).
+  method: docstring
+- file: scripts/python/common.py
+  function: read_file_summary
+  line: 440
+  summary: Iterates over collection in read_file_summary
+  method: heuristic
+- file: scripts/python/common.py
+  function: extract_symbols_go
+  line: 453
+  summary: Extrae nombres de funciones/structs/interfaces de un .go.
+  method: docstring
+- file: scripts/python/common.py
+  function: extract_symbols_ts
+  line: 465
+  summary: Extrae nombres de funciones/clases/interfaces de un .ts.
+  method: docstring
+- file: scripts/python/common.py
+  function: extract_symbols_py
+  line: 479
+  summary: Extrae nombres de funciones/clases de un .py.
+  method: docstring
+- file: scripts/python/common.py
+  function: extract_symbols
+  line: 491
+  summary: Extracts symbols from data
+  method: heuristic
+- file: scripts/python/context_query.py
+  function: match_question
+  line: 71
+  summary: Identifica qué handler usar para la pregunta.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: flow_dir
+  line: 84
+  summary: Function that processes flow_dir
+  method: heuristic
+- file: scripts/python/context_query.py
+  function: handler_next_phase
+  line: 88
+  summary: Lee FLOW-STATE.yaml y devuelve la siguiente fase esperada.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_active_blocks
+  line: 114
+  summary: Lee BLOCK-LOG.yaml y devuelve bloqueos activos.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_recent_events
+  line: 134
+  summary: Lee telemetry.jsonl y devuelve últimos 10 eventos.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_available_tools
+  line: 161
+  summary: Lee TOOL-REGISTRY.yaml y devuelve tools activas.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_evidence_summary
+  line: 181
+  summary: Lee EVIDENCE-PACK.yaml y devuelve resumen.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_evidence_score
+  line: 202
+  summary: Lee EVIDENCE-SCORE.yaml y devuelve scores.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_files_for_unit
+  line: 213
+  summary: Lee DYNAMIC-PLAN.yaml + CODE-INDEX.yaml y devuelve archivos para una unidad.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_impact_prediction
+  line: 257
+  summary: Lee IMPACT-PREDICTION.yaml y devuelve resumen.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_scaffold_summary
+  line: 276
+  summary: Lee IMPL-SCAFFOLD-*.yaml y devuelve resumen.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_code_index_summary
+  line: 295
+  summary: Lee CODE-INDEX.yaml y devuelve resumen.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_plan_summary
+  line: 308
+  summary: Lee DYNAMIC-PLAN.yaml y devuelve resumen.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_flow_state
+  line: 334
+  summary: Lee FLOW-STATE.yaml y devuelve estado completo.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_missing_artifacts
+  line: 349
+  summary: Verifica qué artefactos faltan para avanzar.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_available_mcps
+  line: 380
+  summary: Lista MCPs disponibles del TOOL-REGISTRY.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_recommended_mcp
+  line: 400
+  summary: Recomienda qué MCP usar para una tarea.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_health_check
+  line: 450
+  summary: Health check rápido de tools del registry.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_full_summary
+  line: 458
+  summary: Resumen completo del estado del flow.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: handler_unknown
+  line: 474
+  summary: Handler para preguntas no reconocidas.
+  method: docstring
+- file: scripts/python/context_query.py
+  function: answer
+  line: 522
+  summary: 'Punto de entrada principal: dada una pregunta, devuelve respuesta.'
+  method: docstring
+- file: scripts/python/context_query.py
+  function: main
+  line: 560
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/cross_flow_learning.py
+  function: knowledge_path
+  line: 52
+  summary: Iterates over collection in knowledge_path
+  method: heuristic
+- file: scripts/python/cross_flow_learning.py
+  function: load_jsonl
+  line: 56
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/cross_flow_learning.py
+  function: parse_timestamp
+  line: 71
+  summary: "Returns None\n    try:\n        if ts.endswith(\"Z\"):\n            retur\
+    \ or None"
+  method: heuristic
+- file: scripts/python/cross_flow_learning.py
+  function: analyze_flow
+  line: 89
+  summary: Analiza un flow individual y extrae metricas + patrones.
+  method: docstring
+- file: scripts/python/cross_flow_learning.py
+  function: analyze_all_flows
+  line: 172
+  summary: Analiza todos los flows y construye base de conocimiento.
+  method: docstring
+- file: scripts/python/cross_flow_learning.py
+  function: recommend_for_flow
+  line: 283
+  summary: Recommends for flow option
+  method: heuristic
+- file: scripts/python/cross_flow_learning.py
+  function: find_similar_flows
+  line: 362
+  summary: Encuentra flows similares basandose en phases visitadas y tools usados.
+  method: docstring
+- file: scripts/python/cross_flow_learning.py
+  function: get_stats
+  line: 423
+  summary: Estadisticas del aprendizaje.
+  method: docstring
+- file: scripts/python/cross_flow_learning.py
+  function: main
+  line: 451
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/cross_language_analyzer.py
+  function: detect_language_calls
+  line: 112
+  summary: Detecta llamadas cross-lenguaje en un archivo.
+  method: docstring
+- file: scripts/python/cross_language_analyzer.py
+  function: build_cross_language_map
+  line: 267
+  summary: Construye el mapa de dependencias cross-lenguaje.
+  method: docstring
+- file: scripts/python/cross_language_analyzer.py
+  function: main
+  line: 325
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/data_flow_validator.py
+  function: check_artifact
+  line: 99
+  summary: Verifica que un artefacto existe y tiene la estructura correcta.
+  method: docstring
+- file: scripts/python/data_flow_validator.py
+  function: validate_data_flow
+  line: 151
+  summary: Verifica que todos los artefactos del flow existen y son validos.
+  method: docstring
+- file: scripts/python/data_flow_validator.py
+  function: trace_flow
+  line: 208
+  summary: Traza el flujo completo de un flow existente.
+  method: docstring
+- file: scripts/python/data_flow_validator.py
+  function: main
+  line: 236
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/debug_mode.py
+  function: breakpoints_path
+  line: 55
+  summary: Function that processes breakpoints_path
+  method: heuristic
+- file: scripts/python/debug_mode.py
+  function: trace_path
+  line: 59
+  summary: Function that processes trace_path
+  method: heuristic
+- file: scripts/python/debug_mode.py
+  function: set_breakpoints
+  line: 63
+  summary: Define breakpoints para un flow.
+  method: docstring
+- file: scripts/python/debug_mode.py
+  function: clear_breakpoints
+  line: 84
+  summary: Limpia breakpoints (todos o solo los especificados).
+  method: docstring
+- file: scripts/python/debug_mode.py
+  function: is_breakpoint
+  line: 106
+  summary: Verifica si una fase es breakpoint (consultado por el loop engine TS).
+  method: docstring
+- file: scripts/python/debug_mode.py
+  function: append_trace
+  line: 117
+  summary: Agrega un evento al trace de debug (append-only).
+  method: docstring
+- file: scripts/python/debug_mode.py
+  function: get_trace
+  line: 127
+  summary: Lee el trace de debug.
+  method: docstring
+- file: scripts/python/debug_mode.py
+  function: inspect_state
+  line: 149
+  summary: Inspecciona el estado actual del flow.
+  method: docstring
+- file: scripts/python/debug_mode.py
+  function: is_breakpoint_active
+  line: 172
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/debug_mode.py
+  function: backtrace
+  line: 193
+  summary: Construye un backtrace de decisiones desde el trace + telemetry.
+  method: docstring
+- file: scripts/python/debug_mode.py
+  function: step
+  line: 235
+  summary: Avanza un paso en el flow (en modo debug).
+  method: docstring
+- file: scripts/python/debug_mode.py
+  function: main
+  line: 320
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/doc_generator.py
+  function: generate_python_docstring
+  line: 33
+  summary: Genera docstring Python (Google style).
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: generate_jsdoc
+  line: 47
+  summary: Genera JSDoc para TypeScript/JavaScript.
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: generate_go_doc
+  line: 60
+  summary: Genera comentario Go.
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: generate_rust_doc
+  line: 65
+  summary: Genera comentario Rust.
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: generate_java_doc
+  line: 75
+  summary: Genera JavaDoc.
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: generate_readme_section
+  line: 86
+  summary: Genera una sección de README.
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: generate_api_docs
+  line: 162
+  summary: Genera API docs desde el code index.
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: generate_changelog_entry
+  line: 193
+  summary: Genera entrada de changelog desde git log.
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: generate_docstrings_for_file
+  line: 210
+  summary: Genera docstrings para funciones sin documentación en un archivo.
+  method: docstring
+- file: scripts/python/doc_generator.py
+  function: main
+  line: 251
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/evidence_replay.py
+  function: parse_timestamp
+  line: 47
+  summary: Parsea timestamp ISO 8601 con o sin Z.
+  method: docstring
+- file: scripts/python/evidence_replay.py
+  function: load_jsonl
+  line: 62
+  summary: Carga un archivo JSON Lines.
+  method: docstring
+- file: scripts/python/evidence_replay.py
+  function: build_timeline
+  line: 78
+  summary: Iterates over collection in build_timeline
+  method: heuristic
+- file: scripts/python/evidence_replay.py
+  function: find_bug_replay
+  line: 175
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/evidence_replay.py
+  function: find_patterns
+  line: 296
+  summary: Busca patrones de fallo en todos los flows.
+  method: docstring
+- file: scripts/python/evidence_replay.py
+  function: list_flows
+  line: 351
+  summary: Lista flows con telemetry disponible.
+  method: docstring
+- file: scripts/python/evidence_replay.py
+  function: main
+  line: 386
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/evidence_visual_diff.py
+  function: snapshots_dir
+  line: 52
+  summary: Iterates over collection in snapshots_dir
+  method: heuristic
+- file: scripts/python/evidence_visual_diff.py
+  function: capture_snapshot
+  line: 56
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/evidence_visual_diff.py
+  function: load_snapshot
+  line: 134
+  summary: Carga un snapshot por phase (el mas reciente) o por snapshot_id.
+  method: docstring
+- file: scripts/python/evidence_visual_diff.py
+  function: generate_diff
+  line: 153
+  summary: Iterates over collection in generate_diff
+  method: heuristic
+- file: scripts/python/evidence_visual_diff.py
+  function: compare_all_phases
+  line: 246
+  summary: Compara baseline vs broken vs post-fix.
+  method: docstring
+- file: scripts/python/evidence_visual_diff.py
+  function: list_snapshots
+  line: 290
+  summary: Lista todos los snapshots capturados.
+  method: docstring
+- file: scripts/python/evidence_visual_diff.py
+  function: main
+  line: 311
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/feedback_loop.py
+  function: feedback_path
+  line: 53
+  summary: Iterates over collection in feedback_path
+  method: heuristic
+- file: scripts/python/feedback_loop.py
+  function: add_feedback
+  line: 57
+  summary: Iterates over collection in add_feedback
+  method: heuristic
+- file: scripts/python/feedback_loop.py
+  function: list_feedback
+  line: 92
+  summary: Lista feedback, opcionalmente filtrado por flowid.
+  method: docstring
+- file: scripts/python/feedback_loop.py
+  function: search_feedback
+  line: 113
+  summary: Busca feedback por tag o texto en comment.
+  method: docstring
+- file: scripts/python/feedback_loop.py
+  function: aggregate_feedback
+  line: 138
+  summary: Agrega feedback para consumo de self_healing.py.
+  method: docstring
+- file: scripts/python/feedback_loop.py
+  function: main
+  line: 221
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/flow_verifier.py
+  function: verify_script_exists
+  line: 94
+  summary: Verifies script exists integrity
+  method: heuristic
+- file: scripts/python/flow_verifier.py
+  function: verify_script_compiles
+  line: 98
+  summary: Verifies script compiles integrity
+  method: heuristic
+- file: scripts/python/flow_verifier.py
+  function: verify_script_runs
+  line: 106
+  summary: Verifica que el script responde a invocacion basica (no crashea al arrancar).
+  method: docstring
+- file: scripts/python/flow_verifier.py
+  function: verify_orchestrator_integration
+  line: 150
+  summary: Verifica que el orquestador integra los super poderes.
+  method: docstring
+- file: scripts/python/flow_verifier.py
+  function: verify_cli_router
+  line: 179
+  summary: Verifica que el CLI router tiene los comandos esperados.
+  method: docstring
+- file: scripts/python/flow_verifier.py
+  function: verify_all
+  line: 201
+  summary: Ejecuta todas las verificaciones.
+  method: docstring
+- file: scripts/python/flow_verifier.py
+  function: main
+  line: 306
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/force_quality_gates.py
+  function: load_jsonl
+  line: 114
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/force_quality_gates.py
+  function: check_phases_completed
+  line: 129
+  summary: 'QG-01: Verifica que las fases requeridas esten completadas.'
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: check_no_errors_in_telemetry
+  line: 151
+  summary: 'QG-02: Verifica que no haya errores en telemetry.'
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: check_evidence_has_items
+  line: 168
+  summary: 'QG-03: Verifica que evidence pack tenga items.'
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: check_errors_reported
+  line: 186
+  summary: 'QG-04: Verifica que errores hayan sido reportados (no ocultos).'
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: check_tests_passing
+  line: 204
+  summary: 'QG-05: Verifica que los tests esten pasando.'
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: check_scaffold_referenced
+  line: 225
+  summary: 'QG-06: Verifica que el scaffold fue referenciado (warn only).'
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: check_no_new_test_failures
+  line: 243
+  summary: 'QG-07: Verifica que no haya nuevas fallas de tests.'
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: run_all_gates
+  line: 278
+  summary: Ejecuta todos los quality gates.
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: gates_state_path
+  line: 322
+  summary: Function that processes gates_state_path
+  method: heuristic
+- file: scripts/python/force_quality_gates.py
+  function: reset_gates
+  line: 326
+  summary: Reset gates bloqueados (despues de fix).
+  method: docstring
+- file: scripts/python/force_quality_gates.py
+  function: main
+  line: 338
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/full_audit.py
+  function: run_script
+  line: 71
+  summary: Ejecuta un script Python y captura resultado.
+  method: docstring
+- file: scripts/python/full_audit.py
+  function: main
+  line: 104
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/generate_plan.py
+  function: detect_dominant_axis
+  line: 84
+  summary: Detecta el eje dominante de un cluster por sus acoplamientos.
+  method: docstring
+- file: scripts/python/generate_plan.py
+  function: estimate_mps
+  line: 115
+  summary: Estima número de MPs por símbolos acoplados.
+  method: docstring
+- file: scripts/python/generate_plan.py
+  function: should_split
+  line: 129
+  summary: Determina si un cluster debe partirse y cómo.
+  method: docstring
+- file: scripts/python/generate_plan.py
+  function: cluster_to_unit
+  line: 153
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/generate_plan.py
+  function: topological_sort
+  line: 221
+  summary: Ordena units por dependenciasprevias. Asume dependencias son unit_ids.
+  method: docstring
+- file: scripts/python/generate_plan.py
+  function: default_adaptative_gates
+  line: 259
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/generate_plan.py
+  function: main
+  line: 298
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/generate_tests.py
+  function: find_untested_symbols
+  line: 37
+  summary: Encuentra funciones exportadas sin test.
+  method: docstring
+- file: scripts/python/generate_tests.py
+  function: generate_stub
+  line: 72
+  summary: Genera test stub determinista.
+  method: docstring
+- file: scripts/python/generate_tests.py
+  function: generate_with_llm
+  line: 132
+  summary: Usa LLM para generar test significativo.
+  method: docstring
+- file: scripts/python/generate_tests.py
+  function: main
+  line: 143
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/github_actions.py
+  function: generate_workflows
+  line: 124
+  summary: Genera todos los workflows.
+  method: docstring
+- file: scripts/python/github_actions.py
+  function: main
+  line: 147
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/guided_recovery.py
+  function: diagnose_error
+  line: 88
+  summary: Diagnostica un error y propone recovery.
+  method: docstring
+- file: scripts/python/guided_recovery.py
+  function: suggest_recovery
+  line: 155
+  summary: Sugiere recovery para un tipo de error conocido.
+  method: docstring
+- file: scripts/python/guided_recovery.py
+  function: main
+  line: 170
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/health_check.py
+  function: check_file_exists
+  line: 55
+  summary: Verifica que el archivo de un script existe.
+  method: docstring
+- file: scripts/python/health_check.py
+  function: check_mcp_ping
+  line: 72
+  summary: Verifica que un MCP responde (intenta --version o similar).
+  method: docstring
+- file: scripts/python/health_check.py
+  function: check_command_exit
+  line: 106
+  summary: Ejecuta el comando de health_check y verifica exit code.
+  method: docstring
+- file: scripts/python/health_check.py
+  function: check_tool_health
+  line: 124
+  summary: Dispatch al checker apropiado según el tipo de tool.
+  method: docstring
+- file: scripts/python/health_check.py
+  function: discover_new_scripts
+  line: 148
+  summary: Descubre scripts Python nuevos en scripts/python/ que no están en el registry.
+  method: docstring
+- file: scripts/python/health_check.py
+  function: detect_missing_tools
+  line: 227
+  summary: Detecta tools en el registry cuyo archivo fue eliminado.
+  method: docstring
+- file: scripts/python/health_check.py
+  function: main
+  line: 247
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/hooks_validator.py
+  function: check_opencode_binary
+  line: 61
+  summary: Verifica si el binario opencode está disponible.
+  method: docstring
+- file: scripts/python/hooks_validator.py
+  function: check_opencode_json
+  line: 108
+  summary: Verifica opencode.json.
+  method: docstring
+- file: scripts/python/hooks_validator.py
+  function: check_plugin_loaded
+  line: 164
+  summary: Verifica que el plugin apolo-dynamic-flow está registrado en opencode.json.
+  method: docstring
+- file: scripts/python/hooks_validator.py
+  function: check_plugin_compiled
+  line: 221
+  summary: Verifica que el plugin está compilado (dist/ existe).
+  method: docstring
+- file: scripts/python/hooks_validator.py
+  function: check_hooks_registered
+  line: 262
+  summary: Verifica que los hooks requeridos están registrados en el código del plugin.
+  method: docstring
+- file: scripts/python/hooks_validator.py
+  function: check_mcps
+  line: 319
+  summary: Verifica que los MCPs esenciales están configurados.
+  method: docstring
+- file: scripts/python/hooks_validator.py
+  function: check_hook_functional
+  line: 362
+  summary: 'Test funcional: simula invocar un hook y verifica que el plugin responde.'
+  method: docstring
+- file: scripts/python/hooks_validator.py
+  function: try_fix
+  line: 410
+  summary: Intenta reparar problemas menores.
+  method: docstring
+- file: scripts/python/hooks_validator.py
+  function: main
+  line: 434
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/index_codebase.py
+  function: git_last_modified
+  line: 88
+  summary: Retorna ISO timestamp de la última modificación git del archivo.
+  method: docstring
+- file: scripts/python/index_codebase.py
+  function: git_is_tracked
+  line: 104
+  summary: Function that processes git_is_tracked
+  method: heuristic
+- file: scripts/python/index_codebase.py
+  function: extract_python_symbols
+  line: 121
+  summary: Extrae símbolos de un archivo Python usando el módulo `ast` (stdlib).
+  method: docstring
+- file: scripts/python/index_codebase.py
+  function: extract_ts_symbols
+  line: 229
+  summary: Extrae símbolos de TS/JS usando regex (no AST — fallback robusto).
+  method: docstring
+- file: scripts/python/index_codebase.py
+  function: extract_go_symbols
+  line: 366
+  summary: Extrae símbolos de Go usando regex.
+  method: docstring
+- file: scripts/python/index_codebase.py
+  function: generate_summary
+  line: 423
+  summary: Genera un resumen determinista de 2 líneas basado en los símbolos extraídos.
+  method: docstring
+- file: scripts/python/index_codebase.py
+  function: discover_files
+  line: 480
+  summary: Iterates over collection in discover_files
+  method: heuristic
+- file: scripts/python/index_codebase.py
+  function: index_file
+  line: 513
+  summary: 'Indexa un archivo: extrae símbolos, hash, git-mtime, summary.'
+  method: docstring
+- file: scripts/python/index_codebase.py
+  function: build_dependency_graph
+  line: 568
+  summary: 'Construye grafo de dependencias: file -> [files it imports].'
+  method: docstring
+- file: scripts/python/index_codebase.py
+  function: build_reverse_dependency_graph
+  line: 594
+  summary: 'Construye grafo reverso: file -> [files that import it].'
+  method: docstring
+- file: scripts/python/index_codebase.py
+  function: main
+  line: 609
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/inspect_tools.py
+  function: main
+  line: 23
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/install_deps.py
+  function: check_dep
+  line: 33
+  summary: Checks if dep is valid
+  method: heuristic
+- file: scripts/python/install_deps.py
+  function: install_package
+  line: 41
+  summary: Iterates over collection in install_package
+  method: heuristic
+- file: scripts/python/install_deps.py
+  function: main
+  line: 55
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/integration_validation.py
+  function: find_script
+  line: 98
+  summary: Encuentra un script por nombre en scripts/python/.
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: run_named_script
+  line: 107
+  summary: Ejecuta un script y retorna (exit_code, stdout, stderr, duration_ms).
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: parse_json_from_stdout
+  line: 119
+  summary: Extrae JSON de stdout (puede tener logs antes).
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: phase_init
+  line: 136
+  summary: 'Fase 1: init-flow via apolo-inspect.sh.'
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: phase_index_codebase
+  line: 168
+  summary: 'Fase 2: index_codebase.py explícito.'
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: phase_collect_evidence
+  line: 199
+  summary: 'Fase 3: collect_evidence.py explícito.'
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: phase_score_evidence
+  line: 240
+  summary: 'Fase 4: score_evidence.py explícito.'
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: phase_generate_plan
+  line: 276
+  summary: 'Fase 5: generate_plan.py (modo hybrid).'
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: phase_predict_impact
+  line: 316
+  summary: 'Fase 6: predict_impact.py explícito.'
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: phase_scaffold
+  line: 358
+  summary: 'Fase 7: scaffold_impl.py — verificar que produce andamio concreto.'
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: verify_telemetry
+  line: 430
+  summary: Verifica que telemetry.jsonl registra cada decisión con timestamps reales.
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: analyze_test_contracts
+  line: 483
+  summary: Analiza si los tests validan contratos de integración o solo scripts aislados.
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: build_verdict
+  line: 540
+  summary: Construye el veredicto honesto final.
+  method: docstring
+- file: scripts/python/integration_validation.py
+  function: main
+  line: 625
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/integration_validator.py
+  function: validate_handoff_contracts
+  line: 117
+  summary: Valida que cada handoff tenga la estructura correcta.
+  method: docstring
+- file: scripts/python/integration_validator.py
+  function: validate_static_dependencies
+  line: 149
+  summary: Analiza estaticamente que los scripts se importan/invocan correctamente.
+  method: docstring
+- file: scripts/python/integration_validator.py
+  function: validate_orchestrator_data_flow
+  line: 207
+  summary: Verifica que el orquestador invoca scripts en el orden correcto.
+  method: docstring
+- file: scripts/python/integration_validator.py
+  function: validate_all
+  line: 263
+  summary: Ejecuta todas las validaciones de integracion.
+  method: docstring
+- file: scripts/python/integration_validator.py
+  function: main
+  line: 315
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/interactive_docs.py
+  function: tokenize
+  line: 77
+  summary: Tokeniza texto en palabras minúsculas, sin stop words.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: extract_docstring_py
+  line: 84
+  summary: Extrae el docstring principal y ejemplos de un archivo Python.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: extract_header_ts
+  line: 120
+  summary: Extrae el comentario de encabezado de un archivo TypeScript.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: extract_header_bash
+  line: 139
+  summary: Extrae comentarios de encabezado de un script bash.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: index_markdown
+  line: 157
+  summary: Indexa un archivo Markdown.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: index_python
+  line: 195
+  summary: Indexa un script Python.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: index_typescript
+  line: 213
+  summary: Indexa un archivo TypeScript.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: index_bash
+  line: 229
+  summary: Indexa un script bash.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: build_index
+  line: 245
+  summary: Construye el índice de documentación.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: search_docs
+  line: 329
+  summary: Busca documentos por query usando TF-IDF.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: contextual_suggestions
+  line: 360
+  summary: Retorna sugerencias contextuales basadas en la fase actual del flow.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: get_examples
+  line: 370
+  summary: Obtiene ejemplos de uso de un script específico.
+  method: docstring
+- file: scripts/python/interactive_docs.py
+  function: docs_index_path
+  line: 378
+  summary: Function that processes docs_index_path
+  method: heuristic
+- file: scripts/python/interactive_docs.py
+  function: main
+  line: 382
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/llm_bridge.py
+  function: get_api_base
+  line: 38
+  summary: Gets api base from source
+  method: heuristic
+- file: scripts/python/llm_bridge.py
+  function: get_api_key
+  line: 42
+  summary: Gets api key from source
+  method: heuristic
+- file: scripts/python/llm_bridge.py
+  function: get_model
+  line: 46
+  summary: Gets model from source
+  method: heuristic
+- file: scripts/python/llm_bridge.py
+  function: is_available
+  line: 50
+  summary: Retorna True si hay API key configurada.
+  method: docstring
+- file: scripts/python/llm_bridge.py
+  function: chat
+  line: 123
+  summary: "Returns None\n\n    # Check cache\n    if use_cache:\n        cache =\
+    \ _l or None"
+  method: heuristic
+- file: scripts/python/llm_bridge.py
+  function: embed
+  line: 177
+  summary: Genera embedding para un texto.
+  method: docstring
+- file: scripts/python/llm_bridge.py
+  function: analyze_code
+  line: 231
+  summary: Usa LLM para analizar código.
+  method: docstring
+- file: scripts/python/llm_bridge.py
+  function: suggest_fix
+  line: 240
+  summary: Usa LLM para sugerir un fix para un error.
+  method: docstring
+- file: scripts/python/llm_bridge.py
+  function: generate_test
+  line: 249
+  summary: Usa LLM para generar un test significativo.
+  method: docstring
+- file: scripts/python/llm_bridge.py
+  function: suggest_refactor
+  line: 258
+  summary: Usa LLM para sugerir código refactorizado.
+  method: docstring
+- file: scripts/python/llm_bridge.py
+  function: main
+  line: 271
+  summary: Conditionally processes main based on logic
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: detect_language
+  line: 93
+  summary: Iterates over collection in detect_language
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: list_source_files
+  line: 97
+  summary: Lista archivos de código del repo, opcionalmente filtrados por lenguaje.
+  method: docstring
+- file: scripts/python/lsp_integration.py
+  function: detect_available_lsps
+  line: 118
+  summary: Detecta qué LSPs están disponibles en el sistema.
+  method: docstring
+- file: scripts/python/lsp_integration.py
+  function: get_lsp_for_file
+  line: 132
+  summary: Determina el LSP a usar para un archivo dado.
+  method: docstring
+- file: scripts/python/lsp_integration.py
+  function: lsp_find_references_via_cli
+  line: 156
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: lsp_diagnostics_via_cli
+  line: 175
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: regex_find_references
+  line: 237
+  summary: Iterates over collection in regex_find_references
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: regex_get_diagnostics
+  line: 268
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: regex_go_to_definition
+  line: 337
+  summary: Function that processes regex_go_to_definition
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: regex_get_hover
+  line: 398
+  summary: "Returns None\n    # Tomar la primera definición encontrada.\n    first\
+    \ or None"
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: find_references
+  line: 450
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: get_diagnostics
+  line: 486
+  summary: 'get_diagnostics: errores/warnings de un archivo.'
+  method: docstring
+- file: scripts/python/lsp_integration.py
+  function: go_to_definition
+  line: 511
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: get_hover
+  line: 529
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/lsp_integration.py
+  function: analyze_repo
+  line: 550
+  summary: Corre análisis LSP/regex sobre todo el repo y produce LSP-ANALYSIS.yaml.
+  method: docstring
+- file: scripts/python/lsp_integration.py
+  function: main
+  line: 597
+  summary: Conditionally processes main based on logic
+  method: heuristic
+- file: scripts/python/mp_prioritizer.py
+  function: calculate_unit_score
+  line: 34
+  summary: Calcula score de prioridad para una unidad.
+  method: docstring
+- file: scripts/python/mp_prioritizer.py
+  function: reprioritize
+  line: 82
+  summary: Reordena las unidades del plan basandose en telemetria.
+  method: docstring
+- file: scripts/python/mp_prioritizer.py
+  function: get_scores
+  line: 123
+  summary: Retorna scores de prioridad de cada unidad.
+  method: docstring
+- file: scripts/python/mp_prioritizer.py
+  function: get_next_unit
+  line: 131
+  summary: Retorna la siguiente unidad recomendada.
+  method: docstring
+- file: scripts/python/mp_prioritizer.py
+  function: main
+  line: 142
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/multi_agent_coordinator.py
+  function: coord_path
+  line: 36
+  summary: Function that processes coord_path
+  method: heuristic
+- file: scripts/python/multi_agent_coordinator.py
+  function: load_coord
+  line: 40
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/multi_agent_coordinator.py
+  function: save_coord
+  line: 47
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/multi_agent_coordinator.py
+  function: register_agent
+  line: 53
+  summary: Registra un agente para trabajar en una unidad.
+  method: docstring
+- file: scripts/python/multi_agent_coordinator.py
+  function: complete_unit
+  line: 94
+  summary: Marca una unidad como completada por un agente.
+  method: docstring
+- file: scripts/python/multi_agent_coordinator.py
+  function: get_status
+  line: 112
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/multi_agent_coordinator.py
+  function: get_conflicts
+  line: 128
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/multi_agent_coordinator.py
+  function: merge_results
+  line: 133
+  summary: Merge results de todos los agentes completados.
+  method: docstring
+- file: scripts/python/multi_agent_coordinator.py
+  function: main
+  line: 153
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/onboarding.py
+  function: check_prerequisites
+  line: 30
+  summary: Verifica prerrequisitos del sistema.
+  method: docstring
+- file: scripts/python/onboarding.py
+  function: suggest_mcps
+  line: 51
+  summary: Sugiere MCPs según tipo de proyecto.
+  method: docstring
+- file: scripts/python/onboarding.py
+  function: suggest_skills
+  line: 76
+  summary: Sugiere skills según tipo de proyecto.
+  method: docstring
+- file: scripts/python/onboarding.py
+  function: generate_opencode_json
+  line: 88
+  summary: Genera opencode.json configurado.
+  method: docstring
+- file: scripts/python/onboarding.py
+  function: run_onboarding
+  line: 107
+  summary: Ejecuta el onboarding.
+  method: docstring
+- file: scripts/python/onboarding.py
+  function: main
+  line: 181
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/post_script_gates.py
+  function: gates_config_path
+  line: 239
+  summary: Function that processes gates_config_path
+  method: heuristic
+- file: scripts/python/post_script_gates.py
+  function: load_config
+  line: 243
+  summary: Loads config from source
+  method: heuristic
+- file: scripts/python/post_script_gates.py
+  function: init_config
+  line: 251
+  summary: Iterates over collection in init_config
+  method: heuristic
+- file: scripts/python/post_script_gates.py
+  function: save_config
+  line: 261
+  summary: "Returns None\n    parts = path.split(\".\")\n    current = data\n    for\
+    \  or None"
+  method: heuristic
+- file: scripts/python/post_script_gates.py
+  function: get_path
+  line: 269
+  summary: Obtiene un valor anidado por path con dots (e.g., 'summary.final_score').
+  method: docstring
+- file: scripts/python/post_script_gates.py
+  function: validate_value
+  line: 296
+  summary: Valida un valor contra un tipo y especificación. Retorna lista de errores.
+  method: docstring
+- file: scripts/python/post_script_gates.py
+  function: check_gate
+  line: 334
+  summary: Ejecuta un gate contra un YAML. Retorna resultado de validación.
+  method: docstring
+- file: scripts/python/post_script_gates.py
+  function: check_script_output
+  line: 386
+  summary: Valida un YAML producido por un script contra las reglas configuradas.
+  method: docstring
+- file: scripts/python/post_script_gates.py
+  function: check_all_flow_artifacts
+  line: 429
+  summary: Valida todos los artifacts producidos en un flow.
+  method: docstring
+- file: scripts/python/post_script_gates.py
+  function: main
+  line: 475
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/pre_commit_hooks.py
+  function: install_hooks
+  line: 82
+  summary: Instala pre-commit hook en .git/hooks/.
+  method: docstring
+- file: scripts/python/pre_commit_hooks.py
+  function: run_hooks
+  line: 104
+  summary: Ejecuta los hooks manualmente.
+  method: docstring
+- file: scripts/python/pre_commit_hooks.py
+  function: status_hooks
+  line: 124
+  summary: Verifica si los hooks estan instalados.
+  method: docstring
+- file: scripts/python/pre_commit_hooks.py
+  function: uninstall_hooks
+  line: 136
+  summary: Remueve el hook.
+  method: docstring
+- file: scripts/python/pre_commit_hooks.py
+  function: main
+  line: 145
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/predict_impact.py
+  function: project_dependency_cascade
+  line: 108
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/predict_impact.py
+  function: project_historical_pattern
+  line: 242
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/predict_impact.py
+  function: project_test_coverage_gap
+  line: 334
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/predict_impact.py
+  function: project_symbol_contract
+  line: 428
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/predict_impact.py
+  function: project_git_blame_risk
+  line: 494
+  summary: Iterates over collection in project_git_blame_risk
+  method: heuristic
+- file: scripts/python/predict_impact.py
+  function: predict_for_mp
+  line: 555
+  summary: Predicts for mp impact
+  method: heuristic
+- file: scripts/python/predict_impact.py
+  function: main
+  line: 612
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/project_templates.py
+  function: list_templates
+  line: 397
+  summary: Lista todas las plantillas disponibles.
+  method: docstring
+- file: scripts/python/project_templates.py
+  function: create_project
+  line: 405
+  summary: Crea un proyecto desde una plantilla.
+  method: docstring
+- file: scripts/python/project_templates.py
+  function: main
+  line: 432
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/refactor_engine.py
+  function: count_lines
+  line: 31
+  summary: Cuenta líneas de una función aproximando desde su inicio hasta la siguiente
+    función.
+  method: docstring
+- file: scripts/python/refactor_engine.py
+  function: estimate_complexity
+  line: 55
+  summary: Estima complejidad ciclomática contando ramas.
+  method: docstring
+- file: scripts/python/refactor_engine.py
+  function: detect_smells
+  line: 73
+  summary: Detecta code smells.
+  method: docstring
+- file: scripts/python/refactor_engine.py
+  function: generate_refactored
+  line: 130
+  summary: Genera código refactorizado usando LLM si disponible.
+  method: docstring
+- file: scripts/python/refactor_engine.py
+  function: main
+  line: 147
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/registry_recommend.py
+  function: score_tool
+  line: 79
+  summary: Calcula score de una tool para una tarea.
+  method: docstring
+- file: scripts/python/registry_recommend.py
+  function: recommend
+  line: 162
+  summary: Iterates over collection in recommend
+  method: heuristic
+- file: scripts/python/registry_recommend.py
+  function: main
+  line: 218
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/rollback.py
+  function: get_modified_files
+  line: 46
+  summary: Lista archivos modificados no commiteados.
+  method: docstring
+- file: scripts/python/rollback.py
+  function: rollback_git_restore
+  line: 62
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/rollback.py
+  function: rollback_git_stash_pop
+  line: 75
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/rollback.py
+  function: rollback_custom_script
+  line: 94
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/rollback.py
+  function: main
+  line: 109
+  summary: Conditionally processes main based on logic
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: discover_pytest_tests
+  line: 50
+  summary: Descubre archivos test_*.py relacionados con los targets.
+  method: docstring
+- file: scripts/python/run_tests.py
+  function: discover_go_tests
+  line: 80
+  summary: Iterates over collection in discover_go_tests
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: discover_jest_tests
+  line: 91
+  summary: Iterates over collection in discover_jest_tests
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: run_pytest
+  line: 107
+  summary: Iterates over collection in run_pytest
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: run_go_test
+  line: 116
+  summary: Iterates over collection in run_go_test
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: run_jest
+  line: 133
+  summary: Iterates over collection in run_jest
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: run_schema_validation
+  line: 142
+  summary: Iterates over collection in run_schema_validation
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: parse_pytest_output
+  line: 167
+  summary: Iterates over collection in parse_pytest_output
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: parse_go_test_output
+  line: 199
+  summary: Iterates over collection in parse_go_test_output
+  method: heuristic
+- file: scripts/python/run_tests.py
+  function: main
+  line: 236
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/scaffold_impl.py
+  function: build_files_to_touch
+  line: 51
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/scaffold_impl.py
+  function: build_function_contracts
+  line: 114
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/scaffold_impl.py
+  function: build_existing_tests
+  line: 176
+  summary: Iterates over collection in build_existing_tests
+  method: heuristic
+- file: scripts/python/scaffold_impl.py
+  function: build_edit_order
+  line: 224
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/scaffold_impl.py
+  function: build_checkpoints
+  line: 271
+  summary: Iterates over collection in build_checkpoints
+  method: heuristic
+- file: scripts/python/scaffold_impl.py
+  function: build_circular_deps_warning
+  line: 333
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/scaffold_impl.py
+  function: build_change_template
+  line: 407
+  summary: Builds change template structure
+  method: heuristic
+- file: scripts/python/scaffold_impl.py
+  function: main
+  line: 495
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/scaffold_v3.py
+  function: select_unit_topological_first
+  line: 63
+  summary: Selecciona la primera unidad del topological_sort.
+  method: docstring
+- file: scripts/python/scaffold_v3.py
+  function: select_unit_highest_impact
+  line: 83
+  summary: Selecciona la unidad con mas afectados en IMPACT-PREDICTION.
+  method: docstring
+- file: scripts/python/scaffold_v3.py
+  function: select_unit_lowest_risk
+  line: 115
+  summary: Selecciona la unidad con riesgooperativo mas bajo.
+  method: docstring
+- file: scripts/python/scaffold_v3.py
+  function: auto_select_unit
+  line: 129
+  summary: "Returns None, \"no units in plan\"\n\n    return unit, f\"auto-selected\
+    \ v or None"
+  method: heuristic
+- file: scripts/python/scaffold_v3.py
+  function: generate_files_to_create
+  line: 159
+  summary: Generates files to create output
+  method: heuristic
+- file: scripts/python/scaffold_v3.py
+  function: generate_commands
+  line: 303
+  summary: Iterates over collection in generate_commands
+  method: heuristic
+- file: scripts/python/scaffold_v3.py
+  function: generate_scaffold_v3
+  line: 395
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/scaffold_v3.py
+  function: main
+  line: 486
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/score_evidence.py
+  function: compute_coverage_score
+  line: 55
+  summary: Iterates over collection in compute_coverage_score
+  method: heuristic
+- file: scripts/python/score_evidence.py
+  function: compute_freshness_score
+  line: 110
+  summary: 'Freshness: % de file-snapshots con git-mtime < 24h.'
+  method: docstring
+- file: scripts/python/score_evidence.py
+  function: compute_depth_score
+  line: 151
+  summary: 'Depth: proporción de items con contenido sustantivo (no solo rutas).'
+  method: docstring
+- file: scripts/python/score_evidence.py
+  function: compute_conflict_risk
+  line: 181
+  summary: Iterates over collection in compute_conflict_risk
+  method: heuristic
+- file: scripts/python/score_evidence.py
+  function: compute_redundancy_score
+  line: 224
+  summary: 'Redundancy: % de items duplicados (mismo hash).'
+  method: docstring
+- file: scripts/python/score_evidence.py
+  function: compute_schema_validity_score
+  line: 250
+  summary: 'Schema validity: % de items schema-validation que pasaron.'
+  method: docstring
+- file: scripts/python/score_evidence.py
+  function: compute_overall_score
+  line: 278
+  summary: 'Pesos:'
+  method: docstring
+- file: scripts/python/score_evidence.py
+  function: generate_recommendation
+  line: 305
+  summary: Generates recommendation output
+  method: heuristic
+- file: scripts/python/score_evidence.py
+  function: main
+  line: 367
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/script_classifier.py
+  function: classify_script
+  line: 125
+  summary: Clasifica un script Python.
+  method: docstring
+- file: scripts/python/script_classifier.py
+  function: classify_all_scripts
+  line: 199
+  summary: Clasifica todos los scripts Python del repo.
+  method: docstring
+- file: scripts/python/script_classifier.py
+  function: get_functional_scripts
+  line: 248
+  summary: Retorna solo los scripts funcionales (no test, no utility).
+  method: docstring
+- file: scripts/python/script_classifier.py
+  function: get_stats
+  line: 254
+  summary: Stats de clasificacion.
+  method: docstring
+- file: scripts/python/script_classifier.py
+  function: main
+  line: 268
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/script_dynamic_invoker.py
+  function: find_script_for_task
+  line: 138
+  summary: Encuentra el script funcional que cubre una tarea.
+  method: docstring
+- file: scripts/python/script_dynamic_invoker.py
+  function: invoke_script
+  line: 165
+  summary: Invoca un script funcional dinamicamente.
+  method: docstring
+- file: scripts/python/script_dynamic_invoker.py
+  function: generate_and_invoke
+  line: 201
+  summary: Generates and invoke output
+  method: heuristic
+- file: scripts/python/script_dynamic_invoker.py
+  function: invoke_for_task
+  line: 248
+  summary: Function that processes invoke_for_task
+  method: heuristic
+- file: scripts/python/script_dynamic_invoker.py
+  function: list_available_scripts
+  line: 277
+  summary: Lista todos los scripts funcionales disponibles.
+  method: docstring
+- file: scripts/python/script_dynamic_invoker.py
+  function: main
+  line: 293
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/script_generator.py
+  function: script_exists
+  line: 140
+  summary: Verifica si un script con ese nombre ya existe.
+  method: docstring
+- file: scripts/python/script_generator.py
+  function: find_similar_scripts
+  line: 146
+  summary: Busca scripts existentes que podrian duplicar el nuevo.
+  method: docstring
+- file: scripts/python/script_generator.py
+  function: generate_script
+  line: 181
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/script_generator.py
+  function: list_generated_scripts
+  line: 286
+  summary: Lista scripts generados automaticamente.
+  method: docstring
+- file: scripts/python/script_generator.py
+  function: validate_proposal
+  line: 303
+  summary: Valida una propuesta de script sin crearlo.
+  method: docstring
+- file: scripts/python/script_generator.py
+  function: main
+  line: 327
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/secret_scanner.py
+  function: load_patterns
+  line: 116
+  summary: Carga patrones desde security_config.yaml o usa defaults.
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: scan_text
+  line: 169
+  summary: Escanea un texto y retorna lista de secretos detectados.
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: redact_text
+  line: 198
+  summary: Redacta secretos en un texto. Retorna (texto_redactado, findings).
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: scan_file
+  line: 230
+  summary: Escanea un archivo y retorna secretos detectados.
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: scan_evidence_pack
+  line: 240
+  summary: Escanea y redacta secretos en un evidence pack completo.
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: load_security_config
+  line: 298
+  summary: Carga la configuración de seguridad.
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: is_origin_allowed
+  line: 316
+  summary: Verifica si una URL está en el allowlist de orígenes confiables.
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: compute_hash_chain_entry
+  line: 360
+  summary: Computa el hash de una entrada del audit log incluyendo el hash anterior.
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: verify_hash_chain
+  line: 370
+  summary: Verifica que el hash chain del audit log sea válido.
+  method: docstring
+- file: scripts/python/secret_scanner.py
+  function: main
+  line: 416
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/self_healing.py
+  function: load_telemetry
+  line: 29
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/self_healing.py
+  function: compute_success_rates
+  line: 42
+  summary: Computa success/fail rates por (agent, phase).
+  method: docstring
+- file: scripts/python/self_healing.py
+  function: suggest_adjustments
+  line: 84
+  summary: Sugiere ajustes de routing cuando un agente falla >60% en una fase.
+  method: docstring
+- file: scripts/python/self_healing.py
+  function: analyze_failure_patterns
+  line: 113
+  summary: Identifica patrones de fallo recurrentes.
+  method: docstring
+- file: scripts/python/self_healing.py
+  function: apply_adjustments
+  line: 132
+  summary: Aplica ajustes a routing-rules.json (con backup).
+  method: docstring
+- file: scripts/python/self_healing.py
+  function: main
+  line: 164
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/self_healing_loop.py
+  function: check_system_health
+  line: 143
+  summary: Verifica salud del sistema y detecta problemas.
+  method: docstring
+- file: scripts/python/self_healing_loop.py
+  function: auto_repair
+  line: 193
+  summary: Ejecuta auto-repair de problemas seguros.
+  method: docstring
+- file: scripts/python/self_healing_loop.py
+  function: monitor
+  line: 300
+  summary: Monitorea el sistema continuamente.
+  method: docstring
+- file: scripts/python/self_healing_loop.py
+  function: main
+  line: 332
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/semantic_search.py
+  function: tokenize
+  line: 29
+  summary: Iterates over collection in tokenize
+  method: heuristic
+- file: scripts/python/semantic_search.py
+  function: tf_idf
+  line: 34
+  summary: TF-IDF simplificado para búsqueda semántica sin LLM.
+  method: docstring
+- file: scripts/python/semantic_search.py
+  function: cosine_sim
+  line: 69
+  summary: Iterates over collection in cosine_sim
+  method: heuristic
+- file: scripts/python/semantic_search.py
+  function: build_embeddings
+  line: 80
+  summary: Genera embeddings para cada función/clase.
+  method: docstring
+- file: scripts/python/semantic_search.py
+  function: search
+  line: 124
+  summary: Busca funciones semánticamente similares al query.
+  method: docstring
+- file: scripts/python/semantic_search.py
+  function: main
+  line: 146
+  summary: Conditionally processes main based on logic
+  method: heuristic
+- file: scripts/python/serve_panel.py
+  function: main
+  line: 13
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/smart_rollback.py
+  function: get_modified_files
+  line: 32
+  summary: Obtiene archivos modificados desde el ultimo commit.
+  method: docstring
+- file: scripts/python/smart_rollback.py
+  function: get_failing_files_from_telemetry
+  line: 40
+  summary: Identifica archivos que causaron fallos via telemetry.
+  method: docstring
+- file: scripts/python/smart_rollback.py
+  function: get_failing_files_from_scaffold
+  line: 70
+  summary: Obtiene archivos del scaffold que se crearon/modificaron.
+  method: docstring
+- file: scripts/python/smart_rollback.py
+  function: analyze_failure
+  line: 84
+  summary: Analiza que archivos causaron el fallo.
+  method: docstring
+- file: scripts/python/smart_rollback.py
+  function: execute_rollback
+  line: 109
+  summary: Ejecuta rollback inteligente.
+  method: docstring
+- file: scripts/python/smart_rollback.py
+  function: main
+  line: 138
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/static_analyzer.py
+  function: analyze_script
+  line: 38
+  summary: Analiza un script Python estaticamente.
+  method: docstring
+- file: scripts/python/static_analyzer.py
+  function: build_dependency_graph
+  line: 83
+  summary: Construye el grafo de dependencias entre scripts.
+  method: docstring
+- file: scripts/python/static_analyzer.py
+  function: detect_circular_deps
+  line: 127
+  summary: Detecta dependencias circulares usando DFS.
+  method: docstring
+- file: scripts/python/static_analyzer.py
+  function: analyze_all
+  line: 157
+  summary: Ejecuta analisis estatico completo.
+  method: docstring
+- file: scripts/python/static_analyzer.py
+  function: main
+  line: 202
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/summarize_functions.py
+  function: extract_docstring_summary
+  line: 101
+  summary: Extrae la primera línea de un docstring después de la función.
+  method: docstring
+- file: scripts/python/summarize_functions.py
+  function: infer_summary_from_name
+  line: 136
+  summary: Infiere un resumen desde el nombre de la función.
+  method: docstring
+- file: scripts/python/summarize_functions.py
+  function: infer_summary_from_body
+  line: 155
+  summary: Infiere un resumen desde el cuerpo de la función.
+  method: docstring
+- file: scripts/python/summarize_functions.py
+  function: generate_summary
+  line: 200
+  summary: Genera un resumen de 1 línea para una función.
+  method: docstring
+- file: scripts/python/summarize_functions.py
+  function: summarize_all_functions
+  line: 225
+  summary: Genera resúmenes para todas las funciones del codebase.
+  method: docstring
+- file: scripts/python/summarize_functions.py
+  function: main
+  line: 265
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/telemetry_aggregator.py
+  function: aggregate
+  line: 24
+  summary: Iterates over collection in aggregate
+  method: heuristic
+- file: scripts/python/telemetry_aggregator.py
+  function: main
+  line: 81
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/test_coverage.py
+  function: detect_language
+  line: 94
+  summary: Detecta el lenguaje de un archivo por su extensión.
+  method: docstring
+- file: scripts/python/test_coverage.py
+  function: is_test_file
+  line: 99
+  summary: 'Heurística: ¿el archivo parece un test por su nombre/path?'
+  method: docstring
+- file: scripts/python/test_coverage.py
+  function: extract_symbols_from_file
+  line: 125
+  summary: Extrae símbolos exportados/públicos de un archivo.
+  method: docstring
+- file: scripts/python/test_coverage.py
+  function: run_coverage_py
+  line: 239
+  summary: Corre coverage.py sobre el repo. Devuelve (data, was_available).
+  method: docstring
+- file: scripts/python/test_coverage.py
+  function: run_nyc
+  line: 259
+  summary: Corre nyc sobre el repo (requiere npm test).
+  method: docstring
+- file: scripts/python/test_coverage.py
+  function: run_go_cover
+  line: 278
+  summary: Corre go test -cover sobre el repo Go.
+  method: docstring
+- file: scripts/python/test_coverage.py
+  function: heuristic_test_mapping
+  line: 319
+  summary: Iterates over collection in heuristic_test_mapping
+  method: heuristic
+- file: scripts/python/test_coverage.py
+  function: load_symbols_from_code_index
+  line: 356
+  summary: Carga CODE-INDEX.yaml si existe. Devuelve el dict o None.
+  method: docstring
+- file: scripts/python/test_coverage.py
+  function: analyze_coverage
+  line: 363
+  summary: Iterates over collection in analyze_coverage
+  method: heuristic
+- file: scripts/python/test_coverage.py
+  function: main
+  line: 602
+  summary: Conditionally processes main based on logic
+  method: heuristic
+- file: scripts/python/user_input_collector.py
+  function: questions_dir
+  line: 59
+  summary: Function that processes questions_dir
+  method: heuristic
+- file: scripts/python/user_input_collector.py
+  function: answers_dir
+  line: 63
+  summary: Function that processes answers_dir
+  method: heuristic
+- file: scripts/python/user_input_collector.py
+  function: ask_question
+  line: 67
+  summary: Function that processes ask_question
+  method: heuristic
+- file: scripts/python/user_input_collector.py
+  function: answer_question
+  line: 116
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/user_input_collector.py
+  function: get_pending_questions
+  line: 169
+  summary: Lista preguntas pendientes (sin responder).
+  method: docstring
+- file: scripts/python/user_input_collector.py
+  function: get_history
+  line: 190
+  summary: Historial de preguntas y respuestas.
+  method: docstring
+- file: scripts/python/user_input_collector.py
+  function: check_answer
+  line: 204
+  summary: Verifica si una pregunta tiene respuesta. Retorna el answer o None.
+  method: docstring
+- file: scripts/python/user_input_collector.py
+  function: wait_for_answer
+  line: 213
+  summary: Returns a collection
+  method: heuristic
+- file: scripts/python/user_input_collector.py
+  function: main
+  line: 266
+  summary: Function that processes main
+  method: heuristic
+- file: scripts/python/validate_artifact.py
+  function: load_schema
+  line: 42
+  summary: Carga un schema desde .json o .yaml.
+  method: docstring
+- file: scripts/python/validate_artifact.py
+  function: validate
+  line: 61
+  summary: Valida un artifact contra un JSON Schema usando jsonschema.
+  method: docstring
+- file: scripts/python/validate_artifact.py
+  function: validate_artifact
+  line: 80
+  summary: Valida un artifact contra un schema. Retorna dict con resultados.
+  method: docstring
+- file: scripts/python/validate_artifact.py
+  function: main
+  line: 123
+  summary: Iterates over collection in main
+  method: heuristic
+- file: scripts/python/vulnerability_scanner.py
+  function: scan_python_safety
+  line: 32
+  summary: Escanea dependencias Python con safety.
+  method: docstring
+- file: scripts/python/vulnerability_scanner.py
+  function: scan_python_bandit
+  line: 58
+  summary: Escanea código Python con bandit.
+  method: docstring
+- file: scripts/python/vulnerability_scanner.py
+  function: scan_npm_audit
+  line: 87
+  summary: Escanea dependencias npm con npm audit.
+  method: docstring
+- file: scripts/python/vulnerability_scanner.py
+  function: scan_pip_audit
+  line: 120
+  summary: Escanea con pip-audit si disponible.
+  method: docstring
+- file: scripts/python/vulnerability_scanner.py
+  function: scan_go_vulncheck
+  line: 147
+  summary: Escanea Go con govulncheck.
+  method: docstring
+- file: scripts/python/vulnerability_scanner.py
+  function: scan_rust_audit
+  line: 167
+  summary: Escanea Rust con cargo audit.
+  method: docstring
+- file: scripts/python/vulnerability_scanner.py
+  function: scan_all
+  line: 187
+  summary: Ejecuta todos los escaneos disponibles.
+  method: docstring
+- file: scripts/python/vulnerability_scanner.py
+  function: main
+  line: 238
+  summary: Function that processes main
+  method: heuristic
+- file: tests/plugin.test.ts
+  function: setupTestRepo
+  line: 69
+  summary: Function that processes setupTestRepo
+  method: heuristic
+- file: tests/run_all_tests.py
+  function: main
+  line: 20
+  summary: Iterates over collection in main
+  method: heuristic
+- file: tests/test_atomic.py
+  function: test_yaml_roundtrip_complex
+  line: 38
+  summary: 'Test 1: YAML round-trip con estructuras complejas.'
+  method: docstring
+- file: tests/test_atomic.py
+  function: test_atomic_write_no_partial
+  line: 73
+  summary: 'Test 2: Atomic write no deja archivo parcial.'
+  method: docstring
+- file: tests/test_atomic.py
+  function: test_no_temp_files_remaining
+  line: 93
+  summary: 'Test 3: No quedan archivos .tmp después del write.'
+  method: docstring
+- file: tests/test_atomic.py
+  function: test_atomic_replace
+  line: 109
+  summary: 'Test 4: El archivo destino se actualiza atómicamente (os.replace).'
+  method: docstring
+- file: tests/test_atomic.py
+  function: test_concurrent_writes
+  line: 130
+  summary: 'Test 5: 2 procesos escribiendo al mismo archivo no corrompen.'
+  method: docstring
+- file: tests/test_atomic.py
+  function: test_concurrent_readers
+  line: 172
+  summary: 'Test 6: Lectores no ven estado parcial mientras se escribe.'
+  method: docstring
+- file: tests/test_atomic.py
+  function: test_pyyaml_anchors
+  line: 217
+  summary: 'Test 7: PyYAML soporta anchors y aliases (parser minimalista no podía).'
+  method: docstring
+- file: tests/test_atomic.py
+  function: test_json_atomic
+  line: 241
+  summary: 'Test 8: write_json también es atómico.'
+  method: docstring
+- file: tests/test_atomic.py
+  function: test_pyyaml_multiline_strings
+  line: 259
+  summary: 'Test 9: PyYAML maneja strings multilínea correctamente.'
+  method: docstring
+- file: tests/test_atomic.py
+  function: main
+  line: 273
+  summary: Iterates over collection in main
+  method: heuristic
+- file: tests/test_block_detector.py
+  function: test_detect_blocks_function
+  line: 18
+  summary: Function that processes test_detect_blocks_function
+  method: heuristic
+- file: tests/test_block_detector.py
+  function: test_plan_cycle_threshold
+  line: 24
+  summary: Function that processes test_plan_cycle_threshold
+  method: heuristic
+- file: tests/test_block_detector.py
+  function: test_context_overload_threshold
+  line: 30
+  summary: Function that processes test_context_overload_threshold
+  method: heuristic
+- file: tests/test_block_detector.py
+  function: test_block_kinds_detected
+  line: 36
+  summary: Function that processes test_block_kinds_detected
+  method: heuristic
+- file: tests/test_block_detector.py
+  function: test_count_phase_in_history
+  line: 44
+  summary: Function that processes test_count_phase_in_history
+  method: heuristic
+- file: tests/test_block_detector.py
+  function: test_count_artifact_references
+  line: 50
+  summary: Function that processes test_count_artifact_references
+  method: heuristic
+- file: tests/test_block_detector.py
+  function: test_detection_result_structure
+  line: 56
+  summary: Function that processes test_detection_result_structure
+  method: heuristic
+- file: tests/test_block_detector.py
+  function: main
+  line: 65
+  summary: Function that processes main
+  method: heuristic
+- file: tests/test_hash_chain.py
+  function: main
+  line: 22
+  summary: Iterates over collection in main
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_llm_bridge_available
+  line: 7
+  summary: Function that processes test_llm_bridge_available
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_llm_bridge_chat_no_api
+  line: 13
+  summary: Function that processes test_llm_bridge_chat_no_api
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_self_healing_success_rates
+  line: 22
+  summary: Function that processes test_self_healing_success_rates
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_self_healing_suggestions
+  line: 34
+  summary: Function that processes test_self_healing_suggestions
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_self_healing_patterns
+  line: 42
+  summary: Function that processes test_self_healing_patterns
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_generate_tests_stub
+  line: 54
+  summary: Function that processes test_generate_tests_stub
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_generate_tests_ts
+  line: 62
+  summary: Function that processes test_generate_tests_ts
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_generate_tests_go
+  line: 69
+  summary: Function that processes test_generate_tests_go
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_semantic_search_cosine
+  line: 76
+  summary: Iterates over collection in test_semantic_search_cosine
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_semantic_search_tf_idf
+  line: 85
+  summary: Iterates over collection in test_semantic_search_tf_idf
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_refactor_detect_long
+  line: 93
+  summary: Iterates over collection in test_refactor_detect_long
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: test_refactor_detect_god_class
+  line: 104
+  summary: Iterates over collection in test_refactor_detect_god_class
+  method: heuristic
+- file: tests/test_intelligence.py
+  function: main
+  line: 116
+  summary: Iterates over collection in main
+  method: heuristic
+- file: tests/test_loop_engine.py
+  function: test_loop_iteration_function_exists
+  line: 20
+  summary: Function that processes test_loop_iteration_function_exists
+  method: heuristic
+- file: tests/test_loop_engine.py
+  function: test_transit_function_exists
+  line: 26
+  summary: Function that processes test_transit_function_exists
+  method: heuristic
+- file: tests/test_loop_engine.py
+  function: test_block_and_stay_function
+  line: 32
+  summary: Function that processes test_block_and_stay_function
+  method: heuristic
+- file: tests/test_loop_engine.py
+  function: test_circuit_breaker_logic
+  line: 39
+  summary: Verifica que el código contiene la lógica de max iteraciones.
+  method: docstring
+- file: tests/test_loop_engine.py
+  function: test_reset_counter_on_transit
+  line: 50
+  summary: Al transitar a nueva fase, su loop counter se resetea.
+  method: docstring
+- file: tests/test_loop_engine.py
+  function: test_telemetry_emitted
+  line: 57
+  summary: Cada iteración emite eventos de telemetría.
+  method: docstring
+- file: tests/test_loop_engine.py
+  function: test_suggest_resolution_present
+  line: 68
+  summary: suggestResolution() devuelve sugerencias por kind de bloqueo.
+  method: docstring
+- file: tests/test_loop_engine.py
+  function: test_loop_result_structure
+  line: 78
+  summary: Function that processes test_loop_result_structure
+  method: heuristic
+- file: tests/test_loop_engine.py
+  function: main
+  line: 86
+  summary: Function that processes main
+  method: heuristic
+- file: tests/test_python_scripts.py
+  function: test_yaml_round_trip
+  line: 26
+  summary: Function that processes test_yaml_round_trip
+  method: heuristic
+- file: tests/test_python_scripts.py
+  function: test_sha256
+  line: 54
+  summary: Function that processes test_sha256
+  method: heuristic
+- file: tests/test_python_scripts.py
+  function: test_hash_chain
+  line: 63
+  summary: Iterates over collection in test_hash_chain
+  method: heuristic
+- file: tests/test_python_scripts.py
+  function: test_parse_args
+  line: 71
+  summary: Iterates over collection in test_parse_args
+  method: heuristic
+- file: tests/test_python_scripts.py
+  function: test_validate_required_missing
+  line: 80
+  summary: Iterates over collection in test_validate_required_missing
+  method: heuristic
+- file: tests/test_python_scripts.py
+  function: test_validate_artifact_script
+  line: 89
+  summary: Ejecuta validate_artifact.py con un artifact inválido.
+  method: docstring
+- file: tests/test_python_scripts.py
+  function: test_generate_plan_topological_sort
+  line: 108
+  summary: Verifica topological_sort con dependencias.
+  method: docstring
+- file: tests/test_python_scripts.py
+  function: test_generate_plan_should_split
+  line: 126
+  summary: should_split detecta mixed concerns.
+  method: docstring
+- file: tests/test_python_scripts.py
+  function: test_generate_plan_estimate_mps
+  line: 144
+  summary: estimate_mps calcula MPs por símbolos.
+  method: docstring
+- file: tests/test_python_scripts.py
+  function: test_generate_plan_cluster_to_unit
+  line: 154
+  summary: cluster_to_unit convierte cluster a unit válida.
+  method: docstring
+- file: tests/test_python_scripts.py
+  function: test_collect_evidence_produces_pack
+  line: 180
+  summary: collect_evidence.py genera EVIDENCE-PACK.yaml con hash_chain.
+  method: docstring
+- file: tests/test_python_scripts.py
+  function: test_main
+  line: 214
+  summary: Function that processes test_main
+  method: heuristic
+- file: tests/test_quality.py
+  function: test_predict_impact_bfs_multilevel
+  line: 291
+  summary: 'Test 1: predict_impact.py BFS multi-nivel detecta profundidad 3+.'
+  method: docstring
+- file: tests/test_quality.py
+  function: test_predict_impact_bfs_cycle_safe
+  line: 319
+  summary: 'Test 1b: BFS no entra en loop infinito con ciclos.'
+  method: docstring
+- file: tests/test_quality.py
+  function: test_code_quality_detects_high_complexity
+  line: 344
+  summary: 'Test 2: code_quality.py detecta complejidad ciclomática alta.'
+  method: docstring
+- file: tests/test_quality.py
+  function: test_code_quality_detects_security_findings
+  line: 362
+  summary: 'Test 3: code_quality.py detecta vulnerabilidades de seguridad (simuladas).'
+  method: docstring
+- file: tests/test_quality.py
+  function: test_test_coverage_identifies_uncovered_symbols
+  line: 390
+  summary: 'Test 4: test_coverage.py identifica símbolos sin cobertura.'
+  method: docstring
+- file: tests/test_quality.py
+  function: test_lsp_find_references_regex
+  line: 428
+  summary: 'Test 5: lsp_integration.py find-references funciona con regex fallback.'
+  method: docstring
+- file: tests/test_quality.py
+  function: test_lsp_get_diagnostics
+  line: 458
+  summary: 'Test 6: lsp_integration.py get_diagnostics funciona.'
+  method: docstring
+- file: tests/test_quality.py
+  function: test_code_quality_graceful_degradation
+  line: 483
+  summary: 'Test 7: code_quality.py degrada gracefully cuando herramientas no están.'
+  method: docstring
+- file: tests/test_quality.py
+  function: main
+  line: 527
+  summary: Iterates over collection in main
+  method: heuristic
+- file: tests/test_security.py
+  function: test_aws_access_key
+  line: 36
+  summary: 'Test 1: Detección de AWS Access Key.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_github_token
+  line: 45
+  summary: 'Test 2: Detección de GitHub token.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_private_key
+  line: 54
+  summary: 'Test 3: Detección de private key PEM.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_db_connection_string
+  line: 63
+  summary: 'Test 4: Detección de DB connection string.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_jwt
+  line: 72
+  summary: 'Test 5: Detección de JWT.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_generic_password
+  line: 81
+  summary: 'Test 6: Detección de password genérico.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_redaction
+  line: 90
+  summary: 'Test 7: Redacción reemplaza el secreto.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_allowlist_allowed
+  line: 100
+  summary: 'Test 8: Allowlist permite orígenes confiables.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_allowlist_denied
+  line: 113
+  summary: 'Test 9: Allowlist rechaza orígenes no confiables.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_ssrf_blocked
+  line: 125
+  summary: 'Test 10: Allowlist bloquea SSRF (localhost, metadata endpoint).'
+  method: docstring
+- file: tests/test_security.py
+  function: test_hash_chain_valid
+  line: 145
+  summary: 'Test 11: Hash chain válido pasa verificación.'
+  method: docstring
+- file: tests/test_security.py
+  function: test_hash_chain_tampered
+  line: 168
+  summary: 'Test 12: Hash chain detecta manipulación.'
+  method: docstring
+- file: tests/test_security.py
+  function: main
+  line: 199
+  summary: Iterates over collection in main
+  method: heuristic
+- file: tests/test_state_machine.py
+  function: test_transitions_table_completeness
+  line: 28
+  summary: Verifica que TRANSITIONS cubre todas las fases forward.
+  method: docstring
+- file: tests/test_state_machine.py
+  function: test_gates_defined
+  line: 48
+  summary: Cada transición tiene su gate definido en GATES.
+  method: docstring
+- file: tests/test_state_machine.py
+  function: test_gate_returns_struct
+  line: 68
+  summary: Cada gate devuelve estructura {decision, reason, signals, next_phase}.
+  method: docstring
+- file: tests/test_state_machine.py
+  function: test_aggregate_function_exists
+  line: 78
+  summary: aggregate() combina signals en una decisión final.
+  method: docstring
+- file: tests/test_state_machine.py
+  function: test_can_transit_function
+  line: 89
+  summary: canTransit permite forward + loop back + desde blocked.
+  method: docstring
+- file: tests/test_state_machine.py
+  function: test_all_phases_exported
+  line: 98
+  summary: ALL_PHASES exporta la lista completa.
+  method: docstring
+- file: tests/test_state_machine.py
+  function: main
+  line: 105
+  summary: Function that processes main
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_absorb_tools_function
+  line: 21
+  summary: Function that processes test_absorb_tools_function
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_build_mcp_tool
+  line: 27
+  summary: Function that processes test_build_mcp_tool
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_build_skill_tool
+  line: 33
+  summary: Function that processes test_build_skill_tool
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_build_plugin_tool
+  line: 39
+  summary: Function that processes test_build_plugin_tool
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_build_script_tool
+  line: 45
+  summary: Function that processes test_build_script_tool
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_infer_capabilities
+  line: 51
+  summary: Function that processes test_infer_capabilities
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_verify_health
+  line: 59
+  summary: Function that processes test_verify_health
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_detect_conflicts
+  line: 65
+  summary: Function that processes test_detect_conflicts
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_get_fallback_chain
+  line: 72
+  summary: Returns a numeric value
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: test_find_tool_by_capability
+  line: 80
+  summary: Function that processes test_find_tool_by_capability
+  method: heuristic
+- file: tests/test_tool_absorber.py
+  function: main
+  line: 86
+  summary: Function that processes main
+  method: heuristic
+

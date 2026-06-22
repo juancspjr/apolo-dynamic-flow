@@ -591,10 +591,20 @@ case "$CMD" in
     ;;
 
   *)
-    err "Comando desconocido: $CMD"
-    echo ""
-    usage
-    exit 1
+    # v3.5.3: Si no es un comando conocido, tratar como REQUEST EN LENGUAJE NATURAL
+    # apolo "implementar JWT auth" → ejecuta apolo_natural.py
+    # apolo "analizar seguridad" → ejecuta vulnerability_scanner
+    # apolo "verificar que todo funciona" → ejecuta flow_verifier
+    if [[ -n "$CMD" ]]; then
+      # Reconstruir el request original (CMD + todos los args restantes)
+      REQUEST="$CMD $*"
+      run_py apolo_natural.py --repo-root "$REPO_ROOT" --request "$REQUEST"
+    else
+      err "Comando desconocido: $CMD"
+      echo ""
+      usage
+      exit 1
+    fi
     ;;
 
 esac

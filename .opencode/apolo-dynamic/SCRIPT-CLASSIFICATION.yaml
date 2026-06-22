@@ -1,10 +1,11 @@
 scriptclassification: V1
 schema_version: 3.5.2
-generated_at: '2026-06-22T07:41:31Z'
+generated_at: '2026-06-22T16:13:40Z'
 repo_root: /home/juan/new_project
-total_scripts: 69
+total_scripts: 70
 by_class:
   FUNCTIONAL: 66
+  FUNCTIONAL_UNINTEGRATED: 1
   UTILITY: 2
   TEST_INTERNAL: 1
 functional_scripts:
@@ -14,6 +15,7 @@ functional_scripts:
 - agent_escape_hatch.py
 - agent_honesty_enforcer.py
 - apolo_config.py
+- apolo_natural.py
 - apolo_orchestrator.py
 - auto_hooks.py
 - code_generator.py
@@ -79,13 +81,14 @@ test_internal_scripts:
 utility_scripts:
 - install_deps.py
 - serve_panel.py
-functional_count: 66
+functional_count: 67
 test_internal_count: 1
 utility_count: 2
 unintegrated_functional:
 - absorb_external_skills.py
 - absorb_mcp.py
 - apolo_config.py
+- apolo_natural.py
 - code_generator.py
 - code_quality.py
 - code_smells.py
@@ -149,6 +152,12 @@ classifications:
   reason: Script funcional nativo de apolo-dynamic-flow
   invocable_by_orchestrator: true
   in_orchestrator: false
+- script: apolo_natural.py
+  classification: FUNCTIONAL_UNINTEGRATED
+  reason: Script funcional pero NO integrado en orquestador
+  invocable_by_orchestrator: true
+  in_orchestrator: false
+  recommendation: Considerar integrar en orquestador o invocar dinamicamente
 - script: apolo_orchestrator.py
   classification: FUNCTIONAL
   reason: Script funcional nativo de apolo-dynamic-flow
@@ -461,5 +470,5 @@ classifications:
   reason: Script funcional nativo de apolo-dynamic-flow
   invocable_by_orchestrator: true
   in_orchestrator: false
-verdict: 66 funcionales, 1 test interno (descartados), 2 utilidad
+verdict: 67 funcionales, 1 test interno (descartados), 2 utilidad
 

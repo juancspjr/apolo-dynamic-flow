@@ -1,7 +1,7 @@
 {
   "name": "apolo-dynamic-flow",
-  "version": "3.5.2",
-  "description": "Plugin de orquestacion de agentes para OpenCode. v3.5.2: 5 directivas de integracion arquitectonica. (1) data_flow_validator automatico despues de cada fase, (2) agent_honesty_enforcer nativo en fase 11 COMPLETE, (3) escape hatch limits verificados antes de ofrecer, (4) script_classifier clasifica 67 scripts y descarta tests, script_dynamic_invoker invoca dinamicamente + autogenera, (5) scaffold_v3 vinculado nativamente al orquestador. 175+ tests, 98% capability.",
+  "version": "3.5.3",
+  "description": "Plugin de orquestacion de agentes para OpenCode. v3.5.3: UN comando en lenguaje natural (apolo_natural.py). El usuario escribe lo que quiere y el sistema inteligentemente ejecuta el comando correcto. Fix dependencia circular data_flow_validator. Fix 2 tests fallando. 178+ tests, 98% capability.",
   "main": "plugin/index.ts",
   "bin": {
     "apolo": "scripts/bash/apolo_cli_router.sh"
@@ -56,6 +56,7 @@
     "self-heal": "python3 scripts/python/self_healing_loop.py",
     "classify-scripts": "python3 scripts/python/script_classifier.py",
     "invoke-script": "python3 scripts/python/script_dynamic_invoker.py",
+    "natural": "python3 scripts/python/apolo_natural.py",
     "run": "bash scripts/bash/apolo_cli_router.sh run",
     "continue": "bash scripts/bash/apolo_cli_router.sh continue",
     "apolo": "bash scripts/bash/apolo_cli_router.sh",

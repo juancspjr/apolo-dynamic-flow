@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T06:46:09Z'
+generated_at: '2026-06-22T16:24:41Z'
 repo_root: /home/juan/new_project
 available_lsps:
   typescript: typescript-language-server
@@ -16,7 +16,7 @@ languages_detected:
 - python
 - typescript
 files_by_language:
-  python: 79
+  python: 82
   javascript: 1
   typescript: 19
 diagnostics:
@@ -785,6 +785,31 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 14
+- file: /home/juan/new_project/scripts/python/script_classifier.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/script_classifier.py
+    line: 280
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/script_classifier.py
+    line: 292
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/script_classifier.py
+    line: 296
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 3
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 3
 - file: /home/juan/new_project/scripts/python/static_analyzer.py
   language: python
   diagnostics:
@@ -816,6 +841,124 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 4
+- file: /home/juan/new_project/scripts/python/apolo_natural.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    severity: error
+    message: No overloads for "max" match the provided arguments
+    range:
+      start:
+        line: 264
+        character: 18
+      end:
+        line: 264
+        character: 45
+    rule: reportCallIssue
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    severity: error
+    message: 'Argument of type "Overload[(key: str, default: None = None, /) -> (int
+      | None), (key: str, default: int, /) -> int, (key: str, default: _T@get, /)
+      -> (int | _T@get)]" cannot be assigned to parameter "key" of type "(_T@max)
+      -> SupportsRichComparison" in function "max"
+
+        No overloaded function matches type "(str) -> SupportsRichComparison"'
+    range:
+      start:
+        line: 264
+        character: 34
+      end:
+        line: 264
+        character: 44
+    rule: reportArgumentType
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    severity: error
+    message: 'Argument of type "str" cannot be assigned to parameter "cwd" of type
+      "Path | None" in function "run_cmd"
+
+        Type "str" is not assignable to type "Path | None"
+
+          "str" is not assignable to "Path"
+
+          "str" is not assignable to "None"'
+    range:
+      start:
+        line: 402
+        character: 69
+      end:
+        line: 402
+        character: 83
+    rule: reportArgumentType
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 501
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 520
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 521
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 522
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 523
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 524
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 525
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 526
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 528
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 529
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_natural.py
+    line: 532
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 14
+  lsp_used: pyright-langserver
+  lsp_count: 3
+  regex_count: 11
 - file: /home/juan/new_project/scripts/python/scaffold_v3.py
   language: python
   diagnostics:
@@ -939,41 +1082,91 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 4
+- file: /home/juan/new_project/scripts/python/script_dynamic_invoker.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/script_dynamic_invoker.py
+    severity: error
+    message: 'Expression of type "None" cannot be assigned to parameter of type "List[str]"
+
+        "None" is not assignable to "List[str]"'
+    range:
+      start:
+        line: 250
+        character: 22
+      end:
+        line: 250
+        character: 26
+    rule: reportArgumentType
+  - file: /home/juan/new_project/scripts/python/script_dynamic_invoker.py
+    line: 306
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/script_dynamic_invoker.py
+    line: 309
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/script_dynamic_invoker.py
+    line: 313
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/script_dynamic_invoker.py
+    line: 319
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/script_dynamic_invoker.py
+    line: 321
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 6
+  lsp_used: pyright-langserver
+  lsp_count: 1
+  regex_count: 5
 - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
   language: python
   diagnostics:
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 927
+    line: 998
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 933
+    line: 1004
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 937
+    line: 1008
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 942
+    line: 1013
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 947
+    line: 1018
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/apolo_orchestrator.py
-    line: 956
+    line: 1027
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
@@ -3760,8 +3953,8 @@ diagnostics:
   lsp_count: 0
   regex_count: 13
 summary:
-  total_files: 99
-  files_with_diagnostics: 73
-  total_diagnostics: 450
-duration_ms: 161839
+  total_files: 102
+  files_with_diagnostics: 76
+  total_diagnostics: 473
+duration_ms: 209122
 

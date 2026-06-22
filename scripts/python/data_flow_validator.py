@@ -88,7 +88,7 @@ EXPECTED_ARTIFACTS = [
     {
         "name": "ORCHESTRATOR-REPORT.yaml",
         "path": "plan/active/{flowid}/ORCHESTRATOR-REPORT.yaml",
-        "producer": "apolo_orchestrator.py",
+        "producer": "orchestrator (phase complete)",
         "phase": "complete",
         "required_fields": ["phases", "status"],
         "field_types": {"phases": "list", "status": "str"},
