@@ -1,6 +1,6 @@
 toolregistry: V2
-version: 50
-updated_at: '2026-06-22T04:37:00Z'
+version: 54
+updated_at: '2026-06-22T06:40:36Z'
 tools:
 - id: mcp:opencode.json:@playwright/mcp
   source: opencode.json#mcp.@playwright/mcp
@@ -23,7 +23,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@playwright/mcp@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     true}'
-  last_verified_at: '2026-06-22T04:31:41Z'
+  last_verified_at: '2026-06-22T06:28:20Z'
 - id: mcp:opencode.json:@koderspa/mcp-skills
   source: opencode.json#mcp.@koderspa/mcp-skills
   kind: mcp
@@ -44,7 +44,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@koderspa/mcp-skills@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     true}'
-  last_verified_at: '2026-06-22T04:31:42Z'
+  last_verified_at: '2026-06-22T06:28:21Z'
 - id: mcp:opencode.json:opencode-fastedit
   source: opencode.json#mcp.opencode-fastedit
   kind: mcp
@@ -66,7 +66,7 @@ tools:
     \\\\\\\"-y\\\\\\\", \\\\\\\"opencode-fastedit@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false, \\\\\\\"description\\\\\\\": \\\\\\\"Deshabilitado temporalmente - revisar
     nombre correcto en npm\\\\\\\"}'
-  last_verified_at: '2026-06-22T04:31:42Z'
+  last_verified_at: '2026-06-22T06:28:21Z'
 - id: mcp:opencode.json:opencode-pty
   source: opencode.json#mcp.opencode-pty
   kind: mcp
@@ -87,7 +87,7 @@ tools:
     \\\\\\\"-y\\\\\\\", \\\\\\\"opencode-pty@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false, \\\\\\\"description\\\\\\\": \\\\\\\"Deshabilitado temporalmente - revisar
     nombre correcto en npm\\\\\\\"}'
-  last_verified_at: '2026-06-22T04:31:43Z'
+  last_verified_at: '2026-06-22T06:28:22Z'
 - id: mcp:opencode.json:@obsidian-owl/opencode-specwright
   source: opencode.json#mcp.@obsidian-owl/opencode-specwright
   kind: mcp
@@ -107,7 +107,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@obsidian-owl/opencode-specwright@latest\\\\\\\"],
     \\\\\\\"enabled\\\\\\\": false}'
-  last_verified_at: '2026-06-22T04:31:44Z'
+  last_verified_at: '2026-06-22T06:28:23Z'
 - id: mcp:opencode.json:@zenobius/opencode-skillful
   source: opencode.json#mcp.@zenobius/opencode-skillful
   kind: mcp
@@ -128,7 +128,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@zenobius/opencode-skillful@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false}'
-  last_verified_at: '2026-06-22T04:31:45Z'
+  last_verified_at: '2026-06-22T06:28:24Z'
 - id: mcp:opencode.json:@cortexkit/aft-opencode
   source: opencode.json#mcp.@cortexkit/aft-opencode
   kind: mcp
@@ -148,7 +148,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@cortexkit/aft-opencode@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false}'
-  last_verified_at: '2026-06-22T04:31:46Z'
+  last_verified_at: '2026-06-22T06:28:24Z'
 - id: mcp:opencode.json:opencode-caveman
   source: opencode.json#mcp.opencode-caveman
   kind: mcp
@@ -168,7 +168,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"opencode-caveman@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false}'
-  last_verified_at: '2026-06-22T04:31:46Z'
+  last_verified_at: '2026-06-22T06:28:25Z'
 - id: mcp:opencode.json:@tarquinen/opencode-dcp
   source: opencode.json#mcp.@tarquinen/opencode-dcp
   kind: mcp
@@ -189,7 +189,7 @@ tools:
   notes: '{\\\\\\\"type\\\\\\\": \\\\\\\"local\\\\\\\", \\\\\\\"command\\\\\\\": [\\\\\\\"npx\\\\\\\",
     \\\\\\\"-y\\\\\\\", \\\\\\\"@tarquinen/opencode-dcp@latest\\\\\\\"], \\\\\\\"enabled\\\\\\\":
     false}'
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/validate_artifact.py
   source: /home/juan/new_project/scripts/python/validate_artifact.py
   kind: external-script
@@ -205,7 +205,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/validate_artifact.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/collect_evidence.py
   source: /home/juan/new_project/scripts/python/collect_evidence.py
   kind: external-script
@@ -222,7 +222,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/collect_evidence.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/rollback.py
   source: /home/juan/new_project/scripts/python/rollback.py
   kind: external-script
@@ -238,7 +238,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/rollback.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/run_tests.py
   source: /home/juan/new_project/scripts/python/run_tests.py
   kind: external-script
@@ -255,7 +255,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/run_tests.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/generate_plan.py
   source: /home/juan/new_project/scripts/python/generate_plan.py
   kind: external-script
@@ -272,7 +272,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/generate_plan.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/absorb_mcp.py
   source: /home/juan/new_project/scripts/python/absorb_mcp.py
   kind: external-script
@@ -289,7 +289,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/absorb_mcp.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/inspect_tools.py
   source: /home/juan/new_project/scripts/python/inspect_tools.py
   kind: external-script
@@ -305,7 +305,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/inspect_tools.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/telemetry_aggregator.py
   source: /home/juan/new_project/scripts/python/telemetry_aggregator.py
   kind: external-script
@@ -322,7 +322,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/telemetry_aggregator.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/serve_panel.py
   source: /home/juan/new_project/scripts/python/serve_panel.py
   kind: external-script
@@ -338,7 +338,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/serve_panel.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/absorb_external_skills.py
   source: /home/juan/new_project/scripts/python/absorb_external_skills.py
   kind: external-script
@@ -356,7 +356,7 @@ tools:
       --help 2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/scaffold_impl.py
   source: /home/juan/new_project/scripts/python/scaffold_impl.py
   kind: external-script
@@ -373,7 +373,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/predict_impact.py
   source: /home/juan/new_project/scripts/python/predict_impact.py
   kind: external-script
@@ -390,7 +390,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/context_query.py
   source: /home/juan/new_project/scripts/python/context_query.py
   kind: external-script
@@ -407,7 +407,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/score_evidence.py
   source: /home/juan/new_project/scripts/python/score_evidence.py
   kind: external-script
@@ -424,7 +424,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/registry_recommend.py
   source: /home/juan/new_project/scripts/python/registry_recommend.py
   kind: external-script
@@ -441,7 +441,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/index_codebase.py
   source: /home/juan/new_project/scripts/python/index_codebase.py
   kind: external-script
@@ -458,7 +458,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/health_check.py
   source: /home/juan/new_project/scripts/python/health_check.py
   kind: external-script
@@ -475,7 +475,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/lsp_integration.py
   source: /home/juan/new_project/scripts/python/lsp_integration.py
   kind: external-script
@@ -492,7 +492,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/secret_scanner.py
   source: /home/juan/new_project/scripts/python/secret_scanner.py
   kind: external-script
@@ -509,7 +509,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/code_quality.py
   source: /home/juan/new_project/scripts/python/code_quality.py
   kind: external-script
@@ -526,7 +526,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/test_coverage.py
   source: /home/juan/new_project/scripts/python/test_coverage.py
   kind: external-script
@@ -543,7 +543,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/llm_bridge.py
   source: /home/juan/new_project/scripts/python/llm_bridge.py
   kind: external-script
@@ -560,7 +560,7 @@ tools:
       | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/refactor_engine.py
   source: /home/juan/new_project/scripts/python/refactor_engine.py
   kind: external-script
@@ -577,7 +577,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/self_healing.py
   source: /home/juan/new_project/scripts/python/self_healing.py
   kind: external-script
@@ -594,7 +594,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/generate_tests.py
   source: /home/juan/new_project/scripts/python/generate_tests.py
   kind: external-script
@@ -611,7 +611,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/semantic_search.py
   source: /home/juan/new_project/scripts/python/semantic_search.py
   kind: external-script
@@ -628,7 +628,7 @@ tools:
       2>&1 | head -1
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/install_deps.py
   source: /home/juan/new_project/scripts/python/install_deps.py
   kind: external-script
@@ -644,7 +644,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/install_deps.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/summarize_functions.py
   source: /home/juan/new_project/scripts/python/summarize_functions.py
   kind: external-script
@@ -660,7 +660,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/summarize_functions.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/cross_language_analyzer.py
   source: /home/juan/new_project/scripts/python/cross_language_analyzer.py
   kind: external-script
@@ -676,7 +676,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/cross_language_analyzer.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/project_templates.py
   source: /home/juan/new_project/scripts/python/project_templates.py
   kind: external-script
@@ -692,7 +692,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/project_templates.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/doc_generator.py
   source: /home/juan/new_project/scripts/python/doc_generator.py
   kind: external-script
@@ -708,7 +708,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/doc_generator.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/onboarding.py
   source: /home/juan/new_project/scripts/python/onboarding.py
   kind: external-script
@@ -724,7 +724,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/onboarding.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/github_actions.py
   source: /home/juan/new_project/scripts/python/github_actions.py
   kind: external-script
@@ -740,7 +740,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/github_actions.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/code_generator.py
   source: /home/juan/new_project/scripts/python/code_generator.py
   kind: external-script
@@ -756,7 +756,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/code_generator.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/vulnerability_scanner.py
   source: /home/juan/new_project/scripts/python/vulnerability_scanner.py
   kind: external-script
@@ -772,7 +772,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/vulnerability_scanner.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/full_audit.py
   source: /home/juan/new_project/scripts/python/full_audit.py
   kind: external-script
@@ -788,7 +788,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/full_audit.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/code_smells.py
   source: /home/juan/new_project/scripts/python/code_smells.py
   kind: external-script
@@ -804,7 +804,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/code_smells.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/integration_validation.py
   source: /home/juan/new_project/scripts/python/integration_validation.py
   kind: external-script
@@ -820,7 +820,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/integration_validation.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/interactive_docs.py
   source: /home/juan/new_project/scripts/python/interactive_docs.py
   kind: external-script
@@ -836,7 +836,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/interactive_docs.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/feedback_loop.py
   source: /home/juan/new_project/scripts/python/feedback_loop.py
   kind: external-script
@@ -852,7 +852,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/feedback_loop.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/debug_mode.py
   source: /home/juan/new_project/scripts/python/debug_mode.py
   kind: external-script
@@ -868,7 +868,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/debug_mode.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/auto_hooks.py
   source: /home/juan/new_project/scripts/python/auto_hooks.py
   kind: external-script
@@ -884,7 +884,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/auto_hooks.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/hooks_validator.py
   source: /home/juan/new_project/scripts/python/hooks_validator.py
   kind: external-script
@@ -900,7 +900,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/hooks_validator.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/post_script_gates.py
   source: /home/juan/new_project/scripts/python/post_script_gates.py
   kind: external-script
@@ -916,7 +916,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/post_script_gates.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/scaffold_v3.py
   source: /home/juan/new_project/scripts/python/scaffold_v3.py
   kind: external-script
@@ -933,7 +933,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/scaffold_v3.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/apolo_config.py
   source: /home/juan/new_project/scripts/python/apolo_config.py
   kind: external-script
@@ -949,7 +949,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/apolo_config.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/evidence_visual_diff.py
   source: /home/juan/new_project/scripts/python/evidence_visual_diff.py
   kind: external-script
@@ -965,7 +965,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/evidence_visual_diff.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/evidence_replay.py
   source: /home/juan/new_project/scripts/python/evidence_replay.py
   kind: external-script
@@ -981,7 +981,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/evidence_replay.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/cross_flow_learning.py
   source: /home/juan/new_project/scripts/python/cross_flow_learning.py
   kind: external-script
@@ -997,7 +997,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/cross_flow_learning.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/apolo_orchestrator.py
   source: /home/juan/new_project/scripts/python/apolo_orchestrator.py
   kind: external-script
@@ -1013,7 +1013,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/apolo_orchestrator.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/script_generator.py
   source: /home/juan/new_project/scripts/python/script_generator.py
   kind: external-script
@@ -1029,7 +1029,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/script_generator.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/agent_decision_loop.py
   source: /home/juan/new_project/scripts/python/agent_decision_loop.py
   kind: external-script
@@ -1045,7 +1045,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/agent_decision_loop.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/user_input_collector.py
   source: /home/juan/new_project/scripts/python/user_input_collector.py
   kind: external-script
@@ -1062,7 +1062,7 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/user_input_collector.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
 - id: external-script:scripts/python/force_quality_gates.py
   source: /home/juan/new_project/scripts/python/force_quality_gates.py
   kind: external-script
@@ -1078,7 +1078,196 @@ tools:
     command: test -f /home/juan/new_project/scripts/python/force_quality_gates.py
     expected_exit: 0
     interval_seconds: 600
-  last_verified_at: '2026-06-22T04:31:47Z'
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/integration_validator.py
+  source: /home/juan/new_project/scripts/python/integration_validator.py
+  kind: external-script
+  name: integration_validator
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/integration_validator.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/integration_validator.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/static_analyzer.py
+  source: /home/juan/new_project/scripts/python/static_analyzer.py
+  kind: external-script
+  name: static_analyzer
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/static_analyzer.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/static_analyzer.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/smart_rollback.py
+  source: /home/juan/new_project/scripts/python/smart_rollback.py
+  kind: external-script
+  name: smart_rollback
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - rollback
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/smart_rollback.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/smart_rollback.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/mp_prioritizer.py
+  source: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  kind: external-script
+  name: mp_prioritizer
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/mp_prioritizer.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/mp_prioritizer.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/agent_honesty_enforcer.py
+  source: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  kind: external-script
+  name: agent_honesty_enforcer
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/multi_agent_coordinator.py
+  source: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  kind: external-script
+  name: multi_agent_coordinator
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/data_flow_validator.py
+  source: /home/juan/new_project/scripts/python/data_flow_validator.py
+  kind: external-script
+  name: data_flow_validator
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/data_flow_validator.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/data_flow_validator.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/flow_verifier.py
+  source: /home/juan/new_project/scripts/python/flow_verifier.py
+  kind: external-script
+  name: flow_verifier
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/flow_verifier.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/flow_verifier.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/pre_commit_hooks.py
+  source: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  kind: external-script
+  name: pre_commit_hooks
+  status: active
+  registered_at: '2026-06-22T05:49:37Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/pre_commit_hooks.py
+    expected_exit: 0
+    interval_seconds: 600
+  last_verified_at: '2026-06-22T06:28:26Z'
+- id: external-script:scripts/python/guided_recovery.py
+  source: /home/juan/new_project/scripts/python/guided_recovery.py
+  kind: external-script
+  name: guided_recovery
+  status: unverified
+  registered_at: '2026-06-22T06:28:26Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/guided_recovery.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/guided_recovery.py
+    expected_exit: 0
+    interval_seconds: 600
+- id: external-script:scripts/python/agent_escape_hatch.py
+  source: /home/juan/new_project/scripts/python/agent_escape_hatch.py
+  kind: external-script
+  name: agent_escape_hatch
+  status: unverified
+  registered_at: '2026-06-22T06:28:26Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/agent_escape_hatch.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/agent_escape_hatch.py
+    expected_exit: 0
+    interval_seconds: 600
+- id: external-script:scripts/python/self_healing_loop.py
+  source: /home/juan/new_project/scripts/python/self_healing_loop.py
+  kind: external-script
+  name: self_healing_loop
+  status: unverified
+  registered_at: '2026-06-22T06:28:26Z'
+  capabilities:
+  - unknown
+  invoke:
+    method: bash-script
+    target: python3 /home/juan/new_project/scripts/python/self_healing_loop.py
+  health_check:
+    command: test -f /home/juan/new_project/scripts/python/self_healing_loop.py
+    expected_exit: 0
+    interval_seconds: 600
 conflicts:
 - tools:
   - mcp:opencode.json:@koderspa/mcp-skills
@@ -1138,6 +1327,17 @@ conflicts:
   - external-script:scripts/python/script_generator.py
   - external-script:scripts/python/agent_decision_loop.py
   - external-script:scripts/python/force_quality_gates.py
+  - external-script:scripts/python/integration_validator.py
+  - external-script:scripts/python/static_analyzer.py
+  - external-script:scripts/python/mp_prioritizer.py
+  - external-script:scripts/python/agent_honesty_enforcer.py
+  - external-script:scripts/python/multi_agent_coordinator.py
+  - external-script:scripts/python/data_flow_validator.py
+  - external-script:scripts/python/flow_verifier.py
+  - external-script:scripts/python/pre_commit_hooks.py
+  - external-script:scripts/python/guided_recovery.py
+  - external-script:scripts/python/agent_escape_hatch.py
+  - external-script:scripts/python/self_healing_loop.py
   capability: unknown
   resolution: priority-first
 - tools:
@@ -1149,6 +1349,11 @@ conflicts:
   - external-script:scripts/python/collect_evidence.py
   - external-script:scripts/python/user_input_collector.py
   capability: evidence
+  resolution: priority-first
+- tools:
+  - external-script:scripts/python/rollback.py
+  - external-script:scripts/python/smart_rollback.py
+  capability: rollback
   resolution: priority-first
 - tools:
   - external-script:scripts/python/absorb_mcp.py

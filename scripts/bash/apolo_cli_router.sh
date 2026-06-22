@@ -554,6 +554,22 @@ case "$CMD" in
     run_py static_analyzer.py analyze "$@"
     ;;
 
+  # === v3.5.1 NEW: ESCAPE HATCH + GUIDED RECOVERY + SELF-HEALING ===
+  escape-hatch)
+    # agent escape hatch: offer|use|history
+    run_py agent_escape_hatch.py "$@"
+    ;;
+
+  recover)
+    # guided recovery: diagnose|suggest
+    run_py guided_recovery.py "$@"
+    ;;
+
+  self-heal)
+    # self-healing loop: monitor|check|repair
+    run_py self_healing_loop.py "$@"
+    ;;
+
   # === ALIASES ÚTILES ===
   help|--help|-h)
     usage

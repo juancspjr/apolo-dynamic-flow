@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/license-MIT-blue)](#26-licencia)
 [![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#2-prerrequisitos)
 [![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#2-prerrequisitos)
-[![Version](https://img.shields.io/badge/version-3.5.1-blue)](#25-changelog)
+[![Version](https://img.shields.io/badge/version-3.5.0-blue)](#25-changelog)
 
 ---
 
@@ -2238,61 +2238,6 @@ Cobertura de capacidades:   95%
 
 ## 25. Changelog
 
-### v3.5.1 (2026-06-22) — Escape hatch guiado + guided recovery + self-healing
-
-**RESPONDE a tu indicacion:** "seria bueno indicaciones no digo que el agente se libere o que haga trampas para liberarse solo que hay que buscar una salida cuando el sistema puede dañar las soluciones"
-
-**PROBLEMA DETECTADO en v3.5.0:** 4 tests fallaban porque el grep buscaba strings que el `tail -5` cortaba. Ademas, el sistema bloqueaba al agente sin ofrecer salidas cuando se atasca.
-
-**SOLUCION v3.5.1:** El agente esta amarrado pero guiado. Si se atasca, el sistema le ofrece salidas seguras con justificacion.
-
-3 scripts nuevos:
-
-1. **`agent_escape_hatch.py`** — Salidas guiadas cuando el sistema puede dañar
-   - 5 tipos de escape: skip_with_justification, alternative_path, degrade_graceful, request_human_help, rollback_and_retry
-   - Cada escape REQUIERE justificacion (no es trampa)
-   - Limite de uses por tipo (ej: skip max 2 por flow)
-   - Queda registrado en telemetry (auditable)
-   - Si se usa el mismo escape 3+ veces, se bloquea
-
-2. **`guided_recovery.py`** — Sistema diagnostica y propone fix
-   - 8 tipos de error reconocidos: missing_dependency, yaml_parse_error, file_not_found, permission_denied, timeout, type_error, key_error, test_failure
-   - Para cada error: diagnostico + fix command + descripcion
-   - Ejemplo: `ModuleNotFoundError: No module named 'pytest'` → diagnostico "Falta instalar dependencia" + fix `pip3 install --user pytest`
-
-3. **`self_healing_loop.py`** — Auto-repara fallas del sistema
-   - Monitor continuo (check cada N segundos)
-   - Auto-repair seguro: missing_directory → mkdir, missing_config → init, stale_lock → remove, empty_telemetry → init
-   - Unsafe repairs requieren confirmacion: missing_dependency → pip install, permission_denied → chmod
-   - Detecta errores en telemetry reciente y los diagnostica con guided_recovery
-
-**Integracion en el orquestador (v3.5.1):**
-Cuando una fase se pausa o falla, el orquestador automaticamente:
-  1. Ejecuta `guided_recovery.diagnose()` — diagnostica la causa
-  2. Ejecuta `agent_escape_hatch.offer()` — ofrece salidas seguras
-  3. Muestra al agente: causa probable + fix recomendado + escapes disponibles
-  4. El agente puede: aplicar fix, usar escape hatch (con justificacion), o escalar a humano
-
-**Fix de 4 tests que fallaban en v3.5.0:**
-- flow_verifier, integration_validator, data_flow_validator, flow_verifier v3.5.0
-- Causa: `tail -5` cortaba los strings que el grep buscaba
-- Fix: remover `tail -5`, buscar strings mas amplios, anadir `--json` a data_flow_validator
-
-**Nuevos comandos en CLI router (3 nuevos, total 63+):**
-- `apolo escape-hatch` — salidas guiadas (offer/use/history)
-- `apolo recover` — diagnostico guiado (diagnose/suggest)
-- `apolo self-heal` — auto-reparacion (monitor/check/repair)
-
-**Filosofia v3.5.1:**
-- El agente esta AMARRADO (no puede hacer trampas, force_quality_gates bloquea)
-- Pero esta GUIADO (si se atasca, el sistema le ofrece salidas seguras)
-- El sistema AYUDA (diagnostica errores, propone fixes, auto-repara)
-- El agente APRENDE (cada escape hatch queda registrado para no repetir)
-
-**Tests:** 170+ tests pasando, 98% capability coverage
-
----
-
 ### v3.5.0 (2026-06-22) — Validadores de integración (sin daños colaterales)
 
 **PROBLEMA DETECTADO en v3.4.0:** El `flow_verifier` reportó 16 "fallos" que eran FALSOS POSITIVOS. Los scripts (collect_evidence, generate_plan, etc.) requieren args obligatorios y dan error graceful sin ellos, pero el verificador los marcaba como `runs=False`.
@@ -3123,13 +3068,13 @@ Basado en los 5 puntos de perdida de control del INTEGRATION-VERDICT.md:
 | v3.2.0 | 2026-06-22 | 160+ | 97% | Orquestador automatico + decision loop + script gen + quality gates |
 | v3.3.0 | 2026-06-22 | 160+ | 97% | Orquestador REESCRITO — USA todos los super poderes (data fluye) |
 | v3.4.0 | 2026-06-22 | 165+ | 98% | 4 GAPs cerrados (multi-agent, rollback, prioritizer, pre-commit) + flow_verifier |
-| v3.5.0 | 2026-06-22 | 170+ | 98% | Validadores: integration + dataflow + honesty + static + fix flow_verifier |
-| **v3.5.1** | **2026-06-22** | **170+** | **98%** | **Escape hatch guiado + guided recovery + self-healing loop** |
+| **v3.5.0** | **2026-06-22** | **170+** | **98%** | **Validadores: integration + dataflow + honesty + static + fix flow_verifier** |
 
 ---
 
-> **APOLO Dynamic Flow v3.5.1** — Plugin de orquestacion de agentes para OpenCode.
-> 170+ tests pasando, 98% capability coverage, 63+ comandos en CLI router unificado.
-> El agente esta AMARRADO pero GUIADO: force_quality_gates bloquea, pero si se atasca
-> el sistema ofrece escape hatches con justificacion + guided recovery diagnostica errores
-> + self-healing loop auto-repara fallas. No es trampa — es salida segura documentada.
+> **APOLO Dynamic Flow v3.5.0** — Plugin de orquestacion de agentes para OpenCode.
+> 170+ tests pasando, 98% capability coverage, 60+ comandos en CLI router unificado.
+> 4 validadores aseguran integraciones sin daños colaterales:
+> integration_validator (handoffs), data_flow_validator (flujo de data),
+> agent_honesty_enforcer (previene autoengaño), static_analyzer (dependencias circulares).
+> Fix flow_verifier: no mas falsos positivos.

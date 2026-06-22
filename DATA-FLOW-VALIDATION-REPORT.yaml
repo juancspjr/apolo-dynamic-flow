@@ -1,0 +1,69 @@
+dataflowvalidator: V1
+schema_version: 3.5.0
+generated_at: '2026-06-22T06:37:04Z'
+flowid: APOLO-V350-TEST
+repo_root: /home/juan/new_project
+total_artifacts: 7
+artifacts_existing: 1
+artifacts_valid: 1
+order_issues: 0
+overall_pass: false
+verdict: 'DATA FLOW INCOMPLETE: 6 artefactos faltantes, 0 con issues'
+artifacts:
+- name: CODE-INDEX.yaml
+  expected_path: .opencode/apolo-dynamic/CODE-INDEX.yaml
+  producer: index_codebase.py
+  phase: index
+  exists: true
+  structure_valid: true
+  issues: []
+- name: EVIDENCE-PACK.yaml
+  expected_path: plan/active/APOLO-V350-TEST/evidence/EVIDENCE-PACK.yaml
+  producer: collect_evidence.py
+  phase: collect
+  exists: false
+  structure_valid: false
+  issues:
+  - 'Artefacto no encontrado: plan/active/APOLO-V350-TEST/evidence/EVIDENCE-PACK.yaml'
+- name: EVIDENCE-SCORE.yaml
+  expected_path: plan/active/APOLO-V350-TEST/evidence/EVIDENCE-SCORE.yaml
+  producer: score_evidence.py
+  phase: score
+  exists: false
+  structure_valid: false
+  issues:
+  - 'Artefacto no encontrado: plan/active/APOLO-V350-TEST/evidence/EVIDENCE-SCORE.yaml'
+- name: PLAN.yaml
+  expected_path: plan/active/APOLO-V350-TEST/plans/PLAN.yaml
+  producer: generate_plan.py
+  phase: plan
+  exists: false
+  structure_valid: false
+  issues:
+  - 'Artefacto no encontrado: plan/active/APOLO-V350-TEST/plans/PLAN.yaml'
+- name: IMPACT-PREDICTION.yaml
+  expected_path: plan/active/APOLO-V350-TEST/plans/IMPACT-PREDICTION.yaml
+  producer: predict_impact.py
+  phase: impact
+  exists: false
+  structure_valid: false
+  issues:
+  - 'Artefacto no encontrado: plan/active/APOLO-V350-TEST/plans/IMPACT-PREDICTION.yaml'
+- name: SCAFFOLD-V3.yaml
+  expected_path: plan/active/APOLO-V350-TEST/scaffolds/SCAFFOLD-V3.yaml
+  producer: scaffold_v3.py
+  phase: scaffold
+  exists: false
+  structure_valid: false
+  issues:
+  - 'Artefacto no encontrado: plan/active/APOLO-V350-TEST/scaffolds/SCAFFOLD-V3.yaml'
+- name: ORCHESTRATOR-REPORT.yaml
+  expected_path: plan/active/APOLO-V350-TEST/ORCHESTRATOR-REPORT.yaml
+  producer: apolo_orchestrator.py
+  phase: complete
+  exists: false
+  structure_valid: false
+  issues:
+  - 'Artefacto no encontrado: plan/active/APOLO-V350-TEST/ORCHESTRATOR-REPORT.yaml'
+order_issues_detail: []
+

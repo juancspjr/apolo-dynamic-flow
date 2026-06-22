@@ -1,13 +1,13 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T04:41:05Z'
+generated_at: '2026-06-22T06:44:19Z'
 repo_root: /home/juan/new_project
 code_index_used: false
 coverage_tool_used: coverage.py
 dominant_language: python
-total_symbols: 716
+total_symbols: 791
 covered_symbols: 5
-uncovered_symbols: 711
-coverage_percentage: 0.7
+uncovered_symbols: 786
+coverage_percentage: 0.63
 critical_uncovered:
 - file: /home/juan/new_project/escuchar_hook.py
   name: HookHandler
@@ -1113,6 +1113,84 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/guided_recovery.py
+  name: diagnose_error
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/guided_recovery.py
+  name: suggest_recovery
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/guided_recovery.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/integration_validator.py
+  name: validate_handoff_contracts
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/integration_validator.py
+  name: validate_static_dependencies
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/integration_validator.py
+  name: validate_orchestrator_data_flow
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/integration_validator.py
+  name: validate_all
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/integration_validator.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/static_analyzer.py
+  name: analyze_script
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/static_analyzer.py
+  name: build_dependency_graph
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/static_analyzer.py
+  name: detect_circular_deps
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/static_analyzer.py
+  name: analyze_all
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/static_analyzer.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/scaffold_v3.py
   name: select_unit_topological_first
   kind: function
@@ -1162,6 +1240,42 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  name: get_modified_files
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  name: get_failing_files_from_telemetry
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  name: get_failing_files_from_scaffold
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  name: analyze_failure
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
+  name: execute_rollback
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/smart_rollback.py
   name: main
   kind: function
   is_exported: true
@@ -1701,6 +1815,36 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  name: calculate_unit_score
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  name: reprioritize
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  name: get_scores
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  name: get_next_unit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/mp_prioritizer.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/rollback.py
   name: get_modified_files
   kind: function
@@ -2026,6 +2170,108 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/lsp_integration.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  name: load_jsonl
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  name: check_done_claim
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  name: check_tests_pass_claim
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  name: check_implemented_claim
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  name: check_fixed_claim
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  name: check_no_errors_claim
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  name: verify_all_claims
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_honesty_enforcer.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  name: coord_path
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  name: load_coord
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  name: save_coord
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  name: register_agent
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  name: complete_unit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  name: get_status
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  name: get_conflicts
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
+  name: merge_results
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/multi_agent_coordinator.py
   name: main
   kind: function
   is_exported: true
@@ -2637,6 +2883,30 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/data_flow_validator.py
+  name: check_artifact
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/data_flow_validator.py
+  name: validate_data_flow
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/data_flow_validator.py
+  name: trace_flow
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/data_flow_validator.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/registry_recommend.py
   name: score_tool
   kind: function
@@ -2859,6 +3129,78 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  name: verify_script_exists
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  name: verify_script_compiles
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  name: verify_script_runs
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  name: verify_orchestrator_integration
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  name: verify_cli_router
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  name: verify_all
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/flow_verifier.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_escape_hatch.py
+  name: escape_hatch_path
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_escape_hatch.py
+  name: offer_escape_hatches
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_escape_hatch.py
+  name: use_escape_hatch
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_escape_hatch.py
+  name: get_history
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/agent_escape_hatch.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/secret_scanner.py
   name: load_patterns
   kind: function
@@ -3028,6 +3370,30 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/generate_plan.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing_loop.py
+  name: check_system_health
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing_loop.py
+  name: auto_repair
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing_loop.py
+  name: monitor
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/self_healing_loop.py
   name: main
   kind: function
   is_exported: true
@@ -3384,6 +3750,36 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/feedback_loop.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  name: install_hooks
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  name: run_hooks
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  name: status_hooks
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
+  name: uninstall_hooks
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/pre_commit_hooks.py
   name: main
   kind: function
   is_exported: true
@@ -3956,8 +4352,28 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/guided_recovery.py:
+    total_symbols: 4
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/integration_validator.py:
+    total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/static_analyzer.py:
+    total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/scaffold_v3.py:
     total_symbols: 12
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/smart_rollback.py:
+    total_symbols: 6
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -3983,6 +4399,11 @@ by_file:
     associated_tests: []
   /home/juan/new_project/scripts/python/llm_bridge.py:
     total_symbols: 16
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/mp_prioritizer.py:
+    total_symbols: 5
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -4013,6 +4434,16 @@ by_file:
     associated_tests: []
   /home/juan/new_project/scripts/python/lsp_integration.py:
     total_symbols: 16
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/agent_honesty_enforcer.py:
+    total_symbols: 8
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/multi_agent_coordinator.py:
+    total_symbols: 9
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -4076,6 +4507,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/data_flow_validator.py:
+    total_symbols: 4
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/registry_recommend.py:
     total_symbols: 3
     covered_symbols: 0
@@ -4101,6 +4537,16 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/flow_verifier.py:
+    total_symbols: 7
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/agent_escape_hatch.py:
+    total_symbols: 7
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/secret_scanner.py:
     total_symbols: 11
     covered_symbols: 0
@@ -4118,6 +4564,11 @@ by_file:
     associated_tests: []
   /home/juan/new_project/scripts/python/generate_plan.py:
     total_symbols: 7
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/self_healing_loop.py:
+    total_symbols: 10
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -4173,6 +4624,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/pre_commit_hooks.py:
+    total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/hooks_validator.py:
     total_symbols: 9
     covered_symbols: 0
@@ -4218,17 +4674,17 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-source_files_count: 74
+source_files_count: 86
 test_files_count: 13
 degradations: []
 recommendations:
-- Escribir tests para 636 símbolo(s) exportado(s) sin cobertura
-- Cobertura actual 0.7% — objetivo mínimo 50%
+- Escribir tests para 702 símbolo(s) exportado(s) sin cobertura
+- Cobertura actual 0.63% — objetivo mínimo 50%
 summary:
-  total_symbols: 716
+  total_symbols: 791
   covered: 5
-  uncovered: 711
-  critical_uncovered: 636
-  coverage_percentage: 0.7
-duration_ms: 45781
+  uncovered: 786
+  critical_uncovered: 702
+  coverage_percentage: 0.63
+duration_ms: 41778
 

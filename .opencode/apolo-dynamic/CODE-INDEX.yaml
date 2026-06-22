@@ -1,31 +1,31 @@
 codeindex: V1
 version: 1
-generated_at: '2026-06-22T05:37:07Z'
+generated_at: '2026-06-22T06:40:28Z'
 generator:
   script: scripts/python/index_codebase.py
-  duration_ms: 1815
-  files_indexed: 154
+  duration_ms: 1800
+  files_indexed: 159
 repo_root: /home/juan/new_project
-index_hash: 2761059c7c6286ffc5325748aed322f0b78870b8016be63b12c6900fec5c00d7
+index_hash: 1a4702a4900e1323b056a3d7936ea6a3287567ad82613547f246eb441c0381b0
 stats:
-  total_files: 154
+  total_files: 159
   by_language:
-    yaml: 44
+    yaml: 46
     json: 14
-    py: 76
+    py: 79
     js: 1
     ts: 19
-  total_functions: 786
+  total_functions: 807
   total_classes: 1
-  total_imports: 1303
-  avg_functions_per_file: 5.1
+  total_imports: 1360
+  avg_functions_per_file: 5.08
 files:
 - path: .opencode/apolo-dynamic/CODE-INDEX.yaml
   language: yaml
-  size_bytes: 343313
-  content_hash: 292fbdcde720e2d5d2ed9c68d344d6e221a89a7f5a7f23bd4f4a188d61e8cab2
+  size_bytes: 354012
+  content_hash: f39d074906fb7cf22d86e79c6d7a1558e8b18fa518b898f12a80f38e6d96b400
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -37,7 +37,7 @@ files:
 - path: .opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml
   language: yaml
   size_bytes: 808
-  content_hash: 2eb0adcf58ab7d681107917d5ff229cebc658b7ba4e4213a1de82c1e000495f7
+  content_hash: 9228472cde9979d0af9bd0aa5cea0fff987c85ab4582170f3b1fb0565dd3559e
   git_tracked: true
   git_last_modified: '2026-06-22T01:15:17-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -50,8 +50,8 @@ files:
   error: null
 - path: .opencode/apolo-dynamic/DOCS-INDEX.yaml
   language: yaml
-  size_bytes: 2427963
-  content_hash: ce1d8f6ec70b467939b0daaa4789598045375913784590f3671d1a323afe4934
+  size_bytes: 2517825
+  content_hash: 5d537aa2833bcabc53ce5a59b4705e6a556c165111c3d80c82d8197e5c0e6fd3
   git_tracked: true
   git_last_modified: '2026-06-22T01:15:17-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -78,50 +78,8 @@ files:
   error: null
 - path: .opencode/apolo-dynamic/TOOL-REGISTRY.yaml
   language: yaml
-  size_bytes: 40369
-  content_hash: f74ccb191534e149df4c446d7d603a4572b7b23e8335bffb00d7c598abe1224c
-  git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
-  summary: Archivo .yaml | Sin símbolos exportados
-  symbols:
-    functions: []
-    classes: []
-    interfaces: []
-    types: []
-  imports: []
-  error: null
-- path: .opencode/apolo-dynamic/apolo-auto-hooks.yaml
-  language: yaml
-  size_bytes: 5435
-  content_hash: c215c8c99ee9099ca9337c27c8bdaade31376411cc4d62de55009ff89e67e2b3
-  git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
-  summary: Archivo .yaml | Sin símbolos exportados
-  symbols:
-    functions: []
-    classes: []
-    interfaces: []
-    types: []
-  imports: []
-  error: null
-- path: .opencode/apolo-dynamic/apolo-config.yaml
-  language: yaml
-  size_bytes: 2108
-  content_hash: 2a24fb4c04327a9b51a60461727d991ac92f9d103db4d114a9713a735bdfa812
-  git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
-  summary: Archivo .yaml | Sin símbolos exportados
-  symbols:
-    functions: []
-    classes: []
-    interfaces: []
-    types: []
-  imports: []
-  error: null
-- path: .opencode/apolo-dynamic/apolo-post-script-gates.yaml
-  language: yaml
-  size_bytes: 5018
-  content_hash: aee8da2acab72db5b96bbcaeedf6ba52028538a9ba732e7b964a84afaaf2bd24
+  size_bytes: 47616
+  content_hash: 67fdde554866a185ae897ae884accbe4b1278c5766e1aee5aff80b3d53a321bc
   git_tracked: true
   git_last_modified: '2026-06-22T01:15:17-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -160,12 +118,26 @@ files:
     types: []
   imports: []
   error: null
+- path: AGENT-HONESTY-REPORT.yaml
+  language: yaml
+  size_bytes: 1263
+  content_hash: cc58801cd482ba7df73ece3d232c948d103b6a4d3fa2b8b5caeb28ed0eba8e55
+  git_tracked: false
+  git_last_modified: null
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
 - path: CODE-QUALITY.yaml
   language: yaml
-  size_bytes: 206514
-  content_hash: a1357b3634f1afb84bd1b53bd6a2147cacc945bfee075687e8ca8e25cbb128b4
+  size_bytes: 209947
+  content_hash: 8459aaa7c01dc3627fb3d56b5d70f8862765b4b83776a00b96a0c25c1c6c68de
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -191,9 +163,23 @@ files:
 - path: CROSS-LANGUAGE-MAP.yaml
   language: yaml
   size_bytes: 816
-  content_hash: f36fb9f816b8a56413adc8971bc26f13d00f9f3d8cb5eb9bf727ca36d5ddfd9a
+  content_hash: 89aba5cde50ebfa2c46fbe82f67dcd1b6ff87a6e3922b3c54fe213d1d687f0fd
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: DATA-FLOW-VALIDATION-REPORT.yaml
+  language: yaml
+  size_bytes: 2199
+  content_hash: 8fd873b0c082b32b9ae4dcfb899a9696309e9a26ff6973d14756efe547b73c1d
+  git_tracked: false
+  git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -205,9 +191,9 @@ files:
 - path: EVIDENCE-SCORE.yaml
   language: yaml
   size_bytes: 893
-  content_hash: 7f853efe7f9d630c04218cacaa910a73e49082a949e2c555188e9d8bc6494eb8
+  content_hash: f7fbe6695976939098bed891a3fd2543c0af221c57eae35ee07dff055fe59361
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -218,10 +204,10 @@ files:
   error: null
 - path: FLOW-VERIFICATION-REPORT.yaml
   language: yaml
-  size_bytes: 9474
-  content_hash: 667d96252096d46b4d057a6c986b0c7776cd6bd47c2038f38678ade0502185d3
+  size_bytes: 9456
+  content_hash: 6141641f1d8567112859109217f7e8bbcf526dbc23b88a9bc1ed012053da2afe
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -233,9 +219,9 @@ files:
 - path: IMPACT-PREDICTION.yaml
   language: yaml
   size_bytes: 485
-  content_hash: 5563f58d3778436ba28fbf3f01d53136ccdb8dd1f010c5d1697c082c1c49c666
+  content_hash: 0c1214e51c90f92f5ab0982e850201974ea2d2d99c94534a686f647dbfbd0228
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -247,9 +233,9 @@ files:
 - path: INTEGRATION-VALIDATION-REPORT.yaml
   language: yaml
   size_bytes: 6007
-  content_hash: 010b390382ecc2241e4dbed55217d1cff00ed89b13af1fb36b95c24d8eb3860c
+  content_hash: 2e1dd88483a68ac14a8be77028f74ce467d3cfbe671bfb4a804fc28711b845c3
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -261,9 +247,9 @@ files:
 - path: LEARNING-STATE.yaml
   language: yaml
   size_bytes: 188
-  content_hash: 738efe440677ae3be87495d24b526778020c96c5a477db3496445a858786509e
+  content_hash: 5e9e8dd01e905387f5a85e504398871345e9ec6cafd83dbf54191a8b9691f24d
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -274,8 +260,8 @@ files:
   error: null
 - path: LSP-ANALYSIS.yaml
   language: yaml
-  size_bytes: 96139
-  content_hash: 41b73ee99351f697a2986799e7326d367650f38c33c915df2bc27212d4d161d6
+  size_bytes: 106662
+  content_hash: 5f5056cbc8c2ddd5d58bd13ae8e4beb929cf6eff55a597508eb6934ab0b9bd82
   git_tracked: true
   git_last_modified: '2026-06-22T01:15:17-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -288,10 +274,10 @@ files:
   error: null
 - path: REFACTOR-SUGGESTIONS.yaml
   language: yaml
-  size_bytes: 47939
-  content_hash: 4ae7c5385e06419c28a8764a4d1fb334b8ab0c0def6586d029f817b02340b63d
+  size_bytes: 48816
+  content_hash: 32fb3dd5d19b0889120b5b0db83038a4e8a593459d558ac622fbc393ec664d87
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -302,10 +288,10 @@ files:
   error: null
 - path: STATIC-ANALYSIS-REPORT.yaml
   language: yaml
-  size_bytes: 28965
-  content_hash: dfa297c1ae7729328e77da1f6d3ac8a1ae6c110948b95da08db1722de81864c6
-  git_tracked: false
-  git_last_modified: null
+  size_bytes: 30076
+  content_hash: 7e45294b0961f01919489cc37b0edb2ec3383227c0a8719cbb06b0531a067ac5
+  git_tracked: true
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -316,8 +302,8 @@ files:
   error: null
 - path: TEST-COVERAGE.yaml
   language: yaml
-  size_bytes: 111488
-  content_hash: 6184548a772a8f6ec8f499f118e01bf562f0a5115200f7394c71d2dc125a5e93
+  size_bytes: 123189
+  content_hash: b6434a845e82535df3afd57ea0017668156a5162d88117818781f65bd1aba442
   git_tracked: true
   git_last_modified: '2026-06-22T01:15:17-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
@@ -330,10 +316,10 @@ files:
   error: null
 - path: VULNERABILITY-REPORT.yaml
   language: yaml
-  size_bytes: 14160
-  content_hash: af440267c6d7005f23934bc9ca0b0fd79b88a811c8244682c19f42070a275f4b
+  size_bytes: 14373
+  content_hash: f30a3fac4de5bb4be4ea3ae2f0fe0138daf4aacec6a17ccd79711aeffec4b003
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .yaml | Sin símbolos exportados
   symbols:
     functions: []
@@ -410,10 +396,10 @@ files:
   error: null
 - path: package.json
   language: json
-  size_bytes: 4816
-  content_hash: a6c18c8de89e1eabf57fc361e50b5bc445a278aee627c3114f067691037460ac
+  size_bytes: 4995
+  content_hash: ee782756b6109198948562bc00bb80bb2091de46c9927baad83d37c16cc1f867
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: Archivo .json | Sin símbolos exportados
   symbols:
     functions: []
@@ -555,7 +541,49 @@ files:
 - path: plan/active/APOLO-20260622-ONBOARDING/FLOW-STATE.yaml
   language: yaml
   size_bytes: 1070
-  content_hash: 2637c6913e9b9bb4408afde02d636ccfe683b5cd008f5bcd43d18a7e34d62158
+  content_hash: f77e97aaa05817e47e195f04b3541f391d481559256ca60de76c8d142cddbb42
+  git_tracked: false
+  git_last_modified: null
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: plan/active/APOLO-DBG-TEST/DEBUG-BREAKPOINTS.yaml
+  language: yaml
+  size_bytes: 107
+  content_hash: 652272f6e204aadc8beb3a07fa32cea0d2e50e478f9998d7455ff46f46db4f77
+  git_tracked: false
+  git_last_modified: null
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: plan/active/APOLO-FULLTEST/BLOCK-LOG.yaml
+  language: yaml
+  size_bytes: 94
+  content_hash: cba7cb4380de316ef976d1ad81bfd9d230c9ba3f3043a33b7bde9f216325804b
+  git_tracked: false
+  git_last_modified: null
+  summary: Archivo .yaml | Sin símbolos exportados
+  symbols:
+    functions: []
+    classes: []
+    interfaces: []
+    types: []
+  imports: []
+  error: null
+- path: plan/active/APOLO-FULLTEST/FLOW-STATE.yaml
+  language: yaml
+  size_bytes: 1059
+  content_hash: b11049391ccb4bab9bf90adc00817e381584977716ad4c238e107e41d5a6ca3d
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -569,7 +597,7 @@ files:
 - path: plan/active/APOLO-INTEG-TEST/BLOCK-LOG.yaml
   language: yaml
   size_bytes: 96
-  content_hash: 36e38b01618b5073582f646e962f324dc0c23f86da8d23646d58382c72c53241
+  content_hash: 7a764884d986c1b18a0a61ff00eab32ad1d377ddbc9de9c38104cfb9da0e70b0
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -583,7 +611,7 @@ files:
 - path: plan/active/APOLO-INTEG-TEST/FLOW-STATE.yaml
   language: yaml
   size_bytes: 1061
-  content_hash: b79fcbf463d1e2b79f903628ef9e1d3024e46aadd711b86fb07ec3f297430f76
+  content_hash: 3eae3b9427d2cf760a21dd70649262ebfb24719e95fb0da5a8c9407baddf6b2c
   git_tracked: false
   git_last_modified: null
   summary: Archivo .yaml | Sin símbolos exportados
@@ -2981,12 +3009,175 @@ files:
     kind: from-import
     line: 54
   error: null
+- path: scripts/python/agent_escape_hatch.py
+  language: py
+  size_bytes: 10101
+  content_hash: 05edff93f9c35c9b40bad1ad639b8e7dbc89c01b905a12f1676188a765407eb0
+  git_tracked: false
+  git_last_modified: null
+  summary: 'Python: 0 clases, 7 funciones (5 exportadas) | Exporta: escape_hatch_path(),
+    offer_escape_hatches(), use_escape_hatch(), get_history(), main()'
+  symbols:
+    functions:
+    - name: escape_hatch_path
+      line: 73
+      args:
+      - repo_root
+      - flowid
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: null
+    - name: offer_escape_hatches
+      line: 77
+      args:
+      - repo_root
+      - flowid
+      - phase
+      - reason
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: Ofrece escape hatches disponibles para una situacion de atasco.
+    - name: use_escape_hatch
+      line: 112
+      args:
+      - repo_root
+      - flowid
+      - hatch_id
+      - hatch_type
+      - justification
+      - context
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: El agente usa un escape hatch.
+    - name: _append_log
+      line: 182
+      args:
+      - repo_root
+      - flowid
+      - entry
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: _get_history
+      line: 189
+      args:
+      - repo_root
+      - flowid
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: get_history
+      line: 205
+      args:
+      - repo_root
+      - flowid
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: null
+    - name: main
+      line: 225
+      args: []
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: null
+    classes: []
+    interfaces: []
+    types: []
+  imports:
+  - module: __future__
+    name: annotations
+    kind: from-import
+    line: 30
+  - module: json
+    name: ''
+    kind: import
+    line: 31
+  - module: os
+    name: ''
+    kind: import
+    line: 31
+  - module: sys
+    name: ''
+    kind: import
+    line: 31
+  - module: time
+    name: ''
+    kind: import
+    line: 31
+  - module: uuid
+    name: ''
+    kind: import
+    line: 31
+  - module: datetime
+    name: datetime
+    kind: from-import
+    line: 32
+  - module: datetime
+    name: timezone
+    kind: from-import
+    line: 32
+  - module: pathlib
+    name: Path
+    kind: from-import
+    line: 33
+  - module: typing
+    name: Any
+    kind: from-import
+    line: 34
+  - module: typing
+    name: Dict
+    kind: from-import
+    line: 34
+  - module: typing
+    name: List
+    kind: from-import
+    line: 34
+  - module: typing
+    name: Optional
+    kind: from-import
+    line: 34
+  - module: common
+    name: log
+    kind: from-import
+    line: 36
+  - module: common
+    name: now_iso
+    kind: from-import
+    line: 36
+  - module: common
+    name: parse_args
+    kind: from-import
+    line: 36
+  - module: common
+    name: read_yaml
+    kind: from-import
+    line: 36
+  - module: common
+    name: write_yaml
+    kind: from-import
+    line: 36
+  - module: common
+    name: flow_dir
+    kind: from-import
+    line: 36
+  - module: common
+    name: telemetry_path
+    kind: from-import
+    line: 36
+  error: null
 - path: scripts/python/agent_honesty_enforcer.py
   language: py
   size_bytes: 13873
   content_hash: 18dd37ba630ce68ffbfa56c4bc0dc076c4de91cfb9f27e7fd384e0debce1802d
-  git_tracked: false
-  git_last_modified: null
+  git_tracked: true
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: 'Python: 0 clases, 8 funciones (8 exportadas) | Exporta: load_jsonl(),
     check_done_claim(), check_tests_pass_claim(), check_implemented_claim(), check_fixed_claim(),
     check_no_errors_claim(), verify_all_claims(), main()'
@@ -3282,8 +3473,8 @@ files:
   error: null
 - path: scripts/python/apolo_orchestrator.py
   language: py
-  size_bytes: 39877
-  content_hash: 33a3599c017d619d79e4dc2a67ae163f838e8b504749b15d428ad05bb5f2b244
+  size_bytes: 41112
+  content_hash: 58f1af35193238be9a118eb9cdda282ee1e25d27aaf2496b52e42a05168e8e52
   git_tracked: true
   git_last_modified: '2026-06-22T01:15:17-04:00'
   summary: 'Python: 0 clases, 22 funciones (20 exportadas) | Exporta: run_script(),
@@ -3491,7 +3682,7 @@ files:
       decorators: []
       docstring: Ejecuta el ciclo completo integrando TODOS los super poderes.
     - name: continue_cycle
-      line: 859
+      line: 881
       args:
       - repo_root
       - flowid
@@ -3500,7 +3691,7 @@ files:
       decorators: []
       docstring: Continua desde donde se pauso.
     - name: get_status
-      line: 874
+      line: 896
       args:
       - repo_root
       - flowid
@@ -3509,7 +3700,7 @@ files:
       decorators: []
       docstring: null
     - name: main
-      line: 889
+      line: 911
       args: []
       is_async: false
       is_exported: true
@@ -5642,8 +5833,8 @@ files:
   language: py
   size_bytes: 9993
   content_hash: 87d14be6feee3b7dd95dfadc946358c18fefff4d5d9458a03f77ce94665dc0e6
-  git_tracked: false
-  git_last_modified: null
+  git_tracked: true
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: 'Python: 0 clases, 4 funciones (4 exportadas) | Exporta: check_artifact(),
     validate_data_flow(), trace_flow(), main()'
   symbols:
@@ -6672,7 +6863,7 @@ files:
   size_bytes: 15281
   content_hash: 236153436b0129dd913cf68912149f52380391d576aa41e017ec87b6b2406bc8
   git_tracked: true
-  git_last_modified: '2026-06-22T01:15:17-04:00'
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: 'Python: 0 clases, 7 funciones (7 exportadas) | Exporta: verify_script_exists(),
     verify_script_compiles(), verify_script_runs(), verify_orchestrator_integration(),
     verify_cli_router(), verify_all(), main()'
@@ -7476,6 +7667,127 @@ files:
     name: parse_args
     kind: from-import
     line: 24
+  error: null
+- path: scripts/python/guided_recovery.py
+  language: py
+  size_bytes: 9131
+  content_hash: c78b778a2e9f5ec444be6332dcf9f07cae57109fd7114a5a28af1bc44f86cf4e
+  git_tracked: false
+  git_last_modified: null
+  summary: 'Python: 0 clases, 4 funciones (3 exportadas) | Exporta: diagnose_error(),
+    suggest_recovery(), main()'
+  symbols:
+    functions:
+    - name: diagnose_error
+      line: 88
+      args:
+      - repo_root
+      - flowid
+      - error
+      - script
+      - exit_code
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: Diagnostica un error y propone recovery.
+    - name: _log_diagnosis
+      line: 148
+      args:
+      - repo_root
+      - flowid
+      - entry
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: suggest_recovery
+      line: 155
+      args:
+      - error_type
+      - details
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: Sugiere recovery para un tipo de error conocido.
+    - name: main
+      line: 170
+      args: []
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: null
+    classes: []
+    interfaces: []
+    types: []
+  imports:
+  - module: __future__
+    name: annotations
+    kind: from-import
+    line: 28
+  - module: json
+    name: ''
+    kind: import
+    line: 29
+  - module: os
+    name: ''
+    kind: import
+    line: 29
+  - module: re
+    name: ''
+    kind: import
+    line: 29
+  - module: sys
+    name: ''
+    kind: import
+    line: 29
+  - module: traceback
+    name: ''
+    kind: import
+    line: 29
+  - module: pathlib
+    name: Path
+    kind: from-import
+    line: 30
+  - module: typing
+    name: Any
+    kind: from-import
+    line: 31
+  - module: typing
+    name: Dict
+    kind: from-import
+    line: 31
+  - module: typing
+    name: List
+    kind: from-import
+    line: 31
+  - module: typing
+    name: Optional
+    kind: from-import
+    line: 31
+  - module: common
+    name: log
+    kind: from-import
+    line: 33
+  - module: common
+    name: now_iso
+    kind: from-import
+    line: 33
+  - module: common
+    name: parse_args
+    kind: from-import
+    line: 33
+  - module: common
+    name: read_yaml
+    kind: from-import
+    line: 33
+  - module: common
+    name: write_yaml
+    kind: from-import
+    line: 33
+  - module: common
+    name: flow_dir
+    kind: from-import
+    line: 33
   error: null
 - path: scripts/python/health_check.py
   language: py
@@ -8365,8 +8677,8 @@ files:
   language: py
   size_bytes: 15766
   content_hash: 2defa0e06c3f3377aeca6928dd93bd58078a952dcc6c009a368fbc02d8c28676
-  git_tracked: false
-  git_last_modified: null
+  git_tracked: true
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: 'Python: 0 clases, 5 funciones (5 exportadas) | Exporta: validate_handoff_contracts(),
     validate_static_dependencies(), validate_orchestrator_data_flow(), validate_all(),
     main()'
@@ -11724,6 +12036,191 @@ files:
     kind: from-import
     line: 26
   error: null
+- path: scripts/python/self_healing_loop.py
+  language: py
+  size_bytes: 13584
+  content_hash: 5150129c3acb62159bd4c810bbbaad2e02af541ef43b127f876674c21214a957
+  git_tracked: false
+  git_last_modified: null
+  summary: 'Python: 0 clases, 10 funciones (4 exportadas) | Exporta: check_system_health(),
+    auto_repair(), monitor(), main()'
+  symbols:
+    functions:
+    - name: _mkdir
+      line: 85
+      args:
+      - path
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: _init_config
+      line: 93
+      args:
+      - repo_root
+      - config_name
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: _check_stale_lock
+      line: 112
+      args:
+      - repo_root
+      - flowid
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: _remove_stale_lock
+      line: 122
+      args:
+      - repo_root
+      - flowid
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: _check_empty_telemetry
+      line: 131
+      args:
+      - repo_root
+      - flowid
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: _init_telemetry
+      line: 136
+      args:
+      - repo_root
+      - flowid
+      is_async: false
+      is_exported: false
+      decorators: []
+      docstring: null
+    - name: check_system_health
+      line: 143
+      args:
+      - repo_root
+      - flowid
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: Verifica salud del sistema y detecta problemas.
+    - name: auto_repair
+      line: 193
+      args:
+      - repo_root
+      - flowid
+      - dry_run
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: Ejecuta auto-repair de problemas seguros.
+    - name: monitor
+      line: 300
+      args:
+      - repo_root
+      - flowid
+      - interval
+      - max_iterations
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: Monitorea el sistema continuamente.
+    - name: main
+      line: 332
+      args: []
+      is_async: false
+      is_exported: true
+      decorators: []
+      docstring: null
+    classes: []
+    interfaces: []
+    types: []
+  imports:
+  - module: __future__
+    name: annotations
+    kind: from-import
+    line: 27
+  - module: json
+    name: ''
+    kind: import
+    line: 28
+  - module: os
+    name: ''
+    kind: import
+    line: 28
+  - module: re
+    name: ''
+    kind: import
+    line: 28
+  - module: subprocess
+    name: ''
+    kind: import
+    line: 28
+  - module: sys
+    name: ''
+    kind: import
+    line: 28
+  - module: time
+    name: ''
+    kind: import
+    line: 28
+  - module: pathlib
+    name: Path
+    kind: from-import
+    line: 29
+  - module: typing
+    name: Any
+    kind: from-import
+    line: 30
+  - module: typing
+    name: Dict
+    kind: from-import
+    line: 30
+  - module: typing
+    name: List
+    kind: from-import
+    line: 30
+  - module: typing
+    name: Optional
+    kind: from-import
+    line: 30
+  - module: common
+    name: log
+    kind: from-import
+    line: 32
+  - module: common
+    name: now_iso
+    kind: from-import
+    line: 32
+  - module: common
+    name: parse_args
+    kind: from-import
+    line: 32
+  - module: common
+    name: read_yaml
+    kind: from-import
+    line: 32
+  - module: common
+    name: write_yaml
+    kind: from-import
+    line: 32
+  - module: common
+    name: flow_dir
+    kind: from-import
+    line: 32
+  - module: common
+    name: telemetry_path
+    kind: from-import
+    line: 32
+  - module: common
+    name: run_cmd
+    kind: from-import
+    line: 32
+  error: null
 - path: scripts/python/semantic_search.py
   language: py
   size_bytes: 5347
@@ -12081,8 +12578,8 @@ files:
   language: py
   size_bytes: 8509
   content_hash: 69677276088d6f4183dbcb3df393961998f11708d18dbe679f18bdc959e888d1
-  git_tracked: false
-  git_last_modified: null
+  git_tracked: true
+  git_last_modified: '2026-06-22T01:39:47-04:00'
   summary: 'Python: 0 clases, 5 funciones (5 exportadas) | Exporta: analyze_script(),
     build_dependency_graph(), detect_circular_deps(), analyze_all(), main()'
   symbols:
@@ -14441,14 +14938,13 @@ dependency_graph:
   .opencode/apolo-dynamic/DOCS-INDEX.yaml: []
   .opencode/apolo-dynamic/EMBEDDINGS-CACHE.json: []
   .opencode/apolo-dynamic/TOOL-REGISTRY.yaml: []
-  .opencode/apolo-dynamic/apolo-auto-hooks.yaml: []
-  .opencode/apolo-dynamic/apolo-config.yaml: []
-  .opencode/apolo-dynamic/apolo-post-script-gates.yaml: []
   .opencode/package-lock.json: []
   .opencode/package.json: []
+  AGENT-HONESTY-REPORT.yaml: []
   CODE-QUALITY.yaml: []
   CODE-SMELLS.yaml: []
   CROSS-LANGUAGE-MAP.yaml: []
+  DATA-FLOW-VALIDATION-REPORT.yaml: []
   EVIDENCE-SCORE.yaml: []
   FLOW-VERIFICATION-REPORT.yaml: []
   IMPACT-PREDICTION.yaml: []
@@ -14469,6 +14965,9 @@ dependency_graph:
   plan/active/APOLO-20260620-TEST/telemetry-stats.json: []
   plan/active/APOLO-20260621-ONBOARDING/FLOW-STATE.yaml: []
   plan/active/APOLO-20260622-ONBOARDING/FLOW-STATE.yaml: []
+  plan/active/APOLO-DBG-TEST/DEBUG-BREAKPOINTS.yaml: []
+  plan/active/APOLO-FULLTEST/BLOCK-LOG.yaml: []
+  plan/active/APOLO-FULLTEST/FLOW-STATE.yaml: []
   plan/active/APOLO-INTEG-TEST/BLOCK-LOG.yaml: []
   plan/active/APOLO-INTEG-TEST/FLOW-STATE.yaml: []
   plugin/absorbers/mcp-loader.ts:
@@ -14537,6 +15036,8 @@ dependency_graph:
   - scripts/python/common.py
   scripts/python/agent_decision_loop.py:
   - scripts/python/common.py
+  scripts/python/agent_escape_hatch.py:
+  - scripts/python/common.py
   scripts/python/agent_honesty_enforcer.py:
   - scripts/python/common.py
   scripts/python/apolo_config.py:
@@ -14583,6 +15084,8 @@ dependency_graph:
   scripts/python/generate_tests.py:
   - scripts/python/common.py
   scripts/python/github_actions.py:
+  - scripts/python/common.py
+  scripts/python/guided_recovery.py:
   - scripts/python/common.py
   scripts/python/health_check.py:
   - scripts/python/common.py
@@ -14637,6 +15140,8 @@ dependency_graph:
   - scripts/python/common.py
   scripts/python/self_healing.py:
   - scripts/python/common.py
+  scripts/python/self_healing_loop.py:
+  - scripts/python/common.py
   scripts/python/semantic_search.py:
   - scripts/python/common.py
   scripts/python/serve_panel.py: []
@@ -14689,14 +15194,13 @@ reverse_dependency_graph:
   .opencode/apolo-dynamic/DOCS-INDEX.yaml: []
   .opencode/apolo-dynamic/EMBEDDINGS-CACHE.json: []
   .opencode/apolo-dynamic/TOOL-REGISTRY.yaml: []
-  .opencode/apolo-dynamic/apolo-auto-hooks.yaml: []
-  .opencode/apolo-dynamic/apolo-config.yaml: []
-  .opencode/apolo-dynamic/apolo-post-script-gates.yaml: []
   .opencode/package-lock.json: []
   .opencode/package.json: []
+  AGENT-HONESTY-REPORT.yaml: []
   CODE-QUALITY.yaml: []
   CODE-SMELLS.yaml: []
   CROSS-LANGUAGE-MAP.yaml: []
+  DATA-FLOW-VALIDATION-REPORT.yaml: []
   EVIDENCE-SCORE.yaml: []
   FLOW-VERIFICATION-REPORT.yaml: []
   IMPACT-PREDICTION.yaml: []
@@ -14717,6 +15221,9 @@ reverse_dependency_graph:
   plan/active/APOLO-20260620-TEST/telemetry-stats.json: []
   plan/active/APOLO-20260621-ONBOARDING/FLOW-STATE.yaml: []
   plan/active/APOLO-20260622-ONBOARDING/FLOW-STATE.yaml: []
+  plan/active/APOLO-DBG-TEST/DEBUG-BREAKPOINTS.yaml: []
+  plan/active/APOLO-FULLTEST/BLOCK-LOG.yaml: []
+  plan/active/APOLO-FULLTEST/FLOW-STATE.yaml: []
   plan/active/APOLO-INTEG-TEST/BLOCK-LOG.yaml: []
   plan/active/APOLO-INTEG-TEST/FLOW-STATE.yaml: []
   plugin/absorbers/mcp-loader.ts:
@@ -14789,6 +15296,7 @@ reverse_dependency_graph:
   scripts/python/absorb_external_skills.py: []
   scripts/python/absorb_mcp.py: []
   scripts/python/agent_decision_loop.py: []
+  scripts/python/agent_escape_hatch.py: []
   scripts/python/agent_honesty_enforcer.py: []
   scripts/python/apolo_config.py: []
   scripts/python/apolo_orchestrator.py: []
@@ -14801,6 +15309,7 @@ reverse_dependency_graph:
   - scripts/python/absorb_external_skills.py
   - scripts/python/absorb_mcp.py
   - scripts/python/agent_decision_loop.py
+  - scripts/python/agent_escape_hatch.py
   - scripts/python/agent_honesty_enforcer.py
   - scripts/python/apolo_config.py
   - scripts/python/apolo_orchestrator.py
@@ -14824,6 +15333,7 @@ reverse_dependency_graph:
   - scripts/python/generate_plan.py
   - scripts/python/generate_tests.py
   - scripts/python/github_actions.py
+  - scripts/python/guided_recovery.py
   - scripts/python/health_check.py
   - scripts/python/hooks_validator.py
   - scripts/python/index_codebase.py
@@ -14850,6 +15360,7 @@ reverse_dependency_graph:
   - scripts/python/script_generator.py
   - scripts/python/secret_scanner.py
   - scripts/python/self_healing.py
+  - scripts/python/self_healing_loop.py
   - scripts/python/semantic_search.py
   - scripts/python/smart_rollback.py
   - scripts/python/static_analyzer.py
@@ -14874,6 +15385,7 @@ reverse_dependency_graph:
   scripts/python/generate_plan.py: []
   scripts/python/generate_tests.py: []
   scripts/python/github_actions.py: []
+  scripts/python/guided_recovery.py: []
   scripts/python/health_check.py: []
   scripts/python/hooks_validator.py: []
   scripts/python/index_codebase.py: []
@@ -14902,6 +15414,7 @@ reverse_dependency_graph:
   scripts/python/secret_scanner.py:
   - tests/test_security.py
   scripts/python/self_healing.py: []
+  scripts/python/self_healing_loop.py: []
   scripts/python/semantic_search.py: []
   scripts/python/serve_panel.py: []
   scripts/python/smart_rollback.py: []

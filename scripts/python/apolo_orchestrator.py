@@ -825,6 +825,28 @@ def run_cycle(repo_root: Path, flowid: str, goal: str, auto_yes: bool = False, s
             cycle_result["paused_at_phase"] = phase_name
             cycle_result["pause_reason"] = state["pause_reason"]
             log(f"\n⚠ PAUSA en {phase_name}: {state['pause_reason']}", "WARN")
+
+            # NUEVO v3.5.1: ofrecer escape hatch + guided recovery al agente
+            error_msg = state["pause_reason"]
+            log(f"   → Diagnostico guiado:", "INFO")
+            recovery_result = run_script("guided_recovery.py", [
+                "diagnose", "--repo-root", ".", "--flowid", flowid,
+                "--error", error_msg, "--script", phase_name,
+            ], repo_root, 15)
+            if recovery_result.get("parsed", {}).get("recommended_fix"):
+                fix = recovery_result["parsed"]["recommended_fix"]
+                log(f"     Causa: {fix.get('diagnosis', '?')}", "INFO")
+                log(f"     Fix:   {fix.get('fix_command', '?')}", "INFO")
+
+            log(f"   → Escape hatches disponibles:", "INFO")
+            escape_result = run_script("agent_escape_hatch.py", [
+                "offer", "--repo-root", ".", "--flowid", flowid,
+                "--phase", phase_name, "--reason", error_msg,
+            ], repo_root, 15)
+            if escape_result.get("parsed", {}).get("hatches_available"):
+                for hatch in escape_result["parsed"]["hatches_available"][:3]:
+                    log(f"     [{hatch['risk_level']}] {hatch['type']}: {hatch['description']}", "INFO")
+
             log(f"   Resolver y ejecutar: apolo continue --flowid {flowid}", "INFO")
             break
 

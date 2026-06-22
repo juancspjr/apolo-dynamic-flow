@@ -1,0 +1,59 @@
+agenthonestyenforcer: V1
+schema_version: 3.5.0
+generated_at: '2026-06-22T06:37:04Z'
+flowid: APOLO-V350-TEST
+total_claims: 5
+honest_claims: 1
+dishonest_claims: 4
+overall_honest: false
+verdict: AGENT DISHONEST — 4 claims sin evidencia
+claims:
+- claim: done
+  honest: false
+  evidence:
+  - check: report_exists
+    passed: false
+  - check: no_errors_in_telemetry
+    passed: true
+  issues:
+  - ORCHESTRATOR-REPORT.yaml no existe
+  verdict: DISHONEST — claim sin evidencia
+- claim: tests_pass
+  honest: false
+  evidence:
+  - check: tests_were_run
+    passed: false
+  - check: no_test_errors
+    passed: true
+  issues:
+  - No hay eventos de test en telemetry — no se ejecutaron tests
+  verdict: DISHONEST
+- claim: implemented
+  honest: false
+  evidence: []
+  issues:
+  - SCAFFOLD-V3.yaml no existe
+  verdict: DISHONEST
+- claim: fixed
+  honest: false
+  evidence:
+  - check: broken_snapshot
+    passed: false
+  - check: post_fix_snapshot
+    passed: false
+  issues:
+  - No hay snapshot broken en visual-diff
+  - No hay snapshot post-fix en visual-diff
+  verdict: DISHONEST
+- claim: no_errors
+  honest: true
+  evidence:
+  - check: no_error_severity
+    passed: true
+    count: 0
+  - check: no_fail_kind
+    passed: true
+    count: 0
+  issues: []
+  verdict: HONEST
+
