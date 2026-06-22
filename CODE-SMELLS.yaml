@@ -1,15 +1,15 @@
 codesmells: V1
 version: 1
-generated_at: '2026-06-22T01:55:06Z'
+generated_at: '2026-06-22T02:59:43Z'
 repo_root: /home/juan/new_project
 summary:
-  total_smells: 5098
-  long_methods: 98
+  total_smells: 5244
+  long_methods: 115
   god_classes: 0
-  deep_nesting: 1180
-  duplication: 3820
+  deep_nesting: 1302
+  duplication: 3827
   dead_code: 0
-  high_complexity_functions: 50
+  high_complexity_functions: 57
 smells:
 - type: long_method
   file: plugin/evidence-collector.ts
@@ -108,17 +108,23 @@ smells:
   severity: high
   suggestion: Extract sub-logic from main (113 lines)
 - type: long_method
+  file: scripts/python/apolo_config.py
+  function: main
+  lines: 64
+  severity: medium
+  suggestion: Extract sub-logic from main (64 lines)
+- type: long_method
   file: scripts/python/auto_hooks.py
   function: fire_trigger
-  lines: 72
+  lines: 66
   severity: medium
-  suggestion: Extract sub-logic from fire_trigger (72 lines)
+  suggestion: Extract sub-logic from fire_trigger (66 lines)
 - type: long_method
   file: scripts/python/auto_hooks.py
   function: main
-  lines: 104
+  lines: 110
   severity: high
-  suggestion: Extract sub-logic from main (104 lines)
+  suggestion: Extract sub-logic from main (110 lines)
 - type: long_method
   file: scripts/python/code_quality.py
   function: estimate_complexity_regex
@@ -174,6 +180,36 @@ smells:
   severity: high
   suggestion: Extract sub-logic from main (155 lines)
 - type: long_method
+  file: scripts/python/cross_flow_learning.py
+  function: analyze_flow
+  lines: 83
+  severity: medium
+  suggestion: Extract sub-logic from analyze_flow (83 lines)
+- type: long_method
+  file: scripts/python/cross_flow_learning.py
+  function: analyze_all_flows
+  lines: 111
+  severity: high
+  suggestion: Extract sub-logic from analyze_all_flows (111 lines)
+- type: long_method
+  file: scripts/python/cross_flow_learning.py
+  function: recommend_for_flow
+  lines: 79
+  severity: medium
+  suggestion: Extract sub-logic from recommend_for_flow (79 lines)
+- type: long_method
+  file: scripts/python/cross_flow_learning.py
+  function: find_similar_flows
+  lines: 61
+  severity: medium
+  suggestion: Extract sub-logic from find_similar_flows (61 lines)
+- type: long_method
+  file: scripts/python/cross_flow_learning.py
+  function: main
+  lines: 64
+  severity: medium
+  suggestion: Extract sub-logic from main (64 lines)
+- type: long_method
   file: scripts/python/cross_language_analyzer.py
   function: detect_language_calls
   lines: 140
@@ -209,6 +245,48 @@ smells:
   lines: 58
   severity: medium
   suggestion: Extract sub-logic from main (58 lines)
+- type: long_method
+  file: scripts/python/evidence_replay.py
+  function: build_timeline
+  lines: 97
+  severity: medium
+  suggestion: Extract sub-logic from build_timeline (97 lines)
+- type: long_method
+  file: scripts/python/evidence_replay.py
+  function: find_bug_replay
+  lines: 71
+  severity: medium
+  suggestion: Extract sub-logic from find_bug_replay (71 lines)
+- type: long_method
+  file: scripts/python/evidence_replay.py
+  function: find_patterns
+  lines: 55
+  severity: medium
+  suggestion: Extract sub-logic from find_patterns (55 lines)
+- type: long_method
+  file: scripts/python/evidence_replay.py
+  function: main
+  lines: 71
+  severity: medium
+  suggestion: Extract sub-logic from main (71 lines)
+- type: long_method
+  file: scripts/python/evidence_visual_diff.py
+  function: capture_snapshot
+  lines: 78
+  severity: medium
+  suggestion: Extract sub-logic from capture_snapshot (78 lines)
+- type: long_method
+  file: scripts/python/evidence_visual_diff.py
+  function: generate_diff
+  lines: 93
+  severity: medium
+  suggestion: Extract sub-logic from generate_diff (93 lines)
+- type: long_method
+  file: scripts/python/evidence_visual_diff.py
+  function: main
+  lines: 74
+  severity: medium
+  suggestion: Extract sub-logic from main (74 lines)
 - type: long_method
   file: scripts/python/feedback_loop.py
   function: aggregate_feedback
@@ -522,6 +600,30 @@ smells:
   severity: high
   suggestion: Extract sub-logic from main (130 lines)
 - type: long_method
+  file: scripts/python/scaffold_v3.py
+  function: generate_files_to_create
+  lines: 61
+  severity: medium
+  suggestion: Extract sub-logic from generate_files_to_create (61 lines)
+- type: long_method
+  file: scripts/python/scaffold_v3.py
+  function: generate_commands
+  lines: 92
+  severity: medium
+  suggestion: Extract sub-logic from generate_commands (92 lines)
+- type: long_method
+  file: scripts/python/scaffold_v3.py
+  function: generate_scaffold_v3
+  lines: 91
+  severity: medium
+  suggestion: Extract sub-logic from generate_scaffold_v3 (91 lines)
+- type: long_method
+  file: scripts/python/scaffold_v3.py
+  function: main
+  lines: 70
+  severity: medium
+  suggestion: Extract sub-logic from main (70 lines)
+- type: long_method
   file: scripts/python/score_evidence.py
   function: compute_coverage_score
   lines: 55
@@ -601,16 +703,16 @@ smells:
   suggestion: Extract sub-logic from _install_common_stub_if_needed (121 lines)
 - type: deep_nesting
   file: .opencode/apolo-dynamic/CODE-INDEX.yaml
-  line: 3233
+  line: 3421
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 3233 (depth 4)
+  suggestion: Extract nested logic at line 3421 (depth 4)
 - type: deep_nesting
   file: .opencode/apolo-dynamic/CODE-INDEX.yaml
-  line: 3234
+  line: 3422
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 3234 (depth 4)
+  suggestion: Extract nested logic at line 3422 (depth 4)
 - type: deep_nesting
   file: LSP-ANALYSIS.yaml
   line: 1331
@@ -1158,137 +1260,197 @@ smells:
   severity: medium
   suggestion: Extract nested logic at line 301 (depth 4)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 221
+  file: scripts/python/apolo_config.py
+  line: 228
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 221 (depth 4)
+  suggestion: Extract nested logic at line 228 (depth 4)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 224
+  file: scripts/python/apolo_config.py
+  line: 244
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 224 (depth 4)
+  suggestion: Extract nested logic at line 244 (depth 4)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 232
+  file: scripts/python/apolo_config.py
+  line: 257
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 232 (depth 4)
+  suggestion: Extract nested logic at line 257 (depth 4)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 235
+  file: scripts/python/apolo_config.py
+  line: 262
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 235 (depth 4)
+  suggestion: Extract nested logic at line 262 (depth 4)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 272
+  file: scripts/python/apolo_config.py
+  line: 265
   nesting_level: 6
   severity: medium
-  suggestion: Extract nested logic at line 272 (depth 6)
+  suggestion: Extract nested logic at line 265 (depth 6)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 277
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 277 (depth 6)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 280
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 280 (depth 6)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 281
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 281 (depth 6)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 310
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 310 (depth 4)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 339
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 339 (depth 4)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 341
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 341 (depth 6)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 380
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 380 (depth 4)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 382
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 382 (depth 6)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 384
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 384 (depth 6)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 393
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 393 (depth 4)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 396
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 396 (depth 4)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 405
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 405 (depth 4)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 439
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 439 (depth 4)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 443
+  file: scripts/python/apolo_config.py
+  line: 268
   nesting_level: 8
   severity: medium
-  suggestion: Extract nested logic at line 443 (depth 8)
+  suggestion: Extract nested logic at line 268 (depth 8)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 452
+  file: scripts/python/apolo_config.py
+  line: 301
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 452 (depth 4)
+  suggestion: Extract nested logic at line 301 (depth 4)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 457
+  file: scripts/python/apolo_config.py
+  line: 309
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 457 (depth 4)
+  suggestion: Extract nested logic at line 309 (depth 4)
 - type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 462
+  file: scripts/python/apolo_config.py
+  line: 362
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 462 (depth 4)
+  suggestion: Extract nested logic at line 362 (depth 4)
+- type: deep_nesting
+  file: scripts/python/apolo_config.py
+  line: 373
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 373 (depth 4)
+- type: deep_nesting
+  file: scripts/python/apolo_config.py
+  line: 385
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 385 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 238
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 238 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 241
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 241 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 247
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 247 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 250
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 250 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 253
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 253 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 260
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 260 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 263
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 263 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 298
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 298 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 303
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 303 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 306
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 306 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 307
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 307 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 334
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 334 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 360
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 360 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 362
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 362 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 399
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 399 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 401
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 401 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 403
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 403 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 411
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 411 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 414
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 414 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 428
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 428 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 463
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 463 (depth 6)
 - type: deep_nesting
   file: scripts/python/auto_hooks.py
   line: 464
@@ -1297,34 +1459,28 @@ smells:
   suggestion: Extract nested logic at line 464 (depth 6)
 - type: deep_nesting
   file: scripts/python/auto_hooks.py
-  line: 465
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 465 (depth 6)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 468
+  line: 471
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 468 (depth 4)
+  suggestion: Extract nested logic at line 471 (depth 4)
 - type: deep_nesting
   file: scripts/python/auto_hooks.py
-  line: 479
+  line: 476
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 476 (depth 8)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 485
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 479 (depth 4)
+  suggestion: Extract nested logic at line 485 (depth 4)
 - type: deep_nesting
   file: scripts/python/auto_hooks.py
-  line: 483
+  line: 490
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 483 (depth 4)
-- type: deep_nesting
-  file: scripts/python/auto_hooks.py
-  line: 484
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 484 (depth 6)
+  suggestion: Extract nested logic at line 490 (depth 4)
 - type: deep_nesting
   file: scripts/python/auto_hooks.py
   line: 494
@@ -1333,16 +1489,58 @@ smells:
   suggestion: Extract nested logic at line 494 (depth 4)
 - type: deep_nesting
   file: scripts/python/auto_hooks.py
-  line: 498
-  nesting_level: 4
+  line: 495
+  nesting_level: 6
   severity: medium
-  suggestion: Extract nested logic at line 498 (depth 4)
+  suggestion: Extract nested logic at line 495 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 496
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 496 (depth 6)
 - type: deep_nesting
   file: scripts/python/auto_hooks.py
   line: 499
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 499 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 510
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 510 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 514
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 514 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 515
   nesting_level: 6
   severity: medium
-  suggestion: Extract nested logic at line 499 (depth 6)
+  suggestion: Extract nested logic at line 515 (depth 6)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 525
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 525 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 529
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 529 (depth 4)
+- type: deep_nesting
+  file: scripts/python/auto_hooks.py
+  line: 530
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 530 (depth 6)
 - type: deep_nesting
   file: scripts/python/code_generator.py
   line: 134
@@ -2286,6 +2484,222 @@ smells:
   severity: medium
   suggestion: Extract nested logic at line 530 (depth 4)
 - type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 62
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 62 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 64
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 64 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 75
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 75 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 79
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 79 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 132
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 132 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 133
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 133 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 149
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 149 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 151
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 151 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 184
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 184 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 187
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 187 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 204
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 204 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 214
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 214 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 216
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 216 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 218
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 218 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 220
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 220 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 226
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 226 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 227
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 227 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 235
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 235 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 236
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 236 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 263
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 263 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 271
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 271 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 302
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 302 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 304
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 304 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 316
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 316 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 318
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 318 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 339
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 339 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 342
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 342 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 343
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 343 (depth 6)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 372
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 372 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 385
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 385 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 396
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 396 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 397
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 397 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 402
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 402 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 468
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 468 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 486
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 486 (depth 4)
+- type: deep_nesting
+  file: scripts/python/cross_flow_learning.py
+  line: 495
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 495 (depth 4)
+- type: deep_nesting
   file: scripts/python/cross_language_analyzer.py
   line: 120
   nesting_level: 4
@@ -2717,6 +3131,354 @@ smells:
   nesting_level: 4
   severity: medium
   suggestion: Extract nested logic at line 298 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 52
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 52 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 56
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 56 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 69
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 69 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 71
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 71 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 129
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 129 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 131
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 131 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 133
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 133 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 147
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 147 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 164
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 164 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 165
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 165 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 186
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 186 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 208
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 208 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 225
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 225 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 227
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 227 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 229
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 229 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 231
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 231 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 254
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 254 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 264
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 264 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 306
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 306 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 316
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 316 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 317
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 317 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 337
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 337 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 338
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 338 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 339
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 339 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 359
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 359 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 367
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 367 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 370
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 370 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 371
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 371 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 407
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 407 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 412
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 412 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 414
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 414 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 420
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 420 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 428
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 428 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 434
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 434 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_replay.py
+  line: 443
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 443 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 77
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 77 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 87
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 87 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 116
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 116 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 117
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 117 (depth 6)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 142
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 142 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 173
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 173 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 177
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 177 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 187
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 187 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 188
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 188 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 190
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 190 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 210
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 210 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 211
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 211 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 216
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 216 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 239
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 239 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 275
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 275 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 335
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 335 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 338
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 338 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 341
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 341 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 347
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 347 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 352
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 352 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 355
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 355 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 366
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 366 (depth 4)
+- type: deep_nesting
+  file: scripts/python/evidence_visual_diff.py
+  line: 373
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 373 (depth 4)
 - type: deep_nesting
   file: scripts/python/feedback_loop.py
   line: 78
@@ -4801,70 +5563,22 @@ smells:
   suggestion: Extract nested logic at line 130 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 229
+  line: 276
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 229 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 232
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 232 (depth 6)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 234
-  nesting_level: 8
-  severity: medium
-  suggestion: Extract nested logic at line 234 (depth 8)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 254
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 254 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 258
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 258 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 262
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 262 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 266
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 266 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 270
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 270 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 274
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 274 (depth 4)
+  suggestion: Extract nested logic at line 276 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
   line: 279
-  nesting_level: 4
+  nesting_level: 6
   severity: medium
-  suggestion: Extract nested logic at line 279 (depth 4)
+  suggestion: Extract nested logic at line 279 (depth 6)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
   line: 281
-  nesting_level: 4
+  nesting_level: 8
   severity: medium
-  suggestion: Extract nested logic at line 281 (depth 4)
+  suggestion: Extract nested logic at line 281 (depth 8)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
   line: 301
@@ -4873,28 +5587,46 @@ smells:
   suggestion: Extract nested logic at line 301 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 312
+  line: 305
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 312 (depth 4)
+  suggestion: Extract nested logic at line 305 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 309
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 309 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 313
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 313 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
   line: 317
-  nesting_level: 8
-  severity: medium
-  suggestion: Extract nested logic at line 317 (depth 8)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 325
-  nesting_level: 8
-  severity: medium
-  suggestion: Extract nested logic at line 325 (depth 8)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 335
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 335 (depth 4)
+  suggestion: Extract nested logic at line 317 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 321
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 321 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 326
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 326 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 328
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 328 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
   line: 348
@@ -4903,70 +5635,40 @@ smells:
   suggestion: Extract nested logic at line 348 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 353
+  line: 359
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 353 (depth 4)
+  suggestion: Extract nested logic at line 359 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 450
+  line: 364
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 364 (depth 8)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 372
+  nesting_level: 8
+  severity: medium
+  suggestion: Extract nested logic at line 372 (depth 8)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 382
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 450 (depth 4)
+  suggestion: Extract nested logic at line 382 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 463
+  line: 395
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 463 (depth 4)
+  suggestion: Extract nested logic at line 395 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 468
+  line: 400
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 468 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 469
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 469 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 473
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 473 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 478
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 478 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 482
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 482 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 486
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 486 (depth 4)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 487
-  nesting_level: 6
-  severity: medium
-  suggestion: Extract nested logic at line 487 (depth 6)
-- type: deep_nesting
-  file: scripts/python/post_script_gates.py
-  line: 492
-  nesting_level: 4
-  severity: medium
-  suggestion: Extract nested logic at line 492 (depth 4)
+  suggestion: Extract nested logic at line 400 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
   line: 497
@@ -4975,22 +5677,82 @@ smells:
   suggestion: Extract nested logic at line 497 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 501
+  line: 510
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 501 (depth 4)
+  suggestion: Extract nested logic at line 510 (depth 4)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 502
+  line: 515
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 515 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 516
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 516 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 520
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 520 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 525
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 525 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 529
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 529 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 533
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 533 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 534
   nesting_level: 6
   severity: medium
-  suggestion: Extract nested logic at line 502 (depth 6)
+  suggestion: Extract nested logic at line 534 (depth 6)
 - type: deep_nesting
   file: scripts/python/post_script_gates.py
-  line: 507
+  line: 539
   nesting_level: 4
   severity: medium
-  suggestion: Extract nested logic at line 507 (depth 4)
+  suggestion: Extract nested logic at line 539 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 544
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 544 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 548
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 548 (depth 4)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 549
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 549 (depth 6)
+- type: deep_nesting
+  file: scripts/python/post_script_gates.py
+  line: 554
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 554 (depth 4)
 - type: deep_nesting
   file: scripts/python/predict_impact.py
   line: 103
@@ -6047,6 +6809,78 @@ smells:
   nesting_level: 4
   severity: medium
   suggestion: Extract nested logic at line 604 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 68
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 68 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 78
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 78 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 97
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 97 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 109
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 109 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 189
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 189 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 317
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 317 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 410
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 410 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 421
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 421 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 422
+  nesting_level: 6
+  severity: medium
+  suggestion: Extract nested logic at line 422 (depth 6)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 425
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 425 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 460
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 460 (depth 4)
+- type: deep_nesting
+  file: scripts/python/scaffold_v3.py
+  line: 530
+  nesting_level: 4
+  severity: medium
+  suggestion: Extract nested logic at line 530 (depth 4)
 - type: deep_nesting
   file: scripts/python/score_evidence.py
   line: 66
@@ -8080,6 +8914,22 @@ smells:
   severity: low
   suggestion: Review infer_script_capabilities and infer_summary_from_name for duplication
 - type: possible_duplication
+  function_a: get_config
+  file_a: scripts/python/apolo_config.py
+  function_b: get_stats
+  file_b: scripts/python/cross_flow_learning.py
+  common_prefix: get_
+  severity: low
+  suggestion: Review get_config and get_stats for duplication
+- type: possible_duplication
+  function_a: get_config
+  file_a: scripts/python/apolo_config.py
+  function_b: get_modified_files
+  file_b: scripts/python/rollback.py
+  common_prefix: get_
+  severity: low
+  suggestion: Review get_config and get_modified_files for duplication
+- type: possible_duplication
   function_a: hooks_config_path
   file_a: scripts/python/auto_hooks.py
   function_b: hooks_log_path
@@ -9419,6 +10269,30 @@ smells:
   severity: low
   suggestion: Review handler_health_check and handler_full_summary for duplication
 - type: possible_duplication
+  function_a: analyze_all_flows
+  file_a: scripts/python/cross_flow_learning.py
+  function_b: analyze_test_contracts
+  file_b: scripts/python/integration_validation.py
+  common_prefix: analyze_
+  severity: low
+  suggestion: Review analyze_all_flows and analyze_test_contracts for duplication
+- type: possible_duplication
+  function_a: analyze_all_flows
+  file_a: scripts/python/cross_flow_learning.py
+  function_b: analyze_repo
+  file_b: scripts/python/lsp_integration.py
+  common_prefix: analyze_
+  severity: low
+  suggestion: Review analyze_all_flows and analyze_repo for duplication
+- type: possible_duplication
+  function_a: get_stats
+  file_a: scripts/python/cross_flow_learning.py
+  function_b: get_modified_files
+  file_b: scripts/python/rollback.py
+  common_prefix: get_
+  severity: low
+  suggestion: Review get_stats and get_modified_files for duplication
+- type: possible_duplication
   function_a: generate_python_docstring
   file_a: scripts/python/doc_generator.py
   function_b: generate_jsdoc
@@ -9450,6 +10324,14 @@ smells:
   common_prefix: generate_
   severity: low
   suggestion: Review generate_rust_doc and generate_java_doc for duplication
+- type: possible_duplication
+  function_a: list_snapshots
+  file_a: scripts/python/evidence_visual_diff.py
+  function_b: list_feedback
+  file_b: scripts/python/feedback_loop.py
+  common_prefix: list_
+  severity: low
+  suggestion: Review list_snapshots and list_feedback for duplication
 - type: possible_duplication
   function_a: check_file_exists
   file_a: scripts/python/health_check.py
@@ -10107,6 +10989,15 @@ smells:
   common_prefix: build_c
   severity: low
   suggestion: Review build_circular_deps_warning and build_change_template for duplication
+- type: possible_duplication
+  function_a: select_unit_topological_first
+  file_a: scripts/python/scaffold_v3.py
+  function_b: select_unit_lowest_risk
+  file_b: scripts/python/scaffold_v3.py
+  common_prefix: select_unit_
+  severity: low
+  suggestion: Review select_unit_topological_first and select_unit_lowest_risk for
+    duplication
 - type: possible_duplication
   function_a: compute_freshness_score
   file_a: scripts/python/score_evidence.py
@@ -40167,14 +41058,74 @@ complexity:
   rank: A
   severity: low
 - tool: radon
+  file: scripts/python/apolo_config.py
+  function: validate_config
+  complexity: 14
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/apolo_config.py
+  function: main
+  complexity: 14
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/apolo_config.py
+  function: set_threshold
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/apolo_config.py
+  function: _merge_defaults
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/apolo_config.py
+  function: get_threshold
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/apolo_config.py
+  function: get_config
+  complexity: 3
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/apolo_config.py
+  function: config_path
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/apolo_config.py
+  function: init_config
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/apolo_config.py
+  function: save_config
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
   file: scripts/python/auto_hooks.py
   function: main
-  complexity: 28
-  rank: D
+  complexity: 32
+  rank: E
   severity: high
 - tool: radon
   file: scripts/python/auto_hooks.py
   function: evaluate_condition
+  complexity: 19
+  rank: C
+  severity: high
+- tool: radon
+  file: scripts/python/auto_hooks.py
+  function: get_status
   complexity: 14
   rank: C
   severity: medium
@@ -40184,12 +41135,6 @@ complexity:
   complexity: 13
   rank: C
   severity: medium
-- tool: radon
-  file: scripts/python/auto_hooks.py
-  function: get_status
-  complexity: 10
-  rank: B
-  severity: low
 - tool: radon
   file: scripts/python/auto_hooks.py
   function: execute_script
@@ -40875,6 +41820,60 @@ complexity:
   rank: A
   severity: low
 - tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: analyze_flow
+  complexity: 30
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: analyze_all_flows
+  complexity: 26
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: recommend_for_flow
+  complexity: 15
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: main
+  complexity: 12
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: find_similar_flows
+  complexity: 11
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: load_jsonl
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: parse_timestamp
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: get_stats
+  complexity: 3
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/cross_flow_learning.py
+  function: knowledge_path
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
   file: scripts/python/cross_language_analyzer.py
   function: detect_language_calls
   complexity: 20
@@ -41045,6 +42044,102 @@ complexity:
 - tool: radon
   file: scripts/python/doc_generator.py
   function: generate_readme_section
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: build_timeline
+  complexity: 25
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: main
+  complexity: 16
+  rank: C
+  severity: high
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: find_bug_replay
+  complexity: 13
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: find_patterns
+  complexity: 13
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: _infer_cause
+  complexity: 10
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: _recommend_fix
+  complexity: 9
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: list_flows
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: parse_timestamp
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_replay.py
+  function: load_jsonl
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_visual_diff.py
+  function: generate_diff
+  complexity: 26
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/evidence_visual_diff.py
+  function: main
+  complexity: 22
+  rank: D
+  severity: high
+- tool: radon
+  file: scripts/python/evidence_visual_diff.py
+  function: capture_snapshot
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_visual_diff.py
+  function: compare_all_phases
+  complexity: 8
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_visual_diff.py
+  function: load_snapshot
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_visual_diff.py
+  function: list_snapshots
+  complexity: 4
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/evidence_visual_diff.py
+  function: snapshots_dir
   complexity: 1
   rank: A
   severity: low
@@ -42099,6 +43194,72 @@ complexity:
   rank: A
   severity: low
 - tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: generate_commands
+  complexity: 14
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: select_unit_highest_impact
+  complexity: 13
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: generate_scaffold_v3
+  complexity: 12
+  rank: C
+  severity: medium
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: select_unit_topological_first
+  complexity: 10
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: main
+  complexity: 10
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: generate_files_to_create
+  complexity: 6
+  rank: B
+  severity: low
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: auto_select_unit
+  complexity: 5
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: select_unit_lowest_risk
+  complexity: 3
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: _derive_impl_path
+  complexity: 2
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: _test_template
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
+  file: scripts/python/scaffold_v3.py
+  function: _impl_template
+  complexity: 1
+  rank: A
+  severity: low
+- tool: radon
   file: scripts/python/score_evidence.py
   function: compute_coverage_score
   complexity: 19
@@ -43094,5 +44255,5 @@ complexity:
   complexity: 1
   rank: A
   severity: low
-recommendation: 5098 smells and 50 high-complexity functions found
+recommendation: 5244 smells and 57 high-complexity functions found
 

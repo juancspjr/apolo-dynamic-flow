@@ -70,8 +70,8 @@ GATES_CONFIG_FILE = "apolo-post-script-gates.yaml"
 
 DEFAULT_GATES = {
     "postscriptgates": "V1",
-    "version": 1,
-    "schema_version": "2.9.0",
+    "version": 2,
+    "schema_version": "3.1.0",
     "generated_at": now_iso(),
     "enabled": True,
     "gates": [
@@ -180,6 +180,53 @@ DEFAULT_GATES = {
             ],
             "on_fail": "warn",
             "description": "Full audit debe producir summary con final_score y grade",
+        },
+        # === NUEVOS GATES v3.1.0 ===
+        {
+            "script": "scaffold_v3.py",
+            "version_added": "3.1.0",
+            "enabled": True,
+            "require": [
+                {"path": "files_to_create", "type": "list", "min_length": 1, "description": "Al menos 1 archivo concreto a crear (v3.1.0)"},
+                {"path": "commands", "type": "list", "min_length": 1, "description": "Al menos 1 command accionable (v3.1.0)"},
+                {"path": "summary.is_concrete", "type": "any", "description": "Flag de scaffold concreto"},
+                {"path": "selection", "type": "dict", "description": "Metadata de auto-seleccion de U-NN"},
+            ],
+            "on_fail": "block",
+            "description": "Scaffold v3 debe ser concreto: files_to_create + commands + selection metadata (GAP #5.1 cerrado)",
+        },
+        {
+            "script": "evidence_visual_diff.py",
+            "version_added": "3.1.0",
+            "enabled": True,
+            "require": [
+                {"path": "snapshot_id", "type": "string", "min_length": 1, "description": "ID unico del snapshot"},
+                {"path": "phase", "type": "string", "min_length": 1, "description": "Phase del snapshot (baseline/broken/post-fix)"},
+                {"path": "files", "type": "list", "min_length": 1, "description": "Al menos 1 archivo en el snapshot"},
+            ],
+            "on_fail": "warn",
+            "description": "Evidence visual diff debe capturar snapshots con phase y files (GAP #4)",
+        },
+        {
+            "script": "evidence_replay.py",
+            "version_added": "3.1.0",
+            "enabled": True,
+            "require": [
+                {"path": "total_events", "type": "number", "min": 0, "description": "Total de eventos en timeline"},
+            ],
+            "on_fail": "warn",
+            "description": "Evidence replay debe construir timeline con eventos (GAP #5)",
+        },
+        {
+            "script": "cross_flow_learning.py",
+            "version_added": "3.1.0",
+            "enabled": True,
+            "require": [
+                {"path": "flows_analyzed", "type": "number", "min": 0, "description": "Flows analizados"},
+                {"path": "patterns", "type": "dict", "description": "Patrones extraidos"},
+            ],
+            "on_fail": "warn",
+            "description": "Cross-flow learning debe analizar flows y extraer patrones (GAP #6)",
         },
     ],
 }

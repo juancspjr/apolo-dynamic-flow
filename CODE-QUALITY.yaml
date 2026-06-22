@@ -1,7 +1,7 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T02:00:59Z'
+generated_at: '2026-06-22T03:06:58Z'
 repo_root: /home/juan/new_project
-total_files: 79
+total_files: 84
 languages_detected:
 - css
 - html
@@ -1788,6 +1788,34 @@ security_findings:
   confidence: HIGH
   message: Try, Except, Continue detected.
 - tool: bandit
+  file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  line: 177
+  test_id: B105
+  severity: LOW
+  confidence: MEDIUM
+  message: 'Possible hardcoded password: ''True'''
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  line: 190
+  test_id: B105
+  severity: LOW
+  confidence: MEDIUM
+  message: 'Possible hardcoded password: ''True'''
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  line: 202
+  test_id: B105
+  severity: LOW
+  confidence: MEDIUM
+  message: 'Possible hardcoded password: ''False'''
+- tool: bandit
+  file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  line: 214
+  test_id: B105
+  severity: LOW
+  confidence: MEDIUM
+  message: 'Possible hardcoded password: ''False'''
+- tool: bandit
   file: /home/juan/new_project/scripts/python/common.py
   line: 14
   test_id: B404
@@ -1904,6 +1932,13 @@ security_findings:
   confidence: HIGH
   message: Try, Except, Continue detected.
 - tool: bandit
+  file: /home/juan/new_project/scripts/python/apolo_config.py
+  line: 68
+  test_id: B105
+  severity: LOW
+  confidence: MEDIUM
+  message: 'Possible hardcoded password: ''True'''
+- tool: bandit
   file: /home/juan/new_project/scripts/python/serve_panel.py
   line: 55
   test_id: B104
@@ -1933,7 +1968,7 @@ security_findings:
   message: Try, Except, Pass detected.
 - tool: bandit
   file: /home/juan/new_project/scripts/python/auto_hooks.py
-  line: 40
+  line: 21
   test_id: B404
   severity: LOW
   confidence: HIGH
@@ -1941,7 +1976,7 @@ security_findings:
     module.
 - tool: bandit
   file: /home/juan/new_project/scripts/python/auto_hooks.py
-  line: 266
+  line: 292
   test_id: B603
   severity: LOW
   confidence: HIGH
@@ -3631,6 +3666,72 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: generate_commands
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: select_unit_highest_impact
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: generate_scaffold_v3
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: select_unit_topological_first
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: main
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: generate_files_to_create
+  complexity: 6
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: auto_select_unit
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: select_unit_lowest_risk
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: _derive_impl_path
+  complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: _test_template
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  function: _impl_template
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/common.py
   function: _parse_scalar
   complexity: 10
@@ -4381,6 +4482,102 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: validate_config
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: main
+  complexity: 14
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: set_threshold
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: _merge_defaults
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: get_threshold
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: get_config
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: config_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: init_config
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  function: save_config
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: generate_diff
+  complexity: 26
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: main
+  complexity: 22
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: capture_snapshot
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: compare_all_phases
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: load_snapshot
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: list_snapshots
+  complexity: 4
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: snapshots_dir
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/project_templates.py
   function: main
   complexity: 4
@@ -4396,6 +4593,60 @@ complexity_scores:
 - file: /home/juan/new_project/scripts/python/project_templates.py
   function: list_templates
   complexity: 2
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: build_timeline
+  complexity: 25
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: main
+  complexity: 16
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: find_bug_replay
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: find_patterns
+  complexity: 13
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: _infer_cause
+  complexity: 10
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: _recommend_fix
+  complexity: 9
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: list_flows
+  complexity: 8
+  rank: B
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: parse_timestamp
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: load_jsonl
+  complexity: 5
   rank: A
   tool: radon
   estimated: false
@@ -4641,12 +4892,18 @@ complexity_scores:
   estimated: false
 - file: /home/juan/new_project/scripts/python/auto_hooks.py
   function: main
-  complexity: 28
-  rank: D
+  complexity: 32
+  rank: E
   tool: radon
   estimated: false
 - file: /home/juan/new_project/scripts/python/auto_hooks.py
   function: evaluate_condition
+  complexity: 19
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  function: get_status
   complexity: 14
   rank: C
   tool: radon
@@ -4655,12 +4912,6 @@ complexity_scores:
   function: fire_trigger
   complexity: 13
   rank: C
-  tool: radon
-  estimated: false
-- file: /home/juan/new_project/scripts/python/auto_hooks.py
-  function: get_status
-  complexity: 10
-  rank: B
   tool: radon
   estimated: false
 - file: /home/juan/new_project/scripts/python/auto_hooks.py
@@ -5815,6 +6066,60 @@ complexity_scores:
   rank: A
   tool: radon
   estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: analyze_flow
+  complexity: 30
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: analyze_all_flows
+  complexity: 26
+  rank: D
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: recommend_for_flow
+  complexity: 15
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: main
+  complexity: 12
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: find_similar_flows
+  complexity: 11
+  rank: C
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: load_jsonl
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: parse_timestamp
+  complexity: 5
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: get_stats
+  complexity: 3
+  rank: A
+  tool: radon
+  estimated: false
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: knowledge_path
+  complexity: 1
+  rank: A
+  tool: radon
+  estimated: false
 - file: /home/juan/new_project/scripts/python/debug_mode.py
   function: main
   complexity: 27
@@ -6113,6 +6418,34 @@ high_complexity_functions:
   lineno: 597
   tool: radon
   recommendation: refactor 'main' (complejidad 16 > 15)
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: generate_diff
+  complexity: 26
+  rank: D
+  lineno: 153
+  tool: radon
+  recommendation: refactor 'generate_diff' (complejidad 26 > 15)
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  function: main
+  complexity: 22
+  rank: D
+  lineno: 311
+  tool: radon
+  recommendation: refactor 'main' (complejidad 22 > 15)
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: build_timeline
+  complexity: 25
+  rank: D
+  lineno: 78
+  tool: radon
+  recommendation: refactor 'build_timeline' (complejidad 25 > 15)
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  function: main
+  complexity: 16
+  rank: C
+  lineno: 386
+  tool: radon
+  recommendation: refactor 'main' (complejidad 16 > 15)
 - file: /home/juan/new_project/scripts/python/scaffold_impl.py
   function: build_existing_tests
   complexity: 24
@@ -6199,11 +6532,18 @@ high_complexity_functions:
   recommendation: refactor 'handler_recommended_mcp' (complejidad 30 > 15)
 - file: /home/juan/new_project/scripts/python/auto_hooks.py
   function: main
-  complexity: 28
-  rank: D
-  lineno: 416
+  complexity: 32
+  rank: E
+  lineno: 441
   tool: radon
-  recommendation: refactor 'main' (complejidad 28 > 15)
+  recommendation: refactor 'main' (complejidad 32 > 15)
+- file: /home/juan/new_project/scripts/python/auto_hooks.py
+  function: evaluate_condition
+  complexity: 19
+  rank: C
+  lineno: 231
+  tool: radon
+  recommendation: refactor 'evaluate_condition' (complejidad 19 > 15)
 - file: /home/juan/new_project/scripts/python/score_evidence.py
   function: compute_coverage_score
   complexity: 19
@@ -6379,6 +6719,20 @@ high_complexity_functions:
   lineno: 191
   tool: radon
   recommendation: refactor 'detect_dead_code' (complejidad 18 > 15)
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: analyze_flow
+  complexity: 30
+  rank: D
+  lineno: 89
+  tool: radon
+  recommendation: refactor 'analyze_flow' (complejidad 30 > 15)
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  function: analyze_all_flows
+  complexity: 26
+  rank: D
+  lineno: 172
+  tool: radon
+  recommendation: refactor 'analyze_all_flows' (complejidad 26 > 15)
 - file: /home/juan/new_project/scripts/python/debug_mode.py
   function: main
   complexity: 27
@@ -6390,14 +6744,14 @@ high_complexity_functions:
   function: main
   complexity: 24
   rank: D
-  lineno: 428
+  lineno: 475
   tool: radon
   recommendation: refactor 'main' (complejidad 24 > 15)
 - file: /home/juan/new_project/scripts/python/post_script_gates.py
   function: validate_value
   complexity: 18
   rank: C
-  lineno: 249
+  lineno: 296
   tool: radon
   recommendation: refactor 'validate_value' (complejidad 18 > 15)
 degradations:
@@ -6424,13 +6778,13 @@ degradations:
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 - herramienta nativa de complejidad no disponible para typescript — usando regex-estimation
 recommendations:
-- Refactorizar 62 función(es) con complejidad > 15
-- 'Atender 273 finding(s) de seguridad: {''medium'': 4, ''low'': 268, ''high'': 1}'
+- Refactorizar 69 función(es) con complejidad > 15
+- 'Atender 278 finding(s) de seguridad: {''medium'': 4, ''low'': 273, ''high'': 1}'
 - 'Instalar herramientas faltantes para análisis completo: 22 degradación(es)'
 summary:
-  total_security_findings: 273
-  total_functions_analyzed: 637
-  high_complexity_count: 62
+  total_security_findings: 278
+  total_functions_analyzed: 682
+  high_complexity_count: 69
   degradation_count: 22
-duration_ms: 98295
+duration_ms: 69671
 

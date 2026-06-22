@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# apolo_cli_router.sh — Router para invocar scripts de apolo desde la consola OpenCode (v2.9.0).
+# apolo_cli_router.sh — Router para invocar scripts de apolo desde la consola OpenCode (v3.1.0).
 #
 # Alinea TODOS los scripts del plugin en una sola interfaz unificada que puede
 # invocarse directamente desde la consola de OpenCode o desde bash.
@@ -156,6 +156,13 @@ ECOSYSTEM:
   gen-code           Code generation (8 languages)
   gen-doc            Doc generation
 
+v3.1.0 NEW:
+  config             Manage apolo-config.yaml (init/show/get/set/validate)
+  scaffold-v3        Scaffold v3 with auto-select U-NN + concrete files
+  visual-diff        Evidence visual diff (baseline/broken/post-fix)
+  evidence-replay    Replay bug step by step from audit log
+  cross-flow         Cross-flow learning (analyze/recommend/similar/stats)
+
 Examples:
   apolo init --flowid APOLO-20260622-MI-FLOW
   apolo collect --flowid APOLO-X --scope-json '{"paths":["src/"]}'
@@ -164,6 +171,11 @@ Examples:
   apolo gates-check --script collect_evidence.py --output ev.yaml
   apolo validate-integration --output report.yaml
   apolo full-audit
+  apolo config show
+  apolo scaffold-v3 --plan plan.yaml --flowid APOLO-X --output sf.yaml
+  apolo visual-diff capture --flowid APOLO-X --phase baseline --files src/app.ts
+  apolo evidence-replay bug --flowid APOLO-X
+  apolo cross-flow analyze
 USAGE
 }
 
@@ -394,6 +406,64 @@ case "$CMD" in
 
   gen-doc)
     run_py doc_generator.py "$@"
+    ;;
+
+  # === v3.1.0 NEW COMMANDS ===
+  config)
+    # config init|show|get|set|validate --repo-root .
+    sub="${1:-show}"
+    shift 2>/dev/null || true
+    case "$sub" in
+      init)      run_py apolo_config.py init --repo-root "$REPO_ROOT" "$@" ;;
+      show)      run_py apolo_config.py show --repo-root "$REPO_ROOT" "$@" ;;
+      get)       run_py apolo_config.py get --repo-root "$REPO_ROOT" "$@" ;;
+      set)       run_py apolo_config.py set --repo-root "$REPO_ROOT" "$@" ;;
+      validate)  run_py apolo_config.py validate --repo-root "$REPO_ROOT" "$@" ;;
+      *) err "config subcomando desconocido: $sub"; echo "Validos: init show get set validate"; exit 1 ;;
+    esac
+    ;;
+
+  scaffold-v3)
+    run_py scaffold_v3.py "$@"
+    ;;
+
+  visual-diff)
+    # visual-diff capture|diff|compare|list
+    sub="${1:-list}"
+    shift 2>/dev/null || true
+    case "$sub" in
+      capture)  run_py evidence_visual_diff.py capture --repo-root "$REPO_ROOT" "$@" ;;
+      diff)     run_py evidence_visual_diff.py diff --repo-root "$REPO_ROOT" "$@" ;;
+      compare)  run_py evidence_visual_diff.py compare --repo-root "$REPO_ROOT" "$@" ;;
+      list)     run_py evidence_visual_diff.py list --repo-root "$REPO_ROOT" "$@" ;;
+      *) err "visual-diff subcomando desconocido: $sub"; echo "Validos: capture diff compare list"; exit 1 ;;
+    esac
+    ;;
+
+  evidence-replay)
+    # evidence-replay timeline|bug|patterns|flows
+    sub="${1:-timeline}"
+    shift 2>/dev/null || true
+    case "$sub" in
+      timeline)  run_py evidence_replay.py timeline --repo-root "$REPO_ROOT" "$@" ;;
+      bug)       run_py evidence_replay.py bug --repo-root "$REPO_ROOT" "$@" ;;
+      patterns)  run_py evidence_replay.py patterns --repo-root "$REPO_ROOT" "$@" ;;
+      flows)     run_py evidence_replay.py flows --repo-root "$REPO_ROOT" "$@" ;;
+      *) err "evidence-replay subcomando desconocido: $sub"; echo "Validos: timeline bug patterns flows"; exit 1 ;;
+    esac
+    ;;
+
+  cross-flow)
+    # cross-flow analyze|recommend|similar|stats
+    sub="${1:-stats}"
+    shift 2>/dev/null || true
+    case "$sub" in
+      analyze)    run_py cross_flow_learning.py analyze --repo-root "$REPO_ROOT" "$@" ;;
+      recommend)  run_py cross_flow_learning.py recommend --repo-root "$REPO_ROOT" "$@" ;;
+      similar)    run_py cross_flow_learning.py similar --repo-root "$REPO_ROOT" "$@" ;;
+      stats)      run_py cross_flow_learning.py stats --repo-root "$REPO_ROOT" "$@" ;;
+      *) err "cross-flow subcomando desconocido: $sub"; echo "Validos: analyze recommend similar stats"; exit 1 ;;
+    esac
     ;;
 
   # === ALIASES ÚTILES ===

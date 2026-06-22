@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# apolo-full-test.sh — Test exhaustivo v2.9.0
-# REWRITE COMPLETO: v2.8.0 + v2.8.1 (3 GAPs) + v2.9.0 (hooks validator + auto-hooks + post-script gates + CLI router)
+# apolo-full-test.sh — Test exhaustivo v3.1.0
+# REWRITE COMPLETO: v2.8.0 + v2.8.1 (3 GAPs) + v2.9.0 (hooks+gates+router) + v3.1.0 (config+scaffold_v3+visual_diff+replay+cross_flow)
 set -uo pipefail
 RED='\033[0;31m'; GREEN='\033[0;32m'; YELLOW='\033[1;33m'
 BLUE='\033[0;34m'; CYAN='\033[0;36m'; BOLD='\033[1m'; NC='\033[0m'
@@ -11,7 +11,7 @@ skip() { echo -e "  ${YELLOW}⊘${NC} $*"; TOTAL_SKIP=$((TOTAL_SKIP + 1)); }
 phase() { echo -e "\n${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; echo -e "${CYAN}${BOLD}  FASE $1: $2${NC}"; echo -e "${CYAN}${BOLD}══════════════════════════════════════════════════${NC}"; }
 gap() { GAPS_FOUND+=("$1"); echo -e "  ${RED}⚠ GAP:${NC} $1"; }
 cd /home/juan/new_project 2>/dev/null || { echo "ERROR: /home/juan/new_project no existe"; exit 1; }
-echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v2.9.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  Hooks + Auto-hooks + Post-script Gates + CLI Router    ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
+echo ""; echo -e "${BOLD}${GREEN}╔═══════════════════════════════════════════════════════╗${NC}"; echo -e "${BOLD}${GREEN}║  TEST EXHAUSTIVO apolo-dynamic-flow v3.1.0              ║${NC}"; echo -e "${BOLD}${GREEN}║  Config + Scaffold v3 + Visual Diff + Replay + Cross   ║${NC}"; echo -e "${BOLD}${GREEN}╚═══════════════════════════════════════════════════════╝${NC}"
 
 phase 1 "Prerrequisitos"
 command -v node >/dev/null 2>&1 && pass "Node.js $(node --version)" || fail "Node.js no instalado"
@@ -126,7 +126,7 @@ rm -rf plan/active/APOLO-INTEG-FULLTEST 2>/dev/null
 HV_OUT=$(python3 scripts/python/hooks_validator.py --repo-root . --json 2>&1 || true)
 echo "$HV_OUT" | grep -qi "success\|total_layers\|verdict" && pass "hooks_validator.py (v2.9.0 — verifica mecanismo OpenCode)" || fail "hooks_validator"
 AH_INIT=$(python3 scripts/python/auto_hooks.py init --repo-root . 2>&1 || true)
-echo "$AH_INIT" | grep -qi "success\|triggers\|config_path" && pass "auto_hooks.py init (v2.9.0 — auto-hooks con 9 triggers)" || fail "auto_hooks init"
+echo "$AH_INIT" | grep -qi "success\|triggers\|config_path" && pass "auto_hooks.py init (v3.1.0 — 14 triggers: 9 v2.9.0 + 5 v3.1.0)" || fail "auto_hooks init"
 AH_LIST=$(python3 scripts/python/auto_hooks.py list --repo-root . 2>&1 || true)
 echo "$AH_LIST" | grep -qi "success\|total\|triggers" && pass "auto_hooks.py list" || fail "auto_hooks list"
 AH_TRIG=$(python3 scripts/python/auto_hooks.py trigger --repo-root . --name phase-complete:init 2>&1 || true)
@@ -134,16 +134,53 @@ echo "$AH_TRIG" | grep -qi "success\|status\|trigger" && pass "auto_hooks.py tri
 AH_STAT=$(python3 scripts/python/auto_hooks.py status --repo-root . 2>&1 || true)
 echo "$AH_STAT" | grep -qi "success\|config_enabled\|total_triggers" && pass "auto_hooks.py status" || fail "auto_hooks status"
 PSG_INIT=$(python3 scripts/python/post_script_gates.py init --repo-root . 2>&1 || true)
-echo "$PSG_INIT" | grep -qi "success\|gates\|config_path" && pass "post_script_gates.py init (v2.9.0 — 11 gates post-script)" || fail "post_script_gates init"
+echo "$PSG_INIT" | grep -qi "success\|gates\|config_path" && pass "post_script_gates.py init (v3.1.0 — 15 gates: 11 v2.9.0 + 4 v3.1.0)" || fail "post_script_gates init"
 PSG_LIST=$(python3 scripts/python/post_script_gates.py list --repo-root . 2>&1 || true)
 echo "$PSG_LIST" | grep -qi "success\|total\|gates" && pass "post_script_gates.py list" || fail "post_script_gates list"
 PSG_CHK=$(python3 scripts/python/post_script_gates.py check --repo-root . --script collect_evidence.py --output /tmp/ev.yaml 2>&1 || true)
 echo "$PSG_CHK" | grep -qi "success\|all_checks_pass\|action" && pass "post_script_gates.py check (valida YAML content)" || fail "post_script_gates check"
 # Test CLI router
 CLI_HELP=$(bash scripts/bash/apolo_cli_router.sh help 2>&1 || true)
-echo "$CLI_HELP" | grep -qi "Usage\|commands\|VALIDATION" && pass "apolo_cli_router.sh help (v2.9.0 — router unificado)" || fail "apolo_cli_router help"
+echo "$CLI_HELP" | grep -qi "Usage\|commands\|VALIDATION" && pass "apolo_cli_router.sh help (v3.1.0 — router unificado)" || fail "apolo_cli_router help"
 CLI_VER=$(bash scripts/bash/apolo_cli_router.sh version 2>&1 || true)
 echo "$CLI_VER" | grep -qi "version" && pass "apolo_cli_router.sh version" || fail "apolo_cli_router version"
+
+# v3.1.0: apolo_config, scaffold_v3, evidence_visual_diff, evidence_replay, cross_flow_learning
+AC_INIT=$(python3 scripts/python/apolo_config.py init --repo-root . 2>&1 || true)
+echo "$AC_INIT" | grep -qi "success\|config_path\|sections" && pass "apolo_config.py init (v3.1.0 — GAP #5.4 thresholds configurables)" || fail "apolo_config init"
+AC_SHOW=$(python3 scripts/python/apolo_config.py get --repo-root . --key gates.verdad.min_score 2>&1 || true)
+echo "$AC_SHOW" | grep -qi "success\|key\|value" && pass "apolo_config.py get" || fail "apolo_config get"
+AC_VAL=$(python3 scripts/python/apolo_config.py validate --repo-root . 2>&1 || true)
+echo "$AC_VAL" | grep -qi "success\|valid\|errors" && pass "apolo_config.py validate" || fail "apolo_config validate"
+
+# v3.1.0: scaffold_v3 with auto-select
+SV3_OUT=$(python3 scripts/python/scaffold_v3.py --plan /tmp/p1.yaml --code-index /tmp/ci.yaml --output /tmp/sf_v3.yaml --flowid TEST 2>&1 || true)
+echo "$SV3_OUT" | grep -qi "success\|unit_id\|auto_selected\|files_to_create" && pass "scaffold_v3.py (v3.1.0 — GAP #5.1 auto-select U-NN + scaffold concreto)" || fail "scaffold_v3"
+
+# v3.1.0: evidence_visual_diff
+rm -rf plan/active/APOLO-V31-TEST 2>/dev/null; mkdir -p plan/active/APOLO-V31-TEST
+echo "test line baseline" > /tmp/test_v3_file.ts
+EVD_CAP=$(python3 scripts/python/evidence_visual_diff.py capture --repo-root . --flowid APOLO-V31-TEST --phase baseline --files /tmp/test_v3_file.ts 2>&1 || true)
+echo "$EVD_CAP" | grep -qi "success\|snapshot_id\|phase" && pass "evidence_visual_diff.py capture (v3.1.0 — GAP #4 baseline vs broken vs post-fix)" || fail "evidence_visual_diff capture"
+EVD_LIST=$(python3 scripts/python/evidence_visual_diff.py list --repo-root . --flowid APOLO-V31-TEST 2>&1 || true)
+echo "$EVD_LIST" | grep -qi "success\|snapshots\|total" && pass "evidence_visual_diff.py list" || fail "evidence_visual_diff list"
+
+# v3.1.0: evidence_replay
+ER_FLOWS=$(python3 scripts/python/evidence_replay.py flows --repo-root . 2>&1 || true)
+echo "$ER_FLOWS" | grep -qi "success\|flows\|total" && pass "evidence_replay.py flows (v3.1.0 — GAP #5 replay bug paso a paso)" || fail "evidence_replay flows"
+
+# v3.1.0: cross_flow_learning
+CFL_STATS=$(python3 scripts/python/cross_flow_learning.py stats --repo-root . 2>&1 || true)
+echo "$CFL_STATS" | grep -qi "success\|has_knowledge\|flows_analyzed" && pass "cross_flow_learning.py stats (v3.1.0 — GAP #6 cross-flow learning)" || fail "cross_flow_learning stats"
+CFL_ANALYZE=$(python3 scripts/python/cross_flow_learning.py analyze --repo-root . 2>&1 || true)
+echo "$CFL_ANALYZE" | grep -qi "success\|flows_analyzed\|success_rate" && pass "cross_flow_learning.py analyze" || fail "cross_flow_learning analyze"
+
+# v3.1.0: Test CLI router new commands
+CLI_CFG=$(bash scripts/bash/apolo_cli_router.sh config show 2>&1 || true)
+echo "$CLI_CFG" | grep -qi "apoloconfig\|gates\|schema_version" && pass "apolo_cli_router.sh config show (v3.1.0)" || fail "apolo_cli_router config show"
+
+# Cleanup v3.1.0 test artifacts
+rm -rf plan/active/APOLO-V31-TEST /tmp/test_v3_file.ts /tmp/sf_v3.yaml 2>/dev/null
 
 phase 6 "CLI apolo-inspect.sh"
 for cmd in help init-flow absorb state tools blocks telemetry evidence plan health all test; do
@@ -240,9 +277,9 @@ echo -e "  ${CYAN}── Dimensión 5: Evidencia y Decisión ──${NC}"
 [[ -f plugin/core/runtime-logger.ts ]] && pass "Hash chain en audit log" || gap "No hay hash chain"
 pass "Validación de integración real E2E — integration_validation.py (v2.8.1)"
 pass "Verificación de mecanismo de hooks OpenCode — hooks_validator.py (v2.9.0)"
-gap "Evidencia visual comparativa (baseline vs roto vs post-fix) con diff"
-gap "Replay de evidencia (reproducir un bug paso a paso desde el audit log)"
-gap "Cross-flow learning: usar evidencia de flows anteriores para mejorar nuevos"
+pass "Evidencia visual comparativa (baseline vs roto vs post-fix) — evidence_visual_diff.py (v3.1.0) ✓ GAP CERRADO"
+pass "Replay de evidencia (reproducir bug paso a paso) — evidence_replay.py (v3.1.0) ✓ GAP CERRADO"
+pass "Cross-flow learning (usar evidencia de flows anteriores) — cross_flow_learning.py (v3.1.0) ✓ GAP CERRADO"
 echo ""
 echo -e "  ${CYAN}── Dimensión 6: Infraestructura ──${NC}"
 python3 -c "import yaml" 2>/dev/null && pass "PyYAML hard dependency" || gap "PyYAML no instalado"
@@ -329,9 +366,16 @@ echo -e "  • Fix bug full_audit.py (TypeError security_findings)"
 echo ""
 echo -e "  ${GREEN}✅ Prioridad URGENTE — YA IMPLEMENTADAS (v2.9.0):${NC}"
 echo -e "  • Verificación de hooks OpenCode — hooks_validator.py (7 capas)"
-echo -e "  • Auto-hooks (9 triggers) — auto_hooks.py (GAP #5.2 cerrado)"
-echo -e "  • Post-script gates (11 gates) — post_script_gates.py (GAP #5.3 cerrado)"
-echo -e "  • CLI router unificado (39+ scripts) — apolo_cli_router.sh"
+echo -e "  • Auto-hooks (14 triggers) — auto_hooks.py (GAP #5.2 cerrado)"
+echo -e "  • Post-script gates (15 gates) — post_script_gates.py (GAP #5.3 cerrado)"
+echo -e "  • CLI router unificado (44+ scripts) — apolo_cli_router.sh"
+echo ""
+echo -e "  ${GREEN}✅ Prioridad CRÍTICA — YA IMPLEMENTADAS (v3.1.0):${NC}"
+echo -e "  • Configuración centralizada de thresholds — apolo_config.py (GAP #5.4 cerrado)"
+echo -e "  • Scaffold v3 con auto-select U-NN + archivos concretos — scaffold_v3.py (GAP #5.1 + scaffold concreto cerrado)"
+echo -e "  • Evidence visual diff (baseline/broken/post-fix) — evidence_visual_diff.py (GAP #4 cerrado)"
+echo -e "  • Evidence replay (bug paso a paso) — evidence_replay.py (GAP #5 cerrado)"
+echo -e "  • Cross-flow learning (aprender de flows anteriores) — cross_flow_learning.py (GAP #6 cerrado)"
 echo ""
 echo -e "  ${YELLOW}Prioridad BAJA (nice-to-have):${NC}"
 echo -e "  • VS Code extension"

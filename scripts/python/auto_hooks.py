@@ -1,36 +1,17 @@
 #!/usr/bin/env python3
 """
-auto_hooks.py — Ejecuta scripts Python automáticamente según el contexto (v2.9.0).
+auto_hooks.py — Ejecuta scripts Python automáticamente según el contexto (v3.1.0).
 
-Cierra el GAP #5.2 "Invocación de scripts manuales (28 scripts)" del
-INTEGRATION-VERDICT.md: los scripts manuales deben invocarse automáticamente
-según el contexto (fase del flow, evidencia recolectada, etc.).
+EXTENDIDO en v3.1.0: 4 nuevos triggers para integrar los nuevos scripts:
+  - evidence:baseline-captured → capturar diff baseline (v3.1.0)
+  - evidence:broken-captured → construir bug replay (v3.1.0)
+  - evidence:post-fix-captured → comparar 3 estados (v3.1.0)
+  - flow:completed → cross-flow learning analyze (v3.1.0)
+  - scaffold:v3-produced → validar scaffold concreto (v3.1.0)
 
-Define un manifiesto de triggers en `apolo-auto-hooks.yaml`:
-  - trigger: phase-complete:verdad
-    run: [code_quality.py, vulnerability_scanner.py]
-  - trigger: phase-complete:reanclaje
-    run: [test_coverage.py, code_smells.py]
-  - trigger: evidence:collected
-    run: [secret_scanner.py]
-    condition: "items >= 1"
+Total triggers v3.1.0: 14 (9 de v2.9.0 + 5 nuevos)
 
-El loop engine TS invoca este script después de cada transición de fase:
-  python3 auto_hooks.py trigger --name phase-complete:verdad --flowid X
-
-O el agente lo invoca manualmente:
-  python3 auto_hooks.py run --flowid X --phase verdad
-  python3 auto_hooks.py list
-  python3 auto_hooks.py enable phase-complete:verdad
-  python3 auto_hooks.py disable phase-complete:verdad
-
-CLI:
-  list                          Lista triggers configurados
-  trigger --name <trigger>      Ejecuta los scripts asociados a un trigger
-  run --flowid X --phase <ph>   Ejecuta hooks para la fase actual
-  enable/disable --name <trig>  Activa/desactiva un trigger
-  init                          Crea apolo-auto-hooks.yaml con defaults
-  status                        Muestra estado de ejecución de hooks
+Mantiene compatibilidad total con v2.9.0 — los triggers existentes no cambian.
 """
 
 from __future__ import annotations
@@ -53,17 +34,17 @@ HOOKS_LOG_FILE = "AUTO-HOOKS-LOG.jsonl"
 
 
 # ============================================================================
-# Default hooks configuration
+# Default hooks configuration (v3.1.0 — 14 triggers)
 # ============================================================================
 
 DEFAULT_HOOKS = {
     "autohooks": "V1",
-    "version": 1,
-    "schema_version": "2.9.0",
+    "version": 2,
+    "schema_version": "3.1.0",
     "generated_at": now_iso(),
     "enabled": True,
     "triggers": [
-        # Después de init: health check
+        # === TRIGGERS v2.9.0 (sin cambios) ===
         {
             "name": "phase-complete:init",
             "enabled": True,
@@ -73,7 +54,6 @@ DEFAULT_HOOKS = {
             "condition": None,
             "description": "Después de init, ejecutar health check del entorno",
         },
-        # Después de index_codebase: cross-language analysis + function summaries
         {
             "name": "phase-complete:plan-indice",
             "enabled": True,
@@ -84,7 +64,6 @@ DEFAULT_HOOKS = {
             "condition": "code_index_exists",
             "description": "Después de indexar codebase, análisis cross-language + resúmenes",
         },
-        # Después de collect_evidence: secret scanner
         {
             "name": "evidence:collected",
             "enabled": True,
@@ -94,7 +73,6 @@ DEFAULT_HOOKS = {
             "condition": "items >= 1",
             "description": "Después de recolectar evidencia, escanear secretos en archivos",
         },
-        # Después de score_evidence: nada (score es informativo)
         {
             "name": "phase-complete:verdad",
             "enabled": True,
@@ -105,7 +83,6 @@ DEFAULT_HOOKS = {
             "condition": None,
             "description": "Después de fase verdad, análisis de calidad + vulnerabilidades",
         },
-        # Después de generate_plan: nada (plan es input para impact)
         {
             "name": "plan:generated",
             "enabled": True,
@@ -113,7 +90,6 @@ DEFAULT_HOOKS = {
             "condition": None,
             "description": "Placeholder — generate_plan no requiere hooks automáticos",
         },
-        # Después de scaffold_impl: test coverage + code smells
         {
             "name": "scaffold:produced",
             "enabled": True,
@@ -123,7 +99,6 @@ DEFAULT_HOOKS = {
             "condition": "scaffold_concrete",
             "description": "Después de producir scaffold, verificar code smells",
         },
-        # Después de implementar (reanclaje): test coverage
         {
             "name": "phase-complete:reanclaje",
             "enabled": True,
@@ -133,7 +108,6 @@ DEFAULT_HOOKS = {
             "condition": None,
             "description": "Después de reanclaje, medir coverage",
         },
-        # Después de fallo de test repetido: self-healing
         {
             "name": "test:failed",
             "enabled": True,
@@ -143,7 +117,6 @@ DEFAULT_HOOKS = {
             "condition": "consecutive_failures >= 3",
             "description": "Después de 3 fallos consecutivos, ejecutar self-healing",
         },
-        # Después de detectar bloqueo: nothing automatic (escalate)
         {
             "name": "block:detected",
             "enabled": False,
@@ -151,12 +124,62 @@ DEFAULT_HOOKS = {
             "condition": None,
             "description": "Bloqueo detectado — escalado a operador (no automático)",
         },
+
+        # === NUEVOS TRIGGERS v3.1.0 ===
+        {
+            "name": "evidence:baseline-captured",
+            "enabled": True,
+            "version_added": "3.1.0",
+            "run": [],
+            "condition": None,
+            "description": "Baseline capturado por evidence_visual_diff — no requiere scripts adicionales (la captura es el trigger)",
+        },
+        {
+            "name": "evidence:broken-captured",
+            "enabled": True,
+            "version_added": "3.1.0",
+            "run": [
+                {"script": "evidence_replay.py", "args": ["bug", "--repo-root", "."], "timeout": 30},
+            ],
+            "condition": None,
+            "description": "Después de capturar estado broken, construir bug replay para análisis",
+        },
+        {
+            "name": "evidence:post-fix-captured",
+            "enabled": True,
+            "version_added": "3.1.0",
+            "run": [
+                {"script": "evidence_visual_diff.py", "args": ["compare", "--repo-root", "."], "timeout": 30},
+            ],
+            "condition": None,
+            "description": "Después de capturar post-fix, generar comparación visual completa (baseline vs broken vs post-fix)",
+        },
+        {
+            "name": "flow:completed",
+            "enabled": True,
+            "version_added": "3.1.0",
+            "run": [
+                {"script": "cross_flow_learning.py", "args": ["analyze", "--repo-root", "."], "timeout": 60},
+            ],
+            "condition": None,
+            "description": "Después de completar un flow, analizar todos los flows para cross-flow learning",
+        },
+        {
+            "name": "scaffold:v3-produced",
+            "enabled": True,
+            "version_added": "3.1.0",
+            "run": [
+                {"script": "post_script_gates.py", "args": ["check", "--repo-root", ".", "--script", "scaffold_v3.py"], "timeout": 15},
+            ],
+            "condition": "scaffold_v3_concrete",
+            "description": "Después de producir scaffold v3, validar con post-script gates que es concreto",
+        },
     ],
 }
 
 
 # ============================================================================
-# Config management
+# Config management (igual que v2.9.0 pero con version 2)
 # ============================================================================
 
 def hooks_config_path(repo_root: Path) -> Path:
@@ -168,22 +191,20 @@ def hooks_log_path(repo_root: Path) -> Path:
 
 
 def load_config(repo_root: Path) -> Dict[str, Any]:
-    """Carga o crea la configuración de hooks."""
     p = hooks_config_path(repo_root)
     if not p.exists():
-        log("apolo-auto-hooks.yaml no existe — creando con defaults", "INFO")
+        log("apolo-auto-hooks.yaml no existe — creando con defaults v3.1.0", "INFO")
         init_config(repo_root)
     return read_yaml(p) or {}
 
 
 def init_config(repo_root: Path) -> Dict[str, Any]:
-    """Crea apolo-auto-hooks.yaml con defaults."""
     p = hooks_config_path(repo_root)
     p.parent.mkdir(parents=True, exist_ok=True)
     config = dict(DEFAULT_HOOKS)
     config["generated_at"] = now_iso()
     write_yaml(p, config)
-    log(f"Configuración de hooks creada: {p}", "INFO")
+    log(f"Configuración de hooks creada (v3.1.0 — 14 triggers): {p}", "INFO")
     return config
 
 
@@ -196,7 +217,6 @@ def save_config(repo_root: Path, config: Dict) -> None:
 # ============================================================================
 
 def log_hook_execution(repo_root: Path, event: Dict[str, Any]) -> None:
-    """Append a hook execution event to the log."""
     p = hooks_log_path(repo_root)
     p.parent.mkdir(parents=True, exist_ok=True)
     event["at"] = now_iso()
@@ -205,19 +225,16 @@ def log_hook_execution(repo_root: Path, event: Dict[str, Any]) -> None:
 
 
 # ============================================================================
-# Condition evaluation
+# Condition evaluation (extended for v3.1.0)
 # ============================================================================
 
 def evaluate_condition(condition: Optional[str], repo_root: Path, flowid: str = "") -> bool:
-    """Evalúa una condición para decidir si ejecutar el hook."""
     if not condition:
         return True
 
-    # conditions simples
     if condition == "code_index_exists":
         return (repo_root / ".opencode" / "apolo-dynamic" / "CODE-INDEX.yaml").exists()
     if condition == "scaffold_concrete":
-        # Buscar scaffold en flow activo
         if not flowid:
             return False
         sf = flow_dir(repo_root, flowid) / "scaffolds" / "SCAFFOLD.yaml"
@@ -225,8 +242,19 @@ def evaluate_condition(condition: Optional[str], repo_root: Path, flowid: str = 
             return False
         data = read_yaml(sf) or {}
         return bool(data.get("files_to_create") or data.get("files_to_modify") or data.get("commands"))
+    # v3.1.0: condition for scaffold_v3
+    if condition == "scaffold_v3_concrete":
+        if not flowid:
+            return False
+        sf = flow_dir(repo_root, flowid) / "scaffolds" / "SCAFFOLD-V3.yaml"
+        if not sf.exists():
+            # Try default name
+            sf = flow_dir(repo_root, flowid) / "scaffolds" / "SCAFFOLD.yaml"
+            if not sf.exists():
+                return False
+        data = read_yaml(sf) or {}
+        return bool(data.get("files_to_create"))
 
-    # conditions con operadores
     if condition.startswith("items >= "):
         threshold = int(condition.split(">=")[1].strip())
         if not flowid:
@@ -239,7 +267,6 @@ def evaluate_condition(condition: Optional[str], repo_root: Path, flowid: str = 
 
     if condition.startswith("consecutive_failures >= "):
         threshold = int(condition.split(">=")[1].strip())
-        # En implementación real, leer de telemetry
         return threshold > 0  # placeholder
 
     log(f"Condición no reconocida: {condition} — asumiendo True", "WARN")
@@ -251,7 +278,6 @@ def evaluate_condition(condition: Optional[str], repo_root: Path, flowid: str = 
 # ============================================================================
 
 def execute_script(script_name: str, args: List[str], repo_root: Path, timeout: int = 60, stdin_data: str = "") -> Dict[str, Any]:
-    """Ejecuta un script Python y captura resultado."""
     script_path = Path(__file__).parent / script_name
     if not script_path.exists():
         return {
@@ -299,12 +325,10 @@ def execute_script(script_name: str, args: List[str], repo_root: Path, timeout: 
 # ============================================================================
 
 def fire_trigger(repo_root: Path, trigger_name: str, flowid: str = "", context: Dict = None) -> Dict[str, Any]:
-    """Ejecuta todos los scripts asociados a un trigger."""
     config = load_config(repo_root)
     if not config.get("enabled", True):
         return {"trigger": trigger_name, "status": "skipped", "reason": "auto-hooks disabled globally"}
 
-    # Buscar el trigger
     trigger = None
     for t in config.get("triggers", []):
         if t.get("name") == trigger_name:
@@ -317,7 +341,6 @@ def fire_trigger(repo_root: Path, trigger_name: str, flowid: str = "", context: 
     if not trigger.get("enabled", True):
         return {"trigger": trigger_name, "status": "disabled"}
 
-    # Evaluar condición
     condition = trigger.get("condition")
     if not evaluate_condition(condition, repo_root, flowid):
         log(f"Trigger {trigger_name} omitido — condición no cumplida: {condition}", "INFO")
@@ -327,14 +350,12 @@ def fire_trigger(repo_root: Path, trigger_name: str, flowid: str = "", context: 
             "condition": condition,
         }
 
-    # Ejecutar scripts
     results = []
     for script_spec in trigger.get("run", []):
         script_name = script_spec["script"]
         args = script_spec.get("args", [])
         timeout = script_spec.get("timeout", 60)
 
-        # Resolver stdin_from
         stdin_data = ""
         if script_spec.get("stdin_from") == "evidence_files" and flowid:
             ev = flow_dir(repo_root, flowid) / "evidence" / "EVIDENCE-PACK.yaml"
@@ -345,7 +366,6 @@ def fire_trigger(repo_root: Path, trigger_name: str, flowid: str = "", context: 
         result = execute_script(script_name, args, repo_root, timeout, stdin_data)
         results.append(result)
 
-        # Log execution
         log_hook_execution(repo_root, {
             "trigger": trigger_name,
             "flowid": flowid,
@@ -371,7 +391,6 @@ def fire_trigger(repo_root: Path, trigger_name: str, flowid: str = "", context: 
 # ============================================================================
 
 def get_status(repo_root: Path, flowid: str = "") -> Dict[str, Any]:
-    """Retorna estado de ejecución de hooks."""
     config = load_config(repo_root)
     log_p = hooks_log_path(repo_root)
 
@@ -386,7 +405,6 @@ def get_status(repo_root: Path, flowid: str = "") -> Dict[str, Any]:
             except json.JSONDecodeError:
                 continue
 
-    # Stats por trigger
     trigger_stats: Dict[str, Dict] = {}
     for entry in log_entries:
         t = entry.get("trigger", "")
@@ -399,10 +417,17 @@ def get_status(repo_root: Path, flowid: str = "") -> Dict[str, Any]:
             trigger_stats[t]["failed"] += 1
         trigger_stats[t]["last_at"] = entry.get("at", "")
 
+    # v3.1.0: contar triggers por version
+    v290_triggers = sum(1 for t in config.get("triggers", []) if not t.get("version_added"))
+    v310_triggers = sum(1 for t in config.get("triggers", []) if t.get("version_added") == "3.1.0")
+
     return {
         "config_enabled": config.get("enabled", True),
+        "config_version": config.get("schema_version", "3.1.0"),
         "total_triggers": len(config.get("triggers", [])),
         "enabled_triggers": sum(1 for t in config.get("triggers", []) if t.get("enabled", True)),
+        "v290_triggers": v290_triggers,
+        "v310_triggers": v310_triggers,
         "log_entries": len(log_entries),
         "trigger_stats": trigger_stats,
         "last_10_executions": log_entries[-10:],
@@ -430,7 +455,14 @@ def main() -> int:
 
     if action == "init":
         config = init_config(repo_root)
-        print(json.dumps({"success": True, "config_path": str(hooks_config_path(repo_root)), "triggers": len(config["triggers"])}, indent=2))
+        print(json.dumps({
+            "success": True,
+            "config_path": str(hooks_config_path(repo_root)),
+            "version": config.get("schema_version"),
+            "triggers": len(config["triggers"]),
+            "v290_triggers": sum(1 for t in config["triggers"] if not t.get("version_added")),
+            "v310_triggers": sum(1 for t in config["triggers"] if t.get("version_added") == "3.1.0"),
+        }, indent=2))
         return 0
 
     elif action == "list":
@@ -440,6 +472,7 @@ def main() -> int:
             triggers.append({
                 "name": t["name"],
                 "enabled": t.get("enabled", True),
+                "version": t.get("version_added", "2.9.0"),
                 "scripts": [s["script"] for s in t.get("run", [])],
                 "condition": t.get("condition"),
                 "description": t.get("description", ""),
@@ -457,10 +490,8 @@ def main() -> int:
         return 0 if result.get("status") in ("executed", "condition_not_met", "disabled") else 1
 
     elif action == "run":
-        # Ejecutar todos los triggers aplicables a la fase actual
         phase = args.get("phase", "")
         if not phase:
-            # Leer de state
             sp = state_path(repo_root, flowid) if flowid else None
             if sp and sp.exists():
                 state = read_yaml(sp) or {}

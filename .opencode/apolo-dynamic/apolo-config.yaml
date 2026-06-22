@@ -1,0 +1,96 @@
+apoloconfig: V1
+version: 1
+schema_version: 3.1.0
+generated_at: '2026-06-22T03:02:49Z'
+description: Configuracion centralizada de thresholds para apolo-dynamic-flow
+gates:
+  verdad:
+    min_score: 0.6
+    min_items: 1
+    min_hash_chain_length: 64
+  plan_indice:
+    min_units: 1
+    require_topological_sort: true
+  reanclaje:
+    require_scaffold_concrete: true
+    min_files_to_create: 1
+    min_files_to_modify: 0
+  exec:
+    require_tests_pass: true
+    max_test_failures: 0
+    auto_rollback_on_fail: true
+  validar:
+    min_final_score: 0.7
+    require_consistent_evidence: true
+circuit_breaker:
+  policy: fail-closed
+  max_loops_per_phase:
+    init: 1
+    verdad: 2
+    plan_indice: 2
+    reanclaje: 2
+    exec: 4
+    validar: 2
+    merge: 1
+  max_consecutive_failures: 3
+  max_total_failures: 5
+scoring:
+  weights:
+    coverage: 0.25
+    freshness: 0.15
+    depth: 0.2
+    conflict: 0.15
+    redundancy: 0.1
+    schema: 0.15
+  freshness_stale_after_seconds: 300
+  depth_max_symbols: 100
+bfs:
+  max_depth: 3
+  max_nodes: 200
+  risk_thresholds:
+    low: 5
+    medium: 15
+    high: 30
+code_smells:
+  long_method_lines: 50
+  deep_nesting_level: 4
+  god_class_methods: 10
+  duplicate_threshold: 0.8
+auto_hooks:
+  enabled: true
+  timeout_per_script_seconds: 60
+  max_parallel_scripts: 1
+post_script_gates:
+  enabled: true
+  default_on_fail: warn
+scaffold_v3:
+  auto_select_unit: true
+  selection_strategy: topological_first
+  prefer_lowest_risk: true
+  min_files_to_create: 1
+cross_flow_learning:
+  enabled: true
+  lookback_flows: 10
+  min_similarity_score: 0.7
+  storage: .opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml
+evidence_visual_diff:
+  enabled: true
+  capture_baseline_on_init: true
+  capture_broken_on_test_fail: true
+  capture_post_fix_on_success: true
+  diff_format: unified
+  max_diff_lines: 200
+evidence_replay:
+  enabled: true
+  max_steps_per_replay: 50
+  include_telemetry: true
+  include_trace: true
+telemetry:
+  enabled: true
+  panel_port: 8765
+  auto_refresh_seconds: 3
+evidence_collection:
+  auto_recollect_on_stale: true
+  stale_check_interval_seconds: 300
+  max_items_per_pack: 100
+

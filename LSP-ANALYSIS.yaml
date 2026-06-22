@@ -1,5 +1,5 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T02:00:55Z'
+generated_at: '2026-06-22T03:07:27Z'
 repo_root: /home/juan/new_project
 available_lsps:
   typescript: typescript-language-server
@@ -16,7 +16,7 @@ languages_detected:
 - python
 - typescript
 files_by_language:
-  python: 57
+  python: 62
   javascript: 1
   typescript: 19
 diagnostics:
@@ -669,6 +669,67 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 1
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 252
+    severity: info
+    message: 'Marcar pendiente: # TODO: inicializar dependencias'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 257
+    severity: info
+    message: 'Marcar pendiente: # TODO: implementar'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 264
+    severity: info
+    message: 'Marcar pendiente: # TODO: validar contrato'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 269
+    severity: info
+    message: 'Marcar pendiente: # TODO: implementar'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 285
+    severity: info
+    message: 'Marcar pendiente: // TODO: implementar {unit_id}'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 289
+    severity: info
+    message: 'Marcar pendiente: // TODO: definir config'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 293
+    severity: info
+    message: 'Marcar pendiente: // TODO: implementar'
+    rule: todo-comment
+    method: regex
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 518
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/scaffold_v3.py
+    line: 538
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 9
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 9
 - file: /home/juan/new_project/scripts/python/common.py
   language: python
   diagnostics:
@@ -955,6 +1016,150 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 5
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/apolo_config.py
+    line: 347
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_config.py
+    line: 357
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_config.py
+    line: 363
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_config.py
+    line: 367
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_config.py
+    line: 374
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_config.py
+    line: 378
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_config.py
+    line: 384
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/apolo_config.py
+    line: 388
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 8
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 8
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    severity: error
+    message: '"diff_lines" is possibly unbound'
+    range:
+      start:
+        line: 209
+        character: 31
+      end:
+        line: 209
+        character: 41
+    rule: reportPossiblyUnboundVariable
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    severity: error
+    message: '"diff_lines" is possibly unbound'
+    range:
+      start:
+        line: 210
+        character: 33
+      end:
+        line: 210
+        character: 43
+    rule: reportPossiblyUnboundVariable
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 327
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 336
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 340
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 348
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 353
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 356
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 359
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 369
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 374
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+    line: 378
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 12
+  lsp_used: pyright-langserver
+  lsp_count: 2
+  regex_count: 10
 - file: /home/juan/new_project/scripts/python/project_templates.py
   language: python
   diagnostics:
@@ -980,6 +1185,55 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 3
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/evidence_replay.py
+    line: 402
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_replay.py
+    line: 408
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_replay.py
+    line: 423
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_replay.py
+    line: 429
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_replay.py
+    line: 437
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_replay.py
+    line: 446
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/evidence_replay.py
+    line: 450
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 7
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 7
 - file: /home/juan/new_project/scripts/python/serve_panel.py
   language: python
   diagnostics:
@@ -1110,44 +1364,14 @@ diagnostics:
         "None" is not assignable to "Dict[Unknown, Unknown]"'
     range:
       start:
-        line: 300
+        line: 326
         character: 87
       end:
-        line: 300
+        line: 326
         character: 91
     rule: reportArgumentType
   - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 433
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 447
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 453
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 456
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 469
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 474
+    line: 458
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
@@ -1159,7 +1383,7 @@ diagnostics:
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 487
+    line: 486
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
@@ -1171,31 +1395,61 @@ diagnostics:
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 495
+    line: 500
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 502
+    line: 505
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 504
+    line: 511
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 509
+    line: 518
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/auto_hooks.py
-    line: 513
+    line: 520
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/auto_hooks.py
+    line: 526
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/auto_hooks.py
+    line: 533
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/auto_hooks.py
+    line: 535
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/auto_hooks.py
+    line: 540
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/auto_hooks.py
+    line: 544
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
@@ -2450,6 +2704,55 @@ diagnostics:
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 1
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  language: python
+  diagnostics:
+  - file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+    line: 473
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+    line: 487
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+    line: 490
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+    line: 496
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+    line: 499
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+    line: 504
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+    line: 508
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  count: 7
+  lsp_used: pyright-langserver
+  lsp_count: 0
+  regex_count: 7
 - file: /home/juan/new_project/scripts/python/debug_mode.py
   language: python
   diagnostics:
@@ -2562,73 +2865,13 @@ diagnostics:
   language: python
   diagnostics:
   - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 444
+    line: 491
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
   - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 457
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 464
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 467
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 474
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 477
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 483
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 490
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 492
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 498
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 505
-    severity: warning
-    message: print() posiblemente olvidado
-    rule: no-print
-    method: regex
-  - file: /home/juan/new_project/scripts/python/post_script_gates.py
-    line: 507
+    line: 504
     severity: warning
     message: print() posiblemente olvidado
     rule: no-print
@@ -2639,13 +2882,73 @@ diagnostics:
     message: print() posiblemente olvidado
     rule: no-print
     method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 514
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 521
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 524
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 530
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 537
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 539
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 545
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 552
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 554
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
+  - file: /home/juan/new_project/scripts/python/post_script_gates.py
+    line: 558
+    severity: warning
+    message: print() posiblemente olvidado
+    rule: no-print
+    method: regex
   count: 13
   lsp_used: pyright-langserver
   lsp_count: 0
   regex_count: 13
 summary:
-  total_files: 77
-  files_with_diagnostics: 52
-  total_diagnostics: 297
-duration_ms: 144732
+  total_files: 82
+  files_with_diagnostics: 57
+  total_diagnostics: 340
+duration_ms: 103207
 

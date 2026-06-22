@@ -1,0 +1,42 @@
+crossflowlearning: V1
+schema_version: 3.1.0
+generated_at: '2026-06-22T03:02:50Z'
+repo_root: /home/juan/new_project
+flows_analyzed: 1
+successful_flows: 1
+failed_flows: 0
+success_rate: 1.0
+patterns:
+  success_tools: {}
+  failure_by_phase: {}
+  failure_by_kind: {}
+  failure_by_tool: {}
+  failure_sample_messages: []
+phase_stats:
+  planning-bootstrap:
+    success: 1
+    failure: 0
+    success_rate: 1.0
+  reanclaje:
+    success: 1
+    failure: 0
+    success_rate: 1.0
+tool_stats: {}
+flows:
+- flowid: APOLO-20260620-TEST
+  analyzed: true
+  success: true
+  total_events: 6
+  error_count: 0
+  warning_count: 1
+  tool_invocations: 0
+  tool_failures: 0
+  phases_visited:
+  - planning-bootstrap
+  - reanclaje
+  tools_used: []
+  duration_s: 0.0
+  evidence_items: 0
+  evidence_scope_paths: []
+  failure_pattern: null
+

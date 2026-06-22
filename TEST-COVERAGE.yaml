@@ -1,13 +1,13 @@
 schema_version: 2.5.0
-generated_at: '2026-06-22T02:01:09Z'
+generated_at: '2026-06-22T03:05:39Z'
 repo_root: /home/juan/new_project
 code_index_used: false
 coverage_tool_used: coverage.py
 dominant_language: python
-total_symbols: 612
+total_symbols: 658
 covered_symbols: 4
-uncovered_symbols: 608
-coverage_percentage: 0.65
+uncovered_symbols: 654
+coverage_percentage: 0.61
 critical_uncovered:
 - file: /home/juan/new_project/escuchar_hook.py
   name: HookHandler
@@ -1113,6 +1113,60 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: select_unit_topological_first
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: select_unit_highest_impact
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: select_unit_lowest_risk
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: auto_select_unit
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: generate_files_to_create
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: Test
+  kind: class
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: generate_commands
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: generate_scaffold_v3
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/scaffold_v3.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/common.py
   name: now_iso
   kind: function
@@ -1803,6 +1857,96 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  name: config_path
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  name: get_config
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  name: init_config
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  name: save_config
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  name: get_threshold
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  name: set_threshold
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  name: validate_config
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/apolo_config.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  name: snapshots_dir
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  name: capture_snapshot
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  name: load_snapshot
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  name: generate_diff
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  name: compare_all_phases
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  name: list_snapshots
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_visual_diff.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/project_templates.py
   name: main
   kind: function
@@ -1828,6 +1972,48 @@ critical_uncovered:
   covered: false
   test_files: []
 - file: /home/juan/new_project/scripts/python/project_templates.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  name: parse_timestamp
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  name: load_jsonl
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  name: build_timeline
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  name: find_bug_replay
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  name: find_patterns
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
+  name: list_flows
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/evidence_replay.py
   name: main
   kind: function
   is_exported: true
@@ -3132,6 +3318,60 @@ critical_uncovered:
   is_exported: true
   covered: false
   test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: knowledge_path
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: load_jsonl
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: parse_timestamp
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: analyze_flow
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: analyze_all_flows
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: recommend_for_flow
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: find_similar_flows
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: get_stats
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
+- file: /home/juan/new_project/scripts/python/cross_flow_learning.py
+  name: main
+  kind: function
+  is_exported: true
+  covered: false
+  test_files: []
 - file: /home/juan/new_project/scripts/python/debug_mode.py
   name: breakpoints_path
   kind: function
@@ -3375,6 +3615,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/scaffold_v3.py:
+    total_symbols: 12
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/common.py:
     total_symbols: 40
     covered_symbols: 0
@@ -3420,8 +3665,23 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/apolo_config.py:
+    total_symbols: 9
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/evidence_visual_diff.py:
+    total_symbols: 7
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/project_templates.py:
     total_symbols: 5
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
+  /home/juan/new_project/scripts/python/evidence_replay.py:
+    total_symbols: 9
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
@@ -3576,6 +3836,11 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
+  /home/juan/new_project/scripts/python/cross_flow_learning.py:
+    total_symbols: 9
+    covered_symbols: 0
+    coverage_pct: 0.0
+    associated_tests: []
   /home/juan/new_project/scripts/python/debug_mode.py:
     total_symbols: 15
     covered_symbols: 0
@@ -3586,17 +3851,17 @@ by_file:
     covered_symbols: 0
     coverage_pct: 0.0
     associated_tests: []
-source_files_count: 64
+source_files_count: 69
 test_files_count: 13
 degradations: []
 recommendations:
-- Escribir tests para 541 símbolo(s) exportado(s) sin cobertura
-- Cobertura actual 0.65% — objetivo mínimo 50%
+- Escribir tests para 581 símbolo(s) exportado(s) sin cobertura
+- Cobertura actual 0.61% — objetivo mínimo 50%
 summary:
-  total_symbols: 612
+  total_symbols: 658
   covered: 4
-  uncovered: 608
-  critical_uncovered: 541
-  coverage_percentage: 0.65
-duration_ms: 46649
+  uncovered: 654
+  critical_uncovered: 581
+  coverage_percentage: 0.61
+duration_ms: 42087
 

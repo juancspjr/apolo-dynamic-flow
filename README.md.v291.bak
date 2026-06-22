@@ -2,12 +2,12 @@
 
 > **Plugin de orquestacion de agentes para OpenCode** con flujos dinamicos, recoleccion determinista de evidencia, planes generados por Python, tests automaticos tras cada cambio, absorcion de tools externas (MCPs, skills, plugins, scripts), self-healing, generacion automatica de tests, busqueda semantica, refactoring, escaneo de vulnerabilidades CVE, code smells, dead code, feedback loop, documentacion interactiva, modo debug paso a paso, validacion de integracion E2E, auto-hooks, post-script gates y CLI router unificado.
 
-[![Tests](https://img.shields.io/badge/tests-150%2B%20passing-brightgreen)](#11-tests)
-[![Coverage](https://img.shields.io/badge/capability%20coverage-95%25-green)](#18-capability-assessment)
-[![License](https://img.shields.io/badge/license-MIT-blue)](#21-licencia)
-[![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#2-prerrequisitos)
-[![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#2-prerrequisitos)
-[![Version](https://img.shields.io/badge/version-3.1.0-blue)](#20-changelog)
+[![Tests](https://img.shields.io/badge/tests-133%2F133%20passing-brightgreen)](#10-tests)
+[![Coverage](https://img.shields.io/badge/capability%20coverage-90%25-green)](#capability-assessment)
+[![License](https://img.shields.io/badge/license-MIT-blue)](#licencia)
+[![Node](https://img.shields.io/badge/node-%E2%89%A518-green)](#prerrequisitos)
+[![Python](https://img.shields.io/badge/python-%E2%89%A53.10-blue)](#prerrequisitos)
+[![Version](https://img.shields.io/badge/version-2.9.0-blue)](#changelog)
 
 ---
 
@@ -27,16 +27,13 @@
 12. [Troubleshooting](#12-troubleshooting)
 13. [Como funciona internamente](#13-como-funciona-internamente)
 14. [Arquitectura de 3 capas](#14-arquitectura-de-3-capas)
-15. [Hooks de OpenCode + auto-hooks (v2.9.0, extendido v3.1.0)](#15-hooks-de-opencode--auto-hooks-v290-extendido-v310)
-16. [Post-script gates (v2.9.0, extendido v3.1.0)](#16-post-script-gates-v290-extendido-v310)
+15. [Hooks de OpenCode + auto-hooks (v2.9.0)](#15-hooks-de-opencode--auto-hooks-v290)
+16. [Post-script gates (v2.9.0)](#16-post-script-gates-v290)
 17. [Validacion de integracion E2E (v2.8.1)](#17-validacion-de-integracion-e2e-v281)
-18. [Configuracion centralizada apolo-config (v3.1.0 NUEVO)](#18-configuracion-centralizada-apolo-config-v310-nuevo)
-19. [Scaffold v3 con auto-select U-NN (v3.1.0 NUEVO)](#19-scaffold-v3-con-auto-select-u-nn-v310-nuevo)
-20. [Evidence visual diff + replay + cross-flow learning (v3.1.0 NUEVO)](#20-evidence-visual-diff--replay--cross-flow-learning-v310-nuevo)
-21. [Capability assessment](#21-capability-assessment)
-22. [Documentacion adicional](#22-documentacion-adicional)
-23. [Changelog](#23-changelog)
-24. [Licencia](#24-licencia)
+18. [Capability assessment](#18-capability-assessment)
+19. [Documentacion adicional](#19-documentacion-adicional)
+20. [Changelog](#20-changelog)
+21. [Licencia](#21-licencia)
 
 ---
 
@@ -1553,344 +1550,14 @@ python3 scripts/python/integration_validation.py \
 
 ---
 
-## 18. Configuracion centralizada `apolo-config` (v3.1.0 NUEVO)
+## 18. Capability assessment
 
-Cierra el **GAP #5.4** del INTEGRATION-VERDICT.md: "Thresholds hardcoded en gates — los thresholds de score_evidence (e.g., >= 0.6 para avanzar) estan hardcoded en TS, no son ajustables por flow ni por proyecto."
-
-### Que hace
-
-`apolo_config.py` carga `apolo-config.yaml` y expone thresholds configurables que cualquier script Python puede consultar. Antes de v3.1.0, todos los thresholds estaban hardcoded en TypeScript o en scripts Python. Ahora son configurables por proyecto.
-
-### Configuracion por defecto
-
-```yaml
-# .opencode/apolo-dynamic/apolo-config.yaml
-apoloconfig: V1
-schema_version: 3.1.0
-
-# Gates por fase del state machine
-gates:
-  verdad:
-    min_score: 0.6           # score_evidence.py debe dar >= 0.6
-    min_items: 1             # collect_evidence debe tener >= 1 item
-    min_hash_chain_length: 64 # SHA-256 = 64 chars hex
-  plan_indice:
-    min_units: 1             # generate_plan debe producir >= 1 unidad
-    require_topological_sort: true
-  reanclaje:
-    require_scaffold_concrete: true
-    min_files_to_create: 1
-    min_files_to_modify: 0
-  exec:
-    require_tests_pass: true
-    max_test_failures: 0
-    auto_rollback_on_fail: true
-  validar:
-    min_final_score: 0.7
-    require_consistent_evidence: true
-
-# Circuit breaker
-circuit_breaker:
-  policy: fail-closed
-  max_loops_per_phase:
-    init: 1
-    verdad: 2
-    plan_indice: 2
-    reanclaje: 2
-    exec: 4
-    validar: 2
-    merge: 1
-  max_consecutive_failures: 3
-  max_total_failures: 5
-
-# Scoring de evidencia (pesos de las 6 metricas)
-scoring:
-  weights:
-    coverage: 0.25
-    freshness: 0.15
-    depth: 0.20
-    conflict: 0.15
-    redundancy: 0.10
-    schema: 0.15
-  freshness_stale_after_seconds: 300
-
-# BFS multi-nivel
-bfs:
-  max_depth: 3
-  max_nodes: 200
-  risk_thresholds:
-    low: 5
-    medium: 15
-    high: 30
-
-# Code smells thresholds
-code_smells:
-  long_method_lines: 50
-  deep_nesting_level: 4
-  god_class_methods: 10
-  duplicate_threshold: 0.8
-
-# v3.1.0: Auto-seleccion de U-NN
-scaffold_v3:
-  auto_select_unit: true
-  selection_strategy: topological_first  # topological_first | highest_impact | lowest_risk
-  prefer_lowest_risk: true
-  min_files_to_create: 1
-
-# v3.1.0: Cross-flow learning
-cross_flow_learning:
-  enabled: true
-  lookback_flows: 10
-  min_similarity_score: 0.7
-
-# v3.1.0: Evidence visual diff
-evidence_visual_diff:
-  enabled: true
-  capture_baseline_on_init: true
-  capture_broken_on_test_fail: true
-  capture_post_fix_on_success: true
-  diff_format: unified
-
-# v3.1.0: Evidence replay
-evidence_replay:
-  enabled: true
-  max_steps_per_replay: 50
-  include_telemetry: true
-  include_trace: true
-```
-
-### Como usar
-
-```bash
-# Inicializar configuracion con defaults
-apolo config init --repo-root .
-
-# Mostrar configuracion actual
-apolo config show --repo-root .
-
-# Obtener un valor especifico
-apolo config get --repo-root . --key gates.verdad.min_score
-# → 0.6
-
-# Establecer un valor (persiste)
-apolo config set --repo-root . --key gates.verdad.min_score --value 0.7
-
-# Validar configuracion
-apolo config validate --repo-root .
-# → {valid: true, errors: [], warnings: []}
-```
-
-### Como integra con otros scripts
-
-Cualquier script Python puede cargar la configuracion:
-
-```python
-from apolo_config import get_config, get_threshold
-
-cfg = get_config(repo_root)
-min_score = get_threshold(cfg, "gates.verdad.min_score", default=0.6)
-max_depth = get_threshold(cfg, "bfs.max_depth", default=3)
-```
-
-Los scripts existentes (score_evidence.py, predict_impact.py, etc.) pueden actualizarse gradualmente para leer de apolo_config en lugar de constantes hardcoded.
-
----
-
-## 19. Scaffold v3 con auto-select U-NN (v3.1.0 NUEVO)
-
-Cierra **2 GAPs** del INTEGRATION-VERDICT.md:
-
-- **GAP #5.1**: "Seleccion de U-NN para scaffold_impl — el agente decide cual unidad implementar primero. El sistema no prioriza automaticamente basandose en impacto/criticidad."
-- **Scaffold concreto**: "El YAML producido por scaffold_impl.py es abstracto (descripcion de la unidad, no andamio accionable). No contiene files_to_create, files_to_modify, ni commands."
-
-### Mejoras sobre scaffold_impl.py (v2.2.0)
-
-| Aspecto | scaffold_impl.py (v2.2.0) | scaffold_v3.py (v3.1.0) |
-|---|---|---|
-| Seleccion de U-NN | Manual (--unit-id requerido) | Automatica (3 estrategias) |
-| files_to_create | No (solo files_to_touch) | Si (paths concretos con templates) |
-| commands | No | Si (9+ comandos accionables) |
-| Templates | No | Si (test + impl + scaffold + evidence) |
-| Estrategias | N/A | topological_first, highest_impact, lowest_risk |
-
-### Estrategias de auto-seleccion
-
-1. **topological_first** (default): Primera unidad del topological_sort sin dependencias pendientes
-2. **highest_impact**: Unidad con mas afectados en IMPACT-PREDICTION
-3. **lowest_risk**: Unidad con riesgooperativo mas bajo
-
-### Files_to_create concretos
-
-`scaffold_v3.py` genera archivos REALES derivados del plan:
-
-1. **Test file**: `tests/test_<unit_id>_v3.py` con template pytest completo
-2. **Implementation file**: Derivado del eje dominante (handler/router/service/schema/test/doc/config)
-3. **Scaffold artifact**: `plan/active/<flow>/scaffolds/SCAFFOLD-<unit_id>.yaml`
-4. **Evidence baseline**: `plan/active/<flow>/scaffolds/<unit_id>-EVIDENCE-BASELINE.yaml`
-
-### Commands accionables
-
-Genera comandos bash ejecutables:
-
-```bash
-CMD-U-01-1: mkdir -p tests plugin/handlers plan/active/APOLO-X/scaffolds
-CMD-U-01-2: # Crear archivo: tests/test_u_01_v3.py (template provided)
-CMD-U-01-3: # Crear archivo: plugin/handlers/u-01-handler.ts (template provided)
-CMD-U-01-4: # Crear archivo: plan/active/APOLO-X/scaffolds/SCAFFOLD-U-01.yaml
-CMD-U-01-5: # Crear archivo: plan/active/APOLO-X/scaffolds/U-01-EVIDENCE-BASELINE.yaml
-CMD-U-01-tests: python3 -m pytest tests/test_u_01_v3.py -v
-CMD-U-01-quality: python3 scripts/python/code_quality.py --repo-root . --include plugin/handlers/u-01-handler.ts
-CMD-U-01-baseline: python3 scripts/python/evidence_visual_diff.py capture --flowid APOLO-X --phase baseline --unit-id U-01
-CMD-U-01-commit: git add tests/test_u_01_v3.py plugin/handlers/u-01-handler.ts && git commit -m 'U-01: Implementar handler de auth'
-```
-
-### Como usar
-
-```bash
-# Auto-select U-NN (no requiere --unit-id)
-apolo scaffold-v3 --plan plan.yaml --code-index ci.yaml --output sf.yaml --flowid APOLO-X
-
-# Forzar unidad especifica
-apolo scaffold-v3 --plan plan.yaml --unit-id U-02 --code-index ci.yaml --output sf.yaml
-
-# Especificar estrategia
-apolo scaffold-v3 --plan plan.yaml --strategy highest_impact --code-index ci.yaml --output sf.yaml
-```
-
-### Salida esperada
-
-```json
-{
-  "success": true,
-  "unit_id": "U-01",
-  "selection_reason": "auto-selected via topological_first: primera unidad del topological_sort",
-  "verdict": "proceed",
-  "is_concrete": true,
-  "files_to_create": 4,
-  "files_to_modify": 1,
-  "commands": 9,
-  "duration_ms": 0,
-  "output": "sf.yaml"
-}
-```
-
----
-
-## 20. Evidence visual diff + replay + cross-flow learning (v3.1.0 NUEVO)
-
-Cierra **3 GAPs** del INTEGRATION-VERDICT.md:
-
-- **GAP #4**: "Evidencia visual comparativa (baseline vs roto vs post-fix) con diff"
-- **GAP #5**: "Replay de evidencia (reproducir un bug paso a paso desde el audit log)"
-- **GAP #6**: "Cross-flow learning: usar evidencia de flows anteriores para mejorar nuevos"
-
-### 20.1 Evidence visual diff (`evidence_visual_diff.py`)
-
-Captura snapshots de archivos en 3 momentos criticos y genera diffs unificados:
-
-```bash
-# Capturar baseline antes de implementar
-apolo visual-diff capture --flowid APOLO-X --phase baseline --files src/app.ts,src/utils.ts
-
-# Capturar broken cuando un test falla
-apolo visual-diff capture --flowid APOLO-X --phase broken --files src/app.ts
-
-# Capturar post-fix despues de arreglar
-apolo visual-diff capture --flowid APOLO-X --phase post-fix --files src/app.ts
-
-# Generar diff entre dos fases
-apolo visual-diff diff --flowid APOLO-X --from baseline --to broken --format unified
-
-# Comparacion completa (3 estados)
-apolo visual-diff compare --flowid APOLO-X --output VISUAL-DIFF-REPORT.yaml
-```
-
-El reporte incluye:
-- Diffs unificados entre baseline↔broken, baseline↔post-fix, broken↔post-fix
-- Conteo de lineas añadidas/eliminadas
-- Hash SHA-256 por archivo para detectar cambios
-- `has_full_lifecycle: true` si los 3 estados estan capturados
-
-### 20.2 Evidence replay (`evidence_replay.py`)
-
-Reproduce un bug paso a paso desde el audit log:
-
-```bash
-# Listar flows con telemetry
-apolo evidence-replay flows --repo-root .
-
-# Construir timeline completo de un flow
-apolo evidence-replay timeline --flowid APOLO-X --output timeline.yaml
-
-# Replay de un bug especifico (encuentra el primer error)
-apolo evidence-replay bug --flowid APOLO-X --verbose --output BUG-REPLAY.yaml
-
-# Buscar patrones de fallo en todos los flows
-apolo evidence-replay patterns --repo-root .
-```
-
-El bug replay incluye:
-- **error_event**: el evento exacto donde ocurrio el error
-- **phase_transitions_before_error**: transiciones de fase previas
-- **context_before**: 10 eventos anteriores al error (causa probable)
-- **context_after**: 10 eventos posteriores (consecuencias)
-- **analysis.likely_cause**: inferencia de causa basada en contexto
-- **analysis.recommendation**: fix recomendado segun tipo de error (TypeError, KeyError, etc.)
-
-### 20.3 Cross-flow learning (`cross_flow_learning.py`)
-
-Aprende de flows anteriores para mejorar flows nuevos:
-
-```bash
-# Analizar todos los flows y construir base de conocimiento
-apolo cross-flow analyze --repo-root .
-
-# Recomendar acciones para un flow nuevo
-apolo cross-flow recommend --repo-root . --flowid APOLO-X --phase verdad
-
-# Buscar flows similares (Jaccard similarity)
-apolo cross-flow similar --repo-root . --flowid APOLO-X
-
-# Stats de aprendizaje
-apolo cross-flow stats --repo-root .
-```
-
-La base de conocimiento (`CROSS-FLOW-LEARNING.yaml`) incluye:
-- **success_rate**: % de flows exitosos
-- **patterns.success_tools**: tools mas usadas en flows exitosos
-- **patterns.failure_by_phase**: en que fases fallan mas los flows
-- **patterns.failure_by_kind**: tipos de fallo mas comunes
-- **phase_stats**: tasa de exito por fase
-- **tool_stats**: tasa de exito por tool
-
-Las recomendaciones contextuales incluyen:
-- **caution**: si la fase actual tiene baja tasa de exito
-- **avoid_tool**: si una tool tiene baja tasa de exito
-- **prefer_tool**: si una tool tiene alta tasa de exito
-- **watch_for**: patrones de fallo comunes en la fase actual
-
-### Integracion con auto-hooks (v3.1.0)
-
-Los 5 nuevos triggers de auto_hooks integran estos scripts automaticamente:
-
-| Trigger | Script ejecutado | Cuando |
-|---|---|---|
-| `evidence:baseline-captured` | (la captura es el trigger) | Despues de capturar baseline |
-| `evidence:broken-captured` | `evidence_replay.py bug` | Despues de capturar estado broken |
-| `evidence:post-fix-captured` | `evidence_visual_diff.py compare` | Despues de capturar post-fix |
-| `flow:completed` | `cross_flow_learning.py analyze` | Despues de completar un flow |
-| `scaffold:v3-produced` | `post_script_gates.py check scaffold_v3` | Despues de producir scaffold v3 |
-
----
-
-## 21. Capability assessment
-
-### Resumen (v3.1.0)
+### Resumen (v2.9.0)
 
 ```text
-Capacidades implementadas: 138
-Gaps identificados:         11
-Cobertura de capacidades:   95%
+Capacidades implementadas: 133
+Gaps identificados:         14
+Cobertura de capacidades:   90%
 ```
 
 ### Dimensiones evaluadas (8)
@@ -1989,7 +1656,7 @@ Cobertura de capacidades:   95%
 
 ---
 
-## 22. Documentacion adicional
+## 19. Documentacion adicional
 
 | Archivo | Contenido |
 |---|---|
@@ -2010,82 +1677,7 @@ Cobertura de capacidades:   95%
 
 ---
 
-## 23. Changelog
-
-### v3.1.0 (2026-06-22) — Config + Scaffold v3 + Visual Diff + Replay + Cross-flow Learning
-
-**Novedades:**
-
-- **`apolo_config.py`** (NEW) — Cierra GAP #5.4: Configuracion centralizada de thresholds
-  - `init/show/get/set/validate` CLI
-  - Configura: gates por fase, circuit breaker, scoring weights, BFS, code smells, scaffold_v3, cross_flow_learning, evidence_visual_diff, evidence_replay
-  - Storage: `.opencode/apolo-dynamic/apolo-config.yaml`
-  - Cualquier script puede cargar via `get_config(repo_root)` y `get_threshold(cfg, path, default)`
-
-- **`scaffold_v3.py`** (NEW) — Cierra GAP #5.1 + Scaffold concreto
-  - **Auto-select U-NN**: 3 estrategias (topological_first, highest_impact, lowest_risk)
-  - **files_to_create concretos**: paths reales derivados del plan (test + impl + scaffold + evidence baseline)
-  - **commands accionables**: 9+ comandos bash ejecutables (mkdir, create files, run tests, quality check, capture baseline, git commit)
-  - **Templates**: pytest skeleton + TypeScript implementation + YAML artifacts
-  - Compatible con scaffold_impl.py v2.2.0 (no lo reemplaza, funciona en paralelo)
-
-- **`evidence_visual_diff.py`** (NEW) — Cierra GAP #4: Evidencia visual comparativa
-  - `capture`: snapshot de archivos en 3 phases (baseline/broken/post-fix)
-  - `diff`: diff unificado entre dos phases
-  - `compare`: comparacion completa de 3 estados con reporte YAML
-  - `list`: lista snapshots capturados
-  - Hash SHA-256 por archivo, conteo de lineas añadidas/eliminadas
-  - Storage: `plan/active/<flow>/visual-diff/snap-<phase>-<timestamp>.yaml`
-
-- **`evidence_replay.py`** (NEW) — Cierra GAP #5: Replay de evidencia
-  - `timeline`: construye linea de tiempo con todos los eventos del flow
-  - `bug`: encuentra el primer error y construye replay con contexto antes/despues
-  - `patterns`: busca patrones de fallo en todos los flows
-  - `flows`: lista flows con telemetry
-  - Infiere causa probable y recomienda fix segun tipo de error
-
-- **`cross_flow_learning.py`** (NEW) — Cierra GAP #6: Cross-flow learning
-  - `analyze`: analiza todos los flows y construye base de conocimiento
-  - `recommend`: recomienda acciones para un flow nuevo basandose en flows anteriores
-  - `similar`: encuentra flows similares (Jaccard similarity)
-  - `stats`: estadisticas de aprendizaje
-  - Storage: `.opencode/apolo-dynamic/CROSS-FLOW-LEARNING.yaml`
-
-- **`auto_hooks.py`** (UPD) — 5 nuevos triggers v3.1.0 (total: 14 triggers)
-  - `evidence:baseline-captured`
-  - `evidence:broken-captured` → evidence_replay.py bug
-  - `evidence:post-fix-captured` → evidence_visual_diff.py compare
-  - `flow:completed` → cross_flow_learning.py analyze
-  - `scaffold:v3-produced` → post_script_gates.py check scaffold_v3
-
-- **`post_script_gates.py`** (UPD) — 4 nuevos gates v3.1.0 (total: 15 gates)
-  - `scaffold_v3.py` → requiere files_to_create (min 1) + commands (min 1) + selection metadata, on_fail: block
-  - `evidence_visual_diff.py` → requiere snapshot_id + phase + files, on_fail: warn
-  - `evidence_replay.py` → requiere total_events, on_fail: warn
-  - `cross_flow_learning.py` → requiere flows_analyzed + patterns, on_fail: warn
-
-- **`apolo_cli_router.sh`** (UPD) — 5 nuevos comandos v3.1.0 (total: 44+ comandos)
-  - `apolo config init|show|get|set|validate`
-  - `apolo scaffold-v3 --plan ... --flowid ...`
-  - `apolo visual-diff capture|diff|compare|list`
-  - `apolo evidence-replay timeline|bug|patterns|flows`
-  - `apolo cross-flow analyze|recommend|similar|stats`
-
-- **`apolo-full-test.sh`** (UPD) — v3.1.0 con 11+ nuevos tests para los scripts v3.1.0
-- **`package.json`** (UPD) — v3.1.0 con 6 nuevos scripts npm (config, scaffold-v3, visual-diff, evidence-replay, cross-flow, apolo)
-- **`README.md`** (UPD) — 3 nuevas secciones (18, 19, 20) + changelog actualizado + tabla de statuas
-
-**Gaps cerrados en v3.1.0:**
-- ✓ GAP #4: Evidencia visual comparativa (baseline vs roto vs post-fix) con diff
-- ✓ GAP #5: Replay de evidencia (reproducir un bug paso a paso desde el audit log)
-- ✓ GAP #6: Cross-flow learning: usar evidencia de flows anteriores para mejorar nuevos
-- ✓ GAP #5.1: Seleccion de U-NN para scaffold (ahora auto-select con 3 estrategias)
-- ✓ GAP #5.4: Thresholds hardcoded (ahora configurables en apolo-config.yaml)
-- ✓ Scaffold concreto: scaffold_v3.py produce files_to_create + commands reales
-
-**Tests:** 150+ tests pasan (133 de v2.9.0 + 11+ nuevos de v3.1.0), 95% capability coverage (11 gaps restantes)
-
----
+## 20. Changelog
 
 ### v2.9.0 (2026-06-22) — Hooks Validator + Auto-hooks + Post-script Gates + CLI Router
 
@@ -2458,7 +2050,7 @@ Cobertura de capacidades:   95%
 
 ---
 
-## 24. Licencia
+## 21. Licencia
 
 MIT
 
@@ -2516,11 +2108,9 @@ Basado en los 5 puntos de perdida de control del INTEGRATION-VERDICT.md:
 | v2.7.0 | 2026-06-20 | 96 | 82% | Cross-language + summaries + code gen |
 | v2.8.0 | 2026-06-21 | 102 | 85% | Vulnerability + code smells + dead code |
 | v2.8.1 | 2026-06-22 | 103 | 86% | Fix full_audit + feedback + docs + debug |
-| v2.9.0 | 2026-06-22 | 133 | 90% | Hooks validator + auto-hooks + gates + CLI router |
-| **v3.1.0** | **2026-06-22** | **150+** | **95%** | **Config + scaffold v3 + visual diff + replay + cross-flow** |
+| **v2.9.0** | **2026-06-22** | **133** | **90%** | **Hooks validator + auto-hooks + gates + CLI router** |
 
 ---
 
-> **APOLO Dynamic Flow v3.1.0** — Plugin de orquestacion de agentes para OpenCode.
-> 150+ tests pasando, 95% capability coverage, 44+ scripts en CLI router unificado.
-> 14 auto-hooks + 15 post-script gates + 6 GAPs críticos cerrados (visual diff, replay, cross-flow, scaffold v3, config, auto-select U-NN).
+> **APOLO Dynamic Flow v2.9.0** — Plugin de orquestacion de agentes para OpenCode.
+> 133 tests pasando, 90% capability coverage, 39+ scripts en CLI router unificado.
