@@ -1,6 +1,6 @@
 toolregistry: V2
-version: 65
-updated_at: '2026-06-22T17:55:19Z'
+version: 66
+updated_at: '2026-06-22T18:06:45Z'
 tools:
 - id: mcp:opencode.json:@playwright/mcp
   source: opencode.json#mcp.@playwright/mcp
